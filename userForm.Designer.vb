@@ -37,8 +37,9 @@ Partial Class userForm
         Me.phoneTB = New System.Windows.Forms.TextBox()
         Me.gradeTB = New System.Windows.Forms.TextBox()
         Me.noteTE = New System.Windows.Forms.RichTextBox()
-        Me.submit = New System.Windows.Forms.Button()
-        Me.cancel = New System.Windows.Forms.Button()
+        Me.insert = New System.Windows.Forms.Button()
+        Me.update = New System.Windows.Forms.Button()
+        Me.delete = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'Label1
@@ -47,9 +48,9 @@ Partial Class userForm
         Me.Label1.Font = New System.Drawing.Font("Segoe UI", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.Location = New System.Drawing.Point(252, 9)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(236, 45)
+        Me.Label1.Size = New System.Drawing.Size(284, 45)
         Me.Label1.TabIndex = 0
-        Me.Label1.Text = "Add New User"
+        Me.Label1.Text = "Girl's Information"
         '
         'Label2
         '
@@ -178,33 +179,44 @@ Partial Class userForm
         Me.noteTE.TabIndex = 14
         Me.noteTE.Text = ""
         '
-        'submit
+        'insert
         '
-        Me.submit.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.submit.Location = New System.Drawing.Point(325, 416)
-        Me.submit.Name = "submit"
-        Me.submit.Size = New System.Drawing.Size(96, 33)
-        Me.submit.TabIndex = 15
-        Me.submit.Text = "Submit"
-        Me.submit.UseVisualStyleBackColor = True
+        Me.insert.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.insert.Location = New System.Drawing.Point(66, 416)
+        Me.insert.Name = "insert"
+        Me.insert.Size = New System.Drawing.Size(96, 33)
+        Me.insert.TabIndex = 15
+        Me.insert.Text = "Insert"
+        Me.insert.UseVisualStyleBackColor = True
         '
-        'cancel
+        'update
         '
-        Me.cancel.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cancel.Location = New System.Drawing.Point(66, 416)
-        Me.cancel.Name = "cancel"
-        Me.cancel.Size = New System.Drawing.Size(96, 33)
-        Me.cancel.TabIndex = 16
-        Me.cancel.Text = "Cancel"
-        Me.cancel.UseVisualStyleBackColor = True
+        Me.update.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.update.Location = New System.Drawing.Point(325, 416)
+        Me.update.Name = "update"
+        Me.update.Size = New System.Drawing.Size(96, 33)
+        Me.update.TabIndex = 16
+        Me.update.Text = "Update"
+        Me.update.UseVisualStyleBackColor = True
+        '
+        'delete
+        '
+        Me.delete.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.delete.Location = New System.Drawing.Point(600, 416)
+        Me.delete.Name = "delete"
+        Me.delete.Size = New System.Drawing.Size(96, 33)
+        Me.delete.TabIndex = 17
+        Me.delete.Text = "Delete"
+        Me.delete.UseVisualStyleBackColor = True
         '
         'userForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(784, 461)
-        Me.Controls.Add(Me.cancel)
-        Me.Controls.Add(Me.submit)
+        Me.Controls.Add(Me.delete)
+        Me.Controls.Add(Me.update)
+        Me.Controls.Add(Me.insert)
         Me.Controls.Add(Me.noteTE)
         Me.Controls.Add(Me.gradeTB)
         Me.Controls.Add(Me.phoneTB)
@@ -242,6 +254,7 @@ Partial Class userForm
     Friend WithEvents phoneTB As TextBox
     Friend WithEvents gradeTB As TextBox
     Friend WithEvents noteTE As RichTextBox
-    Friend WithEvents submit As Button
-    Friend WithEvents cancel As Button
+    Friend WithEvents insert As Button
+    Friend WithEvents update As Button
+    Friend WithEvents delete As Button
 End Class

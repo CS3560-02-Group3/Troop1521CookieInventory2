@@ -1,6 +1,6 @@
 ﻿Imports MySql.Data.MySqlClient
 Public Class userForm
-    Private Sub Submit_Click(sender As Object, e As EventArgs) Handles submit.Click
+    Private Sub Insert_Click(sender As Object, e As EventArgs) Handles insert.Click
         Dim firstName As String = firstNameTB.Text
         Dim lastName As String = lastNameTB.Text
         Dim address As String = addressTB.Text
