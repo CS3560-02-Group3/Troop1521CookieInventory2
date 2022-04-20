@@ -40,6 +40,8 @@ Partial Class userForm
         Me.insert = New System.Windows.Forms.Button()
         Me.update = New System.Windows.Forms.Button()
         Me.delete = New System.Windows.Forms.Button()
+        Me.userID = New System.Windows.Forms.Label()
+        Me.userIDText = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'Label1
@@ -209,11 +211,32 @@ Partial Class userForm
         Me.delete.Text = "Delete"
         Me.delete.UseVisualStyleBackColor = True
         '
+        'userID
+        '
+        Me.userID.AutoSize = True
+        Me.userID.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.userID.Location = New System.Drawing.Point(62, 45)
+        Me.userID.Name = "userID"
+        Me.userID.Size = New System.Drawing.Size(25, 21)
+        Me.userID.TabIndex = 18
+        Me.userID.Text = "ID"
+        '
+        'userIDText
+        '
+        Me.userIDText.AutoSize = True
+        Me.userIDText.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.userIDText.Location = New System.Drawing.Point(180, 45)
+        Me.userIDText.Name = "userIDText"
+        Me.userIDText.Size = New System.Drawing.Size(0, 21)
+        Me.userIDText.TabIndex = 19
+        '
         'userForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(784, 461)
+        Me.Controls.Add(Me.userIDText)
+        Me.Controls.Add(Me.userID)
         Me.Controls.Add(Me.delete)
         Me.Controls.Add(Me.update)
         Me.Controls.Add(Me.insert)
@@ -257,4 +280,6 @@ Partial Class userForm
     Friend WithEvents insert As Button
     Friend WithEvents update As Button
     Friend WithEvents delete As Button
+    Friend WithEvents userID As Label
+    Friend WithEvents userIDText As Label
 End Class
