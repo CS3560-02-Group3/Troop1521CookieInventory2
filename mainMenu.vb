@@ -39,11 +39,11 @@ Public Class mainMenu
         Dim selectedRow As DataGridViewRow
         selectedRow = DataGridView1.Rows(e.RowIndex)
         Dim myForm As New cookieOrder
-        myForm.orderIDTE.Text = selectedRow.Cells(0).Value
+        myForm.userCookieIDTE.Text = selectedRow.Cells(0).Value
         myForm.userIDTE.Text = selectedRow.Cells(0).Value
         myForm.inventoryIDTE.Text = selectedRow.Cells(1).Value
         myForm.yearCookieIDTE.Text = selectedRow.Cells(2).Value
-        myForm.dateInfo.Text = selectedRow.Cells(3).Value
+        myForm.DateTimePicker1.Text = selectedRow.Cells(3).Value
         myForm.orderQTB.Text = selectedRow.Cells(4).Value
         myForm.pickupQTB.Text = selectedRow.Cells(5).Value
         myForm.returnQTB.Text = selectedRow.Cells(6).Value

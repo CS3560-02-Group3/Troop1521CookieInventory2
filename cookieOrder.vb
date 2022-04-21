@@ -4,10 +4,10 @@ Public Class cookieOrder
         Dim confirmMsg = MessageBox.Show("Are you sure you want to insert?", "Insert", MessageBoxButtons.YesNo)
         If confirmMsg = DialogResult.Yes Then
 
-            Dim dateInfo As String = DateTimePicker1.Text
-            Dim orderQ As Integer = orderQTB.Text
-            Dim pickupQ As Integer = pickupQTB.Text
-            Dim returnQ As Integer = returnQTB.Text
+            Dim dateC As String = DateTimePicker1.Text
+            Dim orderQuantity As Integer = orderQTB.Text
+            Dim pickupQuantity As Integer = pickupQTB.Text
+            Dim returnQuantity As Integer = returnQTB.Text
 
             If orderQTB.Text = "" Then
                 orderQTB.Text = "0"
@@ -19,15 +19,15 @@ Public Class cookieOrder
                 returnQTB.Text = "0"
             End If
 
-            Dim cookienote As String = cookieNTB.Text
+            Dim note As String = cookieNTB.Text
 
             Dim conn As New myConnection()
-            Dim command As New MySqlCommand("INSERT INTO `order`(`date`, `orderQ`, `pickupQ`, `returnQ`, `cookienote`) VALUES (@orderQ, @pickupQ, @returnQ, @cookienote)", conn.getConnection())
-            command.Parameters.Add("@date", MySqlDbType.VarChar).Value = dateInfo
-            command.Parameters.Add("@orderQ", MySqlDbType.Int16).Value = orderQ
-            command.Parameters.Add("@pickupQ", MySqlDbType.Int16).Value = pickupQ
-            command.Parameters.Add("@returnQ", MySqlDbType.Int16).Value = returnQ
-            command.Parameters.Add("@cookienote", MySqlDbType.VarChar).Value = cookienote
+            Dim command As New MySqlCommand("INSERT INTO `userCookie`(`dateC`, `orderQuantity`, `pickupQuantity`, `returnQuantity`, `note`) VALUES (@dateC, @orderQuantity, @pickupQuantity, @returnQuantity, @note)", conn.getConnection())
+            command.Parameters.Add("@dateC", MySqlDbType.VarChar).Value = dateC
+            command.Parameters.Add("@orderQuantity", MySqlDbType.Int16).Value = orderQuantity
+            command.Parameters.Add("@pickupQuantity", MySqlDbType.Int16).Value = pickupQuantity
+            command.Parameters.Add("@returnQuantity", MySqlDbType.Int16).Value = returnQuantity
+            command.Parameters.Add("@note", MySqlDbType.VarChar).Value = note
 
             conn.openConnection()
 
@@ -49,14 +49,14 @@ Public Class cookieOrder
             Dim confirmMsg = MessageBox.Show("Are you sure you want to update?", "Update", MessageBoxButtons.YesNo)
             If confirmMsg = DialogResult.Yes Then
 
-                Dim orderID As Integer = orderIDTE.Text
+                Dim userCookieID As Integer = userCookieIDTE.Text
                 Dim userID As Integer = userIDTE.Text
                 Dim inventoryID As Integer = inventoryIDTE.Text
                 Dim yearCookieID As Integer = yearCookieIDTE.Text
-                Dim dateInfo As String = DateTimePicker1.Text
-                Dim orderQ As Integer = orderQTB.Text
-                Dim pickupQ As Integer = pickupQTB.Text
-                Dim returnQ As Integer = returnQTB.Text
+                Dim dateC As String = DateTimePicker1.Text
+                Dim orderQuantity As Integer = orderQTB.Text
+                Dim pickupQuantity As Integer = pickupQTB.Text
+                Dim returnQuantity As Integer = returnQTB.Text
 
                 If orderQTB.Text = "" Then
                     orderQTB.Text = "0"
@@ -68,20 +68,20 @@ Public Class cookieOrder
                     returnQTB.Text = "0"
                 End If
 
-                Dim cookienote As String = cookieNTB.Text
+                Dim note As String = cookieNTB.Text
 
                 Dim conn As New myConnection()
-                Dim command As New MySqlCommand("UPDATE `order` SET userID = @userID, inventoryID = @inventoryID, yearCookieID = @yearCookieID, dateInfo = @date, orderQ = @orderQ, pickupQ = @pickupQ, returnQ = @returnQ, cookienote = @cookienote WHERE orderID = @orderID", conn.getConnection())
+                Dim command As New MySqlCommand("UPDATE `userCookie` SET userID = @userID, inventoryID = @inventoryID, yearCookieID = @yearCookieID, dateC = @dateC, orderQuantity = @orderQuantity, pickupQuantity = @pickupQuantity, returnQuantity = @returnQuantity, note = @note WHERE userCookieID = @userCookieID", conn.getConnection())
 
-                command.Parameters.Add("@orderID", MySqlDbType.Int16).Value = orderID
+                command.Parameters.Add("@userCookieID", MySqlDbType.Int16).Value = userCookieID
                 command.Parameters.Add("@userID", MySqlDbType.VarChar).Value = userID
                 command.Parameters.Add("@inventoryID", MySqlDbType.Int16).Value = inventoryID
                 command.Parameters.Add("@yearCookieID", MySqlDbType.Int16).Value = yearCookieID
-                command.Parameters.Add("@date", MySqlDbType.VarChar).Value = dateInfo
-                command.Parameters.Add("@orderQ", MySqlDbType.Int16).Value = orderQ
-                command.Parameters.Add("@pickupQ", MySqlDbType.Int16).Value = pickupQ
-                command.Parameters.Add("@returnQ", MySqlDbType.Int16).Value = returnQ
-                command.Parameters.Add("@cookienote", MySqlDbType.VarChar).Value = cookienote
+                command.Parameters.Add("@dateC", MySqlDbType.VarChar).Value = dateC
+                command.Parameters.Add("@orderQuantity", MySqlDbType.Int16).Value = orderQuantity
+                command.Parameters.Add("@pickupQuantity", MySqlDbType.Int16).Value = pickupQuantity
+                command.Parameters.Add("@returnQuantity", MySqlDbType.Int16).Value = returnQuantity
+                command.Parameters.Add("@note", MySqlDbType.VarChar).Value = note
 
 
                 conn.openConnection()
@@ -105,12 +105,12 @@ Public Class cookieOrder
             Dim confirmMsg = MessageBox.Show("Are you sure you want to delete?", "Delete", MessageBoxButtons.YesNo)
             If confirmMsg = DialogResult.Yes Then
 
-                Dim orderID As Integer = orderIDTE.Text
+                Dim userCookieID As Integer = orderIDTE.Text
 
                 Dim conn As New myConnection()
-                Dim command As New MySqlCommand("DELETE FROM `order` WHERE orderID = @orderID", conn.getConnection())
+                Dim command As New MySqlCommand("DELETE FROM `userCookie` WHERE userCookieID = @userCookieID", conn.getConnection())
 
-                command.Parameters.Add("@orderID", MySqlDbType.VarChar).Value = orderID
+                command.Parameters.Add("@userCookieID", MySqlDbType.VarChar).Value = userCookieID
 
                 conn.openConnection()
 
