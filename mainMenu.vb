@@ -3,19 +3,30 @@
 Public Class mainMenu
     Private Sub mainMenu_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim conn As New myConnection()
+
         Dim table As New DataTable()
         Dim adapter As New MySqlDataAdapter("SELECT * FROM `user`", conn.getConnection())
-
         adapter.Fill(table)
-
         DataGridView1.DataSource = table
+
+        Dim table2 As New DataTable()
+        Dim adapter2 As New MySqlDataAdapter("SELECT * FROM `userCookie`", conn.getConnection())
+        adapter.Fill(table2)
+        DataGridView1.DataSource = table2
+
+    End Sub
+    Private Sub load_Click(sender As Object, e As EventArgs) Handles load.Click
+        mainMenu_Load(e, e)
+    End Sub
+    Private Sub add_Click(sender As Object, e As EventArgs) Handles add.Click
+        Dim myForm As New userForm
+        myForm.Show()
     End Sub
 
     Private Sub DataGridView1_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
         If e.RowIndex = -1 Then
             Return
         End If
-        mainMenu_Load(e, e)
         Dim selectedRow As DataGridViewRow
         selectedRow = DataGridView1.Rows(e.RowIndex)
         Dim myForm As New userForm
@@ -28,6 +39,7 @@ Public Class mainMenu
         myForm.gradeTB.Text = selectedRow.Cells(6).Value
         myForm.noteTE.Text = selectedRow.Cells(7).Value
         myForm.Show()
+        mainMenu_Load(e, e)
 
     End Sub
 

@@ -27,9 +27,11 @@ Partial Class mainMenu
         Me.Label1 = New System.Windows.Forms.Label()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.BackgroundWorker1 = New System.ComponentModel.BackgroundWorker()
         Me.TabPage3 = New System.Windows.Forms.TabPage()
         Me.DataGridView2 = New System.Windows.Forms.DataGridView()
+        Me.BackgroundWorker1 = New System.ComponentModel.BackgroundWorker()
+        Me.load = New System.Windows.Forms.Button()
+        Me.add = New System.Windows.Forms.Button()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.TabPage2.SuspendLayout()
@@ -68,7 +70,7 @@ Partial Class mainMenu
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(350, 192)
+        Me.Label1.Location = New System.Drawing.Point(666, 224)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(55, 21)
         Me.Label1.TabIndex = 0
@@ -76,6 +78,8 @@ Partial Class mainMenu
         '
         'TabPage2
         '
+        Me.TabPage2.Controls.Add(Me.add)
+        Me.TabPage2.Controls.Add(Me.load)
         Me.TabPage2.Controls.Add(Me.DataGridView1)
         Me.TabPage2.Location = New System.Drawing.Point(4, 33)
         Me.TabPage2.Name = "TabPage2"
@@ -88,9 +92,9 @@ Partial Class mainMenu
         'DataGridView1
         '
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(8, 15)
+        Me.DataGridView1.Location = New System.Drawing.Point(8, 52)
         Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(1808, 664)
+        Me.DataGridView1.Size = New System.Drawing.Size(1808, 627)
         Me.DataGridView1.TabIndex = 2
         '
         'TabPage3
@@ -111,6 +115,24 @@ Partial Class mainMenu
         Me.DataGridView2.Name = "DataGridView2"
         Me.DataGridView2.Size = New System.Drawing.Size(1527, 696)
         Me.DataGridView2.TabIndex = 0
+        '
+        'load
+        '
+        Me.load.Location = New System.Drawing.Point(8, 7)
+        Me.load.Name = "load"
+        Me.load.Size = New System.Drawing.Size(78, 39)
+        Me.load.TabIndex = 3
+        Me.load.Text = "Load"
+        Me.load.UseVisualStyleBackColor = True
+        '
+        'add
+        '
+        Me.add.Location = New System.Drawing.Point(92, 7)
+        Me.add.Name = "add"
+        Me.add.Size = New System.Drawing.Size(129, 39)
+        Me.add.TabIndex = 4
+        Me.add.Text = "Add New Girl"
+        Me.add.UseVisualStyleBackColor = True
         '
         'mainMenu
         '
@@ -139,4 +161,6 @@ Partial Class mainMenu
     Friend WithEvents BackgroundWorker1 As System.ComponentModel.BackgroundWorker
     Friend WithEvents TabPage3 As TabPage
     Friend WithEvents DataGridView2 As DataGridView
+    Friend WithEvents add As Button
+    Friend WithEvents load As Button
 End Class
