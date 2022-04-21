@@ -55,7 +55,7 @@ Partial Class mainMenu
         Me.TabPage1.Location = New System.Drawing.Point(4, 33)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(1822, 699)
+        Me.TabPage1.Size = New System.Drawing.Size(793, 414)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Home"
         Me.TabPage1.UseVisualStyleBackColor = True
@@ -63,7 +63,7 @@ Partial Class mainMenu
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(675, 235)
+        Me.Label1.Location = New System.Drawing.Point(350, 192)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(55, 21)
         Me.Label1.TabIndex = 0
