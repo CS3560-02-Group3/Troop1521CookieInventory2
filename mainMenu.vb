@@ -10,7 +10,7 @@ Public Class mainMenu
         DataGridView1.DataSource = table
 
         Dim table2 As New DataTable()
-        Dim adapter2 As New MySqlDataAdapter("SELECT * FROM `cookieOrder`", conn.getConnection())
+        Dim adapter2 As New MySqlDataAdapter("SELECT * FROM `userCookie`", conn.getConnection())
         adapter.Fill(table2)
         DataGridView1.DataSource = table2
 

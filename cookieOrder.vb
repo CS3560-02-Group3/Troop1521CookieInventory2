@@ -22,7 +22,7 @@ Public Class cookieOrder
             Dim cookienote As String = cookieNTB.Text
 
             Dim conn As New myConnection()
-            Dim command As New MySqlCommand("INSERT INTO `order`(`date`, `orderQ`, `pickupQ`, `returnQ`, `cookienote`) VALUES (@orderQ, @pickupQ, @returnQ, @cookienote)", conn.getConnection())
+            Dim command As New MySqlCommand("INSERT INTO `userCookie`(`date`, `orderQuantity`, `pickupQuantity`, `returnQuantity`, `note`) VALUES (@orderQ, @pickupQ, @returnQ, @cookienote)", conn.getConnection())
             command.Parameters.Add("@date", MySqlDbType.VarChar).Value = dateInfo
             command.Parameters.Add("@orderQ", MySqlDbType.Int16).Value = orderQ
             command.Parameters.Add("@pickupQ", MySqlDbType.Int16).Value = pickupQ
