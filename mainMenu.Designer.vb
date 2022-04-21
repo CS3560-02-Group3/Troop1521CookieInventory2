@@ -27,9 +27,9 @@ Partial Class mainMenu
         Me.Label1 = New System.Windows.Forms.Label()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.BackgroundWorker1 = New System.ComponentModel.BackgroundWorker()
         Me.TabPage3 = New System.Windows.Forms.TabPage()
         Me.DataGridView2 = New System.Windows.Forms.DataGridView()
+        Me.BackgroundWorker1 = New System.ComponentModel.BackgroundWorker()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.TabPage2.SuspendLayout()
@@ -68,7 +68,7 @@ Partial Class mainMenu
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(350, 192)
+        Me.Label1.Location = New System.Drawing.Point(666, 224)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(55, 21)
         Me.Label1.TabIndex = 0

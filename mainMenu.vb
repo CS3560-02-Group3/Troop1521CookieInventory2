@@ -3,12 +3,17 @@
 Public Class mainMenu
     Private Sub mainMenu_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim conn As New myConnection()
+
         Dim table As New DataTable()
         Dim adapter As New MySqlDataAdapter("SELECT * FROM `user`", conn.getConnection())
-
         adapter.Fill(table)
-
         DataGridView1.DataSource = table
+
+        Dim table2 As New DataTable()
+        Dim adapter2 As New MySqlDataAdapter("SELECT * FROM `cookieOrder`", conn.getConnection())
+        adapter.Fill(table2)
+        DataGridView1.DataSource = table2
+
     End Sub
 
     Private Sub DataGridView1_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
