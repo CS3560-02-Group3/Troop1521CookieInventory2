@@ -22,8 +22,8 @@ Public Class cookieOrder
             Dim note As String = cookieNTB.Text
 
             Dim conn As New myConnection()
-            Dim command As New MySqlCommand("INSERT INTO `userCookie`(`dateC`, `orderQuantity`, `pickupQuantity`, `returnQuantity`, `note`) VALUES (@dateC, @orderQuantity, @pickupQuantity, @returnQuantity, @note)", conn.getConnection())
-            command.Parameters.Add("@dateC", MySqlDbType.VarChar).Value = dateC
+            Dim command As New MySqlCommand("INSERT INTO `userCookie`(`date`, `orderQuantity`, `pickupQuantity`, `returnQuantity`, `note`) VALUES (@date, @orderQuantity, @pickupQuantity, @returnQuantity, @note)", conn.getConnection())
+            command.Parameters.Add("@date", MySqlDbType.VarChar).Value = dateC
             command.Parameters.Add("@orderQuantity", MySqlDbType.Int16).Value = orderQuantity
             command.Parameters.Add("@pickupQuantity", MySqlDbType.Int16).Value = pickupQuantity
             command.Parameters.Add("@returnQuantity", MySqlDbType.Int16).Value = returnQuantity
@@ -71,13 +71,13 @@ Public Class cookieOrder
                 Dim note As String = cookieNTB.Text
 
                 Dim conn As New myConnection()
-                Dim command As New MySqlCommand("UPDATE `userCookie` SET userID = @userID, inventoryID = @inventoryID, yearCookieID = @yearCookieID, dateC = @dateC, orderQuantity = @orderQuantity, pickupQuantity = @pickupQuantity, returnQuantity = @returnQuantity, note = @note WHERE userCookieID = @userCookieID", conn.getConnection())
+                Dim command As New MySqlCommand("UPDATE `userCookie` SET userID = @userID, inventoryID = @inventoryID, yearCookieID = @yearCookieID, date = @date, orderQuantity = @orderQuantity, pickupQuantity = @pickupQuantity, returnQuantity = @returnQuantity, note = @note WHERE userCookieID = @userCookieID", conn.getConnection())
 
                 command.Parameters.Add("@userCookieID", MySqlDbType.Int16).Value = userCookieID
                 command.Parameters.Add("@userID", MySqlDbType.VarChar).Value = userID
                 command.Parameters.Add("@inventoryID", MySqlDbType.Int16).Value = inventoryID
                 command.Parameters.Add("@yearCookieID", MySqlDbType.Int16).Value = yearCookieID
-                command.Parameters.Add("@dateC", MySqlDbType.VarChar).Value = dateC
+                command.Parameters.Add("@date", MySqlDbType.VarChar).Value = dateC
                 command.Parameters.Add("@orderQuantity", MySqlDbType.Int16).Value = orderQuantity
                 command.Parameters.Add("@pickupQuantity", MySqlDbType.Int16).Value = pickupQuantity
                 command.Parameters.Add("@returnQuantity", MySqlDbType.Int16).Value = returnQuantity
