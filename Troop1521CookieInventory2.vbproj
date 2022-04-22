@@ -84,10 +84,10 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="addCookie.Designer.vb">
-      <DependentUpon>addCookie.vb</DependentUpon>
+    <Compile Include="cookieForm.Designer.vb">
+      <DependentUpon>cookieForm.vb</DependentUpon>
     </Compile>
-    <Compile Include="addCookie.vb">
+    <Compile Include="cookieForm.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="cookieOrder.Designer.vb">
@@ -139,8 +139,8 @@
     <Compile Include="myConnection.vb" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="addCookie.resx">
-      <DependentUpon>addCookie.vb</DependentUpon>
+    <EmbeddedResource Include="cookieForm.resx">
+      <DependentUpon>cookieForm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="cookieOrder.resx">
       <DependentUpon>cookieOrder.vb</DependentUpon>

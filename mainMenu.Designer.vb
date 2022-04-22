@@ -24,20 +24,24 @@ Partial Class mainMenu
     Private Sub InitializeComponent()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
+        Me.cookieForm = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
+        Me.add = New System.Windows.Forms.Button()
+        Me.load = New System.Windows.Forms.Button()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.TabPage3 = New System.Windows.Forms.TabPage()
         Me.DataGridView2 = New System.Windows.Forms.DataGridView()
         Me.BackgroundWorker1 = New System.ComponentModel.BackgroundWorker()
-        Me.load = New System.Windows.Forms.Button()
-        Me.add = New System.Windows.Forms.Button()
+        Me.DataGridView3 = New System.Windows.Forms.DataGridView()
+        Me.load2 = New System.Windows.Forms.Button()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.TabPage2.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPage3.SuspendLayout()
         CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DataGridView3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'TabControl1
@@ -58,6 +62,9 @@ Partial Class mainMenu
         '
         'TabPage1
         '
+        Me.TabPage1.Controls.Add(Me.load2)
+        Me.TabPage1.Controls.Add(Me.DataGridView3)
+        Me.TabPage1.Controls.Add(Me.cookieForm)
         Me.TabPage1.Controls.Add(Me.Label1)
         Me.TabPage1.Location = New System.Drawing.Point(4, 33)
         Me.TabPage1.Name = "TabPage1"
@@ -67,10 +74,19 @@ Partial Class mainMenu
         Me.TabPage1.Text = "Home"
         Me.TabPage1.UseVisualStyleBackColor = True
         '
+        'cookieForm
+        '
+        Me.cookieForm.Location = New System.Drawing.Point(111, 6)
+        Me.cookieForm.Name = "cookieForm"
+        Me.cookieForm.Size = New System.Drawing.Size(146, 32)
+        Me.cookieForm.TabIndex = 1
+        Me.cookieForm.Text = "Add New Cookie"
+        Me.cookieForm.UseVisualStyleBackColor = True
+        '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(666, 224)
+        Me.Label1.Location = New System.Drawing.Point(751, 270)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(55, 21)
         Me.Label1.TabIndex = 0
@@ -88,6 +104,24 @@ Partial Class mainMenu
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Girls"
         Me.TabPage2.UseVisualStyleBackColor = True
+        '
+        'add
+        '
+        Me.add.Location = New System.Drawing.Point(92, 7)
+        Me.add.Name = "add"
+        Me.add.Size = New System.Drawing.Size(129, 39)
+        Me.add.TabIndex = 4
+        Me.add.Text = "Add New Girl"
+        Me.add.UseVisualStyleBackColor = True
+        '
+        'load
+        '
+        Me.load.Location = New System.Drawing.Point(8, 7)
+        Me.load.Name = "load"
+        Me.load.Size = New System.Drawing.Size(78, 39)
+        Me.load.TabIndex = 3
+        Me.load.Text = "Load"
+        Me.load.UseVisualStyleBackColor = True
         '
         'DataGridView1
         '
@@ -116,23 +150,22 @@ Partial Class mainMenu
         Me.DataGridView2.Size = New System.Drawing.Size(1527, 696)
         Me.DataGridView2.TabIndex = 0
         '
-        'load
+        'DataGridView3
         '
-        Me.load.Location = New System.Drawing.Point(8, 7)
-        Me.load.Name = "load"
-        Me.load.Size = New System.Drawing.Size(78, 39)
-        Me.load.TabIndex = 3
-        Me.load.Text = "Load"
-        Me.load.UseVisualStyleBackColor = True
+        Me.DataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView3.Location = New System.Drawing.Point(8, 44)
+        Me.DataGridView3.Name = "DataGridView3"
+        Me.DataGridView3.Size = New System.Drawing.Size(279, 381)
+        Me.DataGridView3.TabIndex = 2
         '
-        'add
+        'load2
         '
-        Me.add.Location = New System.Drawing.Point(92, 7)
-        Me.add.Name = "add"
-        Me.add.Size = New System.Drawing.Size(129, 39)
-        Me.add.TabIndex = 4
-        Me.add.Text = "Add New Girl"
-        Me.add.UseVisualStyleBackColor = True
+        Me.load2.Location = New System.Drawing.Point(8, 6)
+        Me.load2.Name = "load2"
+        Me.load2.Size = New System.Drawing.Size(97, 32)
+        Me.load2.TabIndex = 3
+        Me.load2.Text = "Load"
+        Me.load2.UseVisualStyleBackColor = True
         '
         'mainMenu
         '
@@ -149,6 +182,7 @@ Partial Class mainMenu
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabPage3.ResumeLayout(False)
         CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DataGridView3, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -163,4 +197,7 @@ Partial Class mainMenu
     Friend WithEvents DataGridView2 As DataGridView
     Friend WithEvents add As Button
     Friend WithEvents load As Button
+    Friend WithEvents cookieForm As Button
+    Friend WithEvents DataGridView3 As DataGridView
+    Friend WithEvents load2 As Button
 End Class

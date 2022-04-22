@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class addCookie
+Partial Class cookieForm
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -24,10 +24,12 @@ Partial Class addCookie
     Private Sub InitializeComponent()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.cookieNameTB = New System.Windows.Forms.TextBox()
         Me.update = New System.Windows.Forms.Button()
         Me.delete = New System.Windows.Forms.Button()
         Me.insert = New System.Windows.Forms.Button()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.cookieNameTB = New System.Windows.Forms.TextBox()
+        Me.cookieIDText = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'Label1
@@ -43,26 +45,19 @@ Partial Class addCookie
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(12, 94)
+        Me.Label2.Location = New System.Drawing.Point(12, 102)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(122, 21)
+        Me.Label2.Size = New System.Drawing.Size(77, 21)
         Me.Label2.TabIndex = 1
-        Me.Label2.Text = "Name of Cookie"
-        '
-        'cookieNameTB
-        '
-        Me.cookieNameTB.Location = New System.Drawing.Point(151, 94)
-        Me.cookieNameTB.Name = "cookieNameTB"
-        Me.cookieNameTB.Size = New System.Drawing.Size(188, 29)
-        Me.cookieNameTB.TabIndex = 2
+        Me.Label2.Text = "Cookie ID"
         '
         'update
         '
-        Me.update.Location = New System.Drawing.Point(202, 318)
+        Me.update.Location = New System.Drawing.Point(193, 318)
         Me.update.Name = "update"
         Me.update.Size = New System.Drawing.Size(86, 34)
         Me.update.TabIndex = 3
-        Me.update.Text = "update"
+        Me.update.Text = "Update"
         Me.update.UseVisualStyleBackColor = True
         '
         'delete
@@ -72,25 +67,51 @@ Partial Class addCookie
         Me.delete.Name = "delete"
         Me.delete.Size = New System.Drawing.Size(86, 37)
         Me.delete.TabIndex = 5
-        Me.delete.Text = "delete"
+        Me.delete.Text = "Delete"
         Me.delete.UseVisualStyleBackColor = True
         '
         'insert
         '
         Me.insert.AccessibleDescription = "insert"
         Me.insert.AccessibleName = "insert"
-        Me.insert.Location = New System.Drawing.Point(41, 319)
+        Me.insert.Location = New System.Drawing.Point(16, 318)
         Me.insert.Name = "insert"
         Me.insert.Size = New System.Drawing.Size(93, 33)
         Me.insert.TabIndex = 6
-        Me.insert.Text = "insert"
+        Me.insert.Text = "Insert"
         Me.insert.UseVisualStyleBackColor = True
         '
-        'addCookie
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(12, 146)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(122, 21)
+        Me.Label3.TabIndex = 7
+        Me.Label3.Text = "Name of Cookie"
+        '
+        'cookieNameTB
+        '
+        Me.cookieNameTB.Location = New System.Drawing.Point(151, 138)
+        Me.cookieNameTB.Name = "cookieNameTB"
+        Me.cookieNameTB.Size = New System.Drawing.Size(188, 29)
+        Me.cookieNameTB.TabIndex = 2
+        '
+        'cookieIDText
+        '
+        Me.cookieIDText.AutoSize = True
+        Me.cookieIDText.Location = New System.Drawing.Point(147, 102)
+        Me.cookieIDText.Name = "cookieIDText"
+        Me.cookieIDText.Size = New System.Drawing.Size(0, 21)
+        Me.cookieIDText.TabIndex = 8
+        '
+        'cookieForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 21.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(484, 461)
+        Me.Controls.Add(Me.cookieIDText)
+        Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.insert)
         Me.Controls.Add(Me.delete)
         Me.Controls.Add(Me.update)
@@ -99,7 +120,7 @@ Partial Class addCookie
         Me.Controls.Add(Me.Label1)
         Me.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
-        Me.Name = "addCookie"
+        Me.Name = "cookieForm"
         Me.Text = "Add Cookie"
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -108,8 +129,10 @@ Partial Class addCookie
 
     Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label
-    Friend WithEvents cookieNameTB As TextBox
     Friend WithEvents update As Button
     Friend WithEvents delete As Button
     Friend WithEvents insert As Button
+    Friend WithEvents Label3 As Label
+    Friend WithEvents cookieNameTB As TextBox
+    Friend WithEvents cookieIDText As Label
 End Class
