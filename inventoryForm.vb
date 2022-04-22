@@ -20,7 +20,7 @@ Public Class inventoryForm
             command.Parameters.Add("@yearCookieID", MySqlDbType.VarChar).Value = yearCookieID
         command.Parameters.Add("@dateID", MySqlDbType.VarChar).Value = dateID
         command.Parameters.Add("@inQuantity", MySqlDbType.VarChar).Value = inQuantity
-            command.Parameters.Add("@note", MySqlDbType.VarChar).Value = note
+        command.Parameters.Add("@note", MySqlDbType.VarChar).Value = note
 
             conn.openConnection()
 
@@ -38,6 +38,10 @@ Public Class inventoryForm
     End Sub
 
     Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs)
+
+    End Sub
+
+    Private Sub inventoryForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
     End Sub
 End Class
