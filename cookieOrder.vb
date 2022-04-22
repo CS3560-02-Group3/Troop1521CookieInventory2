@@ -124,4 +124,8 @@ Public Class cookieOrder
             End If
         End If
     End Sub
+
+    Private Sub cookieOrder_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+    End Sub
 End Class
