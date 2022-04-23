@@ -18,7 +18,6 @@ Public Class mainMenu
         Dim adapter3 As New MySqlDataAdapter("SELECT * FROM `cookie`", conn.getConnection())
         adapter3.Fill(table3)
         DataGridView3.DataSource = table3
-
     End Sub
     Private Sub add_Click(sender As Object, e As EventArgs) Handles add.Click
         Dim myForm As New userForm
@@ -49,7 +48,6 @@ Public Class mainMenu
         If e.RowIndex = -1 Then
             Return
         End If
-        mainMenu_Load(e, e)
         Dim selectedRow As DataGridViewRow
         selectedRow = DataGridView2.Rows(e.RowIndex)
         Dim myForm As New cookieOrder
@@ -63,14 +61,15 @@ Public Class mainMenu
         myForm.returnQTB.Text = selectedRow.Cells(6).Value
         myForm.cookieNTB.Text = selectedRow.Cells(7).Value
         myForm.Show()
+        mainMenu_Load(e, e)
     End Sub
 
-    Private Sub cookieForm_Click(sender As Object, e As EventArgs) Handles cookieForm.Click
+    Private Sub cookieForm_Click(sender As Object, e As EventArgs)
         Dim myForm As New cookieForm
         myForm.Show()
     End Sub
 
-    Private Sub DataGridView3_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView3.CellContentClick
+    Private Sub DataGridView3_CellContentClick(sender As Object, e As DataGridViewCellEventArgs)
         If e.RowIndex = -1 Then
             Return
         End If
@@ -85,7 +84,7 @@ Public Class mainMenu
     Private Sub load_Click(sender As Object, e As EventArgs) Handles load.Click
         mainMenu_Load(e, e)
     End Sub
-    Private Sub load2_Click(sender As Object, e As EventArgs) Handles load2.Click
+    Private Sub load3_Click(sender As Object, e As EventArgs)
         mainMenu_Load(e, e)
     End Sub
 End Class
