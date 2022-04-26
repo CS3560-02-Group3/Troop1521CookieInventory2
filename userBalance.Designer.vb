@@ -34,10 +34,14 @@ Partial Class userBalance
         Me.userIDTB = New System.Windows.Forms.TextBox()
         Me.salesTypeIDTB = New System.Windows.Forms.TextBox()
         Me.yearTB = New System.Windows.Forms.TextBox()
-        Me.receiveDateTB = New System.Windows.Forms.TextBox()
         Me.receiveAmountTB = New System.Windows.Forms.TextBox()
         Me.noteTB = New System.Windows.Forms.TextBox()
         Me.submit = New System.Windows.Forms.Button()
+        Me.receiveDatePicker = New System.Windows.Forms.DateTimePicker()
+        Me.yesRadioButton = New System.Windows.Forms.RadioButton()
+        Me.noRadioButton = New System.Windows.Forms.RadioButton()
+        Me.update = New System.Windows.Forms.Button()
+        Me.delete = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'Label1
@@ -139,7 +143,7 @@ Partial Class userBalance
         'salesTypeIDTB
         '
         Me.salesTypeIDTB.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.salesTypeIDTB.Location = New System.Drawing.Point(279, 127)
+        Me.salesTypeIDTB.Location = New System.Drawing.Point(279, 126)
         Me.salesTypeIDTB.Name = "salesTypeIDTB"
         Me.salesTypeIDTB.Size = New System.Drawing.Size(100, 29)
         Me.salesTypeIDTB.TabIndex = 10
@@ -152,14 +156,6 @@ Partial Class userBalance
         Me.yearTB.Size = New System.Drawing.Size(100, 29)
         Me.yearTB.TabIndex = 11
         '
-        'receiveDateTB
-        '
-        Me.receiveDateTB.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.receiveDateTB.Location = New System.Drawing.Point(279, 197)
-        Me.receiveDateTB.Name = "receiveDateTB"
-        Me.receiveDateTB.Size = New System.Drawing.Size(100, 29)
-        Me.receiveDateTB.TabIndex = 12
-        '
         'receiveAmountTB
         '
         Me.receiveAmountTB.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -171,7 +167,7 @@ Partial Class userBalance
         'noteTB
         '
         Me.noteTB.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.noteTB.Location = New System.Drawing.Point(279, 306)
+        Me.noteTB.Location = New System.Drawing.Point(279, 312)
         Me.noteTB.Name = "noteTB"
         Me.noteTB.Size = New System.Drawing.Size(100, 29)
         Me.noteTB.TabIndex = 14
@@ -186,15 +182,71 @@ Partial Class userBalance
         Me.submit.Text = "Submit"
         Me.submit.UseVisualStyleBackColor = True
         '
+        'receiveDatePicker
+        '
+        Me.receiveDatePicker.CalendarFont = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.receiveDatePicker.Location = New System.Drawing.Point(279, 199)
+        Me.receiveDatePicker.Name = "receiveDatePicker"
+        Me.receiveDatePicker.Size = New System.Drawing.Size(200, 20)
+        Me.receiveDatePicker.TabIndex = 17
+        '
+        'yesRadioButton
+        '
+        Me.yesRadioButton.AutoSize = True
+        Me.yesRadioButton.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.yesRadioButton.Location = New System.Drawing.Point(279, 276)
+        Me.yesRadioButton.Name = "yesRadioButton"
+        Me.yesRadioButton.Size = New System.Drawing.Size(51, 25)
+        Me.yesRadioButton.TabIndex = 18
+        Me.yesRadioButton.TabStop = True
+        Me.yesRadioButton.Text = "Yes"
+        Me.yesRadioButton.UseVisualStyleBackColor = True
+        '
+        'noRadioButton
+        '
+        Me.noRadioButton.AutoSize = True
+        Me.noRadioButton.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.noRadioButton.Location = New System.Drawing.Point(338, 276)
+        Me.noRadioButton.Name = "noRadioButton"
+        Me.noRadioButton.Size = New System.Drawing.Size(49, 25)
+        Me.noRadioButton.TabIndex = 19
+        Me.noRadioButton.TabStop = True
+        Me.noRadioButton.Text = "No"
+        Me.noRadioButton.UseVisualStyleBackColor = True
+        '
+        'update
+        '
+        Me.update.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.update.Location = New System.Drawing.Point(323, 374)
+        Me.update.Name = "update"
+        Me.update.Size = New System.Drawing.Size(96, 33)
+        Me.update.TabIndex = 20
+        Me.update.Text = "Update"
+        Me.update.UseVisualStyleBackColor = True
+        '
+        'delete
+        '
+        Me.delete.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.delete.Location = New System.Drawing.Point(193, 374)
+        Me.delete.Name = "delete"
+        Me.delete.Size = New System.Drawing.Size(96, 33)
+        Me.delete.TabIndex = 21
+        Me.delete.Text = "Delete"
+        Me.delete.UseVisualStyleBackColor = True
+        '
         'userBalance
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.delete)
+        Me.Controls.Add(Me.update)
+        Me.Controls.Add(Me.noRadioButton)
+        Me.Controls.Add(Me.yesRadioButton)
+        Me.Controls.Add(Me.receiveDatePicker)
         Me.Controls.Add(Me.submit)
         Me.Controls.Add(Me.noteTB)
         Me.Controls.Add(Me.receiveAmountTB)
-        Me.Controls.Add(Me.receiveDateTB)
         Me.Controls.Add(Me.yearTB)
         Me.Controls.Add(Me.salesTypeIDTB)
         Me.Controls.Add(Me.userIDTB)
@@ -226,8 +278,12 @@ Partial Class userBalance
     Friend WithEvents userIDTB As TextBox
     Friend WithEvents salesTypeIDTB As TextBox
     Friend WithEvents yearTB As TextBox
-    Friend WithEvents receiveDateTB As TextBox
     Friend WithEvents receiveAmountTB As TextBox
     Friend WithEvents noteTB As TextBox
     Friend WithEvents submit As Button
+    Friend WithEvents receiveDatePicker As DateTimePicker
+    Friend WithEvents yesRadioButton As RadioButton
+    Friend WithEvents noRadioButton As RadioButton
+    Friend WithEvents update As Button
+    Friend WithEvents delete As Button
 End Class
