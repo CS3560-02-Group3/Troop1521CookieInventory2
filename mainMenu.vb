@@ -87,4 +87,8 @@ Public Class mainMenu
     Private Sub load3_Click(sender As Object, e As EventArgs)
         mainMenu_Load(e, e)
     End Sub
+    Private Sub yearCookieForm_Click(sender As Object, e As EventArgs) Handles yearCookieForm.Click
+        Dim myForm As New yearCookieForm
+        myForm.Show()
+    End Sub
 End Class

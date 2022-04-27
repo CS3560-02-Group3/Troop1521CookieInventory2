@@ -32,12 +32,13 @@ Partial Class mainMenu
         Me.TabPage3 = New System.Windows.Forms.TabPage()
         Me.DataGridView2 = New System.Windows.Forms.DataGridView()
         Me.TabPage4 = New System.Windows.Forms.TabPage()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
         Me.cookieForm = New System.Windows.Forms.Button()
         Me.load3 = New System.Windows.Forms.Button()
         Me.DataGridView3 = New System.Windows.Forms.DataGridView()
         Me.BackgroundWorker1 = New System.ComponentModel.BackgroundWorker()
-        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
-        Me.Label2 = New System.Windows.Forms.Label()
+        Me.yearCookieForm = New System.Windows.Forms.Button()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.TabPage2.SuspendLayout()
@@ -145,6 +146,7 @@ Partial Class mainMenu
         '
         'TabPage4
         '
+        Me.TabPage4.Controls.Add(Me.yearCookieForm)
         Me.TabPage4.Controls.Add(Me.Label2)
         Me.TabPage4.Controls.Add(Me.DateTimePicker1)
         Me.TabPage4.Controls.Add(Me.cookieForm)
@@ -157,6 +159,25 @@ Partial Class mainMenu
         Me.TabPage4.TabIndex = 3
         Me.TabPage4.Text = "Settings"
         Me.TabPage4.UseVisualStyleBackColor = True
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(1105, 12)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(96, 21)
+        Me.Label2.TabIndex = 8
+        Me.Label2.Text = "Cookie Year"
+        '
+        'DateTimePicker1
+        '
+        Me.DateTimePicker1.CustomFormat = "yyyy"
+        Me.DateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom
+        Me.DateTimePicker1.Location = New System.Drawing.Point(1207, 9)
+        Me.DateTimePicker1.Name = "DateTimePicker1"
+        Me.DateTimePicker1.ShowUpDown = True
+        Me.DateTimePicker1.Size = New System.Drawing.Size(80, 29)
+        Me.DateTimePicker1.TabIndex = 7
         '
         'cookieForm
         '
@@ -184,24 +205,14 @@ Partial Class mainMenu
         Me.DataGridView3.Size = New System.Drawing.Size(279, 381)
         Me.DataGridView3.TabIndex = 3
         '
-        'DateTimePicker1
+        'yearCookieForm
         '
-        Me.DateTimePicker1.CustomFormat = "yyyy"
-        Me.DateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.DateTimePicker1.Location = New System.Drawing.Point(1207, 9)
-        Me.DateTimePicker1.Name = "DateTimePicker1"
-        Me.DateTimePicker1.ShowUpDown = True
-        Me.DateTimePicker1.Size = New System.Drawing.Size(80, 29)
-        Me.DateTimePicker1.TabIndex = 7
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(1105, 12)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(96, 21)
-        Me.Label2.TabIndex = 8
-        Me.Label2.Text = "Cookie Year"
+        Me.yearCookieForm.Location = New System.Drawing.Point(534, 12)
+        Me.yearCookieForm.Name = "yearCookieForm"
+        Me.yearCookieForm.Size = New System.Drawing.Size(166, 32)
+        Me.yearCookieForm.TabIndex = 9
+        Me.yearCookieForm.Text = "Add Price of Cookie"
+        Me.yearCookieForm.UseVisualStyleBackColor = True
         '
         'mainMenu
         '
@@ -241,4 +252,5 @@ Partial Class mainMenu
     Friend WithEvents DataGridView3 As DataGridView
     Friend WithEvents DateTimePicker1 As DateTimePicker
     Friend WithEvents Label2 As Label
+    Friend WithEvents yearCookieForm As Button
 End Class
