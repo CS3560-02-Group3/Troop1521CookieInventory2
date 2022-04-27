@@ -32,13 +32,14 @@ Partial Class mainMenu
         Me.TabPage3 = New System.Windows.Forms.TabPage()
         Me.DataGridView2 = New System.Windows.Forms.DataGridView()
         Me.TabPage4 = New System.Windows.Forms.TabPage()
+        Me.yearCookieForm = New System.Windows.Forms.Button()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
         Me.cookieForm = New System.Windows.Forms.Button()
         Me.load3 = New System.Windows.Forms.Button()
         Me.DataGridView3 = New System.Windows.Forms.DataGridView()
         Me.BackgroundWorker1 = New System.ComponentModel.BackgroundWorker()
-        Me.yearCookieForm = New System.Windows.Forms.Button()
+        Me.BackgroundWorker2 = New System.ComponentModel.BackgroundWorker()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.TabPage2.SuspendLayout()
@@ -160,6 +161,15 @@ Partial Class mainMenu
         Me.TabPage4.Text = "Settings"
         Me.TabPage4.UseVisualStyleBackColor = True
         '
+        'yearCookieForm
+        '
+        Me.yearCookieForm.Location = New System.Drawing.Point(534, 12)
+        Me.yearCookieForm.Name = "yearCookieForm"
+        Me.yearCookieForm.Size = New System.Drawing.Size(166, 32)
+        Me.yearCookieForm.TabIndex = 9
+        Me.yearCookieForm.Text = "Add Price of Cookie"
+        Me.yearCookieForm.UseVisualStyleBackColor = True
+        '
         'Label2
         '
         Me.Label2.AutoSize = True
@@ -205,15 +215,6 @@ Partial Class mainMenu
         Me.DataGridView3.Size = New System.Drawing.Size(279, 381)
         Me.DataGridView3.TabIndex = 3
         '
-        'yearCookieForm
-        '
-        Me.yearCookieForm.Location = New System.Drawing.Point(534, 12)
-        Me.yearCookieForm.Name = "yearCookieForm"
-        Me.yearCookieForm.Size = New System.Drawing.Size(166, 32)
-        Me.yearCookieForm.TabIndex = 9
-        Me.yearCookieForm.Text = "Add Price of Cookie"
-        Me.yearCookieForm.UseVisualStyleBackColor = True
-        '
         'mainMenu
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -253,4 +254,5 @@ Partial Class mainMenu
     Friend WithEvents DateTimePicker1 As DateTimePicker
     Friend WithEvents Label2 As Label
     Friend WithEvents yearCookieForm As Button
+    Friend WithEvents BackgroundWorker2 As System.ComponentModel.BackgroundWorker
 End Class

@@ -1,7 +1,7 @@
 ﻿Imports MySql.Data.MySqlClient
 Public Class userForm
     ' When the insert button is clicked
-    Private Sub Insert_Click(sender As Object, e As EventArgs) Handles insert.Click
+    Private Sub insert_Click(sender As Object, e As EventArgs) Handles insert.Click
         ' Show this message below in a message box with the yes and no options 
         Dim confirmMsg = MessageBox.Show("Are you sure you want to insert?", "Insert", MessageBoxButtons.YesNo)
         ' If no is clicked, do nothing
@@ -76,7 +76,7 @@ Public Class userForm
                 ' Command a query UPDATE a row in the user table. SET the variables to values WHERE the userID is.
                 Dim command As New MySqlCommand("UPDATE `user` SET firstName = @firstName, lastName = @lastName, address = @address, email = @email, phone = @phone, grade = @grade, note = @note WHERE userID = @userID", conn.getConnection())
 
-                command.Parameters.Add("@userID", MySqlDbType.VarChar).Value = userID
+                command.Parameters.Add("@userID", MySqlDbType.Int16).Value = userID
                 command.Parameters.Add("@firstName", MySqlDbType.VarChar).Value = firstName
                 command.Parameters.Add("@lastName", MySqlDbType.VarChar).Value = lastName
                 command.Parameters.Add("@address", MySqlDbType.VarChar).Value = address
@@ -113,7 +113,7 @@ Public Class userForm
                 ' Command a query DELETE a row FROM the user table WHERE the userID is.
                 Dim command As New MySqlCommand("DELETE FROM `user` WHERE userID = @userID", conn.getConnection())
 
-                command.Parameters.Add("@userID", MySqlDbType.VarChar).Value = userID
+                command.Parameters.Add("@userID", MySqlDbType.Int16).Value = userID
 
                 conn.openConnection()
 
@@ -126,9 +126,5 @@ Public Class userForm
                 End If
             End If
         End If
-    End Sub
-
-    Private Sub userForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
     End Sub
 End Class

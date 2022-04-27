@@ -28,12 +28,12 @@ Partial Class yearCookieForm
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.cookieCB = New System.Windows.Forms.ComboBox()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.priceTB = New System.Windows.Forms.TextBox()
         Me.yearCookieLB = New System.Windows.Forms.Label()
         Me.yearLB = New System.Windows.Forms.Label()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
-        Me.Button3 = New System.Windows.Forms.Button()
+        Me.insert = New System.Windows.Forms.Button()
+        Me.update = New System.Windows.Forms.Button()
+        Me.delete = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'Label1
@@ -94,12 +94,12 @@ Partial Class yearCookieForm
         Me.cookieCB.Size = New System.Drawing.Size(150, 21)
         Me.cookieCB.TabIndex = 8
         '
-        'TextBox1
+        'priceTB
         '
-        Me.TextBox1.Location = New System.Drawing.Point(186, 217)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(84, 20)
-        Me.TextBox1.TabIndex = 9
+        Me.priceTB.Location = New System.Drawing.Point(186, 217)
+        Me.priceTB.Name = "priceTB"
+        Me.priceTB.Size = New System.Drawing.Size(84, 20)
+        Me.priceTB.TabIndex = 9
         '
         'yearCookieLB
         '
@@ -119,45 +119,45 @@ Partial Class yearCookieForm
         Me.yearLB.Size = New System.Drawing.Size(0, 21)
         Me.yearLB.TabIndex = 7
         '
-        'Button1
+        'insert
         '
-        Me.Button1.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(56, 291)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(79, 35)
-        Me.Button1.TabIndex = 10
-        Me.Button1.Text = "Insert"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.insert.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.insert.Location = New System.Drawing.Point(56, 291)
+        Me.insert.Name = "insert"
+        Me.insert.Size = New System.Drawing.Size(79, 35)
+        Me.insert.TabIndex = 10
+        Me.insert.Text = "Insert"
+        Me.insert.UseVisualStyleBackColor = True
         '
-        'Button2
+        'update
         '
-        Me.Button2.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.Location = New System.Drawing.Point(187, 291)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(83, 35)
-        Me.Button2.TabIndex = 11
-        Me.Button2.Text = "Update"
-        Me.Button2.UseVisualStyleBackColor = True
+        Me.update.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.update.Location = New System.Drawing.Point(187, 291)
+        Me.update.Name = "update"
+        Me.update.Size = New System.Drawing.Size(83, 35)
+        Me.update.TabIndex = 11
+        Me.update.Text = "Update"
+        Me.update.UseVisualStyleBackColor = True
         '
-        'Button3
+        'delete
         '
-        Me.Button3.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button3.Location = New System.Drawing.Point(334, 291)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(76, 35)
-        Me.Button3.TabIndex = 12
-        Me.Button3.Text = "Delete"
-        Me.Button3.UseVisualStyleBackColor = True
+        Me.delete.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.delete.Location = New System.Drawing.Point(334, 291)
+        Me.delete.Name = "delete"
+        Me.delete.Size = New System.Drawing.Size(76, 35)
+        Me.delete.TabIndex = 12
+        Me.delete.Text = "Delete"
+        Me.delete.UseVisualStyleBackColor = True
         '
         'yearCookieForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(474, 388)
-        Me.Controls.Add(Me.Button3)
-        Me.Controls.Add(Me.Button2)
-        Me.Controls.Add(Me.Button1)
-        Me.Controls.Add(Me.TextBox1)
+        Me.Controls.Add(Me.delete)
+        Me.Controls.Add(Me.update)
+        Me.Controls.Add(Me.insert)
+        Me.Controls.Add(Me.priceTB)
         Me.Controls.Add(Me.cookieCB)
         Me.Controls.Add(Me.yearLB)
         Me.Controls.Add(Me.yearCookieLB)
@@ -179,10 +179,10 @@ Partial Class yearCookieForm
     Friend WithEvents Label4 As Label
     Friend WithEvents Label5 As Label
     Friend WithEvents cookieCB As ComboBox
-    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents priceTB As TextBox
     Friend WithEvents yearCookieLB As Label
     Friend WithEvents yearLB As Label
-    Friend WithEvents Button1 As Button
-    Friend WithEvents Button2 As Button
-    Friend WithEvents Button3 As Button
+    Friend WithEvents insert As Button
+    Friend WithEvents update As Button
+    Friend WithEvents delete As Button
 End Class
