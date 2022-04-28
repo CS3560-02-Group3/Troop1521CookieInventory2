@@ -52,6 +52,8 @@ Partial Class mainMenu
         Me.DataGridView6 = New System.Windows.Forms.DataGridView()
         Me.paymentForm = New System.Windows.Forms.Button()
         Me.load6 = New System.Windows.Forms.Button()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.totalGirlsLB = New System.Windows.Forms.Label()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.TabPage2.SuspendLayout()
@@ -110,6 +112,8 @@ Partial Class mainMenu
         '
         'TabPage2
         '
+        Me.TabPage2.Controls.Add(Me.totalGirlsLB)
+        Me.TabPage2.Controls.Add(Me.Label3)
         Me.TabPage2.Controls.Add(Me.add)
         Me.TabPage2.Controls.Add(Me.load)
         Me.TabPage2.Controls.Add(Me.DataGridView1)
@@ -351,6 +355,23 @@ Partial Class mainMenu
         Me.load6.Text = "Load"
         Me.load6.UseVisualStyleBackColor = True
         '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(8, 620)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(85, 21)
+        Me.Label3.TabIndex = 5
+        Me.Label3.Text = "Total Girls:"
+        '
+        'totalGirlsLB
+        '
+        Me.totalGirlsLB.AutoSize = True
+        Me.totalGirlsLB.Location = New System.Drawing.Point(99, 620)
+        Me.totalGirlsLB.Name = "totalGirlsLB"
+        Me.totalGirlsLB.Size = New System.Drawing.Size(0, 21)
+        Me.totalGirlsLB.TabIndex = 6
+        '
         'mainMenu
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -363,6 +384,7 @@ Partial Class mainMenu
         Me.TabPage1.ResumeLayout(False)
         Me.TabPage1.PerformLayout()
         Me.TabPage2.ResumeLayout(False)
+        Me.TabPage2.PerformLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabPage3.ResumeLayout(False)
         CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).EndInit()
@@ -409,4 +431,6 @@ Partial Class mainMenu
     Friend WithEvents DataGridView3 As DataGridView
     Friend WithEvents cookieForm As Button
     Friend WithEvents load3 As Button
+    Friend WithEvents totalGirlsLB As Label
+    Friend WithEvents Label3 As Label
 End Class

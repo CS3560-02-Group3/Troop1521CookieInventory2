@@ -8,6 +8,7 @@ Public Class mainMenu
         Dim adapter As New MySqlDataAdapter("SELECT * FROM `user`", conn.getConnection())
         adapter.Fill(table)
         DataGridView1.DataSource = table
+        totalGirlsLB.Text = DataGridView1.Rows.Count - 1
 
         Dim table2 As New DataTable()
         Dim adapter2 As New MySqlDataAdapter("SELECT * FROM `userCookie`", conn.getConnection())
@@ -21,14 +22,11 @@ Public Class mainMenu
 
         Dim table4 As New DataTable()
         Dim year = cookieYearPicker.Text
-        Dim command4 As New MySqlCommand("SELECT yearCookieID, cookie.Name, price FROM yearCookie INNER JOIN cookie ON cookie.cookieID = yearCookieID WHERE year = 2022", conn.getConnection())
-        'command4.Parameters.Add("@year", MySqlDbType.Int16).Value = year
+        Dim command4 As New MySqlCommand("SELECT yearCookieID, cookie.Name, price FROM yearCookie INNER JOIN cookie ON cookie.cookieID = yearCookieID WHERE year = @year", conn.getConnection())
+        command4.Parameters.Add("@year", MySqlDbType.Int16).Value = year
         Dim adapter4 As New MySqlDataAdapter(command4)
         adapter4.Fill(table4)
         DataGridView4.DataSource = table4
-
-        Dim adapter5 As New MySqlDataAdapter("SELECT COUNT(userID) FROM user", conn.getConnection())
-
     End Sub
     Private Sub add_Click(sender As Object, e As EventArgs) Handles add.Click
         Dim myForm As New userForm
