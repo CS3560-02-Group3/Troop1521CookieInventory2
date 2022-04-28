@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class Warehouse
+Partial Class warehouseform
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -28,13 +28,13 @@ Partial Class Warehouse
         Me.Label1 = New System.Windows.Forms.Label()
         Me.noteTE = New System.Windows.Forms.RichTextBox()
         Me.warehouseID = New System.Windows.Forms.Label()
-        Me.Name = New System.Windows.Forms.Label()
-        Me.Phone = New System.Windows.Forms.Label()
-        Me.Address = New System.Windows.Forms.Label()
+        Me.NameLB = New System.Windows.Forms.Label()
+        Me.PhoneLB = New System.Windows.Forms.Label()
+        Me.AddressLB = New System.Windows.Forms.Label()
         Me.nameTB = New System.Windows.Forms.TextBox()
         Me.AddressTB = New System.Windows.Forms.TextBox()
         Me.PhoneTB = New System.Windows.Forms.TextBox()
-        Me.NoteTB = New System.Windows.Forms.Label()
+        Me.NoteLB = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'Insert
@@ -87,41 +87,41 @@ Partial Class Warehouse
         '
         Me.warehouseID.AutoSize = True
         Me.warehouseID.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.warehouseID.Location = New System.Drawing.Point(53, 49)
+        Me.warehouseID.Location = New System.Drawing.Point(53, 53)
         Me.warehouseID.Name = "warehouseID"
         Me.warehouseID.Size = New System.Drawing.Size(25, 21)
         Me.warehouseID.TabIndex = 19
         Me.warehouseID.Text = "ID"
         '
-        'Name
+        'NameLB
         '
-        Me.Name.AutoSize = True
-        Me.Name.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Name.Location = New System.Drawing.Point(51, 93)
-        Me.Name.Name = "Name"
-        Me.Name.Size = New System.Drawing.Size(56, 21)
-        Me.Name.TabIndex = 20
-        Me.Name.Text = " Name"
+        Me.NameLB.AutoSize = True
+        Me.NameLB.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.NameLB.Location = New System.Drawing.Point(51, 93)
+        Me.NameLB.Name = "NameLB"
+        Me.NameLB.Size = New System.Drawing.Size(56, 21)
+        Me.NameLB.TabIndex = 20
+        Me.NameLB.Text = " Name"
         '
-        'Phone
+        'PhoneLB
         '
-        Me.Phone.AutoSize = True
-        Me.Phone.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Phone.Location = New System.Drawing.Point(53, 203)
-        Me.Phone.Name = "Phone"
-        Me.Phone.Size = New System.Drawing.Size(54, 21)
-        Me.Phone.TabIndex = 21
-        Me.Phone.Text = "Phone"
+        Me.PhoneLB.AutoSize = True
+        Me.PhoneLB.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.PhoneLB.Location = New System.Drawing.Point(53, 203)
+        Me.PhoneLB.Name = "PhoneLB"
+        Me.PhoneLB.Size = New System.Drawing.Size(54, 21)
+        Me.PhoneLB.TabIndex = 21
+        Me.PhoneLB.Text = "Phone"
         '
-        'Address
+        'AddressLB
         '
-        Me.Address.AutoSize = True
-        Me.Address.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Address.Location = New System.Drawing.Point(51, 147)
-        Me.Address.Name = "Address"
-        Me.Address.Size = New System.Drawing.Size(66, 21)
-        Me.Address.TabIndex = 22
-        Me.Address.Text = "Address"
+        Me.AddressLB.AutoSize = True
+        Me.AddressLB.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.AddressLB.Location = New System.Drawing.Point(51, 147)
+        Me.AddressLB.Name = "AddressLB"
+        Me.AddressLB.Size = New System.Drawing.Size(66, 21)
+        Me.AddressLB.TabIndex = 22
+        Me.AddressLB.Text = "Address"
         '
         'nameTB
         '
@@ -147,35 +147,35 @@ Partial Class Warehouse
         Me.PhoneTB.Size = New System.Drawing.Size(237, 29)
         Me.PhoneTB.TabIndex = 25
         '
-        'NoteTB
+        'NoteLB
         '
-        Me.NoteTB.AutoSize = True
-        Me.NoteTB.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.NoteTB.Location = New System.Drawing.Point(53, 256)
-        Me.NoteTB.Name = "NoteTB"
-        Me.NoteTB.Size = New System.Drawing.Size(44, 21)
-        Me.NoteTB.TabIndex = 26
-        Me.NoteTB.Text = "Note"
+        Me.NoteLB.AutoSize = True
+        Me.NoteLB.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.NoteLB.Location = New System.Drawing.Point(53, 256)
+        Me.NoteLB.Name = "NoteLB"
+        Me.NoteLB.Size = New System.Drawing.Size(44, 21)
+        Me.NoteLB.TabIndex = 26
+        Me.NoteLB.Text = "Note"
         '
-        'Warehouse
+        'warehouseform
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
-        Me.Controls.Add(Me.NoteTB)
+        Me.Controls.Add(Me.NoteLB)
         Me.Controls.Add(Me.PhoneTB)
         Me.Controls.Add(Me.AddressTB)
         Me.Controls.Add(Me.nameTB)
-        Me.Controls.Add(Me.Address)
-        Me.Controls.Add(Me.Phone)
-        Me.Controls.Add(Me.Name)
+        Me.Controls.Add(Me.AddressLB)
+        Me.Controls.Add(Me.PhoneLB)
+        Me.Controls.Add(Me.NameLB)
         Me.Controls.Add(Me.warehouseID)
         Me.Controls.Add(Me.noteTE)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Delete)
         Me.Controls.Add(Me.Update)
         Me.Controls.Add(Me.Insert)
-        Me.Name = "Warehouse"
+        Me.Name = "warehouseform"
         Me.Text = "Warehouse"
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -188,11 +188,11 @@ Partial Class Warehouse
     Friend WithEvents Label1 As Label
     Friend WithEvents noteTE As RichTextBox
     Friend WithEvents warehouseID As Label
-    Friend WithEvents Name As Label
-    Friend WithEvents Phone As Label
-    Friend WithEvents Address As Label
+    Friend WithEvents NameLB As Label
+    Friend WithEvents PhoneLB As Label
+    Friend WithEvents AddressLB As Label
     Friend WithEvents nameTB As TextBox
     Friend WithEvents AddressTB As TextBox
     Friend WithEvents PhoneTB As TextBox
-    Friend WithEvents NoteTB As Label
+    Friend WithEvents NoteLB As Label
 End Class

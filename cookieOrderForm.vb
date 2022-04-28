@@ -1,5 +1,5 @@
 ﻿Imports MySql.Data.MySqlClient
-Public Class cookieOrder
+Public Class cookieOrderForm
     Private Sub InsertC_Click(sender As Object, e As EventArgs) Handles insertC.Click
         Dim confirmMsg = MessageBox.Show("Are you sure you want to insert?", "Insert", MessageBoxButtons.YesNo)
         If confirmMsg = DialogResult.Yes Then

@@ -59,7 +59,7 @@ Public Class mainMenu
         End If
         Dim selectedRow As DataGridViewRow
         selectedRow = DataGridView2.Rows(e.RowIndex)
-        Dim myForm As New cookieOrder
+        Dim myForm As New cookieOrderForm
         myForm.orderIDTE.Text = selectedRow.Cells(0).Value
         myForm.userIDTE.Text = selectedRow.Cells(0).Value
         myForm.inventoryIDTE.Text = selectedRow.Cells(1).Value
@@ -94,13 +94,27 @@ Public Class mainMenu
         myForm.yearLB.Text = cookieYearPicker.Text
         myForm.Show()
     End Sub
+    Private Sub cookieOrderForm_Click(sender As Object, e As EventArgs) Handles cookieOrderForm.Click
+        Dim myForm As New cookieOrderForm
+        myForm.Show()
+    End Sub
+    Private Sub warehouseForm_Click(sender As Object, e As EventArgs) Handles warehouseForm.Click
+        Dim myForm As New warehouseform
+        myForm.Show()
+    End Sub
     Private Sub load_Click(sender As Object, e As EventArgs) Handles load.Click
         mainMenu_Load(e, e)
     End Sub
-    Private Sub load3_Click(sender As Object, e As EventArgs)
+    Private Sub load2_Click(sender As Object, e As EventArgs) Handles load2.Click
+        mainMenu_Load(e, e)
+    End Sub
+    Private Sub load3_Click(sender As Object, e As EventArgs) Handles load3.Click
         mainMenu_Load(e, e)
     End Sub
     Private Sub load4_Click(sender As Object, e As EventArgs) Handles load4.Click
+        mainMenu_Load(e, e)
+    End Sub
+    Private Sub load5_Click(sender As Object, e As EventArgs) Handles load5.Click
         mainMenu_Load(e, e)
     End Sub
 End Class
