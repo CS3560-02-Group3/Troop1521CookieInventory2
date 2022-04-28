@@ -1,0 +1,198 @@
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+Partial Class Warehouse
+    Inherits System.Windows.Forms.Form
+
+    'Form overrides dispose to clean up the component list.
+    <System.Diagnostics.DebuggerNonUserCode()> _
+    Protected Overrides Sub Dispose(ByVal disposing As Boolean)
+        Try
+            If disposing AndAlso components IsNot Nothing Then
+                components.Dispose()
+            End If
+        Finally
+            MyBase.Dispose(disposing)
+        End Try
+    End Sub
+
+    'Required by the Windows Form Designer
+    Private components As System.ComponentModel.IContainer
+
+    'NOTE: The following procedure is required by the Windows Form Designer
+    'It can be modified using the Windows Form Designer.  
+    'Do not modify it using the code editor.
+    <System.Diagnostics.DebuggerStepThrough()> _
+    Private Sub InitializeComponent()
+        Me.Insert = New System.Windows.Forms.Button()
+        Me.Update = New System.Windows.Forms.Button()
+        Me.Delete = New System.Windows.Forms.Button()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.noteTE = New System.Windows.Forms.RichTextBox()
+        Me.warehouseID = New System.Windows.Forms.Label()
+        Me.Name = New System.Windows.Forms.Label()
+        Me.Phone = New System.Windows.Forms.Label()
+        Me.Address = New System.Windows.Forms.Label()
+        Me.nameTB = New System.Windows.Forms.TextBox()
+        Me.AddressTB = New System.Windows.Forms.TextBox()
+        Me.PhoneTB = New System.Windows.Forms.TextBox()
+        Me.NoteTB = New System.Windows.Forms.Label()
+        Me.SuspendLayout()
+        '
+        'Insert
+        '
+        Me.Insert.Location = New System.Drawing.Point(64, 365)
+        Me.Insert.Name = "Insert"
+        Me.Insert.Size = New System.Drawing.Size(105, 41)
+        Me.Insert.TabIndex = 0
+        Me.Insert.Text = "Insert"
+        Me.Insert.UseVisualStyleBackColor = True
+        '
+        'Update
+        '
+        Me.Update.Location = New System.Drawing.Point(345, 365)
+        Me.Update.Name = "Update"
+        Me.Update.Size = New System.Drawing.Size(105, 41)
+        Me.Update.TabIndex = 1
+        Me.Update.Text = "Update"
+        Me.Update.UseVisualStyleBackColor = True
+        '
+        'Delete
+        '
+        Me.Delete.Location = New System.Drawing.Point(612, 365)
+        Me.Delete.Name = "Delete"
+        Me.Delete.Size = New System.Drawing.Size(105, 41)
+        Me.Delete.TabIndex = 2
+        Me.Delete.Text = "Delete"
+        Me.Delete.UseVisualStyleBackColor = True
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 25.0!)
+        Me.Label1.Location = New System.Drawing.Point(281, 9)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(191, 39)
+        Me.Label1.TabIndex = 5
+        Me.Label1.Text = "Warehouse"
+        '
+        'noteTE
+        '
+        Me.noteTE.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.noteTE.Location = New System.Drawing.Point(211, 253)
+        Me.noteTE.Name = "noteTE"
+        Me.noteTE.Size = New System.Drawing.Size(380, 96)
+        Me.noteTE.TabIndex = 15
+        Me.noteTE.Text = ""
+        '
+        'warehouseID
+        '
+        Me.warehouseID.AutoSize = True
+        Me.warehouseID.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.warehouseID.Location = New System.Drawing.Point(53, 49)
+        Me.warehouseID.Name = "warehouseID"
+        Me.warehouseID.Size = New System.Drawing.Size(25, 21)
+        Me.warehouseID.TabIndex = 19
+        Me.warehouseID.Text = "ID"
+        '
+        'Name
+        '
+        Me.Name.AutoSize = True
+        Me.Name.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Name.Location = New System.Drawing.Point(51, 93)
+        Me.Name.Name = "Name"
+        Me.Name.Size = New System.Drawing.Size(56, 21)
+        Me.Name.TabIndex = 20
+        Me.Name.Text = " Name"
+        '
+        'Phone
+        '
+        Me.Phone.AutoSize = True
+        Me.Phone.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Phone.Location = New System.Drawing.Point(53, 203)
+        Me.Phone.Name = "Phone"
+        Me.Phone.Size = New System.Drawing.Size(54, 21)
+        Me.Phone.TabIndex = 21
+        Me.Phone.Text = "Phone"
+        '
+        'Address
+        '
+        Me.Address.AutoSize = True
+        Me.Address.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Address.Location = New System.Drawing.Point(51, 147)
+        Me.Address.Name = "Address"
+        Me.Address.Size = New System.Drawing.Size(66, 21)
+        Me.Address.TabIndex = 22
+        Me.Address.Text = "Address"
+        '
+        'nameTB
+        '
+        Me.nameTB.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.nameTB.Location = New System.Drawing.Point(247, 90)
+        Me.nameTB.Name = "nameTB"
+        Me.nameTB.Size = New System.Drawing.Size(237, 29)
+        Me.nameTB.TabIndex = 23
+        '
+        'AddressTB
+        '
+        Me.AddressTB.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.AddressTB.Location = New System.Drawing.Point(247, 139)
+        Me.AddressTB.Name = "AddressTB"
+        Me.AddressTB.Size = New System.Drawing.Size(237, 29)
+        Me.AddressTB.TabIndex = 24
+        '
+        'PhoneTB
+        '
+        Me.PhoneTB.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.PhoneTB.Location = New System.Drawing.Point(247, 200)
+        Me.PhoneTB.Name = "PhoneTB"
+        Me.PhoneTB.Size = New System.Drawing.Size(237, 29)
+        Me.PhoneTB.TabIndex = 25
+        '
+        'NoteTB
+        '
+        Me.NoteTB.AutoSize = True
+        Me.NoteTB.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.NoteTB.Location = New System.Drawing.Point(53, 256)
+        Me.NoteTB.Name = "NoteTB"
+        Me.NoteTB.Size = New System.Drawing.Size(44, 21)
+        Me.NoteTB.TabIndex = 26
+        Me.NoteTB.Text = "Note"
+        '
+        'Warehouse
+        '
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.NoteTB)
+        Me.Controls.Add(Me.PhoneTB)
+        Me.Controls.Add(Me.AddressTB)
+        Me.Controls.Add(Me.nameTB)
+        Me.Controls.Add(Me.Address)
+        Me.Controls.Add(Me.Phone)
+        Me.Controls.Add(Me.Name)
+        Me.Controls.Add(Me.warehouseID)
+        Me.Controls.Add(Me.noteTE)
+        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.Delete)
+        Me.Controls.Add(Me.Update)
+        Me.Controls.Add(Me.Insert)
+        Me.Name = "Warehouse"
+        Me.Text = "Warehouse"
+        Me.ResumeLayout(False)
+        Me.PerformLayout()
+
+    End Sub
+
+    Friend WithEvents Insert As Button
+    Friend WithEvents Update As Button
+    Friend WithEvents Delete As Button
+    Friend WithEvents Label1 As Label
+    Friend WithEvents noteTE As RichTextBox
+    Friend WithEvents warehouseID As Label
+    Friend WithEvents Name As Label
+    Friend WithEvents Phone As Label
+    Friend WithEvents Address As Label
+    Friend WithEvents nameTB As TextBox
+    Friend WithEvents AddressTB As TextBox
+    Friend WithEvents PhoneTB As TextBox
+    Friend WithEvents NoteTB As Label
+End Class

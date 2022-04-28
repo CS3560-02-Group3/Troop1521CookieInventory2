@@ -146,6 +146,12 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="myConnection.vb" />
+    <Compile Include="Warehouse.Designer.vb">
+      <DependentUpon>Warehouse.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Warehouse.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="yearCookieForm.Designer.vb">
       <DependentUpon>yearCookieForm.vb</DependentUpon>
     </Compile>
@@ -180,6 +186,9 @@
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Warehouse.resx">
+      <DependentUpon>Warehouse.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="yearCookieForm.resx">
       <DependentUpon>yearCookieForm.vb</DependentUpon>
