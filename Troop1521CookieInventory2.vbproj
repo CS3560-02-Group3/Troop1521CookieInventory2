@@ -117,10 +117,10 @@
     <Compile Include="salesType.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="userBalance.Designer.vb">
-      <DependentUpon>userBalance.vb</DependentUpon>
+    <Compile Include="paymentForm.Designer.vb">
+      <DependentUpon>paymentForm.vb</DependentUpon>
     </Compile>
-    <Compile Include="userBalance.vb">
+    <Compile Include="paymentForm.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="userForm.Designer.vb">
@@ -175,8 +175,8 @@
     <EmbeddedResource Include="salesType.resx">
       <DependentUpon>salesType.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="userBalance.resx">
-      <DependentUpon>userBalance.vb</DependentUpon>
+    <EmbeddedResource Include="paymentForm.resx">
+      <DependentUpon>paymentForm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="userForm.resx">
       <DependentUpon>userForm.vb</DependentUpon>

@@ -1,6 +1,6 @@
 ﻿Imports MySql.Data.MySqlClient
 
-Public Class userBalance
+Public Class paymentForm
     Private Sub Submit_Click(sender As Object, e As EventArgs) Handles submit.Click
         If userIDTB.Text = "" Then
             MsgBox("Cannot submit without valid User ID")

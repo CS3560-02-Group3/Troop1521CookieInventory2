@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class userBalance
+Partial Class paymentForm
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -28,27 +28,24 @@ Partial Class userBalance
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
-        Me.Label7 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
-        Me.userBalanceIDTB = New System.Windows.Forms.TextBox()
-        Me.userIDTB = New System.Windows.Forms.TextBox()
-        Me.salesTypeIDTB = New System.Windows.Forms.TextBox()
-        Me.yearTB = New System.Windows.Forms.TextBox()
         Me.receiveAmountTB = New System.Windows.Forms.TextBox()
-        Me.noteTB = New System.Windows.Forms.TextBox()
         Me.submit = New System.Windows.Forms.Button()
         Me.receiveDatePicker = New System.Windows.Forms.DateTimePicker()
-        Me.yesRadioButton = New System.Windows.Forms.RadioButton()
-        Me.noRadioButton = New System.Windows.Forms.RadioButton()
         Me.update = New System.Windows.Forms.Button()
         Me.delete = New System.Windows.Forms.Button()
+        Me.noteTB = New System.Windows.Forms.RichTextBox()
+        Me.userBalanceIDTB = New System.Windows.Forms.Label()
+        Me.yearTB = New System.Windows.Forms.Label()
+        Me.userIDTB = New System.Windows.Forms.ComboBox()
+        Me.salesTypeIDTB = New System.Windows.Forms.ComboBox()
         Me.SuspendLayout()
         '
         'Label1
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(118, 54)
+        Me.Label1.Location = New System.Drawing.Point(118, 62)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(118, 21)
         Me.Label1.TabIndex = 0
@@ -58,7 +55,7 @@ Partial Class userBalance
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(118, 92)
+        Me.Label2.Location = New System.Drawing.Point(118, 97)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(61, 21)
         Me.Label2.TabIndex = 1
@@ -68,7 +65,7 @@ Partial Class userBalance
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(118, 127)
+        Me.Label3.Location = New System.Drawing.Point(118, 134)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(101, 21)
         Me.Label3.TabIndex = 2
@@ -78,7 +75,7 @@ Partial Class userBalance
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(118, 163)
+        Me.Label4.Location = New System.Drawing.Point(122, 168)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(40, 21)
         Me.Label4.TabIndex = 3
@@ -88,7 +85,7 @@ Partial Class userBalance
         '
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(118, 197)
+        Me.Label5.Location = New System.Drawing.Point(120, 199)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(99, 21)
         Me.Label5.TabIndex = 4
@@ -98,88 +95,38 @@ Partial Class userBalance
         '
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(118, 237)
+        Me.Label6.Location = New System.Drawing.Point(122, 233)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(123, 21)
         Me.Label6.TabIndex = 5
         Me.Label6.Text = "Receive Amount"
         '
-        'Label7
-        '
-        Me.Label7.AutoSize = True
-        Me.Label7.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(118, 276)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(43, 21)
-        Me.Label7.TabIndex = 6
-        Me.Label7.Text = "GOC"
-        '
         'Label8
         '
         Me.Label8.AutoSize = True
         Me.Label8.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(118, 314)
+        Me.Label8.Location = New System.Drawing.Point(122, 269)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(44, 21)
         Me.Label8.TabIndex = 7
         Me.Label8.Text = "Note"
         '
-        'userBalanceIDTB
-        '
-        Me.userBalanceIDTB.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.userBalanceIDTB.Location = New System.Drawing.Point(279, 54)
-        Me.userBalanceIDTB.Name = "userBalanceIDTB"
-        Me.userBalanceIDTB.Size = New System.Drawing.Size(100, 29)
-        Me.userBalanceIDTB.TabIndex = 8
-        '
-        'userIDTB
-        '
-        Me.userIDTB.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.userIDTB.Location = New System.Drawing.Point(279, 89)
-        Me.userIDTB.Name = "userIDTB"
-        Me.userIDTB.Size = New System.Drawing.Size(100, 29)
-        Me.userIDTB.TabIndex = 9
-        '
-        'salesTypeIDTB
-        '
-        Me.salesTypeIDTB.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.salesTypeIDTB.Location = New System.Drawing.Point(279, 126)
-        Me.salesTypeIDTB.Name = "salesTypeIDTB"
-        Me.salesTypeIDTB.Size = New System.Drawing.Size(100, 29)
-        Me.salesTypeIDTB.TabIndex = 10
-        '
-        'yearTB
-        '
-        Me.yearTB.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.yearTB.Location = New System.Drawing.Point(279, 160)
-        Me.yearTB.Name = "yearTB"
-        Me.yearTB.Size = New System.Drawing.Size(100, 29)
-        Me.yearTB.TabIndex = 11
-        '
         'receiveAmountTB
         '
         Me.receiveAmountTB.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.receiveAmountTB.Location = New System.Drawing.Point(279, 237)
+        Me.receiveAmountTB.Location = New System.Drawing.Point(279, 225)
         Me.receiveAmountTB.Name = "receiveAmountTB"
         Me.receiveAmountTB.Size = New System.Drawing.Size(100, 29)
         Me.receiveAmountTB.TabIndex = 13
         '
-        'noteTB
-        '
-        Me.noteTB.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.noteTB.Location = New System.Drawing.Point(279, 312)
-        Me.noteTB.Name = "noteTB"
-        Me.noteTB.Size = New System.Drawing.Size(100, 29)
-        Me.noteTB.TabIndex = 14
-        '
         'submit
         '
         Me.submit.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.submit.Location = New System.Drawing.Point(459, 374)
+        Me.submit.Location = New System.Drawing.Point(122, 395)
         Me.submit.Name = "submit"
         Me.submit.Size = New System.Drawing.Size(96, 33)
         Me.submit.TabIndex = 16
-        Me.submit.Text = "Submit"
+        Me.submit.Text = "Insert"
         Me.submit.UseVisualStyleBackColor = True
         '
         'receiveDatePicker
@@ -190,34 +137,10 @@ Partial Class userBalance
         Me.receiveDatePicker.Size = New System.Drawing.Size(200, 20)
         Me.receiveDatePicker.TabIndex = 17
         '
-        'yesRadioButton
-        '
-        Me.yesRadioButton.AutoSize = True
-        Me.yesRadioButton.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.yesRadioButton.Location = New System.Drawing.Point(279, 276)
-        Me.yesRadioButton.Name = "yesRadioButton"
-        Me.yesRadioButton.Size = New System.Drawing.Size(51, 25)
-        Me.yesRadioButton.TabIndex = 18
-        Me.yesRadioButton.TabStop = True
-        Me.yesRadioButton.Text = "Yes"
-        Me.yesRadioButton.UseVisualStyleBackColor = True
-        '
-        'noRadioButton
-        '
-        Me.noRadioButton.AutoSize = True
-        Me.noRadioButton.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.noRadioButton.Location = New System.Drawing.Point(338, 276)
-        Me.noRadioButton.Name = "noRadioButton"
-        Me.noRadioButton.Size = New System.Drawing.Size(49, 25)
-        Me.noRadioButton.TabIndex = 19
-        Me.noRadioButton.TabStop = True
-        Me.noRadioButton.Text = "No"
-        Me.noRadioButton.UseVisualStyleBackColor = True
-        '
         'update
         '
         Me.update.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.update.Location = New System.Drawing.Point(323, 374)
+        Me.update.Location = New System.Drawing.Point(383, 395)
         Me.update.Name = "update"
         Me.update.Size = New System.Drawing.Size(96, 33)
         Me.update.TabIndex = 20
@@ -227,39 +150,80 @@ Partial Class userBalance
         'delete
         '
         Me.delete.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.delete.Location = New System.Drawing.Point(193, 374)
+        Me.delete.Location = New System.Drawing.Point(646, 395)
         Me.delete.Name = "delete"
         Me.delete.Size = New System.Drawing.Size(96, 33)
         Me.delete.TabIndex = 21
         Me.delete.Text = "Delete"
         Me.delete.UseVisualStyleBackColor = True
         '
-        'userBalance
+        'noteTB
+        '
+        Me.noteTB.Location = New System.Drawing.Point(279, 272)
+        Me.noteTB.Name = "noteTB"
+        Me.noteTB.Size = New System.Drawing.Size(395, 96)
+        Me.noteTB.TabIndex = 22
+        Me.noteTB.Text = ""
+        '
+        'userBalanceIDTB
+        '
+        Me.userBalanceIDTB.AutoSize = True
+        Me.userBalanceIDTB.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.userBalanceIDTB.Location = New System.Drawing.Point(275, 62)
+        Me.userBalanceIDTB.Name = "userBalanceIDTB"
+        Me.userBalanceIDTB.Size = New System.Drawing.Size(0, 21)
+        Me.userBalanceIDTB.TabIndex = 23
+        '
+        'yearTB
+        '
+        Me.yearTB.AutoSize = True
+        Me.yearTB.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.yearTB.Location = New System.Drawing.Point(275, 168)
+        Me.yearTB.Name = "yearTB"
+        Me.yearTB.Size = New System.Drawing.Size(0, 21)
+        Me.yearTB.TabIndex = 26
+        '
+        'userIDTB
+        '
+        Me.userIDTB.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.userIDTB.FormattingEnabled = True
+        Me.userIDTB.Location = New System.Drawing.Point(279, 89)
+        Me.userIDTB.Name = "userIDTB"
+        Me.userIDTB.Size = New System.Drawing.Size(121, 29)
+        Me.userIDTB.TabIndex = 27
+        '
+        'salesTypeIDTB
+        '
+        Me.salesTypeIDTB.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.salesTypeIDTB.FormattingEnabled = True
+        Me.salesTypeIDTB.Location = New System.Drawing.Point(279, 126)
+        Me.salesTypeIDTB.Name = "salesTypeIDTB"
+        Me.salesTypeIDTB.Size = New System.Drawing.Size(121, 29)
+        Me.salesTypeIDTB.TabIndex = 28
+        '
+        'paymentForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(800, 450)
-        Me.Controls.Add(Me.delete)
-        Me.Controls.Add(Me.update)
-        Me.Controls.Add(Me.noRadioButton)
-        Me.Controls.Add(Me.yesRadioButton)
-        Me.Controls.Add(Me.receiveDatePicker)
-        Me.Controls.Add(Me.submit)
-        Me.Controls.Add(Me.noteTB)
-        Me.Controls.Add(Me.receiveAmountTB)
-        Me.Controls.Add(Me.yearTB)
+        Me.ClientSize = New System.Drawing.Size(853, 450)
         Me.Controls.Add(Me.salesTypeIDTB)
         Me.Controls.Add(Me.userIDTB)
+        Me.Controls.Add(Me.yearTB)
         Me.Controls.Add(Me.userBalanceIDTB)
+        Me.Controls.Add(Me.noteTB)
+        Me.Controls.Add(Me.delete)
+        Me.Controls.Add(Me.update)
+        Me.Controls.Add(Me.receiveDatePicker)
+        Me.Controls.Add(Me.submit)
+        Me.Controls.Add(Me.receiveAmountTB)
         Me.Controls.Add(Me.Label8)
-        Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
-        Me.Name = "userBalance"
+        Me.Name = "paymentForm"
         Me.Text = "User Balance"
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -272,18 +236,15 @@ Partial Class userBalance
     Friend WithEvents Label4 As Label
     Friend WithEvents Label5 As Label
     Friend WithEvents Label6 As Label
-    Friend WithEvents Label7 As Label
     Friend WithEvents Label8 As Label
-    Friend WithEvents userBalanceIDTB As TextBox
-    Friend WithEvents userIDTB As TextBox
-    Friend WithEvents salesTypeIDTB As TextBox
-    Friend WithEvents yearTB As TextBox
     Friend WithEvents receiveAmountTB As TextBox
-    Friend WithEvents noteTB As TextBox
     Friend WithEvents submit As Button
     Friend WithEvents receiveDatePicker As DateTimePicker
-    Friend WithEvents yesRadioButton As RadioButton
-    Friend WithEvents noRadioButton As RadioButton
     Friend WithEvents update As Button
     Friend WithEvents delete As Button
+    Friend WithEvents noteTB As RichTextBox
+    Friend WithEvents userBalanceIDTB As Label
+    Friend WithEvents yearTB As Label
+    Friend WithEvents userIDTB As ComboBox
+    Friend WithEvents salesTypeIDTB As ComboBox
 End Class

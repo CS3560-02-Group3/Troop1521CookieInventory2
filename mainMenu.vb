@@ -27,6 +27,8 @@ Public Class mainMenu
         adapter4.Fill(table4)
         DataGridView4.DataSource = table4
 
+        Dim adapter5 As New MySqlDataAdapter("SELECT COUNT(userID) FROM user", conn.getConnection())
+
     End Sub
     Private Sub add_Click(sender As Object, e As EventArgs) Handles add.Click
         Dim myForm As New userForm
@@ -89,7 +91,7 @@ Public Class mainMenu
         Dim myForm As New cookieForm
         myForm.Show()
     End Sub
-    Private Sub yearCookieForm_Click(sender As Object, e As EventArgs) Handles yearCookieForm.Click
+    Private Sub yearCookieForm_Click(sender As Object, e As EventArgs)
         Dim myForm As New yearCookieForm
         myForm.yearLB.Text = cookieYearPicker.Text
         myForm.Show()
@@ -102,19 +104,27 @@ Public Class mainMenu
         Dim myForm As New warehouseform
         myForm.Show()
     End Sub
+    Private Sub paymentForm_Click(sender As Object, e As EventArgs) Handles paymentForm.Click
+        Dim myForm As New paymentForm
+        myForm.yearTB.Text = cookieYearPicker.Text
+        myForm.Show()
+    End Sub
     Private Sub load_Click(sender As Object, e As EventArgs) Handles load.Click
         mainMenu_Load(e, e)
     End Sub
     Private Sub load2_Click(sender As Object, e As EventArgs) Handles load2.Click
         mainMenu_Load(e, e)
     End Sub
-    Private Sub load3_Click(sender As Object, e As EventArgs) Handles load3.Click
+    Private Sub load3_Click(sender As Object, e As EventArgs)
         mainMenu_Load(e, e)
     End Sub
-    Private Sub load4_Click(sender As Object, e As EventArgs) Handles load4.Click
+    Private Sub load4_Click(sender As Object, e As EventArgs)
         mainMenu_Load(e, e)
     End Sub
     Private Sub load5_Click(sender As Object, e As EventArgs) Handles load5.Click
+        mainMenu_Load(e, e)
+    End Sub
+    Private Sub load6_Click(sender As Object, e As EventArgs) Handles load6.Click
         mainMenu_Load(e, e)
     End Sub
 End Class
