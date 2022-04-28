@@ -34,12 +34,14 @@ Partial Class mainMenu
         Me.TabPage4 = New System.Windows.Forms.TabPage()
         Me.yearCookieForm = New System.Windows.Forms.Button()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
         Me.cookieForm = New System.Windows.Forms.Button()
         Me.load3 = New System.Windows.Forms.Button()
         Me.DataGridView3 = New System.Windows.Forms.DataGridView()
         Me.BackgroundWorker1 = New System.ComponentModel.BackgroundWorker()
         Me.BackgroundWorker2 = New System.ComponentModel.BackgroundWorker()
+        Me.DataGridView4 = New System.Windows.Forms.DataGridView()
+        Me.load4 = New System.Windows.Forms.Button()
+        Me.cookieYearPicker = New System.Windows.Forms.NumericUpDown()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.TabPage2.SuspendLayout()
@@ -48,6 +50,8 @@ Partial Class mainMenu
         CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPage4.SuspendLayout()
         CType(Me.DataGridView3, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DataGridView4, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.cookieYearPicker, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'TabControl1
@@ -147,9 +151,11 @@ Partial Class mainMenu
         '
         'TabPage4
         '
+        Me.TabPage4.Controls.Add(Me.cookieYearPicker)
+        Me.TabPage4.Controls.Add(Me.load4)
+        Me.TabPage4.Controls.Add(Me.DataGridView4)
         Me.TabPage4.Controls.Add(Me.yearCookieForm)
         Me.TabPage4.Controls.Add(Me.Label2)
-        Me.TabPage4.Controls.Add(Me.DateTimePicker1)
         Me.TabPage4.Controls.Add(Me.cookieForm)
         Me.TabPage4.Controls.Add(Me.load3)
         Me.TabPage4.Controls.Add(Me.DataGridView3)
@@ -163,7 +169,7 @@ Partial Class mainMenu
         '
         'yearCookieForm
         '
-        Me.yearCookieForm.Location = New System.Drawing.Point(534, 12)
+        Me.yearCookieForm.Location = New System.Drawing.Point(416, 6)
         Me.yearCookieForm.Name = "yearCookieForm"
         Me.yearCookieForm.Size = New System.Drawing.Size(166, 32)
         Me.yearCookieForm.TabIndex = 9
@@ -178,16 +184,6 @@ Partial Class mainMenu
         Me.Label2.Size = New System.Drawing.Size(96, 21)
         Me.Label2.TabIndex = 8
         Me.Label2.Text = "Cookie Year"
-        '
-        'DateTimePicker1
-        '
-        Me.DateTimePicker1.CustomFormat = "yyyy"
-        Me.DateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.DateTimePicker1.Location = New System.Drawing.Point(1207, 9)
-        Me.DateTimePicker1.Name = "DateTimePicker1"
-        Me.DateTimePicker1.ShowUpDown = True
-        Me.DateTimePicker1.Size = New System.Drawing.Size(80, 29)
-        Me.DateTimePicker1.TabIndex = 7
         '
         'cookieForm
         '
@@ -215,6 +211,32 @@ Partial Class mainMenu
         Me.DataGridView3.Size = New System.Drawing.Size(279, 381)
         Me.DataGridView3.TabIndex = 3
         '
+        'DataGridView4
+        '
+        Me.DataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView4.Location = New System.Drawing.Point(313, 44)
+        Me.DataGridView4.Name = "DataGridView4"
+        Me.DataGridView4.Size = New System.Drawing.Size(490, 381)
+        Me.DataGridView4.TabIndex = 10
+        '
+        'load4
+        '
+        Me.load4.Location = New System.Drawing.Point(313, 6)
+        Me.load4.Name = "load4"
+        Me.load4.Size = New System.Drawing.Size(97, 32)
+        Me.load4.TabIndex = 11
+        Me.load4.Text = "Load"
+        Me.load4.UseVisualStyleBackColor = True
+        '
+        'cookieYearPicker
+        '
+        Me.cookieYearPicker.Location = New System.Drawing.Point(1207, 10)
+        Me.cookieYearPicker.Maximum = New Decimal(New Integer() {9999, 0, 0, 0})
+        Me.cookieYearPicker.Name = "cookieYearPicker"
+        Me.cookieYearPicker.Size = New System.Drawing.Size(68, 29)
+        Me.cookieYearPicker.TabIndex = 12
+        Me.cookieYearPicker.Value = New Decimal(New Integer() {2022, 0, 0, 0})
+        '
         'mainMenu
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -233,6 +255,8 @@ Partial Class mainMenu
         Me.TabPage4.ResumeLayout(False)
         Me.TabPage4.PerformLayout()
         CType(Me.DataGridView3, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DataGridView4, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.cookieYearPicker, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -251,8 +275,10 @@ Partial Class mainMenu
     Friend WithEvents cookieForm As Button
     Friend WithEvents load3 As Button
     Friend WithEvents DataGridView3 As DataGridView
-    Friend WithEvents DateTimePicker1 As DateTimePicker
     Friend WithEvents Label2 As Label
     Friend WithEvents yearCookieForm As Button
     Friend WithEvents BackgroundWorker2 As System.ComponentModel.BackgroundWorker
+    Friend WithEvents DataGridView4 As DataGridView
+    Friend WithEvents load4 As Button
+    Friend WithEvents cookieYearPicker As NumericUpDown
 End Class

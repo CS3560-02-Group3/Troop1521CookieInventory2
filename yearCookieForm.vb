@@ -14,7 +14,7 @@ Public Class yearCookieForm
     Private Sub insert_Click(sender As Object, e As EventArgs) Handles insert.Click
         Dim confirmMsg = MessageBox.Show("Are you sure you want to insert?", "Insert", MessageBoxButtons.YesNo)
         If confirmMsg = DialogResult.Yes Then
-            Dim cookieID As Integer = cookieCB.Text
+            Dim cookieID As Integer = cookieCB.SelectedValue
             Dim year As Integer = yearLB.Text
             Dim price As Decimal = priceTB.Text
             Dim conn As New myConnection()

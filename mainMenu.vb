@@ -18,6 +18,15 @@ Public Class mainMenu
         Dim adapter3 As New MySqlDataAdapter("SELECT * FROM `cookie`", conn.getConnection())
         adapter3.Fill(table3)
         DataGridView3.DataSource = table3
+
+        Dim table4 As New DataTable()
+        Dim year = cookieYearPicker.Text
+        Dim command4 As New MySqlCommand("SELECT yearCookieID, cookie.Name, price FROM yearCookie INNER JOIN cookie ON cookie.cookieID = yearCookieID WHERE year = 2022", conn.getConnection())
+        'command4.Parameters.Add("@year", MySqlDbType.Int16).Value = year
+        Dim adapter4 As New MySqlDataAdapter(command4)
+        adapter4.Fill(table4)
+        DataGridView4.DataSource = table4
+
     End Sub
     Private Sub add_Click(sender As Object, e As EventArgs) Handles add.Click
         Dim myForm As New userForm
@@ -64,11 +73,6 @@ Public Class mainMenu
         mainMenu_Load(e, e)
     End Sub
 
-    Private Sub cookieForm_Click(sender As Object, e As EventArgs)
-        Dim myForm As New cookieForm
-        myForm.Show()
-    End Sub
-
     Private Sub DataGridView3_CellContentClick(sender As Object, e As DataGridViewCellEventArgs)
         If e.RowIndex = -1 Then
             Return
@@ -81,14 +85,22 @@ Public Class mainMenu
         myForm.Show()
         mainMenu_Load(e, e)
     End Sub
+    Private Sub cookieForm_Click(sender As Object, e As EventArgs)
+        Dim myForm As New cookieForm
+        myForm.Show()
+    End Sub
+    Private Sub yearCookieForm_Click(sender As Object, e As EventArgs) Handles yearCookieForm.Click
+        Dim myForm As New yearCookieForm
+        myForm.yearLB.Text = cookieYearPicker.Text
+        myForm.Show()
+    End Sub
     Private Sub load_Click(sender As Object, e As EventArgs) Handles load.Click
         mainMenu_Load(e, e)
     End Sub
     Private Sub load3_Click(sender As Object, e As EventArgs)
         mainMenu_Load(e, e)
     End Sub
-    Private Sub yearCookieForm_Click(sender As Object, e As EventArgs) Handles yearCookieForm.Click
-        Dim myForm As New yearCookieForm
-        myForm.Show()
+    Private Sub load4_Click(sender As Object, e As EventArgs) Handles load4.Click
+        mainMenu_Load(e, e)
     End Sub
 End Class
