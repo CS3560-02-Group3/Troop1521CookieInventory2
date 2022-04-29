@@ -10,6 +10,13 @@ Public Class mainMenu
         DataGridView1.DataSource = table
         totalGirlsLB.Text = DataGridView1.Rows.Count - 1
 
+        Dim userFilterTable As New DataTable()
+        Dim userFilterAdapter As New MySqlDataAdapter("select Column_name from INFORMATION_SCHEMA.COLUMNS where TABLE_NAME='user'", conn.getConnection())
+        userFilterAdapter.Fill(userFilterTable)
+        userFilterCB.DataSource = userFilterTable
+        userFilterCB.DisplayMember = "Column_name"
+        userFilterCB.ValueMember = "Column_name"
+
         Dim table2 As New DataTable()
         Dim adapter2 As New MySqlDataAdapter("SELECT * FROM `userCookie`", conn.getConnection())
         adapter2.Fill(table2)
@@ -32,7 +39,6 @@ Public Class mainMenu
         Dim myForm As New userForm
         myForm.Show()
     End Sub
-
     Private Sub DataGridView1_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
         If e.RowIndex = -1 Then
             Return
@@ -50,9 +56,7 @@ Public Class mainMenu
         myForm.noteTE.Text = selectedRow.Cells(7).Value
         myForm.Show()
         mainMenu_Load(e, e)
-
     End Sub
-
     Private Sub DataGridView2_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView2.CellContentClick
         If e.RowIndex = -1 Then
             Return
@@ -72,7 +76,6 @@ Public Class mainMenu
         myForm.Show()
         mainMenu_Load(e, e)
     End Sub
-
     Private Sub DataGridView3_CellContentClick(sender As Object, e As DataGridViewCellEventArgs)
         If e.RowIndex = -1 Then
             Return
@@ -124,5 +127,23 @@ Public Class mainMenu
     End Sub
     Private Sub load6_Click(sender As Object, e As EventArgs) Handles load6.Click
         mainMenu_Load(e, e)
+    End Sub
+    Private Sub filter_Click(sender As Object, e As EventArgs) Handles filter.Click
+        Dim conn As New myConnection()
+        Dim table As New DataTable()
+        Dim column = userFilterCB.SelectedValue
+        Dim dataType = Type.GetTypeCode(column.GetType())
+        Dim input = userFilterTB.Text
+        Dim command As New MySqlCommand("SELECT * FROM `user` WHERE userID = @input", conn.getConnection())
+        If dataType = TypeCode.Int16 Then
+            command.Parameters.Add("@column", MySqlDbType.Int16).Value = column
+        ElseIf dataType = TypeCode.String Then
+            command.Parameters.Add("@column", MySqlDbType.VarChar).Value = column
+        End If
+        command.Parameters.Add("@input", MySqlDbType.VarChar).Value = input
+        Dim adapter As New MySqlDataAdapter(command)
+        adapter.Fill(table)
+        DataGridView1.DataSource = table
+        totalGirlsLB.Text = DataGridView1.Rows.Count - 1
     End Sub
 End Class

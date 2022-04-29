@@ -24,8 +24,13 @@ Partial Class mainMenu
     Private Sub InitializeComponent()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
+        Me.DataGridView5 = New System.Windows.Forms.DataGridView()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
+        Me.filter = New System.Windows.Forms.Button()
+        Me.userFilterCB = New System.Windows.Forms.ComboBox()
+        Me.totalGirlsLB = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
         Me.add = New System.Windows.Forms.Button()
         Me.load = New System.Windows.Forms.Button()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
@@ -34,40 +39,38 @@ Partial Class mainMenu
         Me.cookieOrderForm = New System.Windows.Forms.Button()
         Me.DataGridView2 = New System.Windows.Forms.DataGridView()
         Me.TabPage5 = New System.Windows.Forms.TabPage()
+        Me.DataGridView6 = New System.Windows.Forms.DataGridView()
         Me.load5 = New System.Windows.Forms.Button()
         Me.warehouseForm = New System.Windows.Forms.Button()
+        Me.TabPage6 = New System.Windows.Forms.TabPage()
+        Me.load6 = New System.Windows.Forms.Button()
+        Me.paymentForm = New System.Windows.Forms.Button()
+        Me.TabPage7 = New System.Windows.Forms.TabPage()
+        Me.cookieYearPicker = New System.Windows.Forms.NumericUpDown()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.DataGridView4 = New System.Windows.Forms.DataGridView()
+        Me.yearCookieForm = New System.Windows.Forms.Button()
+        Me.load4 = New System.Windows.Forms.Button()
+        Me.DataGridView3 = New System.Windows.Forms.DataGridView()
+        Me.cookieForm = New System.Windows.Forms.Button()
+        Me.load3 = New System.Windows.Forms.Button()
         Me.BackgroundWorker1 = New System.ComponentModel.BackgroundWorker()
         Me.BackgroundWorker2 = New System.ComponentModel.BackgroundWorker()
-        Me.TabPage6 = New System.Windows.Forms.TabPage()
-        Me.TabPage7 = New System.Windows.Forms.TabPage()
-        Me.load3 = New System.Windows.Forms.Button()
-        Me.cookieForm = New System.Windows.Forms.Button()
-        Me.DataGridView3 = New System.Windows.Forms.DataGridView()
-        Me.load4 = New System.Windows.Forms.Button()
-        Me.yearCookieForm = New System.Windows.Forms.Button()
-        Me.DataGridView4 = New System.Windows.Forms.DataGridView()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.cookieYearPicker = New System.Windows.Forms.NumericUpDown()
-        Me.DataGridView5 = New System.Windows.Forms.DataGridView()
-        Me.DataGridView6 = New System.Windows.Forms.DataGridView()
-        Me.paymentForm = New System.Windows.Forms.Button()
-        Me.load6 = New System.Windows.Forms.Button()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.totalGirlsLB = New System.Windows.Forms.Label()
+        Me.userFilterTB = New System.Windows.Forms.TextBox()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
+        CType(Me.DataGridView5, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPage2.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPage3.SuspendLayout()
         CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPage5.SuspendLayout()
+        CType(Me.DataGridView6, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPage6.SuspendLayout()
         Me.TabPage7.SuspendLayout()
-        CType(Me.DataGridView3, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DataGridView4, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.cookieYearPicker, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DataGridView5, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DataGridView6, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DataGridView4, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DataGridView3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'TabControl1
@@ -101,6 +104,14 @@ Partial Class mainMenu
         Me.TabPage1.Text = "Home"
         Me.TabPage1.UseVisualStyleBackColor = True
         '
+        'DataGridView5
+        '
+        Me.DataGridView5.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView5.Location = New System.Drawing.Point(32, 54)
+        Me.DataGridView5.Name = "DataGridView5"
+        Me.DataGridView5.Size = New System.Drawing.Size(938, 359)
+        Me.DataGridView5.TabIndex = 1
+        '
         'Label1
         '
         Me.Label1.AutoSize = True
@@ -112,6 +123,9 @@ Partial Class mainMenu
         '
         'TabPage2
         '
+        Me.TabPage2.Controls.Add(Me.userFilterTB)
+        Me.TabPage2.Controls.Add(Me.filter)
+        Me.TabPage2.Controls.Add(Me.userFilterCB)
         Me.TabPage2.Controls.Add(Me.totalGirlsLB)
         Me.TabPage2.Controls.Add(Me.Label3)
         Me.TabPage2.Controls.Add(Me.add)
@@ -124,6 +138,40 @@ Partial Class mainMenu
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Girls"
         Me.TabPage2.UseVisualStyleBackColor = True
+        '
+        'filter
+        '
+        Me.filter.Location = New System.Drawing.Point(493, 7)
+        Me.filter.Name = "filter"
+        Me.filter.Size = New System.Drawing.Size(78, 39)
+        Me.filter.TabIndex = 8
+        Me.filter.Text = "Filter"
+        Me.filter.UseVisualStyleBackColor = True
+        '
+        'userFilterCB
+        '
+        Me.userFilterCB.FormattingEnabled = True
+        Me.userFilterCB.Location = New System.Drawing.Point(227, 13)
+        Me.userFilterCB.Name = "userFilterCB"
+        Me.userFilterCB.Size = New System.Drawing.Size(121, 29)
+        Me.userFilterCB.TabIndex = 7
+        '
+        'totalGirlsLB
+        '
+        Me.totalGirlsLB.AutoSize = True
+        Me.totalGirlsLB.Location = New System.Drawing.Point(99, 620)
+        Me.totalGirlsLB.Name = "totalGirlsLB"
+        Me.totalGirlsLB.Size = New System.Drawing.Size(0, 21)
+        Me.totalGirlsLB.TabIndex = 6
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(8, 620)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(85, 21)
+        Me.Label3.TabIndex = 5
+        Me.Label3.Text = "Total Girls:"
         '
         'add
         '
@@ -203,6 +251,14 @@ Partial Class mainMenu
         Me.TabPage5.Text = "Inventory"
         Me.TabPage5.UseVisualStyleBackColor = True
         '
+        'DataGridView6
+        '
+        Me.DataGridView6.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView6.Location = New System.Drawing.Point(8, 40)
+        Me.DataGridView6.Name = "DataGridView6"
+        Me.DataGridView6.Size = New System.Drawing.Size(422, 407)
+        Me.DataGridView6.TabIndex = 6
+        '
         'load5
         '
         Me.load5.Location = New System.Drawing.Point(8, 6)
@@ -233,6 +289,24 @@ Partial Class mainMenu
         Me.TabPage6.Text = "Transactions"
         Me.TabPage6.UseVisualStyleBackColor = True
         '
+        'load6
+        '
+        Me.load6.Location = New System.Drawing.Point(11, 6)
+        Me.load6.Name = "load6"
+        Me.load6.Size = New System.Drawing.Size(78, 28)
+        Me.load6.TabIndex = 6
+        Me.load6.Text = "Load"
+        Me.load6.UseVisualStyleBackColor = True
+        '
+        'paymentForm
+        '
+        Me.paymentForm.Location = New System.Drawing.Point(95, 6)
+        Me.paymentForm.Name = "paymentForm"
+        Me.paymentForm.Size = New System.Drawing.Size(135, 28)
+        Me.paymentForm.TabIndex = 1
+        Me.paymentForm.Text = "Add Payment"
+        Me.paymentForm.UseVisualStyleBackColor = True
+        '
         'TabPage7
         '
         Me.TabPage7.Controls.Add(Me.cookieYearPicker)
@@ -251,57 +325,14 @@ Partial Class mainMenu
         Me.TabPage7.Text = "Settings"
         Me.TabPage7.UseVisualStyleBackColor = True
         '
-        'load3
+        'cookieYearPicker
         '
-        Me.load3.Location = New System.Drawing.Point(8, 6)
-        Me.load3.Name = "load3"
-        Me.load3.Size = New System.Drawing.Size(97, 32)
-        Me.load3.TabIndex = 5
-        Me.load3.Text = "Load"
-        Me.load3.UseVisualStyleBackColor = True
-        '
-        'cookieForm
-        '
-        Me.cookieForm.Location = New System.Drawing.Point(111, 6)
-        Me.cookieForm.Name = "cookieForm"
-        Me.cookieForm.Size = New System.Drawing.Size(146, 32)
-        Me.cookieForm.TabIndex = 6
-        Me.cookieForm.Text = "Add New Cookie"
-        Me.cookieForm.UseVisualStyleBackColor = True
-        '
-        'DataGridView3
-        '
-        Me.DataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView3.Location = New System.Drawing.Point(8, 44)
-        Me.DataGridView3.Name = "DataGridView3"
-        Me.DataGridView3.Size = New System.Drawing.Size(279, 381)
-        Me.DataGridView3.TabIndex = 7
-        '
-        'load4
-        '
-        Me.load4.Location = New System.Drawing.Point(307, 6)
-        Me.load4.Name = "load4"
-        Me.load4.Size = New System.Drawing.Size(97, 32)
-        Me.load4.TabIndex = 12
-        Me.load4.Text = "Load"
-        Me.load4.UseVisualStyleBackColor = True
-        '
-        'yearCookieForm
-        '
-        Me.yearCookieForm.Location = New System.Drawing.Point(410, 6)
-        Me.yearCookieForm.Name = "yearCookieForm"
-        Me.yearCookieForm.Size = New System.Drawing.Size(166, 32)
-        Me.yearCookieForm.TabIndex = 13
-        Me.yearCookieForm.Text = "Add Price of Cookie"
-        Me.yearCookieForm.UseVisualStyleBackColor = True
-        '
-        'DataGridView4
-        '
-        Me.DataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView4.Location = New System.Drawing.Point(307, 44)
-        Me.DataGridView4.Name = "DataGridView4"
-        Me.DataGridView4.Size = New System.Drawing.Size(490, 381)
-        Me.DataGridView4.TabIndex = 14
+        Me.cookieYearPicker.Location = New System.Drawing.Point(1240, 15)
+        Me.cookieYearPicker.Maximum = New Decimal(New Integer() {9999, 0, 0, 0})
+        Me.cookieYearPicker.Name = "cookieYearPicker"
+        Me.cookieYearPicker.Size = New System.Drawing.Size(68, 29)
+        Me.cookieYearPicker.TabIndex = 16
+        Me.cookieYearPicker.Value = New Decimal(New Integer() {2022, 0, 0, 0})
         '
         'Label2
         '
@@ -312,65 +343,64 @@ Partial Class mainMenu
         Me.Label2.TabIndex = 15
         Me.Label2.Text = "Cookie Year"
         '
-        'cookieYearPicker
+        'DataGridView4
         '
-        Me.cookieYearPicker.Location = New System.Drawing.Point(1240, 15)
-        Me.cookieYearPicker.Maximum = New Decimal(New Integer() {9999, 0, 0, 0})
-        Me.cookieYearPicker.Name = "cookieYearPicker"
-        Me.cookieYearPicker.Size = New System.Drawing.Size(68, 29)
-        Me.cookieYearPicker.TabIndex = 16
-        Me.cookieYearPicker.Value = New Decimal(New Integer() {2022, 0, 0, 0})
+        Me.DataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView4.Location = New System.Drawing.Point(307, 44)
+        Me.DataGridView4.Name = "DataGridView4"
+        Me.DataGridView4.Size = New System.Drawing.Size(490, 381)
+        Me.DataGridView4.TabIndex = 14
         '
-        'DataGridView5
+        'yearCookieForm
         '
-        Me.DataGridView5.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView5.Location = New System.Drawing.Point(32, 54)
-        Me.DataGridView5.Name = "DataGridView5"
-        Me.DataGridView5.Size = New System.Drawing.Size(938, 359)
-        Me.DataGridView5.TabIndex = 1
+        Me.yearCookieForm.Location = New System.Drawing.Point(410, 6)
+        Me.yearCookieForm.Name = "yearCookieForm"
+        Me.yearCookieForm.Size = New System.Drawing.Size(166, 32)
+        Me.yearCookieForm.TabIndex = 13
+        Me.yearCookieForm.Text = "Add Price of Cookie"
+        Me.yearCookieForm.UseVisualStyleBackColor = True
         '
-        'DataGridView6
+        'load4
         '
-        Me.DataGridView6.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView6.Location = New System.Drawing.Point(8, 40)
-        Me.DataGridView6.Name = "DataGridView6"
-        Me.DataGridView6.Size = New System.Drawing.Size(422, 407)
-        Me.DataGridView6.TabIndex = 6
+        Me.load4.Location = New System.Drawing.Point(307, 6)
+        Me.load4.Name = "load4"
+        Me.load4.Size = New System.Drawing.Size(97, 32)
+        Me.load4.TabIndex = 12
+        Me.load4.Text = "Load"
+        Me.load4.UseVisualStyleBackColor = True
         '
-        'paymentForm
+        'DataGridView3
         '
-        Me.paymentForm.Location = New System.Drawing.Point(95, 6)
-        Me.paymentForm.Name = "paymentForm"
-        Me.paymentForm.Size = New System.Drawing.Size(135, 28)
-        Me.paymentForm.TabIndex = 1
-        Me.paymentForm.Text = "Add Payment"
-        Me.paymentForm.UseVisualStyleBackColor = True
+        Me.DataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView3.Location = New System.Drawing.Point(8, 44)
+        Me.DataGridView3.Name = "DataGridView3"
+        Me.DataGridView3.Size = New System.Drawing.Size(279, 381)
+        Me.DataGridView3.TabIndex = 7
         '
-        'load6
+        'cookieForm
         '
-        Me.load6.Location = New System.Drawing.Point(11, 6)
-        Me.load6.Name = "load6"
-        Me.load6.Size = New System.Drawing.Size(78, 28)
-        Me.load6.TabIndex = 6
-        Me.load6.Text = "Load"
-        Me.load6.UseVisualStyleBackColor = True
+        Me.cookieForm.Location = New System.Drawing.Point(111, 6)
+        Me.cookieForm.Name = "cookieForm"
+        Me.cookieForm.Size = New System.Drawing.Size(146, 32)
+        Me.cookieForm.TabIndex = 6
+        Me.cookieForm.Text = "Add New Cookie"
+        Me.cookieForm.UseVisualStyleBackColor = True
         '
-        'Label3
+        'load3
         '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(8, 620)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(85, 21)
-        Me.Label3.TabIndex = 5
-        Me.Label3.Text = "Total Girls:"
+        Me.load3.Location = New System.Drawing.Point(8, 6)
+        Me.load3.Name = "load3"
+        Me.load3.Size = New System.Drawing.Size(97, 32)
+        Me.load3.TabIndex = 5
+        Me.load3.Text = "Load"
+        Me.load3.UseVisualStyleBackColor = True
         '
-        'totalGirlsLB
+        'userFilterTB
         '
-        Me.totalGirlsLB.AutoSize = True
-        Me.totalGirlsLB.Location = New System.Drawing.Point(99, 620)
-        Me.totalGirlsLB.Name = "totalGirlsLB"
-        Me.totalGirlsLB.Size = New System.Drawing.Size(0, 21)
-        Me.totalGirlsLB.TabIndex = 6
+        Me.userFilterTB.Location = New System.Drawing.Point(354, 13)
+        Me.userFilterTB.Name = "userFilterTB"
+        Me.userFilterTB.Size = New System.Drawing.Size(133, 29)
+        Me.userFilterTB.TabIndex = 9
         '
         'mainMenu
         '
@@ -383,20 +413,20 @@ Partial Class mainMenu
         Me.TabControl1.ResumeLayout(False)
         Me.TabPage1.ResumeLayout(False)
         Me.TabPage1.PerformLayout()
+        CType(Me.DataGridView5, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabPage2.ResumeLayout(False)
         Me.TabPage2.PerformLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabPage3.ResumeLayout(False)
         CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabPage5.ResumeLayout(False)
+        CType(Me.DataGridView6, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabPage6.ResumeLayout(False)
         Me.TabPage7.ResumeLayout(False)
         Me.TabPage7.PerformLayout()
-        CType(Me.DataGridView3, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DataGridView4, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.cookieYearPicker, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DataGridView5, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DataGridView6, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DataGridView4, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DataGridView3, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -433,4 +463,7 @@ Partial Class mainMenu
     Friend WithEvents load3 As Button
     Friend WithEvents totalGirlsLB As Label
     Friend WithEvents Label3 As Label
+    Friend WithEvents userFilterCB As ComboBox
+    Friend WithEvents filter As Button
+    Friend WithEvents userFilterTB As TextBox
 End Class
