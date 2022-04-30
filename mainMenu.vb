@@ -58,22 +58,22 @@ Public Class mainMenu
         mainMenu_Load(e, e)
     End Sub
     Private Sub DataGridView2_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView2.CellContentClick
-        If e.RowIndex = -1 Then
-            Return
-        End If
-        Dim selectedRow As DataGridViewRow
-        selectedRow = DataGridView2.Rows(e.RowIndex)
-        Dim myForm As New cookieOrderForm
-        myForm.orderIDTE.Text = selectedRow.Cells(0).Value
-        myForm.userIDTE.Text = selectedRow.Cells(0).Value
-        myForm.inventoryIDTE.Text = selectedRow.Cells(1).Value
-        myForm.yearCookieIDTE.Text = selectedRow.Cells(2).Value
-        myForm.DateTimePicker1.Text = selectedRow.Cells(3).Value
-        myForm.orderTB.Text = selectedRow.Cells(4).Value
-        myForm.pickupTB.Text = selectedRow.Cells(5).Value
-        myForm.returnTB.Text = selectedRow.Cells(6).Value
-        myForm.cookieNTB.Text = selectedRow.Cells(7).Value
-        myForm.Show()
+        'If e.RowIndex = -1 Then
+        '    Return
+        'End If
+        'Dim selectedRow As DataGridViewRow
+        'selectedRow = DataGridView2.Rows(e.RowIndex)
+        'Dim myForm As New cookieOrderForm
+        'myForm.orderIDTE.Text = selectedRow.Cells(0).Value
+        'myForm.userIDTE.Text = selectedRow.Cells(0).Value
+        'myForm.inventoryIDTE.Text = selectedRow.Cells(1).Value
+        'myForm.yearCookieIDTE.Text = selectedRow.Cells(2).Value
+        'myForm.DateTimePicker1.Text = selectedRow.Cells(3).Value
+        'myForm.orderTB.Text = selectedRow.Cells(4).Value
+        'myForm.pickupTB.Text = selectedRow.Cells(5).Value
+        'myForm.returnTB.Text = selectedRow.Cells(6).Value
+        'myForm.cookieNTB.Text = selectedRow.Cells(7).Value
+        'myForm.Show()
         mainMenu_Load(e, e)
     End Sub
     Private Sub DataGridView3_CellContentClick(sender As Object, e As DataGridViewCellEventArgs)
@@ -88,11 +88,11 @@ Public Class mainMenu
         myForm.Show()
         mainMenu_Load(e, e)
     End Sub
-    Private Sub cookieForm_Click(sender As Object, e As EventArgs)
+    Private Sub cookieForm_Click(sender As Object, e As EventArgs) Handles cookieForm.Click
         Dim myForm As New cookieForm
         myForm.Show()
     End Sub
-    Private Sub yearCookieForm_Click(sender As Object, e As EventArgs)
+    Private Sub yearCookieForm_Click(sender As Object, e As EventArgs) Handles yearCookieForm.Click
         Dim myForm As New yearCookieForm
         myForm.yearLB.Text = cookieYearPicker.Text
         myForm.Show()
@@ -116,10 +116,10 @@ Public Class mainMenu
     Private Sub load2_Click(sender As Object, e As EventArgs) Handles load2.Click
         mainMenu_Load(e, e)
     End Sub
-    Private Sub load3_Click(sender As Object, e As EventArgs)
+    Private Sub load3_Click(sender As Object, e As EventArgs) Handles load3.Click
         mainMenu_Load(e, e)
     End Sub
-    Private Sub load4_Click(sender As Object, e As EventArgs)
+    Private Sub load4_Click(sender As Object, e As EventArgs) Handles load4.Click
         mainMenu_Load(e, e)
     End Sub
     Private Sub load5_Click(sender As Object, e As EventArgs) Handles load5.Click

@@ -27,6 +27,7 @@ Partial Class mainMenu
         Me.DataGridView5 = New System.Windows.Forms.DataGridView()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
+        Me.userFilterTB = New System.Windows.Forms.TextBox()
         Me.filter = New System.Windows.Forms.Button()
         Me.userFilterCB = New System.Windows.Forms.ComboBox()
         Me.totalGirlsLB = New System.Windows.Forms.Label()
@@ -56,7 +57,6 @@ Partial Class mainMenu
         Me.load3 = New System.Windows.Forms.Button()
         Me.BackgroundWorker1 = New System.ComponentModel.BackgroundWorker()
         Me.BackgroundWorker2 = New System.ComponentModel.BackgroundWorker()
-        Me.userFilterTB = New System.Windows.Forms.TextBox()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         CType(Me.DataGridView5, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -138,6 +138,13 @@ Partial Class mainMenu
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Girls"
         Me.TabPage2.UseVisualStyleBackColor = True
+        '
+        'userFilterTB
+        '
+        Me.userFilterTB.Location = New System.Drawing.Point(354, 13)
+        Me.userFilterTB.Name = "userFilterTB"
+        Me.userFilterTB.Size = New System.Drawing.Size(133, 29)
+        Me.userFilterTB.TabIndex = 9
         '
         'filter
         '
@@ -394,13 +401,6 @@ Partial Class mainMenu
         Me.load3.TabIndex = 5
         Me.load3.Text = "Load"
         Me.load3.UseVisualStyleBackColor = True
-        '
-        'userFilterTB
-        '
-        Me.userFilterTB.Location = New System.Drawing.Point(354, 13)
-        Me.userFilterTB.Name = "userFilterTB"
-        Me.userFilterTB.Size = New System.Drawing.Size(133, 29)
-        Me.userFilterTB.TabIndex = 9
         '
         'mainMenu
         '

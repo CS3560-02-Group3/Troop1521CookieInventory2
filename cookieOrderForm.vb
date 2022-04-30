@@ -1,5 +1,19 @@
 ﻿Imports MySql.Data.MySqlClient
 Public Class cookieOrderForm
+    Private Sub cookieOrder_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Dim conn As New myConnection()
+        Dim table As New DataTable()
+        Dim adapter As New MySqlDataAdapter("SELECT inventoryID, year, warehouse.name AS warehouse, cookie.name AS cookie, 
+                                            CASE
+                                                WHEN ISNULL((SELECT sum(orderQuantity) FROM userCookie WHERE userCookie.inventoryID = inventory.inventoryID)) = 1 THEN inventory.inQuantity
+                                                ELSE inventory.inQuantity - (SELECT sum(orderQuantity) FROM userCookie WHERE userCookie.inventoryID = inventory.inventoryID)
+                                            END as remainingQuantity
+                                            FROM inventory INNER JOIN warehouse ON inventory.warehouseID = warehouse.warehouseID
+                                            INNER JOIN yearCookie ON inventory.yearCookieID = yearCookie.yearCookieID
+                                            INNER JOIN cookie ON cookie.cookieID = yearCookie.cookieID", conn.getConnection())
+        adapter.Fill(table)
+        DataGridView1.DataSource = table
+    End Sub
     Private Sub Insert_Click(sender As Object, e As EventArgs) Handles insert.Click
         Dim confirmMsg = MessageBox.Show("Are you sure you want to insert?", "Insert", MessageBoxButtons.YesNo)
         If confirmMsg = DialogResult.Yes Then
@@ -120,9 +134,5 @@ Public Class cookieOrderForm
     '            End If
     '        End If
     '    End If
-    'End Sub
-
-    'Private Sub cookieOrder_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
     'End Sub
 End Class
