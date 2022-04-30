@@ -69,9 +69,9 @@ Public Class mainMenu
         myForm.inventoryIDTE.Text = selectedRow.Cells(1).Value
         myForm.yearCookieIDTE.Text = selectedRow.Cells(2).Value
         myForm.DateTimePicker1.Text = selectedRow.Cells(3).Value
-        myForm.orderQTB.Text = selectedRow.Cells(4).Value
-        myForm.pickupQTB.Text = selectedRow.Cells(5).Value
-        myForm.returnQTB.Text = selectedRow.Cells(6).Value
+        myForm.orderTB.Text = selectedRow.Cells(4).Value
+        myForm.pickupTB.Text = selectedRow.Cells(5).Value
+        myForm.returnTB.Text = selectedRow.Cells(6).Value
         myForm.cookieNTB.Text = selectedRow.Cells(7).Value
         myForm.Show()
         mainMenu_Load(e, e)
