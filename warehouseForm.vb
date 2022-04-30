@@ -5,7 +5,7 @@ Public Class warehouseform
 
         If confirmMsg = DialogResult.Yes Then
 
-            Dim firstName As String = nameTB.Text
+            Dim name As String = nameTB.Text
             Dim address As String = AddressTB.Text
             Dim phone As Integer = PhoneTB.Text
             Dim note As String = noteTE.Text
@@ -13,9 +13,9 @@ Public Class warehouseform
             Dim conn As New myConnection()
 
             'fix SQL query below
-            Dim command As New MySqlCommand("INSERT INTO `warehouse`(`name`, `address`,  `phone`, `note`) VALUES (@Name,  @address, @phone, @note)", conn.getConnection())
+            Dim command As New MySqlCommand("INSERT INTO `warehouse`(`name`, `address`,  `phone`, `note`) VALUES (@name,  @address, @phone, @note)", conn.getConnection())
 
-            command.Parameters.Add("@firstName", MySqlDbType.VarChar).Value = firstName
+            command.Parameters.Add("@name", MySqlDbType.VarChar).Value = name
             command.Parameters.Add("@address", MySqlDbType.VarChar).Value = address
             command.Parameters.Add("@phone", MySqlDbType.Int16).Value = phone
             command.Parameters.Add("@note", MySqlDbType.VarChar).Value = note
