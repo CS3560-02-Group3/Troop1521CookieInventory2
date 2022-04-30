@@ -129,21 +129,26 @@ Public Class mainMenu
         mainMenu_Load(e, e)
     End Sub
     Private Sub filter_Click(sender As Object, e As EventArgs) Handles filter.Click
-        Dim conn As New myConnection()
-        Dim table As New DataTable()
-        Dim column = userFilterCB.SelectedValue
-        Dim dataType = Type.GetTypeCode(column.GetType())
-        Dim input = userFilterTB.Text
-        Dim command As New MySqlCommand("SELECT * FROM `user` WHERE userID = @input", conn.getConnection())
-        If dataType = TypeCode.Int16 Then
-            command.Parameters.Add("@column", MySqlDbType.Int16).Value = column
-        ElseIf dataType = TypeCode.String Then
-            command.Parameters.Add("@column", MySqlDbType.VarChar).Value = column
+        If userFilterTB.Text = "" Then
+            mainMenu_Load(e, e)
+        Else
+            Dim conn As New myConnection()
+            Dim table As New DataTable()
+            Dim column = userFilterCB.SelectedValue
+
+            Dim input = ""
+            If userFilterTB.Text = "userID" Then
+                input = userFilterTB.Text
+            Else
+                input = "%" & userFilterTB.Text & "%"
+            End If
+
+            Dim command As New MySqlCommand("SELECT * FROM `user` WHERE " & column & " LIKE @input", conn.getConnection())
+            command.Parameters.Add("@input", MySqlDbType.VarChar).Value = input
+            Dim adapter As New MySqlDataAdapter(command)
+            adapter.Fill(table)
+            DataGridView1.DataSource = table
+            totalGirlsLB.Text = DataGridView1.Rows.Count - 1
         End If
-        command.Parameters.Add("@input", MySqlDbType.VarChar).Value = input
-        Dim adapter As New MySqlDataAdapter(command)
-        adapter.Fill(table)
-        DataGridView1.DataSource = table
-        totalGirlsLB.Text = DataGridView1.Rows.Count - 1
     End Sub
 End Class
