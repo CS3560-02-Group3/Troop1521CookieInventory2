@@ -99,6 +99,7 @@ Public Class mainMenu
     End Sub
     Private Sub cookieOrderForm_Click(sender As Object, e As EventArgs) Handles cookieOrderForm.Click
         Dim myForm As New cookieOrderForm
+        myForm.yearLB.Text = cookieYearPicker.Text
         myForm.Show()
     End Sub
     Private Sub warehouseForm_Click(sender As Object, e As EventArgs) Handles warehouseForm.Click
