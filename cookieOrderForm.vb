@@ -2,27 +2,48 @@
 Public Class cookieOrderForm
     Private Sub cookieOrder_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim conn As New myConnection()
+        Dim year As Integer = yearLB.Text
         Dim table As New DataTable()
-        Dim adapter As New MySqlDataAdapter("SELECT inventoryID, year, warehouse.name AS warehouse, cookie.name AS cookie, 
+        Dim command As New MySqlCommand("SELECT inventory.inventoryID AS InventoryID, warehouse.name AS Warehouse, cookie.name AS Cookie,
                                             CASE
-                                                WHEN ISNULL((SELECT sum(orderQuantity) FROM userCookie WHERE userCookie.inventoryID = inventory.inventoryID)) = 1 THEN inventory.inQuantity
-                                                ELSE inventory.inQuantity - (SELECT sum(orderQuantity) FROM userCookie WHERE userCookie.inventoryID = inventory.inventoryID)
-                                            END as remainingQuantity
+                                                WHEN ISNULL((SELECT sum(orderQuantity - returnQuantity) FROM userCookie WHERE userCookie.inventoryID = inventory.inventoryID)) = 1 THEN inventory.inQuantity
+                                                ELSE inventory.inQuantity - (SELECT sum(orderQuantity - returnQuantity) FROM userCookie WHERE userCookie.inventoryID = inventory.inventoryID)
+                                            END AS Remaining_Quantity
                                             FROM inventory INNER JOIN warehouse ON inventory.warehouseID = warehouse.warehouseID
                                             INNER JOIN yearCookie ON inventory.yearCookieID = yearCookie.yearCookieID
-                                            INNER JOIN cookie ON cookie.cookieID = yearCookie.cookieID", conn.getConnection())
+                                            INNER JOIN cookie ON cookie.cookieID = yearCookie.cookieID
+                                            WHERE yearCookie.year = @year", conn.getConnection())
+        command.Parameters.Add("@year", MySqlDbType.Int16).Value = year
+        Dim adapter As New MySqlDataAdapter(command)
         adapter.Fill(table)
         DataGridView1.DataSource = table
+
+        Dim table2 As New DataTable()
+        Dim adapter2 As New MySqlDataAdapter("SELECT * FROM `user` ORDER BY firstName ASC", conn.getConnection())
+        adapter2.Fill(table2)
+        userCB.DataSource = table2
+        table2.Columns.Add("userID_name", Type.GetType("System.String"), "firstName + ' ' + lastName + '   ' + userID")
+        userCB.DisplayMember = "userID_name"
+        userCB.ValueMember = "userID"
+    End Sub
+    Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
+        If e.RowIndex = -1 Then
+            Return
+        End If
+        Dim selectedRow As DataGridViewRow
+        selectedRow = DataGridView1.Rows(e.RowIndex)
+        inventoryTB.Text = selectedRow.Cells(0).Value
+        warehouseTB.Text = selectedRow.Cells(1).Value
+        cookieTB.Text = selectedRow.Cells(2).Value
+        remainingTB.Text = selectedRow.Cells(3).Value
     End Sub
     Private Sub Insert_Click(sender As Object, e As EventArgs) Handles insert.Click
         Dim confirmMsg = MessageBox.Show("Are you sure you want to insert?", "Insert", MessageBoxButtons.YesNo)
         If confirmMsg = DialogResult.Yes Then
 
+            Dim userID As Int16 = userCB.SelectedValue
+            Dim inventoryID As Int16 = inventoryTB.Text
             Dim orderDate As String = DateTimePicker1.Text
-            Dim orderQuantity As Integer = orderTB.Text
-            Dim pickupQuantity As Integer = pickupTB.Text
-            Dim returnQuantity As Integer = returnTB.Text
-
             If orderTB.Text = "" Then
                 orderTB.Text = "0"
             End If
@@ -32,12 +53,16 @@ Public Class cookieOrderForm
             If returnTB.Text = "" Then
                 returnTB.Text = "0"
             End If
-
+            Dim orderQuantity As Integer = orderTB.Text
+            Dim pickupQuantity As Integer = pickupTB.Text
+            Dim returnQuantity As Integer = returnTB.Text
             Dim note As String = noteTE.Text
 
             Dim conn As New myConnection()
-            Dim command As New MySqlCommand("INSERT INTO `userCookie`(`date`, `orderQuantity`, `pickupQuantity`, `returnQuantity`, `note`) VALUES (@orderDate, @orderQuantity, @pickupQuantity, @returnQuantity, @note)", conn.getConnection())
-            command.Parameters.Add("@date", MySqlDbType.VarChar).Value = orderDate
+            Dim command As New MySqlCommand("INSERT INTO `userCookie`(`userID`, `inventoryID`, `date`, `orderQuantity`, `pickupQuantity`, `returnQuantity`, `note`) VALUES (@userID, @inventoryID, @date, @orderQuantity, @pickupQuantity, @returnQuantity, @note)", conn.getConnection())
+            command.Parameters.Add("@userID", MySqlDbType.Int16).Value = userID
+            command.Parameters.Add("@inventoryID", MySqlDbType.Int16).Value = inventoryID
+            command.Parameters.Add("@date", MySqlDbType.Date).Value = Date.Parse(orderDate).ToString("yyyy-MM-dd")
             command.Parameters.Add("@orderQuantity", MySqlDbType.Int16).Value = orderQuantity
             command.Parameters.Add("@pickupQuantity", MySqlDbType.Int16).Value = pickupQuantity
             command.Parameters.Add("@returnQuantity", MySqlDbType.Int16).Value = returnQuantity
@@ -54,7 +79,6 @@ Public Class cookieOrderForm
             End If
         End If
     End Sub
-
     'Private Sub Update_Click(sender As Object, e As EventArgs) Handles update.Click
     '    If orderIDTE.Text = "" Then
     '        MsgBox("Cannot update without valid ID")

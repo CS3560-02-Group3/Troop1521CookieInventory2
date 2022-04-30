@@ -40,13 +40,23 @@ Partial Class cookieOrderForm
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.userCB = New System.Windows.Forms.ComboBox()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.yearLB = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.Label11 = New System.Windows.Forms.Label()
+        Me.warehouseTB = New System.Windows.Forms.TextBox()
+        Me.cookieTB = New System.Windows.Forms.TextBox()
+        Me.remainingTB = New System.Windows.Forms.TextBox()
+        Me.Label12 = New System.Windows.Forms.Label()
+        Me.inventoryTB = New System.Windows.Forms.TextBox()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'update
         '
         Me.update.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.update.Location = New System.Drawing.Point(545, 535)
+        Me.update.Location = New System.Drawing.Point(592, 578)
         Me.update.Name = "update"
         Me.update.Size = New System.Drawing.Size(95, 32)
         Me.update.TabIndex = 1
@@ -57,7 +67,7 @@ Partial Class cookieOrderForm
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Segoe UI", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(301, 9)
+        Me.Label1.Location = New System.Drawing.Point(467, 9)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(220, 45)
         Me.Label1.TabIndex = 2
@@ -93,7 +103,7 @@ Partial Class cookieOrderForm
         '
         Me.Label8.AutoSize = True
         Me.Label8.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(615, 331)
+        Me.Label8.Location = New System.Drawing.Point(619, 289)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(97, 17)
         Me.Label8.TabIndex = 11
@@ -103,7 +113,7 @@ Partial Class cookieOrderForm
         '
         Me.Label9.AutoSize = True
         Me.Label9.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.Location = New System.Drawing.Point(615, 292)
+        Me.Label9.Location = New System.Drawing.Point(618, 332)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(98, 17)
         Me.Label9.TabIndex = 12
@@ -112,7 +122,7 @@ Partial Class cookieOrderForm
         'returnTB
         '
         Me.returnTB.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.returnTB.Location = New System.Drawing.Point(734, 284)
+        Me.returnTB.Location = New System.Drawing.Point(734, 324)
         Me.returnTB.Name = "returnTB"
         Me.returnTB.Size = New System.Drawing.Size(100, 25)
         Me.returnTB.TabIndex = 13
@@ -130,7 +140,7 @@ Partial Class cookieOrderForm
         'pickupTB
         '
         Me.pickupTB.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.pickupTB.Location = New System.Drawing.Point(734, 328)
+        Me.pickupTB.Location = New System.Drawing.Point(734, 281)
         Me.pickupTB.Name = "pickupTB"
         Me.pickupTB.Size = New System.Drawing.Size(100, 25)
         Me.pickupTB.TabIndex = 16
@@ -138,7 +148,7 @@ Partial Class cookieOrderForm
         'insert
         '
         Me.insert.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.insert.Location = New System.Drawing.Point(107, 535)
+        Me.insert.Location = New System.Drawing.Point(136, 578)
         Me.insert.Name = "insert"
         Me.insert.Size = New System.Drawing.Size(95, 32)
         Me.insert.TabIndex = 17
@@ -148,7 +158,7 @@ Partial Class cookieOrderForm
         'delete
         '
         Me.delete.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.delete.Location = New System.Drawing.Point(1009, 535)
+        Me.delete.Location = New System.Drawing.Point(1034, 578)
         Me.delete.Name = "delete"
         Me.delete.Size = New System.Drawing.Size(94, 32)
         Me.delete.TabIndex = 18
@@ -186,16 +196,16 @@ Partial Class cookieOrderForm
         'DataGridView1
         '
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(38, 133)
+        Me.DataGridView1.Location = New System.Drawing.Point(38, 161)
         Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(544, 362)
+        Me.DataGridView1.Size = New System.Drawing.Size(544, 382)
         Me.DataGridView1.TabIndex = 30
         '
         'Label2
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(35, 82)
+        Me.Label2.Location = New System.Drawing.Point(618, 113)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(28, 17)
         Me.Label2.TabIndex = 31
@@ -204,16 +214,118 @@ Partial Class cookieOrderForm
         'userCB
         '
         Me.userCB.FormattingEnabled = True
-        Me.userCB.Location = New System.Drawing.Point(82, 82)
+        Me.userCB.Location = New System.Drawing.Point(734, 113)
         Me.userCB.Name = "userCB"
-        Me.userCB.Size = New System.Drawing.Size(121, 21)
+        Me.userCB.Size = New System.Drawing.Size(175, 21)
         Me.userCB.TabIndex = 32
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Location = New System.Drawing.Point(944, 113)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(33, 17)
+        Me.Label3.TabIndex = 33
+        Me.Label3.Text = "Year"
+        '
+        'yearLB
+        '
+        Me.yearLB.AutoSize = True
+        Me.yearLB.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.yearLB.Location = New System.Drawing.Point(983, 113)
+        Me.yearLB.Name = "yearLB"
+        Me.yearLB.Size = New System.Drawing.Size(36, 17)
+        Me.yearLB.TabIndex = 34
+        Me.yearLB.Text = "2022"
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Location = New System.Drawing.Point(136, 80)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(73, 17)
+        Me.Label4.TabIndex = 35
+        Me.Label4.Text = "Warehouse"
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.Location = New System.Drawing.Point(314, 80)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(48, 17)
+        Me.Label5.TabIndex = 36
+        Me.Label5.Text = "Cookie"
+        '
+        'Label11
+        '
+        Me.Label11.AutoSize = True
+        Me.Label11.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label11.Location = New System.Drawing.Point(461, 80)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(121, 17)
+        Me.Label11.TabIndex = 37
+        Me.Label11.Text = "Remaining Quantity"
+        '
+        'warehouseTB
+        '
+        Me.warehouseTB.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.warehouseTB.Location = New System.Drawing.Point(139, 113)
+        Me.warehouseTB.Name = "warehouseTB"
+        Me.warehouseTB.Size = New System.Drawing.Size(157, 25)
+        Me.warehouseTB.TabIndex = 38
+        '
+        'cookieTB
+        '
+        Me.cookieTB.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cookieTB.Location = New System.Drawing.Point(317, 113)
+        Me.cookieTB.Name = "cookieTB"
+        Me.cookieTB.Size = New System.Drawing.Size(128, 25)
+        Me.cookieTB.TabIndex = 39
+        '
+        'remainingTB
+        '
+        Me.remainingTB.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.remainingTB.Location = New System.Drawing.Point(464, 113)
+        Me.remainingTB.Name = "remainingTB"
+        Me.remainingTB.Size = New System.Drawing.Size(118, 25)
+        Me.remainingTB.TabIndex = 40
+        '
+        'Label12
+        '
+        Me.Label12.AutoSize = True
+        Me.Label12.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label12.Location = New System.Drawing.Point(35, 80)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(77, 17)
+        Me.Label12.TabIndex = 41
+        Me.Label12.Text = "Inventory ID"
+        '
+        'inventoryTB
+        '
+        Me.inventoryTB.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.inventoryTB.Location = New System.Drawing.Point(38, 113)
+        Me.inventoryTB.Name = "inventoryTB"
+        Me.inventoryTB.Size = New System.Drawing.Size(89, 25)
+        Me.inventoryTB.TabIndex = 42
         '
         'cookieOrderForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1202, 607)
+        Me.ClientSize = New System.Drawing.Size(1202, 641)
+        Me.Controls.Add(Me.inventoryTB)
+        Me.Controls.Add(Me.Label12)
+        Me.Controls.Add(Me.remainingTB)
+        Me.Controls.Add(Me.cookieTB)
+        Me.Controls.Add(Me.warehouseTB)
+        Me.Controls.Add(Me.Label11)
+        Me.Controls.Add(Me.Label5)
+        Me.Controls.Add(Me.Label4)
+        Me.Controls.Add(Me.yearLB)
+        Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.userCB)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.DataGridView1)
@@ -257,4 +369,14 @@ Partial Class cookieOrderForm
     Friend WithEvents DataGridView1 As DataGridView
     Friend WithEvents Label2 As Label
     Friend WithEvents userCB As ComboBox
+    Friend WithEvents Label3 As Label
+    Friend WithEvents yearLB As Label
+    Friend WithEvents Label4 As Label
+    Friend WithEvents Label5 As Label
+    Friend WithEvents Label11 As Label
+    Friend WithEvents warehouseTB As TextBox
+    Friend WithEvents cookieTB As TextBox
+    Friend WithEvents remainingTB As TextBox
+    Friend WithEvents Label12 As Label
+    Friend WithEvents inventoryTB As TextBox
 End Class
