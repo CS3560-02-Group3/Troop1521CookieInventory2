@@ -77,22 +77,13 @@ Public Class mainMenu
         mainMenu_Load(e, e)
     End Sub
     Private Sub orderDGV_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles orderDGV.CellContentClick
-        'If e.RowIndex = -1 Then
-        '    Return
-        'End If
-        'Dim selectedRow As DataGridViewRow
-        'selectedRow = DataGridView2.Rows(e.RowIndex)
-        'Dim myForm As New cookieOrderForm
-        'myForm.orderIDTE.Text = selectedRow.Cells(0).Value
-        'myForm.userIDTE.Text = selectedRow.Cells(0).Value
-        'myForm.inventoryIDTE.Text = selectedRow.Cells(1).Value
-        'myForm.yearCookieIDTE.Text = selectedRow.Cells(2).Value
-        'myForm.DateTimePicker1.Text = selectedRow.Cells(3).Value
-        'myForm.orderTB.Text = selectedRow.Cells(4).Value
-        'myForm.pickupTB.Text = selectedRow.Cells(5).Value
-        'myForm.returnTB.Text = selectedRow.Cells(6).Value
-        'myForm.cookieNTB.Text = selectedRow.Cells(7).Value
-        'myForm.Show()
+        If e.RowIndex = -1 Then
+            Return
+        End If
+        Dim selectedRow As DataGridViewRow
+        selectedRow = orderDGV.Rows(e.RowIndex)
+        Dim myForm As New cookieOrderForm
+        myForm.Show()
         mainMenu_Load(e, e)
     End Sub
     Private Sub cookieDGV_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles cookieDGV.CellContentClick

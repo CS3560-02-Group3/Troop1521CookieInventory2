@@ -40,8 +40,8 @@ Public Class cookieOrderForm
     Private Sub Insert_Click(sender As Object, e As EventArgs) Handles insert.Click
         Dim confirmMsg = MessageBox.Show("Are you sure you want to insert?", "Insert", MessageBoxButtons.YesNo)
         If confirmMsg = DialogResult.Yes Then
-            Dim userID As Int16 = userCB.SelectedValue
-            Dim inventoryID As Int16 = inventoryTB.Text
+            Dim userID As Integer = userCB.SelectedValue
+            Dim inventoryID As Integer = inventoryTB.Text
             Dim orderDate As String = DateTimePicker1.Text
             If orderTB.Text = "" Then
                 orderTB.Text = "0"
@@ -90,86 +90,100 @@ Public Class cookieOrderForm
             End If
         End If
     End Sub
-    'Private Sub Update_Click(sender As Object, e As EventArgs) Handles update.Click
-    '    If orderIDTE.Text = "" Then
-    '        MsgBox("Cannot update without valid ID")
+    Private Sub Update_Click(sender As Object, e As EventArgs) Handles update.Click
+        If orderIDTE.Text = "" Then
+            MsgBox("Cannot update without valid ID")
 
-    '    Else
-    '        Dim confirmMsg = MessageBox.Show("Are you sure you want to update?", "Update", MessageBoxButtons.YesNo)
-    '        If confirmMsg = DialogResult.Yes Then
+        Else
+            Dim confirmMsg = MessageBox.Show("Are you sure you want to update?", "Update", MessageBoxButtons.YesNo)
+            If confirmMsg = DialogResult.Yes Then
 
-    '            Dim userCookieID As Integer = orderLB.Text
-    '            Dim warehouseID As Integer = warehouseCB.Text
-    '            Dim yearCookieID As Integer = cookieCB.Text
-    '            Dim dateC As String = DateTimePicker1.Text
-    '            Dim orderQuantity As Integer = orderTB.Text
-    '            Dim pickupQuantity As Integer = pickupTB.Text
-    '            Dim returnQuantity As Integer = returnTB.Text
+                Dim userCookieID As Integer = cookieOrderLB.Text
+                Dim userID As Integer = userCB.SelectedValue
+                Dim inventoryID As Integer = inventoryTB.Text
+                Dim orderDate As String = DateTimePicker1.Text
 
-    '            If orderTB.Text = "" Then
-    '                orderTB.Text = "0"
-    '            End If
-    '            If pickupTB.Text = "" Then
-    '                pickupTB.Text = "0"
-    '            End If
-    '            If returnTB.Text = "" Then
-    '                returnTB.Text = "0"
-    '            End If
+                If orderTB.Text = "" Then
+                    orderTB.Text = "0"
+                End If
+                If pickupTB.Text = "" Then
+                    pickupTB.Text = "0"
+                End If
+                If returnTB.Text = "" Then
+                    returnTB.Text = "0"
+                End If
 
-    '            Dim note As String = noteTE.Text
+                Dim orderQuantity As Integer = orderTB.Text
+                If orderQuantity > remainingTB.Text Then
+                    Dim errorMsg = MessageBox.Show("Order quantity cannot be greater than remaining quantity")
+                    Exit Sub
+                End If
+                Dim pickupQuantity As Integer = pickupTB.Text
+                If pickupQuantity > orderQuantity Then
+                    Dim errorMsg2 = MessageBox.Show("Pickup quantity cannot be greater than order quantity")
+                    Exit Sub
+                End If
+                Dim returnQuantity As Integer = returnTB.Text
+                If returnQuantity > pickupQuantity Then
+                    Dim errorMsg3 = MessageBox.Show("Return quantity cannot be greater than pickup quantity")
+                    Exit Sub
+                End If
 
-    '            Dim conn As New myConnection()
-    '            Dim command As New MySqlCommand("UPDATE `userCookie` SET userID = @userID, inventoryID = @inventoryID, yearCookieID = @yearCookieID, date = @date, orderQuantity = @orderQuantity, pickupQuantity = @pickupQuantity, returnQuantity = @returnQuantity, note = @note WHERE userCookieID = @userCookieID", conn.getConnection())
+                Dim note As String = noteTE.Text
 
-    '            command.Parameters.Add("@userCookieID", MySqlDbType.Int16).Value = userCookieID
-    '            command.Parameters.Add("@yearCookieID", MySqlDbType.Int16).Value = yearCookieID
-    '            command.Parameters.Add("@date", MySqlDbType.VarChar).Value = dateC
-    '            command.Parameters.Add("@orderQuantity", MySqlDbType.Int16).Value = orderQuantity
-    '            command.Parameters.Add("@pickupQuantity", MySqlDbType.Int16).Value = pickupQuantity
-    '            command.Parameters.Add("@returnQuantity", MySqlDbType.Int16).Value = returnQuantity
-    '            command.Parameters.Add("@note", MySqlDbType.VarChar).Value = note
+                Dim conn As New myConnection()
+                Dim command As New MySqlCommand("UPDATE `userCookie` SET userCookieID = @userCookieID, userID = @userID, inventoryID = @inventoryID, date = @date, orderQuantity = @orderQuantity, pickupQuantity = @pickupQuantity, returnQuantity = @returnQuantity, note = @note WHERE userCookieID = @userCookieID", conn.getConnection())
+
+                command.Parameters.Add("@userCookieID", MySqlDbType.Int16).Value = userCookieID
+                command.Parameters.Add("@userID", MySqlDbType.Int16).Value = userID
+                command.Parameters.Add("@inventoryID", MySqlDbType.Int16).Value = inventoryID
+                command.Parameters.Add("@date", MySqlDbType.Date).Value = Date.Parse(orderDate).ToString("yyyy-MM-dd")
+                command.Parameters.Add("@orderQuantity", MySqlDbType.Int16).Value = orderQuantity
+                command.Parameters.Add("@pickupQuantity", MySqlDbType.Int16).Value = pickupQuantity
+                command.Parameters.Add("@returnQuantity", MySqlDbType.Int16).Value = returnQuantity
+                command.Parameters.Add("@note", MySqlDbType.VarChar).Value = note
 
 
-    '            conn.openConnection()
+                conn.openConnection()
 
-    '            If command.ExecuteNonQuery() = 1 Then
-    '                MsgBox("ORDER UPDATED")
-    '                conn.closeConnection()
-    '                Me.Close()
-    '            Else
-    '                MsgBox("ORDER NOT UPDATED")
-    '                conn.closeConnection()
-    '            End If
-    '        End If
-    '    End If
-    'End Sub
+                If command.ExecuteNonQuery() = 1 Then
+                    MsgBox("ORDER UPDATED")
+                    conn.closeConnection()
+                    Me.Close()
+                Else
+                    MsgBox("ORDER NOT UPDATED")
+                    conn.closeConnection()
+                End If
+            End If
+        End If
+    End Sub
 
-    'Private Sub Delete_Click(sender As Object, e As EventArgs) Handles delete.Click
-    '    If orderTB.Text = "" Then
-    '        MsgBox("Cannot delete without valid ID")
+    Private Sub Delete_Click(sender As Object, e As EventArgs) Handles delete.Click
+        If orderTB.Text = "" Then
+            MsgBox("Cannot delete without valid ID")
 
-    '    Else
-    '        Dim confirmMsg = MessageBox.Show("Are you sure you want to delete?", "Delete", MessageBoxButtons.YesNo)
-    '        If confirmMsg = DialogResult.Yes Then
+        Else
+            Dim confirmMsg = MessageBox.Show("Are you sure you want to delete?", "Delete", MessageBoxButtons.YesNo)
+            If confirmMsg = DialogResult.Yes Then
 
-    '            Dim userCookieID As Integer = orderTB.Text
+                Dim userCookieID As Integer = cookieOrderLB.Text
 
-    '            Dim conn As New myConnection()
-    '            Dim command As New MySqlCommand("DELETE FROM `userCookie` WHERE userCookieID = @userCookieID", conn.getConnection())
+                Dim conn As New myConnection()
+                Dim command As New MySqlCommand("DELETE FROM `userCookie` WHERE userCookieID = @userCookieID", conn.getConnection())
 
-    '            command.Parameters.Add("@userCookieID", MySqlDbType.VarChar).Value = userCookieID
+                command.Parameters.Add("@userCookieID", MySqlDbType.VarChar).Value = userCookieID
 
-    '            conn.openConnection()
+                conn.openConnection()
 
-    '            If command.ExecuteNonQuery() = 1 Then
-    '                MsgBox("ORDER DELETED")
-    '                conn.closeConnection()
-    '                Me.Close()
-    '            Else
-    '                MsgBox("ORDER NOT DELETED")
-    '                conn.closeConnection()
-    '            End If
-    '        End If
-    '    End If
-    'End Sub
+                If command.ExecuteNonQuery() = 1 Then
+                    MsgBox("ORDER DELETED")
+                    conn.closeConnection()
+                    Me.Close()
+                Else
+                    MsgBox("ORDER NOT DELETED")
+                    conn.closeConnection()
+                End If
+            End If
+        End If
+    End Sub
 End Class
