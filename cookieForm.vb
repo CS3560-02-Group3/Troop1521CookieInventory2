@@ -46,6 +46,7 @@ Public Class cookieForm
                 If command.ExecuteNonQuery() = 1 Then
                     MsgBox("ORDER DELETED")
                     conn.closeConnection()
+                    Me.Close()
                 Else
                     MsgBox("ORDER NOT DELETED")
                     conn.closeConnection()
@@ -76,6 +77,7 @@ Public Class cookieForm
                 If command.ExecuteNonQuery() = 1 Then
                     MsgBox("USER UPDATED")
                     conn.closeConnection()
+                    Me.Close()
                 Else
                     MsgBox("USER NOT UPDATED")
                     conn.closeConnection()

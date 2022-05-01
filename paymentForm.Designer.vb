@@ -122,7 +122,7 @@ Partial Class paymentForm
         'submit
         '
         Me.submit.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.submit.Location = New System.Drawing.Point(122, 395)
+        Me.submit.Location = New System.Drawing.Point(383, 395)
         Me.submit.Name = "submit"
         Me.submit.Size = New System.Drawing.Size(96, 33)
         Me.submit.TabIndex = 16

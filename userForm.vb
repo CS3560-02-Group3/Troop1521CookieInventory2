@@ -50,7 +50,6 @@ Public Class userForm
             End If
         End If
     End Sub
-
     Private Sub update_Click(sender As Object, e As EventArgs) Handles update.Click
         ' error handling when the query WHERE is not given a userID
         If userIDText.Text = "" Then
@@ -90,7 +89,6 @@ Public Class userForm
                 If command.ExecuteNonQuery() = 1 Then
                     MsgBox("USER UPDATED")
                     conn.closeConnection()
-                    Dim parent = CType(Owner, mainMenu)
                     Me.Close()
                 Else
                     MsgBox("USER NOT UPDATED")
@@ -128,9 +126,5 @@ Public Class userForm
                 End If
             End If
         End If
-    End Sub
-
-    Private Sub userForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
     End Sub
 End Class

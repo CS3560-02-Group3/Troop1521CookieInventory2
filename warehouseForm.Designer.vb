@@ -39,7 +39,7 @@ Partial Class warehouseform
         '
         'Insert
         '
-        Me.Insert.Location = New System.Drawing.Point(64, 365)
+        Me.Insert.Location = New System.Drawing.Point(345, 365)
         Me.Insert.Name = "Insert"
         Me.Insert.Size = New System.Drawing.Size(105, 41)
         Me.Insert.TabIndex = 0

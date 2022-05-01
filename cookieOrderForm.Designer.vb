@@ -148,7 +148,7 @@ Partial Class cookieOrderForm
         'insert
         '
         Me.insert.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.insert.Location = New System.Drawing.Point(136, 578)
+        Me.insert.Location = New System.Drawing.Point(592, 578)
         Me.insert.Name = "insert"
         Me.insert.Size = New System.Drawing.Size(95, 32)
         Me.insert.TabIndex = 17

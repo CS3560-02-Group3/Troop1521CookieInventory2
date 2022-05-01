@@ -53,7 +53,7 @@ Partial Class cookieForm
         '
         'update
         '
-        Me.update.Location = New System.Drawing.Point(193, 318)
+        Me.update.Location = New System.Drawing.Point(196, 224)
         Me.update.Name = "update"
         Me.update.Size = New System.Drawing.Size(86, 34)
         Me.update.TabIndex = 3
@@ -63,7 +63,7 @@ Partial Class cookieForm
         'delete
         '
         Me.delete.AccessibleDescription = "delete"
-        Me.delete.Location = New System.Drawing.Point(371, 318)
+        Me.delete.Location = New System.Drawing.Point(366, 224)
         Me.delete.Name = "delete"
         Me.delete.Size = New System.Drawing.Size(86, 37)
         Me.delete.TabIndex = 5
@@ -74,7 +74,7 @@ Partial Class cookieForm
         '
         Me.insert.AccessibleDescription = "insert"
         Me.insert.AccessibleName = "insert"
-        Me.insert.Location = New System.Drawing.Point(16, 318)
+        Me.insert.Location = New System.Drawing.Point(196, 224)
         Me.insert.Name = "insert"
         Me.insert.Size = New System.Drawing.Size(93, 33)
         Me.insert.TabIndex = 6
@@ -109,7 +109,7 @@ Partial Class cookieForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 21.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(484, 461)
+        Me.ClientSize = New System.Drawing.Size(484, 390)
         Me.Controls.Add(Me.cookieIDText)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.insert)

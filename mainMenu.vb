@@ -4,11 +4,11 @@ Public Class mainMenu
     Private Sub mainMenu_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim conn As New myConnection()
 
-        Dim table As New DataTable()
-        Dim adapter As New MySqlDataAdapter("SELECT * FROM user", conn.getConnection())
-        adapter.Fill(table)
-        DataGridView1.DataSource = table
-        totalGirlsLB.Text = DataGridView1.Rows.Count - 1
+        Dim Utable As New DataTable()
+        Dim Uadapter As New MySqlDataAdapter("SELECT * FROM user", conn.getConnection())
+        Uadapter.Fill(Utable)
+        userDGV.DataSource = Utable
+        totalGirlsLB.Text = userDGV.Rows.Count - 1
 
         Dim userFilterTable As New DataTable()
         Dim userFilterAdapter As New MySqlDataAdapter("select Column_name from INFORMATION_SCHEMA.COLUMNS where TABLE_NAME='user'", conn.getConnection())
@@ -17,26 +17,26 @@ Public Class mainMenu
         userFilterCB.DisplayMember = "Column_name"
         userFilterCB.ValueMember = "Column_name"
 
-        Dim table2 As New DataTable()
-        Dim adapter2 As New MySqlDataAdapter("SELECT * FROM userCookie", conn.getConnection())
-        adapter2.Fill(table2)
-        DataGridView2.DataSource = table2
+        Dim UCtable As New DataTable()
+        Dim UCadapter As New MySqlDataAdapter("SELECT * FROM userCookie", conn.getConnection())
+        UCadapter.Fill(UCtable)
+        orderDGV.DataSource = UCtable
 
-        Dim table3 As New DataTable()
-        Dim adapter3 As New MySqlDataAdapter("SELECT * FROM cookie", conn.getConnection())
-        adapter3.Fill(table3)
-        DataGridView3.DataSource = table3
+        Dim Ctable As New DataTable()
+        Dim Cadapter As New MySqlDataAdapter("SELECT * FROM cookie", conn.getConnection())
+        Cadapter.Fill(Ctable)
+        cookieDGV.DataSource = Ctable
 
-        Dim table4 As New DataTable()
+        Dim YCtable As New DataTable()
         Dim year = cookieYearPicker.Text
-        Dim command4 As New MySqlCommand("SELECT yearCookieID, cookie.Name, price FROM yearCookie INNER JOIN cookie ON cookie.cookieID = yearCookieID WHERE year = @year", conn.getConnection())
-        command4.Parameters.Add("@year", MySqlDbType.Int16).Value = year
-        Dim adapter4 As New MySqlDataAdapter(command4)
-        adapter4.Fill(table4)
-        DataGridView4.DataSource = table4
+        Dim YCcommand As New MySqlCommand("SELECT yearCookieID, cookie.Name, price FROM yearCookie INNER JOIN cookie ON cookie.cookieID = yearCookieID WHERE year = @year", conn.getConnection())
+        YCcommand.Parameters.Add("@year", MySqlDbType.Int16).Value = year
+        Dim YCadapter As New MySqlDataAdapter(YCcommand)
+        YCadapter.Fill(YCtable)
+        yearCookieDGV.DataSource = YCtable
 
-        Dim table7 As New DataTable()
-        Dim command7 As New MySqlCommand("SELECT year, firstName, lastName, Total_Payment,
+        Dim TransactionViewTable As New DataTable()
+        Dim TransactionViewCommand As New MySqlCommand("SELECT year, firstName, lastName, Total_Payment,
                                           CASE
                                                 WHEN ISNULL(Received_Payment) = 1 THEN 0
                                                 ELSE Received_Payment
@@ -52,23 +52,17 @@ Public Class mainMenu
                                           INNER JOIN yearCookie ON inventory.yearCookieID = yearCookie.yearCookieID
                                           WHERE year = @year
                                           GROUP BY user.userID) as main", conn.getConnection())
-        command7.Parameters.Add("@year", MySqlDbType.Int16).Value = year
-        Dim adapter7 As New MySqlDataAdapter(command7)
-        adapter7.Fill(table7)
-        DataGridView7.DataSource = table7
+        TransactionViewCommand.Parameters.Add("@year", MySqlDbType.Int16).Value = year
+        Dim TransactionViewAdapter As New MySqlDataAdapter(TransactionViewCommand)
+        TransactionViewAdapter.Fill(TransactionViewTable)
+        transactionDGV.DataSource = TransactionViewTable
     End Sub
-    Private Sub add_Click(sender As Object, e As EventArgs) Handles add.Click
-        Dim myForm As New userForm
-        myForm.update.Visible = False
-        myForm.delete.Visible = False
-        myForm.Show()
-    End Sub
-    Private Sub DataGridView1_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
+    Private Sub userDGV_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles userDGV.CellContentClick
         If e.RowIndex = -1 Then
             Return
         End If
         Dim selectedRow As DataGridViewRow
-        selectedRow = DataGridView1.Rows(e.RowIndex)
+        selectedRow = userDGV.Rows(e.RowIndex)
         Dim myForm As New userForm
         myForm.userIDText.Text = selectedRow.Cells(0).Value
         myForm.firstNameTB.Text = selectedRow.Cells(1).Value
@@ -82,7 +76,7 @@ Public Class mainMenu
         myForm.Show()
         mainMenu_Load(e, e)
     End Sub
-    Private Sub DataGridView2_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView2.CellContentClick
+    Private Sub orderDGV_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles orderDGV.CellContentClick
         'If e.RowIndex = -1 Then
         '    Return
         'End If
@@ -101,18 +95,24 @@ Public Class mainMenu
         'myForm.Show()
         mainMenu_Load(e, e)
     End Sub
-    Private Sub DataGridView3_CellContentClick(sender As Object, e As DataGridViewCellEventArgs)
+    Private Sub cookieDGV_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles cookieDGV.CellContentClick
         If e.RowIndex = -1 Then
             Return
         End If
         Dim selectedRow As DataGridViewRow
-        selectedRow = DataGridView3.Rows(e.RowIndex)
+        selectedRow = cookieDGV.Rows(e.RowIndex)
         Dim myForm As New cookieForm
         myForm.cookieIDText.Text = selectedRow.Cells(0).Value
         myForm.cookieNameTB.Text = selectedRow.Cells(1).Value
         myForm.insert.Visible = False
         myForm.Show()
         mainMenu_Load(e, e)
+    End Sub
+    Private Sub userForm_Click(sender As Object, e As EventArgs) Handles userForm.Click
+        Dim myForm As New userForm
+        myForm.update.Visible = False
+        myForm.delete.Visible = False
+        myForm.Show()
     End Sub
     Private Sub cookieForm_Click(sender As Object, e As EventArgs) Handles cookieForm.Click
         Dim myForm As New cookieForm
@@ -184,8 +184,8 @@ Public Class mainMenu
             command.Parameters.Add("@input", MySqlDbType.VarChar).Value = input
             Dim adapter As New MySqlDataAdapter(command)
             adapter.Fill(table)
-            DataGridView1.DataSource = table
-            totalGirlsLB.Text = DataGridView1.Rows.Count - 1
+            userDGV.DataSource = table
+            totalGirlsLB.Text = userDGV.Rows.Count - 1
         End If
     End Sub
 End Class
