@@ -66,6 +66,7 @@ Public Class warehouseform
                 If command.ExecuteNonQuery() = 1 Then
                     MsgBox("WarehouseUPDATED")
                     conn.closeConnection()
+                    Me.Close()
                 Else
                     MsgBox("Warehouse not UPDATED")
                     conn.closeConnection()
@@ -95,6 +96,7 @@ Public Class warehouseform
                 If command.ExecuteNonQuery() = 1 Then
                     MsgBox("WAREHOUSE DELETED")
                     conn.closeConnection()
+                    Me.Close()
                 Else
                     MsgBox("WAREHOUSE NOT DELETED")
                     conn.closeConnection()

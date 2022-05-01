@@ -120,6 +120,7 @@ Public Class userForm
                 If command.ExecuteNonQuery() = 1 Then
                     MsgBox("USER DELETED")
                     conn.closeConnection()
+                    Me.Close()
                 Else
                     MsgBox("USER NOT DELETED")
                     conn.closeConnection()

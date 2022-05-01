@@ -118,6 +118,7 @@ Public Class paymentForm
                 If command.ExecuteNonQuery() = 1 Then
                     MsgBox("USER BALANCE UPDATED")
                     conn.closeConnection()
+                    Me.Close()
                 Else
                     MsgBox("USER BALANCE NOT NOT UPDATED")
                     conn.closeConnection()
@@ -155,6 +156,7 @@ Public Class paymentForm
                 If command.ExecuteNonQuery() = 1 Then
                     MsgBox("USER BALANCE DELETED")
                     conn.closeConnection()
+                    Me.Close()
                 Else
                     MsgBox("USER BALANCE NOT DELETED")
                     conn.closeConnection()

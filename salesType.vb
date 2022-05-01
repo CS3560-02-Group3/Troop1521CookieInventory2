@@ -63,6 +63,7 @@ Public Class salesType
                 If command.ExecuteNonQuery() = 1 Then
                     MsgBox("SALES TYPE UPDATED")
                     conn.closeConnection()
+                    Me.Close()
                 Else
                     MsgBox("SALES TYPE NOT NOT UPDATED")
                     conn.closeConnection()
@@ -93,6 +94,7 @@ Public Class salesType
                 If command.ExecuteNonQuery() = 1 Then
                     MsgBox("SALES TYPE DELETED")
                     conn.closeConnection()
+                    Me.Close()
                 Else
                     MsgBox("SALES TYPE NOT DELETED")
                     conn.closeConnection()

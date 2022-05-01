@@ -57,6 +57,7 @@ Public Class yearCookieForm
                 If command.ExecuteNonQuery() = 1 Then
                     MsgBox("PRICE UPDATED")
                     conn.closeConnection()
+                    Me.Close()
                 Else
                     MsgBox("PRICE NOT UPDATED")
                     conn.closeConnection()
@@ -84,6 +85,7 @@ Public Class yearCookieForm
                 If command.ExecuteNonQuery() = 1 Then
                     MsgBox("PRICE DELETED")
                     conn.closeConnection()
+                    Me.Close()
                 Else
                     MsgBox("PRICE NOT DELETED")
                     conn.closeConnection()
