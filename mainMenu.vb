@@ -29,11 +29,13 @@ Public Class mainMenu
 
         Dim YCtable As New DataTable()
         Dim year = cookieYearPicker.Text
-        Dim YCcommand As New MySqlCommand("SELECT yearCookieID, cookie.Name, price FROM yearCookie INNER JOIN cookie ON cookie.cookieID = yearCookieID WHERE year = @year", conn.getConnection())
+        Dim YCcommand As New MySqlCommand("SELECT yearCookieID, cookie.Name, price, cookie.cookieID FROM yearCookie INNER JOIN cookie ON cookie.cookieID = yearCookieID WHERE year = @year", conn.getConnection())
         YCcommand.Parameters.Add("@year", MySqlDbType.Int16).Value = year
         Dim YCadapter As New MySqlDataAdapter(YCcommand)
         YCadapter.Fill(YCtable)
         yearCookieDGV.DataSource = YCtable
+        yearCookieDGV.Columns(3).Visible = False
+
 
         Dim TransactionViewTable As New DataTable()
         Dim TransactionViewCommand As New MySqlCommand("SELECT year, firstName, lastName, Total_Payment,
@@ -113,7 +115,20 @@ Public Class mainMenu
 
     End Sub
     Private Sub yearCookieDGV_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles yearCookieDGV.CellContentClick
-
+        If e.RowIndex = -1 Then
+            Return
+        End If
+        Dim selectedRow As DataGridViewRow
+        selectedRow = yearCookieDGV.Rows(e.RowIndex)
+        Dim myForm As New yearCookieForm
+        myForm.load_cookieCB()
+        myForm.yearCookieLB.Text = selectedRow.Cells(0).Value
+        myForm.yearLB.Text = cookieYearPicker.Text
+        myForm.cookieCB.SelectedValue = selectedRow.Cells(3).Value
+        myForm.priceTB.Text = selectedRow.Cells(2).Value
+        myForm.insert.Visible = False
+        myForm.Show()
+        mainMenu_Load(e, e)
     End Sub
     Private Sub transactionFullFieldsDGV_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles transactionFullFieldsDGV.CellContentClick
         If e.RowIndex = -1 Then
@@ -159,6 +174,7 @@ Public Class mainMenu
     End Sub
     Private Sub yearCookieForm_Click(sender As Object, e As EventArgs) Handles yearCookieForm.Click
         Dim myForm As New yearCookieForm
+        myForm.load_cookieCB()
         myForm.yearLB.Text = cookieYearPicker.Text
         myForm.update.Visible = False
         myForm.delete.Visible = False

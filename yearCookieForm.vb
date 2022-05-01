@@ -1,6 +1,6 @@
 ﻿Imports MySql.Data.MySqlClient
 Public Class yearCookieForm
-    Private Sub yearCookieForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Public Sub load_cookieCB()
         Dim conn As New myConnection()
         Dim table As New DataTable()
         Dim adapter As New MySqlDataAdapter("SELECT * FROM `cookie` ORDER BY name ASC", conn.getConnection())
@@ -8,8 +8,9 @@ Public Class yearCookieForm
         cookieCB.DataSource = table
         cookieCB.DisplayMember = "name"
         cookieCB.ValueMember = "cookieID"
-
     End Sub
+
+
     Private Sub insert_Click(sender As Object, e As EventArgs) Handles insert.Click
         Dim confirmMsg = MessageBox.Show("Are you sure you want to insert?", "Insert", MessageBoxButtons.YesNo)
         If confirmMsg = DialogResult.Yes Then
