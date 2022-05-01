@@ -40,7 +40,6 @@ Public Class cookieOrderForm
     Private Sub Insert_Click(sender As Object, e As EventArgs) Handles insert.Click
         Dim confirmMsg = MessageBox.Show("Are you sure you want to insert?", "Insert", MessageBoxButtons.YesNo)
         If confirmMsg = DialogResult.Yes Then
-
             Dim userID As Int16 = userCB.SelectedValue
             Dim inventoryID As Int16 = inventoryTB.Text
             Dim orderDate As String = DateTimePicker1.Text
@@ -54,8 +53,20 @@ Public Class cookieOrderForm
                 returnTB.Text = "0"
             End If
             Dim orderQuantity As Integer = orderTB.Text
+            If orderQuantity > remainingTB.Text Then
+                Dim errorMsg = MessageBox.Show("Order quantity cannot be greater than remaining quantity")
+                Exit Sub
+            End If
             Dim pickupQuantity As Integer = pickupTB.Text
+            If pickupQuantity > orderQuantity Then
+                Dim errorMsg2 = MessageBox.Show("Pickup quantity cannot be greater than order quantity")
+                Exit Sub
+            End If
             Dim returnQuantity As Integer = returnTB.Text
+            If returnQuantity > pickupQuantity Then
+                Dim errorMsg3 = MessageBox.Show("Return quantity cannot be greater than pickup quantity")
+                Exit Sub
+            End If
             Dim note As String = noteTE.Text
 
             Dim conn As New myConnection()

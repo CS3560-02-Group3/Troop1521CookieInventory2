@@ -90,6 +90,8 @@ Public Class userForm
                 If command.ExecuteNonQuery() = 1 Then
                     MsgBox("USER UPDATED")
                     conn.closeConnection()
+                    Dim parent = CType(Owner, mainMenu)
+                    Me.Close()
                 Else
                     MsgBox("USER NOT UPDATED")
                     conn.closeConnection()

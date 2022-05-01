@@ -59,6 +59,8 @@ Public Class mainMenu
     End Sub
     Private Sub add_Click(sender As Object, e As EventArgs) Handles add.Click
         Dim myForm As New userForm
+        myForm.update.Visible = False
+        myForm.delete.Visible = False
         myForm.Show()
     End Sub
     Private Sub DataGridView1_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
@@ -76,6 +78,7 @@ Public Class mainMenu
         myForm.phoneTB.Text = selectedRow.Cells(5).Value
         myForm.gradeTB.Text = selectedRow.Cells(6).Value
         myForm.noteTE.Text = selectedRow.Cells(7).Value
+        myForm.insert.Visible = False
         myForm.Show()
         mainMenu_Load(e, e)
     End Sub
@@ -107,30 +110,41 @@ Public Class mainMenu
         Dim myForm As New cookieForm
         myForm.cookieIDText.Text = selectedRow.Cells(0).Value
         myForm.cookieNameTB.Text = selectedRow.Cells(1).Value
+        myForm.insert.Visible = False
         myForm.Show()
         mainMenu_Load(e, e)
     End Sub
     Private Sub cookieForm_Click(sender As Object, e As EventArgs) Handles cookieForm.Click
         Dim myForm As New cookieForm
+        myForm.update.Visible = False
+        myForm.delete.Visible = False
         myForm.Show()
     End Sub
     Private Sub yearCookieForm_Click(sender As Object, e As EventArgs) Handles yearCookieForm.Click
         Dim myForm As New yearCookieForm
         myForm.yearLB.Text = cookieYearPicker.Text
+        myForm.update.Visible = False
+        myForm.delete.Visible = False
         myForm.Show()
     End Sub
     Private Sub cookieOrderForm_Click(sender As Object, e As EventArgs) Handles cookieOrderForm.Click
         Dim myForm As New cookieOrderForm
         myForm.yearLB.Text = cookieYearPicker.Text
+        myForm.update.Visible = False
+        myForm.delete.Visible = False
         myForm.Show()
     End Sub
     Private Sub warehouseForm_Click(sender As Object, e As EventArgs) Handles warehouseForm.Click
         Dim myForm As New warehouseform
+        myForm.Update.Visible = False
+        myForm.Delete.Visible = False
         myForm.Show()
     End Sub
     Private Sub paymentForm_Click(sender As Object, e As EventArgs) Handles paymentForm.Click
         Dim myForm As New paymentForm
-        myForm.yearTB.Text = cookieYearPicker.Text
+        myForm.yearLB.Text = cookieYearPicker.Text
+        myForm.update.Visible = False
+        myForm.delete.Visible = False
         myForm.Show()
     End Sub
     Private Sub load_Click(sender As Object, e As EventArgs) Handles load.Click
