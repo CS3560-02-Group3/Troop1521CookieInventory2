@@ -5,7 +5,7 @@ Public Class mainMenu
         Dim conn As New myConnection()
 
         Dim table As New DataTable()
-        Dim adapter As New MySqlDataAdapter("SELECT * FROM `user`", conn.getConnection())
+        Dim adapter As New MySqlDataAdapter("SELECT * FROM user", conn.getConnection())
         adapter.Fill(table)
         DataGridView1.DataSource = table
         totalGirlsLB.Text = DataGridView1.Rows.Count - 1
@@ -18,12 +18,12 @@ Public Class mainMenu
         userFilterCB.ValueMember = "Column_name"
 
         Dim table2 As New DataTable()
-        Dim adapter2 As New MySqlDataAdapter("SELECT * FROM `userCookie`", conn.getConnection())
+        Dim adapter2 As New MySqlDataAdapter("SELECT * FROM userCookie", conn.getConnection())
         adapter2.Fill(table2)
         DataGridView2.DataSource = table2
 
         Dim table3 As New DataTable()
-        Dim adapter3 As New MySqlDataAdapter("SELECT * FROM `cookie`", conn.getConnection())
+        Dim adapter3 As New MySqlDataAdapter("SELECT * FROM cookie", conn.getConnection())
         adapter3.Fill(table3)
         DataGridView3.DataSource = table3
 
@@ -34,6 +34,28 @@ Public Class mainMenu
         Dim adapter4 As New MySqlDataAdapter(command4)
         adapter4.Fill(table4)
         DataGridView4.DataSource = table4
+
+        Dim table7 As New DataTable()
+        Dim command7 As New MySqlCommand("SELECT year, firstName, lastName, Total_Payment,
+                                          CASE
+                                                WHEN ISNULL(Received_Payment) = 1 THEN 0
+                                                ELSE Received_Payment
+                                          END AS Received_Payment,
+                                          CASE
+                                                WHEN ISNULL(Received_Payment) = 1 THEN Total_Payment
+                                                ELSE Total_Payment - Received_Payment
+                                          END AS Remaining_Balance
+                                          FROM (SELECT year, firstName, lastName, sum(orderQuantity * price) AS Total_Payment,
+                                          (SELECT sum(receiveAmount) FROM userBalance WHERE salesTypeID <> 3 AND userBalance.year = @year AND userBalance.userID = user.userID) AS Received_Payment
+                                          FROM userCookie INNER JOIN user ON user.userID = userCookie.userID
+                                          INNER JOIN inventory ON inventory.inventoryID = userCookie.inventoryID
+                                          INNER JOIN yearCookie ON inventory.yearCookieID = yearCookie.yearCookieID
+                                          WHERE year = @year
+                                          GROUP BY user.userID) as main", conn.getConnection())
+        command7.Parameters.Add("@year", MySqlDbType.Int16).Value = year
+        Dim adapter7 As New MySqlDataAdapter(command7)
+        adapter7.Fill(table7)
+        DataGridView7.DataSource = table7
     End Sub
     Private Sub add_Click(sender As Object, e As EventArgs) Handles add.Click
         Dim myForm As New userForm

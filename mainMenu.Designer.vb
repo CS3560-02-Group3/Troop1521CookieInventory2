@@ -57,6 +57,9 @@ Partial Class mainMenu
         Me.load3 = New System.Windows.Forms.Button()
         Me.BackgroundWorker1 = New System.ComponentModel.BackgroundWorker()
         Me.BackgroundWorker2 = New System.ComponentModel.BackgroundWorker()
+        Me.DataGridView7 = New System.Windows.Forms.DataGridView()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.userTCB = New System.Windows.Forms.ComboBox()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         CType(Me.DataGridView5, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -71,6 +74,7 @@ Partial Class mainMenu
         CType(Me.cookieYearPicker, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView4, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView3, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DataGridView7, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'TabControl1
@@ -286,6 +290,9 @@ Partial Class mainMenu
         '
         'TabPage6
         '
+        Me.TabPage6.Controls.Add(Me.userTCB)
+        Me.TabPage6.Controls.Add(Me.Label4)
+        Me.TabPage6.Controls.Add(Me.DataGridView7)
         Me.TabPage6.Controls.Add(Me.load6)
         Me.TabPage6.Controls.Add(Me.paymentForm)
         Me.TabPage6.Location = New System.Drawing.Point(4, 33)
@@ -402,6 +409,31 @@ Partial Class mainMenu
         Me.load3.Text = "Load"
         Me.load3.UseVisualStyleBackColor = True
         '
+        'DataGridView7
+        '
+        Me.DataGridView7.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView7.Location = New System.Drawing.Point(12, 96)
+        Me.DataGridView7.Name = "DataGridView7"
+        Me.DataGridView7.Size = New System.Drawing.Size(865, 372)
+        Me.DataGridView7.TabIndex = 7
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(8, 52)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(35, 21)
+        Me.Label4.TabIndex = 8
+        Me.Label4.Text = "Girl"
+        '
+        'userTCB
+        '
+        Me.userTCB.FormattingEnabled = True
+        Me.userTCB.Location = New System.Drawing.Point(49, 49)
+        Me.userTCB.Name = "userTCB"
+        Me.userTCB.Size = New System.Drawing.Size(121, 29)
+        Me.userTCB.TabIndex = 9
+        '
         'mainMenu
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -422,11 +454,13 @@ Partial Class mainMenu
         Me.TabPage5.ResumeLayout(False)
         CType(Me.DataGridView6, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabPage6.ResumeLayout(False)
+        Me.TabPage6.PerformLayout()
         Me.TabPage7.ResumeLayout(False)
         Me.TabPage7.PerformLayout()
         CType(Me.cookieYearPicker, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataGridView4, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataGridView3, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DataGridView7, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -466,4 +500,7 @@ Partial Class mainMenu
     Friend WithEvents userFilterCB As ComboBox
     Friend WithEvents filter As Button
     Friend WithEvents userFilterTB As TextBox
+    Friend WithEvents userTCB As ComboBox
+    Friend WithEvents Label4 As Label
+    Friend WithEvents DataGridView7 As DataGridView
 End Class
