@@ -25,6 +25,9 @@ Partial Class mainMenu
         Me.BackgroundWorker1 = New System.ComponentModel.BackgroundWorker()
         Me.BackgroundWorker2 = New System.ComponentModel.BackgroundWorker()
         Me.TabPage7 = New System.Windows.Forms.TabPage()
+        Me.salesTypeForm = New System.Windows.Forms.Button()
+        Me.load8 = New System.Windows.Forms.Button()
+        Me.salesTypeDGV = New System.Windows.Forms.DataGridView()
         Me.cookieYearPicker = New System.Windows.Forms.NumericUpDown()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.yearCookieDGV = New System.Windows.Forms.DataGridView()
@@ -34,6 +37,7 @@ Partial Class mainMenu
         Me.cookieForm = New System.Windows.Forms.Button()
         Me.load3 = New System.Windows.Forms.Button()
         Me.TabPage6 = New System.Windows.Forms.TabPage()
+        Me.transactionFullFieldsDGV = New System.Windows.Forms.DataGridView()
         Me.userTCB = New System.Windows.Forms.ComboBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.transactionDGV = New System.Windows.Forms.DataGridView()
@@ -62,14 +66,13 @@ Partial Class mainMenu
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.salesTypeDGV = New System.Windows.Forms.DataGridView()
-        Me.load8 = New System.Windows.Forms.Button()
-        Me.salesTypeForm = New System.Windows.Forms.Button()
         Me.TabPage7.SuspendLayout()
+        CType(Me.salesTypeDGV, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.cookieYearPicker, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.yearCookieDGV, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.cookieDGV, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPage6.SuspendLayout()
+        CType(Me.transactionFullFieldsDGV, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.transactionDGV, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPage5.SuspendLayout()
         CType(Me.inventoryDGV, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -80,7 +83,6 @@ Partial Class mainMenu
         CType(Me.userDGV, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
-        CType(Me.salesTypeDGV, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'TabPage7
@@ -103,6 +105,32 @@ Partial Class mainMenu
         Me.TabPage7.TabIndex = 6
         Me.TabPage7.Text = "Settings"
         Me.TabPage7.UseVisualStyleBackColor = True
+        '
+        'salesTypeForm
+        '
+        Me.salesTypeForm.Location = New System.Drawing.Point(927, 6)
+        Me.salesTypeForm.Name = "salesTypeForm"
+        Me.salesTypeForm.Size = New System.Drawing.Size(166, 32)
+        Me.salesTypeForm.TabIndex = 19
+        Me.salesTypeForm.Text = "Add Sales Type"
+        Me.salesTypeForm.UseVisualStyleBackColor = True
+        '
+        'load8
+        '
+        Me.load8.Location = New System.Drawing.Point(825, 6)
+        Me.load8.Name = "load8"
+        Me.load8.Size = New System.Drawing.Size(97, 32)
+        Me.load8.TabIndex = 18
+        Me.load8.Text = "Load"
+        Me.load8.UseVisualStyleBackColor = True
+        '
+        'salesTypeDGV
+        '
+        Me.salesTypeDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.salesTypeDGV.Location = New System.Drawing.Point(825, 44)
+        Me.salesTypeDGV.Name = "salesTypeDGV"
+        Me.salesTypeDGV.Size = New System.Drawing.Size(268, 381)
+        Me.salesTypeDGV.TabIndex = 17
         '
         'cookieYearPicker
         '
@@ -176,6 +204,7 @@ Partial Class mainMenu
         '
         'TabPage6
         '
+        Me.TabPage6.Controls.Add(Me.transactionFullFieldsDGV)
         Me.TabPage6.Controls.Add(Me.userTCB)
         Me.TabPage6.Controls.Add(Me.Label4)
         Me.TabPage6.Controls.Add(Me.transactionDGV)
@@ -188,6 +217,14 @@ Partial Class mainMenu
         Me.TabPage6.TabIndex = 5
         Me.TabPage6.Text = "Transactions"
         Me.TabPage6.UseVisualStyleBackColor = True
+        '
+        'transactionFullFieldsDGV
+        '
+        Me.transactionFullFieldsDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.transactionFullFieldsDGV.Location = New System.Drawing.Point(12, 487)
+        Me.transactionFullFieldsDGV.Name = "transactionFullFieldsDGV"
+        Me.transactionFullFieldsDGV.Size = New System.Drawing.Size(865, 221)
+        Me.transactionFullFieldsDGV.TabIndex = 10
         '
         'userTCB
         '
@@ -463,32 +500,6 @@ Partial Class mainMenu
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Welcome"
         '
-        'salesTypeDGV
-        '
-        Me.salesTypeDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.salesTypeDGV.Location = New System.Drawing.Point(825, 44)
-        Me.salesTypeDGV.Name = "salesTypeDGV"
-        Me.salesTypeDGV.Size = New System.Drawing.Size(268, 381)
-        Me.salesTypeDGV.TabIndex = 17
-        '
-        'load8
-        '
-        Me.load8.Location = New System.Drawing.Point(825, 6)
-        Me.load8.Name = "load8"
-        Me.load8.Size = New System.Drawing.Size(97, 32)
-        Me.load8.TabIndex = 18
-        Me.load8.Text = "Load"
-        Me.load8.UseVisualStyleBackColor = True
-        '
-        'salesTypeForm
-        '
-        Me.salesTypeForm.Location = New System.Drawing.Point(927, 6)
-        Me.salesTypeForm.Name = "salesTypeForm"
-        Me.salesTypeForm.Size = New System.Drawing.Size(166, 32)
-        Me.salesTypeForm.TabIndex = 19
-        Me.salesTypeForm.Text = "Add Sales Type"
-        Me.salesTypeForm.UseVisualStyleBackColor = True
-        '
         'mainMenu
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -499,11 +510,13 @@ Partial Class mainMenu
         Me.Text = "Troop 1521 Cookie Inventory"
         Me.TabPage7.ResumeLayout(False)
         Me.TabPage7.PerformLayout()
+        CType(Me.salesTypeDGV, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.cookieYearPicker, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.yearCookieDGV, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.cookieDGV, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabPage6.ResumeLayout(False)
         Me.TabPage6.PerformLayout()
+        CType(Me.transactionFullFieldsDGV, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.transactionDGV, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabPage5.ResumeLayout(False)
         CType(Me.inventoryDGV, System.ComponentModel.ISupportInitialize).EndInit()
@@ -516,7 +529,6 @@ Partial Class mainMenu
         Me.TabControl1.ResumeLayout(False)
         Me.TabPage1.ResumeLayout(False)
         Me.TabPage1.PerformLayout()
-        CType(Me.salesTypeDGV, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -563,4 +575,5 @@ Partial Class mainMenu
     Friend WithEvents salesTypeForm As Button
     Friend WithEvents load8 As Button
     Friend WithEvents salesTypeDGV As DataGridView
+    Friend WithEvents transactionFullFieldsDGV As DataGridView
 End Class

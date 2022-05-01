@@ -114,7 +114,7 @@ Partial Class paymentForm
         'receiveAmountTB
         '
         Me.receiveAmountTB.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.receiveAmountTB.Location = New System.Drawing.Point(279, 225)
+        Me.receiveAmountTB.Location = New System.Drawing.Point(279, 231)
         Me.receiveAmountTB.Name = "receiveAmountTB"
         Me.receiveAmountTB.Size = New System.Drawing.Size(100, 29)
         Me.receiveAmountTB.TabIndex = 13
@@ -132,9 +132,10 @@ Partial Class paymentForm
         'receiveDatePicker
         '
         Me.receiveDatePicker.CalendarFont = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.receiveDatePicker.Location = New System.Drawing.Point(279, 199)
+        Me.receiveDatePicker.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.receiveDatePicker.Location = New System.Drawing.Point(279, 195)
         Me.receiveDatePicker.Name = "receiveDatePicker"
-        Me.receiveDatePicker.Size = New System.Drawing.Size(200, 20)
+        Me.receiveDatePicker.Size = New System.Drawing.Size(282, 29)
         Me.receiveDatePicker.TabIndex = 17
         '
         'update
@@ -159,6 +160,7 @@ Partial Class paymentForm
         '
         'noteTE
         '
+        Me.noteTE.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.noteTE.Location = New System.Drawing.Point(279, 272)
         Me.noteTE.Name = "noteTE"
         Me.noteTE.Size = New System.Drawing.Size(395, 96)

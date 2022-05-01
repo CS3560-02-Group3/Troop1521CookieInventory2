@@ -56,6 +56,16 @@ Public Class mainMenu
         Dim TransactionViewAdapter As New MySqlDataAdapter(TransactionViewCommand)
         TransactionViewAdapter.Fill(TransactionViewTable)
         transactionDGV.DataSource = TransactionViewTable
+
+        Dim TransactionFullFieldsTable As New DataTable()
+        Dim TransactionFullFieldsAdapter As New MySqlDataAdapter("SELECT * FROM userBalance", conn.getConnection())
+        TransactionFullFieldsAdapter.Fill(TransactionFullFieldsTable)
+        transactionFullFieldsDGV.DataSource = TransactionFullFieldsTable
+
+        Dim SalesTypeTable As New DataTable()
+        Dim SalesTypeAdapter As New MySqlDataAdapter("SELECT * FROM salesType", conn.getConnection())
+        SalesTypeAdapter.Fill(SalesTypeTable)
+        salesTypeDGV.DataSource = SalesTypeTable
     End Sub
     Private Sub userDGV_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles userDGV.CellContentClick
         If e.RowIndex = -1 Then
@@ -95,6 +105,39 @@ Public Class mainMenu
         Dim myForm As New cookieForm
         myForm.cookieIDText.Text = selectedRow.Cells(0).Value
         myForm.cookieNameTB.Text = selectedRow.Cells(1).Value
+        myForm.insert.Visible = False
+        myForm.Show()
+        mainMenu_Load(e, e)
+    End Sub
+    Private Sub transactionDGV_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles transactionDGV.CellContentClick
+
+    End Sub
+    Private Sub transactionFullFieldsDGV_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles transactionFullFieldsDGV.CellContentClick
+        If e.RowIndex = -1 Then
+            Return
+        End If
+        Dim selectedRow As DataGridViewRow
+        selectedRow = transactionFullFieldsDGV.Rows(e.RowIndex)
+        Dim myForm As New paymentForm
+        myForm.userBalanceLB.Text = selectedRow.Cells(0).Value
+        'myForm.userCB.SelectedIndex = selectedRow.Cells(1).Value
+        'myForm.salesTypeCB.SelectedIndex = selectedRow.Cells(2).Value
+        myForm.receiveDatePicker.Text = selectedRow.Cells(4).Value
+        myForm.receiveAmountTB.Text = selectedRow.Cells(5).Value
+        myForm.noteTE.Text = selectedRow.Cells(6).Value
+        myForm.submit.Visible = False
+        myForm.Show()
+        mainMenu_Load(e, e)
+    End Sub
+    Private Sub salesTypeDGV_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles salesTypeDGV.CellContentClick
+        If e.RowIndex = -1 Then
+            Return
+        End If
+        Dim selectedRow As DataGridViewRow
+        selectedRow = salesTypeDGV.Rows(e.RowIndex)
+        Dim myForm As New salesTypeForm
+        myForm.salesTypeLB.Text = selectedRow.Cells(0).Value
+        myForm.salesTypesTB.Text = selectedRow.Cells(1).Value
         myForm.insert.Visible = False
         myForm.Show()
         mainMenu_Load(e, e)
@@ -139,8 +182,8 @@ Public Class mainMenu
     End Sub
     Private Sub salesTypeForm_Click(sender As Object, e As EventArgs) Handles salesTypeForm.Click
         Dim myForm As New salesTypeForm
-        myForm.Update.Visible = False
-        myForm.Delete.Visible = False
+        myForm.update.Visible = False
+        myForm.delete.Visible = False
         myForm.Show()
     End Sub
     Private Sub paymentForm_Click(sender As Object, e As EventArgs) Handles paymentForm.Click
@@ -169,6 +212,9 @@ Public Class mainMenu
         mainMenu_Load(e, e)
     End Sub
     Private Sub load7_Click(sender As Object, e As EventArgs) Handles load7.Click
+        mainMenu_Load(e, e)
+    End Sub
+    Private Sub load8_Click(sender As Object, e As EventArgs) Handles load8.Click
         mainMenu_Load(e, e)
     End Sub
     Private Sub filter_Click(sender As Object, e As EventArgs) Handles filter.Click

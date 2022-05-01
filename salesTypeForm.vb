@@ -43,7 +43,9 @@ Public Class salesTypeForm
         ' error handling when the query WHERE is not given a Sales Type ID
         If salesTypeLB.Text = "" Then
             MsgBox("Cannot update without valid Sales Type ID")
-
+            ' error handling when the query WHERE is not given a Sales Type
+        ElseIf salesTypesTB.Text = "" Then
+            MsgBox("Cannot update without valid Sales Type")
         Else
             Dim confirmMsg = MessageBox.Show("Are you sure you want to update?", "Update", MessageBoxButtons.YesNo)
             If confirmMsg = DialogResult.Yes Then

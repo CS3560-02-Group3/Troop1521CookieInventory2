@@ -4,7 +4,7 @@ Public Class paymentForm
     Private Sub paymentForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim conn As New myConnection()
         Dim table2 As New DataTable()
-        Dim adapter2 As New MySqlDataAdapter("SELECT * FROM user ORDER BY firstName ASC", conn.getConnection())
+        Dim adapter2 As New MySqlDataAdapter("SELECT userID, firstName, lastName FROM user ORDER BY firstName ASC", conn.getConnection())
         adapter2.Fill(table2)
         userCB.DataSource = table2
         table2.Columns.Add("userID_name", Type.GetType("System.String"), "firstName + ' ' + lastName + '   ' + userID")
@@ -31,8 +31,8 @@ Public Class paymentForm
             If confirmMsg = DialogResult.Yes Then
                 ' text in the textboxes are assigned to each variable
                 ' if no text, then submit empty string
-                Dim userID As Integer = userCB.Text
-                Dim salesTypeID As Integer = salesTypeCB.Text
+                Dim userID As Integer = userCB.SelectedValue
+                Dim salesTypeID As Integer = salesTypeCB.SelectedValue
                 Dim receiveDate As Date = receiveDatePicker.Text
                 ' error handling for inability to convert empty string to Integer
                 If yearLB.Text = "" Then
@@ -88,8 +88,8 @@ Public Class paymentForm
             Dim confirmMsg = MessageBox.Show("Are you sure you want to update?", "Update", MessageBoxButtons.YesNo)
             If confirmMsg = DialogResult.Yes Then
                 Dim userBalanceID As Integer = userBalanceLB.Text
-                Dim userID As Integer = userCB.Text
-                Dim salesTypeID As Integer = salesTypeCB.Text
+                Dim userID As Integer = userCB.SelectedValue
+                Dim salesTypeID As Integer = salesTypeCB.SelectedValue
                 Dim receiveDate As Date = receiveDatePicker.Text
                 ' error handling for inability to convert empty string to Integer
                 If yearLB.Text = "" Then
@@ -140,8 +140,8 @@ Public Class paymentForm
             If confirmMsg = DialogResult.Yes Then
 
                 Dim userBalanceID As Integer = userBalanceLB.Text
-                Dim userID As Integer = userCB.Text
-                Dim salesTypeID As Integer = salesTypeCB.Text
+                Dim userID As Integer = userCB.SelectedValue
+                Dim salesTypeID As Integer = salesTypeCB.SelectedValue
 
                 Dim conn As New myConnection()
                 ' Command a query DELETE a row FROM the user table WHERE the userBalance, userID, and salesTypeID is.

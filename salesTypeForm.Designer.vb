@@ -55,7 +55,7 @@ Partial Class salesTypeForm
         'insert
         '
         Me.insert.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.insert.Location = New System.Drawing.Point(198, 228)
+        Me.insert.Location = New System.Drawing.Point(89, 228)
         Me.insert.Name = "insert"
         Me.insert.Size = New System.Drawing.Size(96, 33)
         Me.insert.TabIndex = 16
@@ -65,7 +65,7 @@ Partial Class salesTypeForm
         'update
         '
         Me.update.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.update.Location = New System.Drawing.Point(237, 228)
+        Me.update.Location = New System.Drawing.Point(247, 228)
         Me.update.Name = "update"
         Me.update.Size = New System.Drawing.Size(96, 33)
         Me.update.TabIndex = 19
@@ -75,7 +75,7 @@ Partial Class salesTypeForm
         'delete
         '
         Me.delete.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.delete.Location = New System.Drawing.Point(419, 228)
+        Me.delete.Location = New System.Drawing.Point(409, 228)
         Me.delete.Name = "delete"
         Me.delete.Size = New System.Drawing.Size(96, 33)
         Me.delete.TabIndex = 20
