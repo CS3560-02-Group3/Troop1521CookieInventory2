@@ -7,8 +7,8 @@ Public Class paymentForm
         Dim adapter2 As New MySqlDataAdapter("SELECT userID, firstName, lastName FROM user ORDER BY firstName ASC", conn.getConnection())
         adapter2.Fill(table2)
         userCB.DataSource = table2
-        table2.Columns.Add("userID_name", Type.GetType("System.String"), "firstName + ' ' + lastName + '   ' + userID")
-        userCB.DisplayMember = "userID_name"
+        table2.Columns.Add("full_name", Type.GetType("System.String"), "firstName + ' ' + lastName")
+        userCB.DisplayMember = "full_name"
         userCB.ValueMember = "userID"
 
         Dim STtable As New DataTable()

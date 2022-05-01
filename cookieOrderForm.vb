@@ -22,8 +22,8 @@ Public Class cookieOrderForm
         Dim adapter2 As New MySqlDataAdapter("SELECT * FROM `user` ORDER BY firstName ASC", conn.getConnection())
         adapter2.Fill(table2)
         userCB.DataSource = table2
-        table2.Columns.Add("userID_name", Type.GetType("System.String"), "firstName + ' ' + lastName + '   ' + userID")
-        userCB.DisplayMember = "userID_name"
+        table2.Columns.Add("full_name", Type.GetType("System.String"), "firstName + ' ' + lastName")
+        userCB.DisplayMember = "full_name"
         userCB.ValueMember = "userID"
     End Sub
     Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick

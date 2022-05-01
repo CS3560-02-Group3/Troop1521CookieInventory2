@@ -112,6 +112,9 @@ Public Class mainMenu
     Private Sub transactionDGV_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles transactionDGV.CellContentClick
 
     End Sub
+    Private Sub yearCookieDGV_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles yearCookieDGV.CellContentClick
+
+    End Sub
     Private Sub transactionFullFieldsDGV_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles transactionFullFieldsDGV.CellContentClick
         If e.RowIndex = -1 Then
             Return

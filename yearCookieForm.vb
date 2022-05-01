@@ -6,8 +6,7 @@ Public Class yearCookieForm
         Dim adapter As New MySqlDataAdapter("SELECT * FROM `cookie` ORDER BY name ASC", conn.getConnection())
         adapter.Fill(table)
         cookieCB.DataSource = table
-        table.Columns.Add("cookieID_name", Type.GetType("System.String"), "name + '   ' + cookieID")
-        cookieCB.DisplayMember = "cookieID_name"
+        cookieCB.DisplayMember = "name"
         cookieCB.ValueMember = "cookieID"
 
     End Sub
