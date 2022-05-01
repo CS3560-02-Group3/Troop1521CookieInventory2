@@ -7,7 +7,7 @@ Public Class salesTypeForm
             MsgBox("Cannot submit without valid Sales Type")
         Else
             ' Show this message below in a message box with the yes and no options 
-            Dim confirmMsg = MessageBox.Show("Are you sure you want to submit?", "Submit", MessageBoxButtons.YesNo)
+            Dim confirmMsg = MessageBox.Show("Are you sure you want to insert?", "Insert", MessageBoxButtons.YesNo)
             ' If no is clicked, do nothing
             ' I yes is clicked, do the following
             If confirmMsg = DialogResult.Yes Then
