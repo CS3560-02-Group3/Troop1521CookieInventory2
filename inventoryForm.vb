@@ -2,7 +2,7 @@
 
 
 Public Class inventoryForm
-    Private Sub Submit_Click(sender As Object, e As EventArgs) Handles submit.Click
+    Private Sub Submit_Click(sender As Object, e As EventArgs) Handles insert.Click
         Dim confirmMsg = MessageBox.Show("Are you sure you want to submit?", "Submit", MessageBoxButtons.YesNo)
         If confirmMsg = DialogResult.Yes Then
 

@@ -140,6 +140,18 @@ Public Class mainMenu
         myForm.Delete.Visible = False
         myForm.Show()
     End Sub
+    Private Sub inventoryForm_Click(sender As Object, e As EventArgs) Handles inventoryForm.Click
+        Dim myForm As New inventoryForm
+        'myForm.Update.Visible = False
+        'myForm.Delete.Visible = False
+        myForm.Show()
+    End Sub
+    Private Sub salesTypeForm_Click(sender As Object, e As EventArgs) Handles salesTypeForm.Click
+        Dim myForm As New salesTypeForm
+        myForm.Update.Visible = False
+        myForm.Delete.Visible = False
+        myForm.Show()
+    End Sub
     Private Sub paymentForm_Click(sender As Object, e As EventArgs) Handles paymentForm.Click
         Dim myForm As New paymentForm
         myForm.yearLB.Text = cookieYearPicker.Text
@@ -163,6 +175,9 @@ Public Class mainMenu
         mainMenu_Load(e, e)
     End Sub
     Private Sub load6_Click(sender As Object, e As EventArgs) Handles load6.Click
+        mainMenu_Load(e, e)
+    End Sub
+    Private Sub load7_Click(sender As Object, e As EventArgs) Handles load7.Click
         mainMenu_Load(e, e)
     End Sub
     Private Sub filter_Click(sender As Object, e As EventArgs) Handles filter.Click

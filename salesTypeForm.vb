@@ -1,9 +1,9 @@
 ﻿Imports MySql.Data.MySqlClient
 
-Public Class salesType
+Public Class salesTypeForm
 
-    Private Sub Submit_Click(sender As Object, e As EventArgs) Handles submit.Click
-        If salesTypes.Text = "" Then
+    Private Sub Submit_Click(sender As Object, e As EventArgs) Handles insert.Click
+        If salesTypesTB.Text = "" Then
             MsgBox("Cannot submit without valid Sales Type")
         Else
             ' Show this message below in a message box with the yes and no options 
@@ -13,7 +13,7 @@ Public Class salesType
             If confirmMsg = DialogResult.Yes Then
                 ' text in the textboxes are assigned to each variable
                 ' if no text, then submit empty string
-                Dim salesType As String = salesTypes.Text
+                Dim salesType As String = salesTypesTB.Text
                 ' Assign the connection to the Sql Database to a variable
                 Dim conn As New myConnection()
                 ' Command an INSERT query INTO the user table
@@ -41,15 +41,15 @@ Public Class salesType
 
     Private Sub update_Click(sender As Object, e As EventArgs) Handles update.Click
         ' error handling when the query WHERE is not given a Sales Type ID
-        If salesTypeIDTB.Text = "" Then
+        If salesTypeLB.Text = "" Then
             MsgBox("Cannot update without valid Sales Type ID")
 
         Else
             Dim confirmMsg = MessageBox.Show("Are you sure you want to update?", "Update", MessageBoxButtons.YesNo)
             If confirmMsg = DialogResult.Yes Then
 
-                Dim salesTypeID As Integer = salesTypeIDTB.Text
-                Dim salesType As String = salesTypes.Text
+                Dim salesTypeID As Integer = salesTypeLB.Text
+                Dim salesType As String = salesTypesTB.Text
 
                 Dim conn As New myConnection()
                 ' Command a query UPDATE a row in the user table. SET the variables to values WHERE the salesTypeID is.
@@ -74,14 +74,14 @@ Public Class salesType
 
     Private Sub delete_Click(sender As Object, e As EventArgs) Handles delete.Click
         ' error handling when the query WHERE is not given a salesTypeID
-        If salesTypeIDTB.Text = "" Then
+        If salesTypeLB.Text = "" Then
             MsgBox("Cannot delete without valid Sales Type ID")
 
         Else
             Dim confirmMsg = MessageBox.Show("Are you sure you want to delete?", "Delete", MessageBoxButtons.YesNo)
             If confirmMsg = DialogResult.Yes Then
 
-                Dim salesTypeID As Integer = salesTypeIDTB.Text
+                Dim salesTypeID As Integer = salesTypeLB.Text
 
                 Dim conn As New myConnection()
                 ' Command a query DELETE a row FROM the user table WHERE the salesTypeID is.

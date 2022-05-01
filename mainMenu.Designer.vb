@@ -41,6 +41,9 @@ Partial Class mainMenu
         Me.paymentForm = New System.Windows.Forms.Button()
         Me.TabPage5 = New System.Windows.Forms.TabPage()
         Me.inventoryDGV = New System.Windows.Forms.DataGridView()
+        Me.inventoryForm = New System.Windows.Forms.Button()
+        Me.load7 = New System.Windows.Forms.Button()
+        Me.warehouseDGV = New System.Windows.Forms.DataGridView()
         Me.load5 = New System.Windows.Forms.Button()
         Me.warehouseForm = New System.Windows.Forms.Button()
         Me.TabPage3 = New System.Windows.Forms.TabPage()
@@ -59,6 +62,9 @@ Partial Class mainMenu
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.salesTypeDGV = New System.Windows.Forms.DataGridView()
+        Me.load8 = New System.Windows.Forms.Button()
+        Me.salesTypeForm = New System.Windows.Forms.Button()
         Me.TabPage7.SuspendLayout()
         CType(Me.cookieYearPicker, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.yearCookieDGV, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -67,16 +73,21 @@ Partial Class mainMenu
         CType(Me.transactionDGV, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPage5.SuspendLayout()
         CType(Me.inventoryDGV, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.warehouseDGV, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPage3.SuspendLayout()
         CType(Me.orderDGV, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPage2.SuspendLayout()
         CType(Me.userDGV, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
+        CType(Me.salesTypeDGV, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'TabPage7
         '
+        Me.TabPage7.Controls.Add(Me.salesTypeForm)
+        Me.TabPage7.Controls.Add(Me.load8)
+        Me.TabPage7.Controls.Add(Me.salesTypeDGV)
         Me.TabPage7.Controls.Add(Me.cookieYearPicker)
         Me.TabPage7.Controls.Add(Me.Label2)
         Me.TabPage7.Controls.Add(Me.yearCookieDGV)
@@ -224,6 +235,9 @@ Partial Class mainMenu
         'TabPage5
         '
         Me.TabPage5.Controls.Add(Me.inventoryDGV)
+        Me.TabPage5.Controls.Add(Me.inventoryForm)
+        Me.TabPage5.Controls.Add(Me.load7)
+        Me.TabPage5.Controls.Add(Me.warehouseDGV)
         Me.TabPage5.Controls.Add(Me.load5)
         Me.TabPage5.Controls.Add(Me.warehouseForm)
         Me.TabPage5.Location = New System.Drawing.Point(4, 33)
@@ -237,10 +251,36 @@ Partial Class mainMenu
         'inventoryDGV
         '
         Me.inventoryDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.inventoryDGV.Location = New System.Drawing.Point(8, 40)
+        Me.inventoryDGV.Location = New System.Drawing.Point(487, 40)
         Me.inventoryDGV.Name = "inventoryDGV"
         Me.inventoryDGV.Size = New System.Drawing.Size(422, 407)
-        Me.inventoryDGV.TabIndex = 6
+        Me.inventoryDGV.TabIndex = 9
+        '
+        'inventoryForm
+        '
+        Me.inventoryForm.Location = New System.Drawing.Point(571, 6)
+        Me.inventoryForm.Name = "inventoryForm"
+        Me.inventoryForm.Size = New System.Drawing.Size(211, 28)
+        Me.inventoryForm.TabIndex = 8
+        Me.inventoryForm.Text = "Add Warehouse Inventory"
+        Me.inventoryForm.UseVisualStyleBackColor = True
+        '
+        'load7
+        '
+        Me.load7.Location = New System.Drawing.Point(487, 6)
+        Me.load7.Name = "load7"
+        Me.load7.Size = New System.Drawing.Size(78, 28)
+        Me.load7.TabIndex = 7
+        Me.load7.Text = "Load"
+        Me.load7.UseVisualStyleBackColor = True
+        '
+        'warehouseDGV
+        '
+        Me.warehouseDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.warehouseDGV.Location = New System.Drawing.Point(8, 40)
+        Me.warehouseDGV.Name = "warehouseDGV"
+        Me.warehouseDGV.Size = New System.Drawing.Size(422, 407)
+        Me.warehouseDGV.TabIndex = 6
         '
         'load5
         '
@@ -423,6 +463,32 @@ Partial Class mainMenu
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Welcome"
         '
+        'salesTypeDGV
+        '
+        Me.salesTypeDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.salesTypeDGV.Location = New System.Drawing.Point(825, 44)
+        Me.salesTypeDGV.Name = "salesTypeDGV"
+        Me.salesTypeDGV.Size = New System.Drawing.Size(268, 381)
+        Me.salesTypeDGV.TabIndex = 17
+        '
+        'load8
+        '
+        Me.load8.Location = New System.Drawing.Point(825, 6)
+        Me.load8.Name = "load8"
+        Me.load8.Size = New System.Drawing.Size(97, 32)
+        Me.load8.TabIndex = 18
+        Me.load8.Text = "Load"
+        Me.load8.UseVisualStyleBackColor = True
+        '
+        'salesTypeForm
+        '
+        Me.salesTypeForm.Location = New System.Drawing.Point(927, 6)
+        Me.salesTypeForm.Name = "salesTypeForm"
+        Me.salesTypeForm.Size = New System.Drawing.Size(166, 32)
+        Me.salesTypeForm.TabIndex = 19
+        Me.salesTypeForm.Text = "Add Sales Type"
+        Me.salesTypeForm.UseVisualStyleBackColor = True
+        '
         'mainMenu
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -441,6 +507,7 @@ Partial Class mainMenu
         CType(Me.transactionDGV, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabPage5.ResumeLayout(False)
         CType(Me.inventoryDGV, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.warehouseDGV, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabPage3.ResumeLayout(False)
         CType(Me.orderDGV, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabPage2.ResumeLayout(False)
@@ -449,6 +516,7 @@ Partial Class mainMenu
         Me.TabControl1.ResumeLayout(False)
         Me.TabPage1.ResumeLayout(False)
         Me.TabPage1.PerformLayout()
+        CType(Me.salesTypeDGV, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -470,7 +538,7 @@ Partial Class mainMenu
     Friend WithEvents load6 As Button
     Friend WithEvents paymentForm As Button
     Friend WithEvents TabPage5 As TabPage
-    Friend WithEvents inventoryDGV As DataGridView
+    Friend WithEvents warehouseDGV As DataGridView
     Friend WithEvents load5 As Button
     Friend WithEvents warehouseForm As Button
     Friend WithEvents TabPage3 As TabPage
@@ -489,4 +557,10 @@ Partial Class mainMenu
     Friend WithEvents TabControl1 As TabControl
     Friend WithEvents TabPage1 As TabPage
     Friend WithEvents Label1 As Label
+    Friend WithEvents inventoryForm As Button
+    Friend WithEvents load7 As Button
+    Friend WithEvents inventoryDGV As DataGridView
+    Friend WithEvents salesTypeForm As Button
+    Friend WithEvents load8 As Button
+    Friend WithEvents salesTypeDGV As DataGridView
 End Class
