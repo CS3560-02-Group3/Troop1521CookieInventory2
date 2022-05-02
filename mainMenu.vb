@@ -29,8 +29,7 @@ Public Class mainMenu
 
         Dim YCtable As New DataTable()
         Dim year = cookieYearPicker.Text
-        'yearCookieID, cookie.Name, price, cookie.cookieID
-        Dim YCcommand As New MySqlCommand("SELECT * FROM yearCookie INNER JOIN cookie ON cookie.cookieID = yearCookieID WHERE year = @year", conn.getConnection())
+        Dim YCcommand As New MySqlCommand("SELECT yearCookieID, cookie.Name, price, cookie.cookieID FROM yearCookie INNER JOIN cookie ON cookie.cookieID = yearCookieID WHERE year = @year", conn.getConnection())
         YCcommand.Parameters.Add("@year", MySqlDbType.Int16).Value = year
         Dim YCadapter As New MySqlDataAdapter(YCcommand)
         YCadapter.Fill(YCtable)
