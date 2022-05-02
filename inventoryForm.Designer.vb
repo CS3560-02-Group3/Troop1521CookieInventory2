@@ -44,6 +44,7 @@ Partial Class inventoryForm
         Me.inventoryIDLB = New System.Windows.Forms.Label()
         Me.yearCookieCB = New System.Windows.Forms.ComboBox()
         Me.warehouseCB = New System.Windows.Forms.ComboBox()
+        Me.filter = New System.Windows.Forms.Button()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -253,11 +254,22 @@ Partial Class inventoryForm
         Me.warehouseCB.Size = New System.Drawing.Size(265, 24)
         Me.warehouseCB.TabIndex = 24
         '
+        'filter
+        '
+        Me.filter.Location = New System.Drawing.Point(680, 310)
+        Me.filter.Margin = New System.Windows.Forms.Padding(4)
+        Me.filter.Name = "filter"
+        Me.filter.Size = New System.Drawing.Size(104, 48)
+        Me.filter.TabIndex = 25
+        Me.filter.Text = "Filter"
+        Me.filter.UseVisualStyleBackColor = True
+        '
         'inventoryForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1840, 870)
+        Me.Controls.Add(Me.filter)
         Me.Controls.Add(Me.warehouseCB)
         Me.Controls.Add(Me.yearCookieCB)
         Me.Controls.Add(Me.inventoryIDLB)
@@ -305,4 +317,5 @@ Partial Class inventoryForm
     Friend WithEvents Column3 As DataGridViewTextBoxColumn
     Friend WithEvents Column4 As DataGridViewTextBoxColumn
     Friend WithEvents Column5 As DataGridViewTextBoxColumn
+    Friend WithEvents filter As Button
 End Class
