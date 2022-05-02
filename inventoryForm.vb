@@ -106,23 +106,16 @@ Public Class inventoryForm
 
     End Sub
 
-    Public Sub load_warehouseCB()
+    Public Sub inventory_Load()
         Dim conn As New myConnection()
         Dim table As New DataTable()
         Dim adapter As New MySqlDataAdapter("SELECT * FROM `inventory` ORDER BY name ASC", conn.getConnection())
         adapter.Fill(table)
         warehouseCB.DataSource = table
-        warehouseCB.DisplayMember = "Warehouse"
+        warehouseCB.DisplayMember = "name"
         warehouseCB.ValueMember = "warehouseID"
-    End Sub
-
-    Public Sub load_yearCookieCB()
-        Dim conn As New myConnection()
-        Dim table As New DataTable()
-        Dim adapter As New MySqlDataAdapter("SELECT * FROM `inventory` ORDER BY name ASC", conn.getConnection())
-        adapter.Fill(table)
         yearCookieCB.DataSource = table
-        yearCookieCB.DisplayMember = "Year Cookie"
+        yearCookieCB.DisplayMember = "name"
         yearCookieCB.ValueMember = "yearCookieID"
     End Sub
 End Class
