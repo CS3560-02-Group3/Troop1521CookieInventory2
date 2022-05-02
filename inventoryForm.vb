@@ -11,7 +11,7 @@ Public Class inventoryForm
             Dim note As String = noteTE.Text
 
             Dim conn As New myConnection()
-            Dim command As New MySqlCommand("INSERT INTO `user`(`dateID`, `inQuantity`, `note`) VALUES (@dateID, @inQuantity, @note)", conn.getConnection())
+            Dim command As New MySqlCommand("INSERT INTO `inventory`(`dateID`, `inQuantity`, `note`) VALUES (@dateID, @inQuantity, @note)", conn.getConnection())
 
             command.Parameters.Add("@dateID", MySqlDbType.VarChar).Value = dateID
             command.Parameters.Add("@inQuantity", MySqlDbType.Int16).Value = inQuantity
@@ -71,7 +71,7 @@ Public Class inventoryForm
 
                 Dim conn As New myConnection()
 
-                Dim command As New MySqlCommand("UPDATE `user` SET dateID = @dateID, inQuantity = @inQuantity, note = @note WHERE inventoryID = @inventoryID", conn.getConnection())
+                Dim command As New MySqlCommand("UPDATE `inventory` SET dateID = @dateID, inQuantity = @inQuantity, note = @note WHERE inventoryID = @inventoryID", conn.getConnection())
 
                 command.Parameters.Add("@dateID", MySqlDbType.VarChar).Value = dateID
                 command.Parameters.Add("@inQuantity", MySqlDbType.Int16).Value = inQuantity
@@ -106,7 +106,23 @@ Public Class inventoryForm
 
     End Sub
 
-    Private Sub inventoryForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Public Sub load_warehouseCB()
+        Dim conn As New myConnection()
+        Dim table As New DataTable()
+        Dim adapter As New MySqlDataAdapter("SELECT * FROM `inventory` ORDER BY name ASC", conn.getConnection())
+        adapter.Fill(table)
+        warehouseCB.DataSource = table
+        warehouseCB.DisplayMember = "Warehouse"
+        warehouseCB.ValueMember = "warehouseID"
+    End Sub
 
+    Public Sub load_yearCookieCB()
+        Dim conn As New myConnection()
+        Dim table As New DataTable()
+        Dim adapter As New MySqlDataAdapter("SELECT * FROM `inventory` ORDER BY name ASC", conn.getConnection())
+        adapter.Fill(table)
+        yearCookieCB.DataSource = table
+        yearCookieCB.DisplayMember = "Year Cookie"
+        yearCookieCB.ValueMember = "yearCookieID"
     End Sub
 End Class
