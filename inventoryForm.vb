@@ -20,10 +20,10 @@ Public Class inventoryForm
             conn.openConnection()
 
             If command.ExecuteNonQuery() = 1 Then
-                MsgBox("COOKIE INSERTED INTO WAREHOUSE'S INVENTORY")
+                MsgBox("COOKIE INSERTED INTO WAREHOUSE'S INVENTORY ")
                 conn.closeConnection()
             Else
-                MsgBox("COOKIE NOT INSERTED INTO WAREHOUSE'S INVENTORY")
+                MsgBox("COOKIE NOT INSERTED INTO WAREHOUSE'S INVENTORY ")
                 conn.closeConnection()
             End If
         End If
