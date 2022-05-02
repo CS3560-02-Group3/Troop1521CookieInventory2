@@ -60,7 +60,8 @@ Public Class mainMenu
         transactionDGV.DataSource = TransactionViewTable
 
         Dim TransactionFullFieldsTable As New DataTable()
-        Dim TransactionFullFieldsAdapter As New MySqlDataAdapter("SELECT * FROM userBalance", conn.getConnection())
+        Dim TransactionFullFieldsAdapter As New MySqlDataAdapter("SELECT * FROM userBalance 
+                                                                  INNER JOIN salesType ON salesType.salesTypeID = userBalance.salesTypeID", conn.getConnection())
         TransactionFullFieldsAdapter.Fill(TransactionFullFieldsTable)
         transactionFullFieldsDGV.DataSource = TransactionFullFieldsTable
 
