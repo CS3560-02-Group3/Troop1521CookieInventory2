@@ -2,7 +2,7 @@
 
 
 Public Class inventoryForm
-    Private Sub Submit_Click(sender As Object, e As EventArgs) Handles insert.Click
+    Private Sub insert_Click(sender As Object, e As EventArgs) Handles insert.Click
         Dim confirmMsg = MessageBox.Show("Are you sure you want to submit?", "Submit", MessageBoxButtons.YesNo)
         If confirmMsg = DialogResult.Yes Then
 
@@ -29,67 +29,84 @@ Public Class inventoryForm
         End If
 
     End Sub
-    ' Private Sub Delete_Click(sender As Object, e As EventArgs) Handles delete.Click
-    'If inventoryIDLB.Text = "" Then
-    '       MsgBox("Cannot delete without valid ID")
+    Private Sub delete_Click(sender As Object, e As EventArgs) Handles delete.Click
+        If inventoryIDLB.Text = "" Then
+            MsgBox("Cannot delete without valid ID")
 
-    'Else
-    'Dim confirmMsg = MessageBox.Show("Are you sure you want to delete?", "Delete", MessageBoxButtons.YesNo)
-    'If confirmMsg = DialogResult.Yes Then
-    '
-    'Dim inventoryID As Integer = inventoryIDLB.Text
+        Else
+            Dim confirmMsg = MessageBox.Show("Are you sure you want to delete?", "Delete", MessageBoxButtons.YesNo)
+            If confirmMsg = DialogResult.Yes Then
 
-    'Dim conn As New myConnection()
-    'Dim command As New MySqlCommand("DELETE FROM `inventory` WHERE inventoryID = @inventoryID", conn.getConnection())
+                Dim inventoryID As Integer = inventoryIDLB.Text
 
-    '           command.Parameters.Add("@inventoryID", MySqlDbType.VarChar).Value = inventoryID
+                Dim conn As New myConnection()
+                Dim command As New MySqlCommand("DELETE FROM `inventory` WHERE inventoryID = @inventoryID", conn.getConnection())
 
-    '          conn.openConnection()
+                command.Parameters.Add("@inventoryID", MySqlDbType.VarChar).Value = inventoryID
 
-    'If command.ExecuteNonQuery() = 1 Then
-    '               MsgBox("COOKIE/S DELETED")
-    '              conn.closeConnection()
-    'Me.Close()
-    'Else
-    '               MsgBox("COOKIE/S NOT DELETED")
-    '              conn.closeConnection()
-    'End If
-    'End If
-    'End If
-    'End Sub
-    'Private Sub Update_Click(sender As Object, e As EventArgs) Handles update.Click
-    'If inventoryIDLB.Text = "" Then
-    '       MsgBox("Cannot update without valid ID")
-    '
-    'Else
-    'Dim confirmMsg = MessageBox.Show("Are you sure you want to update?", "Update", MessageBoxButtons.YesNo)
-    'If confirmMsg = DialogResult.Yes Then
+                conn.openConnection()
 
-    'Dim dateID As Integer = DateTimePicker1.Text
-    'Dim inQuantity As Integer = inQuantityTB.Text
-    'Dim note As String = noteTE.Text
+                If command.ExecuteNonQuery() = 1 Then
+                    MsgBox("COOKIE/S DELETED")
+                    conn.closeConnection()
+                    Me.Close()
+                Else
+                    MsgBox("COOKIE/S NOT DELETED")
+                    conn.closeConnection()
+                End If
+            End If
+        End If
+    End Sub
+    Private Sub update_Click(sender As Object, e As EventArgs) Handles update.Click
+        If inventoryIDLB.Text = "" Then
+            MsgBox("Cannot update without valid ID")
 
-    'Dim conn As New myConnection()
+        Else
+            Dim confirmMsg = MessageBox.Show("Are you sure you want to update?", "Update", MessageBoxButtons.YesNo)
+            If confirmMsg = DialogResult.Yes Then
 
-    'Dim command As New MySqlCommand("UPDATE `user` SET dateID = @dateID, inQuantity = @inQuantity, note = @note WHERE inventoryID = @inventoryID", conn.getConnection())
+                Dim dateID As Integer = DateTimePicker1.Text
+                Dim inQuantity As Integer = inQuantityTB.Text
+                Dim note As String = noteTE.Text
 
-    '           command.Parameters.Add("@dateID", MySqlDbType.VarChar).Value = dateID
-    '          command.Parameters.Add("@inQuantity", MySqlDbType.Int16).Value = inQuantity
-    '         command.Parameters.Add("@note", MySqlDbType.VarChar).Value = note
+                Dim conn As New myConnection()
 
-    '        conn.openConnection()
+                Dim command As New MySqlCommand("UPDATE `user` SET dateID = @dateID, inQuantity = @inQuantity, note = @note WHERE inventoryID = @inventoryID", conn.getConnection())
 
-    'If command.ExecuteNonQuery() = 1 Then
-    '               MsgBox("INVENTORY UPDATED")
-    '              conn.closeConnection()
-    'Me.Close()
-    'Else
-    '               MsgBox("INVENTORY NOT UPDATED")
-    '              conn.closeConnection()
-    'End If
-    'End If
-    'End If
-    'End Sub
+                command.Parameters.Add("@dateID", MySqlDbType.VarChar).Value = dateID
+                command.Parameters.Add("@inQuantity", MySqlDbType.Int16).Value = inQuantity
+                command.Parameters.Add("@note", MySqlDbType.VarChar).Value = note
 
+                conn.openConnection()
 
+                If command.ExecuteNonQuery() = 1 Then
+                    MsgBox("INVENTORY UPDATED")
+                    conn.closeConnection()
+                    Me.Close()
+                Else
+                    MsgBox("INVENTORY NOT UPDATED")
+                    conn.closeConnection()
+                End If
+            End If
+        End If
+    End Sub
+
+    Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
+
+        If e.RowIndex = -1 Then
+            Return
+        End If
+        Dim selectedRow As DataGridViewRow
+        selectedRow = DataGridView1.Rows(e.RowIndex)
+        warehouseCB.Text = selectedRow.Cells(0).Value
+        yearCookieCB.Text = selectedRow.Cells(1).Value
+        inQuantityTB.Text = selectedRow.Cells(2).Value
+        DateTimePicker1.Text = selectedRow.Cells(3).Value
+        noteTE.Text = selectedRow.Cells(4).Value
+
+    End Sub
+
+    Private Sub inventoryForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+    End Sub
 End Class
