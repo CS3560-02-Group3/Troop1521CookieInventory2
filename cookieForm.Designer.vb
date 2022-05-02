@@ -38,7 +38,7 @@ Partial Class cookieForm
         Me.Label1.Font = New System.Drawing.Font("Segoe UI Semibold", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.Location = New System.Drawing.Point(143, 9)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(188, 45)
+        Me.Label1.Size = New System.Drawing.Size(234, 54)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Add Cookie"
         '
@@ -47,13 +47,13 @@ Partial Class cookieForm
         Me.Label2.AutoSize = True
         Me.Label2.Location = New System.Drawing.Point(12, 102)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(77, 21)
+        Me.Label2.Size = New System.Drawing.Size(97, 28)
         Me.Label2.TabIndex = 1
         Me.Label2.Text = "Cookie ID"
         '
         'update
         '
-        Me.update.Location = New System.Drawing.Point(196, 224)
+        Me.update.Location = New System.Drawing.Point(23, 328)
         Me.update.Name = "update"
         Me.update.Size = New System.Drawing.Size(86, 34)
         Me.update.TabIndex = 3
@@ -63,7 +63,7 @@ Partial Class cookieForm
         'delete
         '
         Me.delete.AccessibleDescription = "delete"
-        Me.delete.Location = New System.Drawing.Point(366, 224)
+        Me.delete.Location = New System.Drawing.Point(432, 327)
         Me.delete.Name = "delete"
         Me.delete.Size = New System.Drawing.Size(86, 37)
         Me.delete.TabIndex = 5
@@ -74,7 +74,7 @@ Partial Class cookieForm
         '
         Me.insert.AccessibleDescription = "insert"
         Me.insert.AccessibleName = "insert"
-        Me.insert.Location = New System.Drawing.Point(196, 224)
+        Me.insert.Location = New System.Drawing.Point(229, 329)
         Me.insert.Name = "insert"
         Me.insert.Size = New System.Drawing.Size(93, 33)
         Me.insert.TabIndex = 6
@@ -86,15 +86,15 @@ Partial Class cookieForm
         Me.Label3.AutoSize = True
         Me.Label3.Location = New System.Drawing.Point(12, 146)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(122, 21)
+        Me.Label3.Size = New System.Drawing.Size(153, 28)
         Me.Label3.TabIndex = 7
         Me.Label3.Text = "Name of Cookie"
         '
         'cookieNameTB
         '
-        Me.cookieNameTB.Location = New System.Drawing.Point(151, 138)
+        Me.cookieNameTB.Location = New System.Drawing.Point(189, 143)
         Me.cookieNameTB.Name = "cookieNameTB"
-        Me.cookieNameTB.Size = New System.Drawing.Size(188, 29)
+        Me.cookieNameTB.Size = New System.Drawing.Size(188, 34)
         Me.cookieNameTB.TabIndex = 2
         '
         'cookieIDText
@@ -102,14 +102,14 @@ Partial Class cookieForm
         Me.cookieIDText.AutoSize = True
         Me.cookieIDText.Location = New System.Drawing.Point(147, 102)
         Me.cookieIDText.Name = "cookieIDText"
-        Me.cookieIDText.Size = New System.Drawing.Size(0, 21)
+        Me.cookieIDText.Size = New System.Drawing.Size(0, 28)
         Me.cookieIDText.TabIndex = 8
         '
         'cookieForm
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 21.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(11.0!, 28.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(484, 390)
+        Me.ClientSize = New System.Drawing.Size(573, 413)
         Me.Controls.Add(Me.cookieIDText)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.insert)
