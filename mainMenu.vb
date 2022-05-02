@@ -29,7 +29,8 @@ Public Class mainMenu
 
         Dim YCtable As New DataTable()
         Dim year = cookieYearPicker.Text
-        Dim YCcommand As New MySqlCommand("SELECT yearCookieID, cookie.Name, price, cookie.cookieID FROM yearCookie INNER JOIN cookie ON cookie.cookieID = yearCookieID WHERE year = @year", conn.getConnection())
+        'yearCookieID, cookie.Name, price, cookie.cookieID
+        Dim YCcommand As New MySqlCommand("SELECT * FROM yearCookie INNER JOIN cookie ON cookie.cookieID = yearCookieID WHERE year = @year", conn.getConnection())
         YCcommand.Parameters.Add("@year", MySqlDbType.Int16).Value = year
         Dim YCadapter As New MySqlDataAdapter(YCcommand)
         YCadapter.Fill(YCtable)
@@ -111,9 +112,6 @@ Public Class mainMenu
         myForm.Show()
         mainMenu_Load(e, e)
     End Sub
-    Private Sub transactionDGV_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles transactionDGV.CellContentClick
-
-    End Sub
     Private Sub yearCookieDGV_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles yearCookieDGV.CellContentClick
         If e.RowIndex = -1 Then
             Return
@@ -137,9 +135,10 @@ Public Class mainMenu
         Dim selectedRow As DataGridViewRow
         selectedRow = transactionFullFieldsDGV.Rows(e.RowIndex)
         Dim myForm As New paymentForm
+        myForm.paymentCB_Load()
         myForm.userBalanceLB.Text = selectedRow.Cells(0).Value
-        'myForm.userCB.SelectedIndex = selectedRow.Cells(1).Value
-        'myForm.salesTypeCB.SelectedIndex = selectedRow.Cells(2).Value
+        myForm.userCB.SelectedValue = selectedRow.Cells(1).Value
+        myForm.salesTypeCB.SelectedValue = selectedRow.Cells(2).Value
         myForm.receiveDatePicker.Text = selectedRow.Cells(4).Value
         myForm.receiveAmountTB.Text = selectedRow.Cells(5).Value
         myForm.noteTE.Text = selectedRow.Cells(6).Value
@@ -207,6 +206,7 @@ Public Class mainMenu
     End Sub
     Private Sub paymentForm_Click(sender As Object, e As EventArgs) Handles paymentForm.Click
         Dim myForm As New paymentForm
+        myForm.paymentCB_Load()
         myForm.yearLB.Text = cookieYearPicker.Text
         myForm.update.Visible = False
         myForm.delete.Visible = False

@@ -1,7 +1,7 @@
 ﻿Imports MySql.Data.MySqlClient
 
 Public Class paymentForm
-    Private Sub paymentForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Public Sub paymentCB_Load()
         Dim conn As New myConnection()
         Dim table2 As New DataTable()
         Dim adapter2 As New MySqlDataAdapter("SELECT userID, firstName, lastName FROM user ORDER BY firstName ASC", conn.getConnection())
@@ -18,6 +18,23 @@ Public Class paymentForm
         salesTypeCB.DisplayMember = "name"
         salesTypeCB.ValueMember = "salesTypeID"
     End Sub
+    'Private Sub paymentForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    '    Dim conn As New myConnection()
+    '    Dim table2 As New DataTable()
+    '    Dim adapter2 As New MySqlDataAdapter("SELECT userID, firstName, lastName FROM user ORDER BY firstName ASC", conn.getConnection())
+    '    adapter2.Fill(table2)
+    '    userCB.DataSource = table2
+    '    table2.Columns.Add("full_name", Type.GetType("System.String"), "firstName + ' ' + lastName")
+    '    userCB.DisplayMember = "full_name"
+    '    userCB.ValueMember = "userID"
+
+    '    Dim STtable As New DataTable()
+    '    Dim STadapter As New MySqlDataAdapter("SELECT * FROM salesType", conn.getConnection())
+    '    STadapter.Fill(STtable)
+    '    salesTypeCB.DataSource = STtable
+    '    salesTypeCB.DisplayMember = "name"
+    '    salesTypeCB.ValueMember = "salesTypeID"
+    'End Sub
     Private Sub Submit_Click(sender As Object, e As EventArgs) Handles submit.Click
         If userCB.Text = "" Then
             MsgBox("Cannot submit without valid User ID")
