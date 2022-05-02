@@ -145,6 +145,7 @@ Public Class mainMenu
         myForm.userBalanceLB.Text = selectedRow.Cells(0).Value
         myForm.userCB.SelectedValue = selectedRow.Cells(7).Value
         myForm.salesTypeCB.SelectedValue = selectedRow.Cells(8).Value
+        myForm.yearLB.Text = cookieYearPicker.Text
         myForm.receiveDatePicker.Text = selectedRow.Cells(4).Value
         myForm.receiveAmountTB.Text = selectedRow.Cells(5).Value
         myForm.noteTE.Text = selectedRow.Cells(6).Value
