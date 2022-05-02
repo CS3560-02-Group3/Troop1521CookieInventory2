@@ -38,7 +38,7 @@ Public Class mainMenu
 
 
         Dim TransactionViewTable As New DataTable()
-        Dim TransactionViewCommand As New MySqlCommand("SELECT year, firstName, lastName, Total_Payment,
+        Dim TransactionViewCommand As New MySqlCommand("SELECT year, CONCAT(firstName, ' ', lastName) AS full_name, Total_Payment,
                                           CASE
                                                 WHEN ISNULL(Received_Payment) = 1 THEN 0
                                                 ELSE Received_Payment
@@ -60,10 +60,16 @@ Public Class mainMenu
         transactionDGV.DataSource = TransactionViewTable
 
         Dim TransactionFullFieldsTable As New DataTable()
-        Dim TransactionFullFieldsAdapter As New MySqlDataAdapter("SELECT * FROM userBalance 
-                                                                  INNER JOIN salesType ON salesType.salesTypeID = userBalance.salesTypeID", conn.getConnection())
+        Dim TransactionFullFieldsCommand As New MySqlCommand("SELECT userBalanceID, CONCAT(user.firstName, ' ', user.lastName) AS full_name, salesType.name AS salesType, year, receiveDate, receiveAmount, userBalance.note, user.userID, salesType.salesTypeID FROM userBalance 
+                                                                  INNER JOIN salesType ON salesType.salesTypeID = userBalance.salesTypeID
+                                                                  INNER JOIN user ON user.userID = userBalance.userID
+                                                                  WHERE year = @year", conn.getConnection())
+        TransactionFullFieldsCommand.Parameters.Add("@year", MySqlDbType.Int16).Value = year
+        Dim TransactionFullFieldsAdapter As New MySqlDataAdapter(TransactionFullFieldsCommand)
         TransactionFullFieldsAdapter.Fill(TransactionFullFieldsTable)
         transactionFullFieldsDGV.DataSource = TransactionFullFieldsTable
+        transactionFullFieldsDGV.Columns(7).Visible = False
+        transactionFullFieldsDGV.Columns(8).Visible = False
 
         Dim SalesTypeTable As New DataTable()
         Dim SalesTypeAdapter As New MySqlDataAdapter("SELECT * FROM salesType", conn.getConnection())
@@ -137,8 +143,9 @@ Public Class mainMenu
         Dim myForm As New paymentForm
         myForm.paymentCB_Load()
         myForm.userBalanceLB.Text = selectedRow.Cells(0).Value
-        myForm.userCB.SelectedValue = selectedRow.Cells(1).Value
-        myForm.salesTypeCB.SelectedValue = selectedRow.Cells(2).Value
+        myForm.userCB.SelectedValue = selectedRow.Cells(7).Value
+        myForm.salesTypeCB.SelectedValue = selectedRow.Cells(8).Value
+        myForm.yearLB.Text = cookieYearPicker.Text
         myForm.receiveDatePicker.Text = selectedRow.Cells(4).Value
         myForm.receiveAmountTB.Text = selectedRow.Cells(5).Value
         myForm.noteTE.Text = selectedRow.Cells(6).Value

@@ -18,28 +18,14 @@ Public Class paymentForm
         salesTypeCB.DisplayMember = "name"
         salesTypeCB.ValueMember = "salesTypeID"
     End Sub
-    'Private Sub paymentForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-    '    Dim conn As New myConnection()
-    '    Dim table2 As New DataTable()
-    '    Dim adapter2 As New MySqlDataAdapter("SELECT userID, firstName, lastName FROM user ORDER BY firstName ASC", conn.getConnection())
-    '    adapter2.Fill(table2)
-    '    userCB.DataSource = table2
-    '    table2.Columns.Add("full_name", Type.GetType("System.String"), "firstName + ' ' + lastName")
-    '    userCB.DisplayMember = "full_name"
-    '    userCB.ValueMember = "userID"
 
-    '    Dim STtable As New DataTable()
-    '    Dim STadapter As New MySqlDataAdapter("SELECT * FROM salesType", conn.getConnection())
-    '    STadapter.Fill(STtable)
-    '    salesTypeCB.DataSource = STtable
-    '    salesTypeCB.DisplayMember = "name"
-    '    salesTypeCB.ValueMember = "salesTypeID"
-    'End Sub
     Private Sub Submit_Click(sender As Object, e As EventArgs) Handles submit.Click
         If userCB.Text = "" Then
             MsgBox("Cannot submit without valid User ID")
         ElseIf salesTypeCB.Text = "" Then
             MsgBox("Cannot submit without valid Sales Type ID")
+        ElseIf receiveAmountTB.Text = "" Then
+            MsgBox("Please enter a value for the Receive Amount")
         Else
             ' Show this message below in a message box with the yes and no options 
             Dim confirmMsg = MessageBox.Show("Are you sure you want to Submit?", "Submit", MessageBoxButtons.YesNo)
@@ -101,6 +87,8 @@ Public Class paymentForm
             MsgBox("Cannot update without valid User ID")
         ElseIf salesTypeCB.Text = "" Then
             MsgBox("Cannot update without valid Sales Type ID")
+        ElseIf receiveAmountTB.Text = "" Then
+            MsgBox("Please enter a value for the Receive Amount")
         Else
             Dim confirmMsg = MessageBox.Show("Are you sure you want to update?", "Update", MessageBoxButtons.YesNo)
             If confirmMsg = DialogResult.Yes Then
