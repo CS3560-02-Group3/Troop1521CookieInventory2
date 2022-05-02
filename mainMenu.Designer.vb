@@ -126,10 +126,11 @@ Partial Class mainMenu
         '
         'salesTypeDGV
         '
+        Me.salesTypeDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells
         Me.salesTypeDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.salesTypeDGV.Location = New System.Drawing.Point(825, 44)
         Me.salesTypeDGV.Name = "salesTypeDGV"
-        Me.salesTypeDGV.Size = New System.Drawing.Size(268, 381)
+        Me.salesTypeDGV.Size = New System.Drawing.Size(296, 381)
         Me.salesTypeDGV.TabIndex = 17
         '
         'cookieYearPicker
@@ -152,6 +153,7 @@ Partial Class mainMenu
         '
         'yearCookieDGV
         '
+        Me.yearCookieDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells
         Me.yearCookieDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.yearCookieDGV.Location = New System.Drawing.Point(307, 44)
         Me.yearCookieDGV.Name = "yearCookieDGV"
@@ -178,6 +180,7 @@ Partial Class mainMenu
         '
         'cookieDGV
         '
+        Me.cookieDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells
         Me.cookieDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.cookieDGV.Location = New System.Drawing.Point(8, 44)
         Me.cookieDGV.Name = "cookieDGV"
@@ -220,10 +223,11 @@ Partial Class mainMenu
         '
         'transactionFullFieldsDGV
         '
+        Me.transactionFullFieldsDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells
         Me.transactionFullFieldsDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.transactionFullFieldsDGV.Location = New System.Drawing.Point(12, 487)
         Me.transactionFullFieldsDGV.Name = "transactionFullFieldsDGV"
-        Me.transactionFullFieldsDGV.Size = New System.Drawing.Size(865, 221)
+        Me.transactionFullFieldsDGV.Size = New System.Drawing.Size(1284, 221)
         Me.transactionFullFieldsDGV.TabIndex = 10
         '
         'userTCB
@@ -245,10 +249,11 @@ Partial Class mainMenu
         '
         'transactionDGV
         '
+        Me.transactionDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells
         Me.transactionDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.transactionDGV.Location = New System.Drawing.Point(12, 96)
         Me.transactionDGV.Name = "transactionDGV"
-        Me.transactionDGV.Size = New System.Drawing.Size(865, 372)
+        Me.transactionDGV.Size = New System.Drawing.Size(1284, 372)
         Me.transactionDGV.TabIndex = 7
         '
         'load6
@@ -455,6 +460,7 @@ Partial Class mainMenu
         '
         'userDGV
         '
+        Me.userDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells
         Me.userDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.userDGV.Location = New System.Drawing.Point(8, 52)
         Me.userDGV.Name = "userDGV"
