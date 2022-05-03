@@ -194,7 +194,12 @@ Public Class mainMenu
         myForm.receiveDatePicker.Text = selectedRow.Cells(4).Value
         myForm.receiveAmountTB.Text = selectedRow.Cells(5).Value
         myForm.noteTE.Text = selectedRow.Cells(6).Value
-        myForm.remainingBalanceLB.Text = selectedRow.Cells(9).Value + selectedRow.Cells(5).Value
+        If selectedRow.Cells(8).Value <> 3 Then
+            myForm.remainingBalanceLB.Text = selectedRow.Cells(9).Value + selectedRow.Cells(5).Value
+        Else
+            myForm.remainingBalanceLB.Text = selectedRow.Cells(9).Value
+        End If
+        myForm.userCB.Enabled = False
         myForm.submit.Visible = False
         myForm.Show()
         mainMenu_Load(e, e)
@@ -263,6 +268,8 @@ Public Class mainMenu
         myForm.yearLB.Text = cookieYearPicker.Text
         myForm.update.Visible = False
         myForm.delete.Visible = False
+        myForm.bLoaded = True
+        myForm.setRemainingBalanceLabel()
         myForm.Show()
     End Sub
     Private Sub load_Click(sender As Object, e As EventArgs) Handles load.Click

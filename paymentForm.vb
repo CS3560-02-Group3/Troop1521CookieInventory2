@@ -1,6 +1,8 @@
 ﻿Imports MySql.Data.MySqlClient
 
 Public Class paymentForm
+
+    Public bLoaded As Boolean = False
     Public Sub paymentCB_Load()
         Dim conn As New myConnection()
         Dim table2 As New DataTable()
@@ -46,7 +48,12 @@ Public Class paymentForm
                 End If
                 ' error handling for incorrect Integer input will not be implemented due to perfect world setting
                 Dim year As Integer = yearLB.Text
+                Dim remainingBalance As Double = remainingBalanceLB.Text
                 Dim receiveAmount As Double = receiveAmountTB.Text
+                If salesTypeID <> 3 And (receiveAmount > remainingBalance) Then
+                    Dim errorMsg = MessageBox.Show("Receive amount cannot be greater than the remaining balance")
+                    Exit Sub
+                End If
                 Dim note As String = noteTE.Text
                 ' Assign the connection to the Sql Database to a variable
                 Dim conn As New myConnection()
@@ -105,11 +112,16 @@ Public Class paymentForm
                 End If
                 ' error handling for incorrect Integer input will not be implemented due to perfect world setting
                 Dim year As Integer = yearLB.Text
+                Dim remainingBalance As Double = remainingBalanceLB.Text
                 Dim receiveAmount As Double = receiveAmountTB.Text
+                If salesTypeID <> 3 And (receiveAmount > remainingBalance) Then
+                    Dim errorMsg = MessageBox.Show("Receive amount cannot be greater than the remaining balance")
+                    Exit Sub
+                End If
                 Dim note As String = noteTE.Text
                 Dim conn As New myConnection()
                 ' Command a query UPDATE a row in the user table. SET the variables to values WHERE the userBalance, userID, and salesTypeID is.
-                Dim command As New MySqlCommand("UPDATE `userBalance` SET year = @year, receiveDate = @receiveDate, receiveAmount = @receiveAmount, note = @note WHERE userBalanceID = @userBalanceID AND userID = @userID AND salesTypeID = @salesTypeID", conn.getConnection())
+                Dim command As New MySqlCommand("UPDATE `userBalance` SET userID = @userID, salesTypeID = @salesTypeID, year = @year, receiveDate = @receiveDate, receiveAmount = @receiveAmount, note = @note WHERE userBalanceID = @userBalanceID", conn.getConnection())
                 command.Parameters.Add("@userBalanceID", MySqlDbType.Int16).Value = userBalanceID
                 command.Parameters.Add("@userID", MySqlDbType.Int16).Value = userID
                 command.Parameters.Add("@salesTypeID", MySqlDbType.Int16).Value = salesTypeID
@@ -125,7 +137,7 @@ Public Class paymentForm
                     conn.closeConnection()
                     Me.Close()
                 Else
-                    MsgBox("USER BALANCE NOT NOT UPDATED")
+                    MsgBox("USER BALANCE NOT UPDATED")
                     conn.closeConnection()
                 End If
             End If
@@ -168,5 +180,33 @@ Public Class paymentForm
                 End If
             End If
         End If
+    End Sub
+    Private Sub userCB_SelectedIndexChanged(sender As Object, e As EventArgs) Handles userCB.SelectedIndexChanged
+        If bLoaded Then
+            setRemainingBalanceLabel()
+        End If
+    End Sub
+    Public Sub setRemainingBalanceLabel()
+        Dim conn As New myConnection()
+        Dim remainingBalanceTable As New DataTable()
+        Dim year = yearLB.Text
+        Dim userID = userCB.SelectedValue
+        Dim remainingBalanceCommand As New MySqlCommand("SELECT CASE
+                                                            WHEN ISNULL(Received_Payment) = 1 THEN Total_Payment
+                                                            ELSE Total_Payment - Received_Payment
+                                                        END AS Remaining_Balance FROM(
+                                                        SELECT sum(orderQuantity * price) AS Total_Payment,
+                                                        (SELECT sum(receiveAmount) FROM userBalance WHERE salesTypeID <> 3 AND userBalance.year = @year AND userBalance.userID = user.userID) AS Received_Payment
+                                                        FROM userCookie INNER JOIN user ON user.userID = userCookie.userID
+                                                        INNER JOIN inventory ON inventory.inventoryID = userCookie.inventoryID
+                                                        INNER JOIN yearCookie ON inventory.yearCookieID = yearCookie.yearCookieID
+                                                        WHERE year = @year and user.userID = @userID
+                                               GROUP BY user.userID) as main", conn.getConnection())
+        remainingBalanceCommand.Parameters.Add("@userID", MySqlDbType.Int16).Value = userID
+        remainingBalanceCommand.Parameters.Add("@year", MySqlDbType.Int16).Value = year
+        Dim remainingBalanceAdapter As New MySqlDataAdapter(remainingBalanceCommand)
+        remainingBalanceAdapter.Fill(remainingBalanceTable)
+        remainingBalanceLB.Text = remainingBalanceTable.Rows(0).Item(0)
+
     End Sub
 End Class
