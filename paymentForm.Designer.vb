@@ -39,13 +39,15 @@ Partial Class paymentForm
         Me.yearLB = New System.Windows.Forms.Label()
         Me.userCB = New System.Windows.Forms.ComboBox()
         Me.salesTypeCB = New System.Windows.Forms.ComboBox()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.remainingBalanceLB = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'Label1
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(118, 62)
+        Me.Label1.Location = New System.Drawing.Point(118, 34)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(118, 21)
         Me.Label1.TabIndex = 0
@@ -55,7 +57,7 @@ Partial Class paymentForm
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(118, 97)
+        Me.Label2.Location = New System.Drawing.Point(118, 71)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(35, 21)
         Me.Label2.TabIndex = 1
@@ -65,7 +67,7 @@ Partial Class paymentForm
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(118, 134)
+        Me.Label3.Location = New System.Drawing.Point(118, 106)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(82, 21)
         Me.Label3.TabIndex = 2
@@ -75,7 +77,7 @@ Partial Class paymentForm
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(122, 168)
+        Me.Label4.Location = New System.Drawing.Point(120, 136)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(40, 21)
         Me.Label4.TabIndex = 3
@@ -85,7 +87,7 @@ Partial Class paymentForm
         '
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(120, 199)
+        Me.Label5.Location = New System.Drawing.Point(120, 166)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(99, 21)
         Me.Label5.TabIndex = 4
@@ -133,7 +135,7 @@ Partial Class paymentForm
         '
         Me.receiveDatePicker.CalendarFont = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.receiveDatePicker.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.receiveDatePicker.Location = New System.Drawing.Point(279, 195)
+        Me.receiveDatePicker.Location = New System.Drawing.Point(279, 166)
         Me.receiveDatePicker.Name = "receiveDatePicker"
         Me.receiveDatePicker.Size = New System.Drawing.Size(282, 29)
         Me.receiveDatePicker.TabIndex = 17
@@ -171,7 +173,7 @@ Partial Class paymentForm
         '
         Me.userBalanceLB.AutoSize = True
         Me.userBalanceLB.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.userBalanceLB.Location = New System.Drawing.Point(275, 62)
+        Me.userBalanceLB.Location = New System.Drawing.Point(275, 34)
         Me.userBalanceLB.Name = "userBalanceLB"
         Me.userBalanceLB.Size = New System.Drawing.Size(0, 21)
         Me.userBalanceLB.TabIndex = 23
@@ -180,7 +182,7 @@ Partial Class paymentForm
         '
         Me.yearLB.AutoSize = True
         Me.yearLB.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.yearLB.Location = New System.Drawing.Point(275, 168)
+        Me.yearLB.Location = New System.Drawing.Point(275, 136)
         Me.yearLB.Name = "yearLB"
         Me.yearLB.Size = New System.Drawing.Size(0, 21)
         Me.yearLB.TabIndex = 26
@@ -189,7 +191,7 @@ Partial Class paymentForm
         '
         Me.userCB.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.userCB.FormattingEnabled = True
-        Me.userCB.Location = New System.Drawing.Point(279, 89)
+        Me.userCB.Location = New System.Drawing.Point(279, 63)
         Me.userCB.Name = "userCB"
         Me.userCB.Size = New System.Drawing.Size(200, 29)
         Me.userCB.TabIndex = 27
@@ -198,16 +200,37 @@ Partial Class paymentForm
         '
         Me.salesTypeCB.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.salesTypeCB.FormattingEnabled = True
-        Me.salesTypeCB.Location = New System.Drawing.Point(279, 126)
+        Me.salesTypeCB.Location = New System.Drawing.Point(279, 98)
         Me.salesTypeCB.Name = "salesTypeCB"
         Me.salesTypeCB.Size = New System.Drawing.Size(200, 29)
         Me.salesTypeCB.TabIndex = 28
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label7.Location = New System.Drawing.Point(122, 202)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(142, 21)
+        Me.Label7.TabIndex = 29
+        Me.Label7.Text = "Remaining Balance"
+        '
+        'remainingBalanceLB
+        '
+        Me.remainingBalanceLB.AutoSize = True
+        Me.remainingBalanceLB.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.remainingBalanceLB.Location = New System.Drawing.Point(275, 202)
+        Me.remainingBalanceLB.Name = "remainingBalanceLB"
+        Me.remainingBalanceLB.Size = New System.Drawing.Size(0, 21)
+        Me.remainingBalanceLB.TabIndex = 30
         '
         'paymentForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(853, 450)
+        Me.Controls.Add(Me.remainingBalanceLB)
+        Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.salesTypeCB)
         Me.Controls.Add(Me.userCB)
         Me.Controls.Add(Me.yearLB)
@@ -249,4 +272,6 @@ Partial Class paymentForm
     Friend WithEvents yearLB As Label
     Friend WithEvents userCB As ComboBox
     Friend WithEvents salesTypeCB As ComboBox
+    Friend WithEvents Label7 As Label
+    Friend WithEvents remainingBalanceLB As Label
 End Class

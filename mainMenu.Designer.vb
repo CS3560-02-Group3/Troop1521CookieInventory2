@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class mainMenu
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class mainMenu
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.BackgroundWorker1 = New System.ComponentModel.BackgroundWorker()
         Me.BackgroundWorker2 = New System.ComponentModel.BackgroundWorker()
@@ -310,16 +310,17 @@ Partial Class mainMenu
         '
         'inventoryDGV
         '
+        Me.inventoryDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells
         Me.inventoryDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.inventoryDGV.Location = New System.Drawing.Point(487, 40)
+        Me.inventoryDGV.Location = New System.Drawing.Point(626, 40)
         Me.inventoryDGV.Name = "inventoryDGV"
         Me.inventoryDGV.RowHeadersWidth = 51
-        Me.inventoryDGV.Size = New System.Drawing.Size(422, 407)
+        Me.inventoryDGV.Size = New System.Drawing.Size(685, 416)
         Me.inventoryDGV.TabIndex = 9
         '
         'inventoryForm
         '
-        Me.inventoryForm.Location = New System.Drawing.Point(571, 6)
+        Me.inventoryForm.Location = New System.Drawing.Point(730, 5)
         Me.inventoryForm.Name = "inventoryForm"
         Me.inventoryForm.Size = New System.Drawing.Size(211, 28)
         Me.inventoryForm.TabIndex = 8
@@ -328,7 +329,7 @@ Partial Class mainMenu
         '
         'load7
         '
-        Me.load7.Location = New System.Drawing.Point(487, 6)
+        Me.load7.Location = New System.Drawing.Point(626, 5)
         Me.load7.Name = "load7"
         Me.load7.Size = New System.Drawing.Size(78, 28)
         Me.load7.TabIndex = 7
@@ -341,7 +342,7 @@ Partial Class mainMenu
         Me.warehouseDGV.Location = New System.Drawing.Point(8, 40)
         Me.warehouseDGV.Name = "warehouseDGV"
         Me.warehouseDGV.RowHeadersWidth = 51
-        Me.warehouseDGV.Size = New System.Drawing.Size(422, 407)
+        Me.warehouseDGV.Size = New System.Drawing.Size(586, 416)
         Me.warehouseDGV.TabIndex = 6
         '
         'load5

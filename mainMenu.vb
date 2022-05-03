@@ -61,21 +61,51 @@ Public Class mainMenu
         transactionDGV.DataSource = TransactionViewTable
 
         Dim TransactionFullFieldsTable As New DataTable()
-        Dim TransactionFullFieldsCommand As New MySqlCommand("SELECT userBalanceID, CONCAT(user.firstName, ' ', user.lastName) AS full_name, salesType.name AS salesType, year, receiveDate, receiveAmount, userBalance.note, user.userID, salesType.salesTypeID FROM userBalance 
-                                                                  INNER JOIN salesType ON salesType.salesTypeID = userBalance.salesTypeID
-                                                                  INNER JOIN user ON user.userID = userBalance.userID
-                                                                  WHERE year = @year", conn.getConnection())
+        Dim TransactionFullFieldsCommand As New MySqlCommand("SELECT userBalanceID, full_name, salesType, year, receiveDate, receiveAmount, note, main.userID, salesTypeID,
+                                                CASE
+                                                        WHEN ISNULL(Received_Payment) = 1 THEN Total_Payment
+                                                        ELSE Total_Payment - Received_Payment
+                                                END AS Remaining_Balance
+                                                FROM (SELECT userBalanceID, CONCAT(user.firstName, ' ', user.lastName) AS full_name, salesType.name AS salesType, year, receiveDate, receiveAmount, userBalance.note, user.userID, salesType.salesTypeID
+                                                        FROM userBalance
+                                                        INNER JOIN salesType ON salesType.salesTypeID = userBalance.salesTypeID
+                                                        INNER JOIN user ON user.userID = userBalance.userID
+                                                        WHERE year = @year) as main inner join
+                                               (SELECT sum(orderQuantity * price) AS Total_Payment,
+                                               (SELECT sum(receiveAmount) FROM userBalance WHERE salesTypeID <> 3 AND userBalance.year = @year AND userBalance.userID = user.userID) AS Received_Payment, user.userID
+                                                        FROM userCookie INNER JOIN user ON user.userID = userCookie.userID
+                                                        INNER JOIN inventory ON inventory.inventoryID = userCookie.inventoryID
+                                                        INNER JOIN yearCookie ON inventory.yearCookieID = yearCookie.yearCookieID
+                                                        WHERE year = @year
+                                               GROUP BY user.userID) as main2 on main.userID = main2.userID", conn.getConnection())
+
         TransactionFullFieldsCommand.Parameters.Add("@year", MySqlDbType.Int16).Value = year
         Dim TransactionFullFieldsAdapter As New MySqlDataAdapter(TransactionFullFieldsCommand)
         TransactionFullFieldsAdapter.Fill(TransactionFullFieldsTable)
         transactionFullFieldsDGV.DataSource = TransactionFullFieldsTable
         transactionFullFieldsDGV.Columns(7).Visible = False
         transactionFullFieldsDGV.Columns(8).Visible = False
+        transactionFullFieldsDGV.Columns(9).Visible = False
 
         Dim SalesTypeTable As New DataTable()
         Dim SalesTypeAdapter As New MySqlDataAdapter("SELECT * FROM salesType", conn.getConnection())
         SalesTypeAdapter.Fill(SalesTypeTable)
         salesTypeDGV.DataSource = SalesTypeTable
+
+        Dim inventoryTable As New DataTable()
+        Dim inventoryAdapter As New MySqlDataAdapter("SELECT inventoryID, warehouse.name AS Warehouse, cookie.name AS Cookie, inventory.date, inventory.inQuantity, inventory.note
+                                                        , warehouse.warehouseID, yearCookie.yearCookieID FROM inventory 
+                                                        INNER JOIN warehouse ON inventory.warehouseID = warehouse.warehouseID
+                                                        INNER JOIN yearCookie ON inventory.yearCookieID = yearCookie.yearCookieID
+                                                        INNER JOIN cookie ON yearCookie.cookieID = cookie.cookieID", conn.getConnection())
+        inventoryAdapter.Fill(inventoryTable)
+        inventoryDGV.DataSource = inventoryTable
+
+
+        Dim warehouseTable As New DataTable()
+        Dim warehouseAdapter As New MySqlDataAdapter("SELECT * FROM warehouse", conn.getConnection())
+        warehouseAdapter.Fill(warehouseTable)
+        warehouseDGV.DataSource = warehouseTable
     End Sub
     Private Sub userDGV_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles userDGV.CellContentClick
         If e.RowIndex = -1 Then
@@ -150,6 +180,7 @@ Public Class mainMenu
         myForm.receiveDatePicker.Text = selectedRow.Cells(4).Value
         myForm.receiveAmountTB.Text = selectedRow.Cells(5).Value
         myForm.noteTE.Text = selectedRow.Cells(6).Value
+        myForm.remainingBalanceLB.Text = selectedRow.Cells(9).Value + selectedRow.Cells(5).Value
         myForm.submit.Visible = False
         myForm.Show()
         mainMenu_Load(e, e)
@@ -270,28 +301,43 @@ Public Class mainMenu
     Private Sub TabPage1_Click(sender As Object, e As EventArgs) Handles TabPage1.Click
 
     End Sub
+    'Private Sub inventoryFilter_Click(sender As Object, e As EventArgs) Handles inventoryFilter.Click
+    '    If inventoryFilterCB.Text = "" Then
+    '        mainMenu_Load(e, e)
+    '    Else
+    '        Dim conn As New myConnection()
+    '        Dim table As New DataTable()
+    '        Dim column = warehouseFilterCB.SelectedValue
 
-    Private Sub inventoryFilter_Click(sender As Object, e As EventArgs) Handles inventoryFilter.Click
-        If inventoryFilterCB.Text = "" Then
-            mainMenu_Load(e, e)
-        Else
-            Dim conn As New myConnection()
-            Dim table As New DataTable()
-            Dim column = warehouseFilterCB.SelectedValue
+    '        Dim input = ""
+    '        If warehouseCB.Text = "warehouseID" Then
+    '            input = warehouseCB.Text
+    '        Else
+    '            input = "%" & warehouseCB.Text & "%"
+    '        End If
 
-            Dim input = ""
-            If warehouseCB.Text = "warehouseID" Then
-                input = warehouseCB.Text
-            Else
-                input = "%" & warehouseCB.Text & "%"
-            End If
+    '        Dim command As New MySqlCommand("SELECT * FROM `warehouse` WHERE " & column & " LIKE @input", conn.getConnection())
+    '        command.Parameters.Add("@input", MySqlDbType.VarChar).Value = input
+    '        Dim adapter As New MySqlDataAdapter(command)
+    '        adapter.Fill(table)
+    '        inventoryDGV.DataSource = table
+    '        totalCookiesLB.Text = inventoryDGV.Rows.Count - 1
+    '    End If
+    'End Sub
 
-            Dim command As New MySqlCommand("SELECT * FROM `warehouse` WHERE " & column & " LIKE @input", conn.getConnection())
-            command.Parameters.Add("@input", MySqlDbType.VarChar).Value = input
-            Dim adapter As New MySqlDataAdapter(command)
-            adapter.Fill(table)
-            inventoryDGV.DataSource = table
-            totalCookiesLB.Text = inventoryDGV.Rows.Count - 1
-        End If
-    End Sub
+    'Dim input = ""
+    'If warehouseCB.Text = "warehouseID" Then
+    '            input = warehouseCB.Text
+    '        Else
+    '            input = "%" & warehouseCB.Text & "%"
+    '        End If
+
+    'Dim command As New MySqlCommand("SELECT * FROM `warehouse` WHERE " & column & " LIKE @input", conn.getConnection())
+    '        command.Parameters.Add("@input", MySqlDbType.VarChar).Value = input
+    '        Dim adapter As New MySqlDataAdapter(command)
+    '        adapter.Fill(table)
+    '        inventoryDGV.DataSource = table
+    '        totalCookiesLB.Text = inventoryDGV.Rows.Count - 1
+    '    End If
+    'End Sub
 End Class

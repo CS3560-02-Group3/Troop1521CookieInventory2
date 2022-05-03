@@ -106,10 +106,14 @@ Public Class inventoryForm
 
     End Sub
 
-    Public Sub inventory_Load()
+    Private Sub inventoryForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim conn As New myConnection()
         Dim table As New DataTable()
-        Dim adapter As New MySqlDataAdapter("SELECT * FROM `inventory` ORDER BY name ASC", conn.getConnection())
+        Dim adapter As New MySqlDataAdapter("SELECT inventoryID, warehouse.name AS Warehouse, cookie.name AS Cookie, inventory.date, inventory.inQuantity, inventory.note
+                                                        , warehouse.warehouseID, yearCookie.yearCookieID FROM inventory 
+                                                        INNER JOIN warehouse ON inventory.warehouseID = warehouse.warehouseID
+                                                        INNER JOIN yearCookie ON inventory.yearCookieID = yearCookie.yearCookieID
+                                                        INNER JOIN cookie ON yearCookie.cookieID = cookie.cookieID", conn.getConnection())
         adapter.Fill(table)
         warehouseCB.DataSource = table
         warehouseCB.DisplayMember = "name"
@@ -118,6 +122,4 @@ Public Class inventoryForm
         yearCookieCB.DisplayMember = "name"
         yearCookieCB.ValueMember = "yearCookieID"
     End Sub
-
-
 End Class
