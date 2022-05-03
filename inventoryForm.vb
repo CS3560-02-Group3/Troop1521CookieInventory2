@@ -119,32 +119,5 @@ Public Class inventoryForm
         yearCookieCB.ValueMember = "yearCookieID"
     End Sub
 
-    Private Sub inventoryForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        inventoryForm_Load(e, e)
 
-    End Sub
-
-    Private Sub filter_Click(sender As Object, e As EventArgs) Handles filter.Click
-        If warehouseCB.Text = "" Then
-            inventoryForm_Load(e, e)
-        Else
-            Dim conn As New myConnection()
-            Dim table As New DataTable()
-            Dim column = warehouseCB.SelectedValue
-
-            Dim input = ""
-            If warehouseCB.Text = "warehouseID" Then
-                input = warehouseCB.Text
-            Else
-                input = "%" & warehouseCB.Text & "%"
-            End If
-
-            Dim command As New MySqlCommand("SELECT * FROM `warehouse` WHERE " & column & " LIKE @input", conn.getConnection())
-            command.Parameters.Add("@input", MySqlDbType.VarChar).Value = input
-            Dim adapter As New MySqlDataAdapter(command)
-            adapter.Fill(table)
-            cookiesDGV.DataSource = table
-            totalCookiesLB.Text = cookiesDGV.Rows.Count - 1
-        End If
-    End Sub
 End Class
