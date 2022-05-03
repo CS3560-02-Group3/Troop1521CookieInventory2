@@ -3,6 +3,7 @@
 Public Class mainMenu
     Private Sub mainMenu_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim conn As New myConnection()
+        Dim year = cookieYearPicker.Text
 
         Dim Utable As New DataTable()
         Dim Uadapter As New MySqlDataAdapter("SELECT * FROM user", conn.getConnection())
@@ -18,20 +19,21 @@ Public Class mainMenu
         userFilterCB.ValueMember = "Column_name"
 
         Dim UCtable As New DataTable()
-        Dim UCadapter As New MySqlDataAdapter("SELECT * FROM userCookie", conn.getConnection())
-        'CHECK BEFORE COMMIT
-        'Dim UCadapter As New MySqlDataAdapter("SELECT date, orderQuantity, pickupQuantity, returnQuantity, note, inventory.inventoryID AS InventoryID, warehouse.name AS Warehouse, cookie.name AS Cookie,
-        '                                   CASE
-        '                                       WHEN ISNULL((SELECT sum(orderQuantity - returnQuantity) FROM userCookie WHERE userCookie.inventoryID = inventory.inventoryID)) = 1 THEN inventory.inQuantity
-        '                                       ELSE inventory.inQuantity - (SELECT sum(orderQuantity - returnQuantity) FROM userCookie WHERE userCookie.inventoryID = inventory.inventoryID)
-        '                                   END AS Remaining_Quantity
-        '                                   FROM inventory INNER JOIN warehouse ON inventory.warehouseID = warehouse.warehouseID
-        '                                   INNER JOIN yearCookie ON inventory.yearCookieID = yearCookie.yearCookieID
-        '                                   INNER JOIN cookie ON cookie.cookieID = yearCookie.cookieID
-        '                                   WHERE yearCookie.year = @year", conn.getConnection())
-
-        'REFERENCE ONLY
-        '`userCookie`(`userID`, `inventoryID`, `date`, `orderQuantity`, `pickupQuantity`, `returnQuantity`, `note`) VALUES (@userID, @inventoryID, @date, @orderQuantity, @pickupQuantity, @returnQuantity, @note)
+        Dim UCcommand As New MySqlCommand("SELECT userCookieID AS OrderID, CONCAT(user.firstName, ' ', user.lastName) AS Name, cookie.name AS Cookie, userCookie.date AS Date,
+                                           orderQuantity AS Order_Quantity, pickupQuantity AS Pickup_Quantity, returnQuantity AS Return_Quantity, userCookie.note AS Note, 
+                                           userCookie.userID, userCookie.inventoryID, warehouse.name,
+                                           CASE
+                                               WHEN ISNULL((SELECT sum(orderQuantity - returnQuantity) FROM userCookie WHERE userCookie.inventoryID = inventory.inventoryID)) = 1 THEN inventory.inQuantity
+                                               ELSE inventory.inQuantity - (SELECT sum(orderQuantity - returnQuantity) FROM userCookie WHERE userCookie.inventoryID = inventory.inventoryID)
+                                           END AS Remaining_Quantity
+                                           FROM userCookie INNER JOIN inventory ON inventory.inventoryID = userCookie.inventoryID
+                                           INNER JOIN warehouse ON warehouse.warehouseID = inventory.warehouseID
+                                           INNER JOIN user ON user.userID = userCookie.userID
+                                           INNER JOIN yearCookie ON yearCookie.yearCookieID = inventory.yearCookieID
+                                           INNER JOIN cookie ON cookie.cookieID = yearCookie.cookieID
+                                           WHERE yearCookie.year = @year", conn.getConnection())
+        UCcommand.Parameters.Add("@year", MySqlDbType.Int16).Value = year
+        Dim UCadapter As New MySqlDataAdapter(UCcommand)
 
         UCadapter.Fill(UCtable)
         orderDGV.DataSource = UCtable
@@ -43,7 +45,6 @@ Public Class mainMenu
         cookieDGV.DataSource = Ctable
 
         Dim YCtable As New DataTable()
-        Dim year = cookieYearPicker.Text
         Dim YCcommand As New MySqlCommand("SELECT yearCookieID, cookie.Name, price, cookie.cookieID FROM yearCookie INNER JOIN cookie ON cookie.cookieID = yearCookieID WHERE year = @year", conn.getConnection())
         YCcommand.Parameters.Add("@year", MySqlDbType.Int16).Value = year
         Dim YCadapter As New MySqlDataAdapter(YCcommand)
