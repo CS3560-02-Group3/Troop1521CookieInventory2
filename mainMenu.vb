@@ -37,6 +37,10 @@ Public Class mainMenu
 
         UCadapter.Fill(UCtable)
         orderDGV.DataSource = UCtable
+        orderDGV.Columns(8).Visible = False
+        orderDGV.Columns(9).Visible = False
+        orderDGV.Columns(10).Visible = False
+        orderDGV.Columns(11).Visible = False
         totalUserCookie.Text = orderDGV.Rows.Count - 1
 
         Dim Ctable As New DataTable()
@@ -147,7 +151,23 @@ Public Class mainMenu
         End If
         Dim selectedRow As DataGridViewRow
         selectedRow = orderDGV.Rows(e.RowIndex)
+        Dim year = cookieYearPicker.Text
         Dim myForm As New cookieOrderForm
+        myForm.cookieOrderLB.Text = selectedRow.Cells(0).Value
+        myForm.yearLB.Text = year
+        myForm.userCB.SelectedValue = selectedRow.Cells(8).Value
+        myForm.DateTimePicker1.Text = selectedRow.Cells(3).Value
+        myForm.orderTB.Text = selectedRow.Cells(4).Value
+        myForm.pickupTB.Text = selectedRow.Cells(5).Value
+        myForm.returnTB.Text = selectedRow.Cells(6).Value
+        myForm.noteTE.Text = selectedRow.Cells(7).Value
+        myForm.inventoryLB.Text = selectedRow.Cells(9).Value
+        myForm.warehouseLB.Text = selectedRow.Cells(10).Value
+        myForm.cookieLB.Text = selectedRow.Cells(2).Value
+        myForm.remainingLB.Text = selectedRow.Cells(11).Value + selectedRow.Cells(4).Value
+        myForm.DataGridView1.Enabled = False
+        myForm.userCB.Enabled = False
+        myForm.insert.Visible = False
         myForm.Show()
         mainMenu_Load(e, e)
     End Sub

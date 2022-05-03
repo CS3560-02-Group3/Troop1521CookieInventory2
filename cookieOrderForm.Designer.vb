@@ -45,13 +45,13 @@ Partial Class cookieOrderForm
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label11 = New System.Windows.Forms.Label()
-        Me.warehouseTB = New System.Windows.Forms.TextBox()
-        Me.cookieTB = New System.Windows.Forms.TextBox()
-        Me.remainingTB = New System.Windows.Forms.TextBox()
         Me.Label12 = New System.Windows.Forms.Label()
-        Me.inventoryTB = New System.Windows.Forms.TextBox()
         Me.Label13 = New System.Windows.Forms.Label()
         Me.cookieOrderLB = New System.Windows.Forms.Label()
+        Me.inventoryLB = New System.Windows.Forms.Label()
+        Me.warehouseLB = New System.Windows.Forms.Label()
+        Me.cookieLB = New System.Windows.Forms.Label()
+        Me.remainingLB = New System.Windows.Forms.Label()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -197,6 +197,7 @@ Partial Class cookieOrderForm
         '
         'DataGridView1
         '
+        Me.DataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView1.Location = New System.Drawing.Point(38, 161)
         Me.DataGridView1.Name = "DataGridView1"
@@ -270,30 +271,6 @@ Partial Class cookieOrderForm
         Me.Label11.TabIndex = 37
         Me.Label11.Text = "Remaining Quantity"
         '
-        'warehouseTB
-        '
-        Me.warehouseTB.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.warehouseTB.Location = New System.Drawing.Point(139, 113)
-        Me.warehouseTB.Name = "warehouseTB"
-        Me.warehouseTB.Size = New System.Drawing.Size(157, 25)
-        Me.warehouseTB.TabIndex = 38
-        '
-        'cookieTB
-        '
-        Me.cookieTB.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cookieTB.Location = New System.Drawing.Point(317, 113)
-        Me.cookieTB.Name = "cookieTB"
-        Me.cookieTB.Size = New System.Drawing.Size(128, 25)
-        Me.cookieTB.TabIndex = 39
-        '
-        'remainingTB
-        '
-        Me.remainingTB.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.remainingTB.Location = New System.Drawing.Point(464, 113)
-        Me.remainingTB.Name = "remainingTB"
-        Me.remainingTB.Size = New System.Drawing.Size(118, 25)
-        Me.remainingTB.TabIndex = 40
-        '
         'Label12
         '
         Me.Label12.AutoSize = True
@@ -303,14 +280,6 @@ Partial Class cookieOrderForm
         Me.Label12.Size = New System.Drawing.Size(77, 17)
         Me.Label12.TabIndex = 41
         Me.Label12.Text = "Inventory ID"
-        '
-        'inventoryTB
-        '
-        Me.inventoryTB.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.inventoryTB.Location = New System.Drawing.Point(38, 113)
-        Me.inventoryTB.Name = "inventoryTB"
-        Me.inventoryTB.Size = New System.Drawing.Size(89, 25)
-        Me.inventoryTB.TabIndex = 42
         '
         'Label13
         '
@@ -331,18 +300,54 @@ Partial Class cookieOrderForm
         Me.cookieOrderLB.Size = New System.Drawing.Size(0, 17)
         Me.cookieOrderLB.TabIndex = 44
         '
+        'inventoryLB
+        '
+        Me.inventoryLB.AutoSize = True
+        Me.inventoryLB.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.inventoryLB.Location = New System.Drawing.Point(34, 119)
+        Me.inventoryLB.Name = "inventoryLB"
+        Me.inventoryLB.Size = New System.Drawing.Size(0, 21)
+        Me.inventoryLB.TabIndex = 45
+        '
+        'warehouseLB
+        '
+        Me.warehouseLB.AutoSize = True
+        Me.warehouseLB.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.warehouseLB.Location = New System.Drawing.Point(135, 119)
+        Me.warehouseLB.Name = "warehouseLB"
+        Me.warehouseLB.Size = New System.Drawing.Size(0, 21)
+        Me.warehouseLB.TabIndex = 46
+        '
+        'cookieLB
+        '
+        Me.cookieLB.AutoSize = True
+        Me.cookieLB.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cookieLB.Location = New System.Drawing.Point(313, 119)
+        Me.cookieLB.Name = "cookieLB"
+        Me.cookieLB.Size = New System.Drawing.Size(0, 21)
+        Me.cookieLB.TabIndex = 47
+        '
+        'remainingLB
+        '
+        Me.remainingLB.AutoSize = True
+        Me.remainingLB.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.remainingLB.Location = New System.Drawing.Point(460, 119)
+        Me.remainingLB.Name = "remainingLB"
+        Me.remainingLB.Size = New System.Drawing.Size(0, 21)
+        Me.remainingLB.TabIndex = 48
+        '
         'cookieOrderForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1202, 641)
+        Me.Controls.Add(Me.remainingLB)
+        Me.Controls.Add(Me.cookieLB)
+        Me.Controls.Add(Me.warehouseLB)
+        Me.Controls.Add(Me.inventoryLB)
         Me.Controls.Add(Me.cookieOrderLB)
         Me.Controls.Add(Me.Label13)
-        Me.Controls.Add(Me.inventoryTB)
         Me.Controls.Add(Me.Label12)
-        Me.Controls.Add(Me.remainingTB)
-        Me.Controls.Add(Me.cookieTB)
-        Me.Controls.Add(Me.warehouseTB)
         Me.Controls.Add(Me.Label11)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.Label4)
@@ -396,11 +401,11 @@ Partial Class cookieOrderForm
     Friend WithEvents Label4 As Label
     Friend WithEvents Label5 As Label
     Friend WithEvents Label11 As Label
-    Friend WithEvents warehouseTB As TextBox
-    Friend WithEvents cookieTB As TextBox
-    Friend WithEvents remainingTB As TextBox
     Friend WithEvents Label12 As Label
-    Friend WithEvents inventoryTB As TextBox
     Friend WithEvents Label13 As Label
     Friend WithEvents cookieOrderLB As Label
+    Friend WithEvents inventoryLB As Label
+    Friend WithEvents warehouseLB As Label
+    Friend WithEvents cookieLB As Label
+    Friend WithEvents remainingLB As Label
 End Class

@@ -32,16 +32,16 @@ Public Class cookieOrderForm
         End If
         Dim selectedRow As DataGridViewRow
         selectedRow = DataGridView1.Rows(e.RowIndex)
-        inventoryTB.Text = selectedRow.Cells(0).Value
-        warehouseTB.Text = selectedRow.Cells(1).Value
-        cookieTB.Text = selectedRow.Cells(2).Value
-        remainingTB.Text = selectedRow.Cells(3).Value
+        inventoryLB.Text = selectedRow.Cells(0).Value
+        warehouseLB.Text = selectedRow.Cells(1).Value
+        cookieLB.Text = selectedRow.Cells(2).Value
+        remainingLB.Text = selectedRow.Cells(3).Value
     End Sub
     Private Sub Insert_Click(sender As Object, e As EventArgs) Handles insert.Click
         Dim confirmMsg = MessageBox.Show("Are you sure you want to insert?", "Insert", MessageBoxButtons.YesNo)
         If confirmMsg = DialogResult.Yes Then
             Dim userID As Integer = userCB.SelectedValue
-            Dim inventoryID As Integer = inventoryTB.Text
+            Dim inventoryID As Integer = inventoryLB.Text
             Dim orderDate As String = DateTimePicker1.Text
             If orderTB.Text = "" Then
                 orderTB.Text = "0"
@@ -53,7 +53,7 @@ Public Class cookieOrderForm
                 returnTB.Text = "0"
             End If
             Dim orderQuantity As Integer = orderTB.Text
-            If orderQuantity > remainingTB.Text Then
+            If orderQuantity > remainingLB.Text Then
                 Dim errorMsg = MessageBox.Show("Order quantity cannot be greater than remaining quantity")
                 Exit Sub
             End If
@@ -91,7 +91,7 @@ Public Class cookieOrderForm
         End If
     End Sub
     Private Sub Update_Click(sender As Object, e As EventArgs) Handles update.Click
-        If orderIDTE.Text = "" Then
+        If cookieOrderLB.Text = "" Then
             MsgBox("Cannot update without valid ID")
 
         Else
@@ -100,7 +100,7 @@ Public Class cookieOrderForm
 
                 Dim userCookieID As Integer = cookieOrderLB.Text
                 Dim userID As Integer = userCB.SelectedValue
-                Dim inventoryID As Integer = inventoryTB.Text
+                Dim inventoryID As Integer = inventoryLB.Text
                 Dim orderDate As String = DateTimePicker1.Text
 
                 If orderTB.Text = "" Then
@@ -114,7 +114,7 @@ Public Class cookieOrderForm
                 End If
 
                 Dim orderQuantity As Integer = orderTB.Text
-                If orderQuantity > remainingTB.Text Then
+                If orderQuantity > remainingLB.Text Then
                     Dim errorMsg = MessageBox.Show("Order quantity cannot be greater than remaining quantity")
                     Exit Sub
                 End If
@@ -159,7 +159,7 @@ Public Class cookieOrderForm
     End Sub
 
     Private Sub Delete_Click(sender As Object, e As EventArgs) Handles delete.Click
-        If orderTB.Text = "" Then
+        If cookieOrderLB.Text = "" Then
             MsgBox("Cannot delete without valid ID")
 
         Else
