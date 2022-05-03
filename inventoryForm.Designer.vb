@@ -127,7 +127,7 @@ Partial Class inventoryForm
         '
         Me.inQuantityTB.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.inQuantityTB.Location = New System.Drawing.Point(216, 265)
-        Me.inQuantityTB.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.inQuantityTB.Margin = New System.Windows.Forms.Padding(2)
         Me.inQuantityTB.Name = "inQuantityTB"
         Me.inQuantityTB.Size = New System.Drawing.Size(110, 29)
         Me.inQuantityTB.TabIndex = 13
@@ -284,7 +284,7 @@ Partial Class inventoryForm
         Me.Controls.Add(Me.warehouseID)
         Me.Controls.Add(Me.inventoryID)
         Me.Controls.Add(Me.Label2)
-        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Margin = New System.Windows.Forms.Padding(2)
         Me.Name = "inventoryForm"
         Me.Text = "Inventory Form"
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()

@@ -300,7 +300,7 @@ Partial Class mainMenu
         'inventoryDGV
         '
         Me.inventoryDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.inventoryDGV.Location = New System.Drawing.Point(487, 40)
+        Me.inventoryDGV.Location = New System.Drawing.Point(487, 59)
         Me.inventoryDGV.Name = "inventoryDGV"
         Me.inventoryDGV.RowHeadersWidth = 51
         Me.inventoryDGV.Size = New System.Drawing.Size(422, 407)
