@@ -19,6 +19,20 @@ Public Class mainMenu
 
         Dim UCtable As New DataTable()
         Dim UCadapter As New MySqlDataAdapter("SELECT * FROM userCookie", conn.getConnection())
+        'CHECK BEFORE COMMIT
+        'Dim UCadapter As New MySqlDataAdapter("SELECT date, orderQuantity, pickupQuantity, returnQuantity, note, inventory.inventoryID AS InventoryID, warehouse.name AS Warehouse, cookie.name AS Cookie,
+        '                                   CASE
+        '                                       WHEN ISNULL((SELECT sum(orderQuantity - returnQuantity) FROM userCookie WHERE userCookie.inventoryID = inventory.inventoryID)) = 1 THEN inventory.inQuantity
+        '                                       ELSE inventory.inQuantity - (SELECT sum(orderQuantity - returnQuantity) FROM userCookie WHERE userCookie.inventoryID = inventory.inventoryID)
+        '                                   END AS Remaining_Quantity
+        '                                   FROM inventory INNER JOIN warehouse ON inventory.warehouseID = warehouse.warehouseID
+        '                                   INNER JOIN yearCookie ON inventory.yearCookieID = yearCookie.yearCookieID
+        '                                   INNER JOIN cookie ON cookie.cookieID = yearCookie.cookieID
+        '                                   WHERE yearCookie.year = @year", conn.getConnection())
+
+        'REFERENCE ONLY
+        '`userCookie`(`userID`, `inventoryID`, `date`, `orderQuantity`, `pickupQuantity`, `returnQuantity`, `note`) VALUES (@userID, @inventoryID, @date, @orderQuantity, @pickupQuantity, @returnQuantity, @note)
+
         UCadapter.Fill(UCtable)
         orderDGV.DataSource = UCtable
         totalUserCookie.Text = orderDGV.Rows.Count - 1
