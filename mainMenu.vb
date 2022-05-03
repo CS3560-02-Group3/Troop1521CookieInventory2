@@ -185,6 +185,7 @@ Public Class mainMenu
         Else
             myForm.remainingBalanceLB.Text = selectedRow.Cells(9).Value
         End If
+        myForm.userCB.Enabled = False
         myForm.submit.Visible = False
         myForm.Show()
         mainMenu_Load(e, e)
