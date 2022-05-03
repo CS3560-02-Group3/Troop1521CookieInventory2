@@ -55,7 +55,7 @@ Partial Class inventoryForm
         Me.Label2.Location = New System.Drawing.Point(276, 19)
         Me.Label2.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(165, 45)
+        Me.Label2.Size = New System.Drawing.Size(248, 65)
         Me.Label2.TabIndex = 1
         Me.Label2.Text = "Inventory"
         '
@@ -66,7 +66,7 @@ Partial Class inventoryForm
         Me.inventoryID.Location = New System.Drawing.Point(33, 111)
         Me.inventoryID.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.inventoryID.Name = "inventoryID"
-        Me.inventoryID.Size = New System.Drawing.Size(95, 21)
+        Me.inventoryID.Size = New System.Drawing.Size(146, 32)
         Me.inventoryID.TabIndex = 2
         Me.inventoryID.Text = "Inventory ID"
         '
@@ -77,7 +77,7 @@ Partial Class inventoryForm
         Me.warehouseID.Location = New System.Drawing.Point(33, 159)
         Me.warehouseID.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.warehouseID.Name = "warehouseID"
-        Me.warehouseID.Size = New System.Drawing.Size(107, 21)
+        Me.warehouseID.Size = New System.Drawing.Size(164, 32)
         Me.warehouseID.TabIndex = 3
         Me.warehouseID.Text = "Warehouse ID"
         '
@@ -88,7 +88,7 @@ Partial Class inventoryForm
         Me.yearCookieID.Location = New System.Drawing.Point(33, 213)
         Me.yearCookieID.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.yearCookieID.Name = "yearCookieID"
-        Me.yearCookieID.Size = New System.Drawing.Size(111, 21)
+        Me.yearCookieID.Size = New System.Drawing.Size(170, 32)
         Me.yearCookieID.TabIndex = 5
         Me.yearCookieID.Text = "Year Cookie ID"
         '
@@ -98,7 +98,7 @@ Partial Class inventoryForm
         Me.DateTimePicker1.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.DateTimePicker1.Location = New System.Drawing.Point(216, 321)
         Me.DateTimePicker1.Name = "DateTimePicker1"
-        Me.DateTimePicker1.Size = New System.Drawing.Size(401, 29)
+        Me.DateTimePicker1.Size = New System.Drawing.Size(401, 39)
         Me.DateTimePicker1.TabIndex = 12
         '
         'Label7
@@ -108,7 +108,7 @@ Partial Class inventoryForm
         Me.Label7.Location = New System.Drawing.Point(33, 326)
         Me.Label7.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(42, 21)
+        Me.Label7.Size = New System.Drawing.Size(65, 32)
         Me.Label7.TabIndex = 11
         Me.Label7.Text = "Date"
         '
@@ -119,7 +119,7 @@ Partial Class inventoryForm
         Me.Label8.Location = New System.Drawing.Point(33, 268)
         Me.Label8.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(70, 21)
+        Me.Label8.Size = New System.Drawing.Size(107, 32)
         Me.Label8.TabIndex = 12
         Me.Label8.Text = "Quantity"
         '
@@ -129,7 +129,7 @@ Partial Class inventoryForm
         Me.inQuantityTB.Location = New System.Drawing.Point(216, 265)
         Me.inQuantityTB.Margin = New System.Windows.Forms.Padding(2)
         Me.inQuantityTB.Name = "inQuantityTB"
-        Me.inQuantityTB.Size = New System.Drawing.Size(110, 29)
+        Me.inQuantityTB.Size = New System.Drawing.Size(110, 39)
         Me.inQuantityTB.TabIndex = 13
         '
         'Label9
@@ -139,7 +139,7 @@ Partial Class inventoryForm
         Me.Label9.Location = New System.Drawing.Point(30, 390)
         Me.Label9.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(44, 21)
+        Me.Label9.Size = New System.Drawing.Size(68, 32)
         Me.Label9.TabIndex = 14
         Me.Label9.Text = "Note"
         '
@@ -184,12 +184,13 @@ Partial Class inventoryForm
         '
         'DataGridView1
         '
+        Me.DataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2, Me.Column3, Me.Column4, Me.Column5})
-        Me.DataGridView1.Location = New System.Drawing.Point(628, 111)
+        Me.DataGridView1.Location = New System.Drawing.Point(718, 58)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.RowHeadersWidth = 62
-        Me.DataGridView1.Size = New System.Drawing.Size(740, 443)
+        Me.DataGridView1.Size = New System.Drawing.Size(506, 443)
         Me.DataGridView1.TabIndex = 21
         '
         'Column1
@@ -197,35 +198,35 @@ Partial Class inventoryForm
         Me.Column1.HeaderText = "Warehouse ID"
         Me.Column1.MinimumWidth = 8
         Me.Column1.Name = "Column1"
-        Me.Column1.Width = 150
+        Me.Column1.Width = 112
         '
         'Column2
         '
         Me.Column2.HeaderText = "Year Cookie ID"
         Me.Column2.MinimumWidth = 8
         Me.Column2.Name = "Column2"
-        Me.Column2.Width = 150
+        Me.Column2.Width = 115
         '
         'Column3
         '
         Me.Column3.HeaderText = "Quantity"
         Me.Column3.MinimumWidth = 8
         Me.Column3.Name = "Column3"
-        Me.Column3.Width = 150
+        Me.Column3.Width = 82
         '
         'Column4
         '
         Me.Column4.HeaderText = "Date"
         Me.Column4.MinimumWidth = 8
         Me.Column4.Name = "Column4"
-        Me.Column4.Width = 150
+        Me.Column4.Width = 66
         '
         'Column5
         '
         Me.Column5.HeaderText = "Note"
         Me.Column5.MinimumWidth = 8
         Me.Column5.Name = "Column5"
-        Me.Column5.Width = 150
+        Me.Column5.Width = 66
         '
         'inventoryIDLB
         '
@@ -233,7 +234,7 @@ Partial Class inventoryForm
         Me.inventoryIDLB.Font = New System.Drawing.Font("Segoe UI", 12.0!)
         Me.inventoryIDLB.Location = New System.Drawing.Point(219, 111)
         Me.inventoryIDLB.Name = "inventoryIDLB"
-        Me.inventoryIDLB.Size = New System.Drawing.Size(0, 21)
+        Me.inventoryIDLB.Size = New System.Drawing.Size(0, 32)
         Me.inventoryIDLB.TabIndex = 22
         '
         'yearCookieCB
