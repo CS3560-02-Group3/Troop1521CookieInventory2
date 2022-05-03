@@ -77,7 +77,11 @@ Public Class mainMenu
         salesTypeDGV.DataSource = SalesTypeTable
 
         Dim inventoryTable As New DataTable()
-        Dim inventoryAdapter As New MySqlDataAdapter("SELECT * FROM inventory", conn.getConnection())
+        Dim inventoryAdapter As New MySqlDataAdapter("SELECT inventoryID, warehouse.name AS Warehouse, cookie.name AS Cookie, inventory.date, inventory.inQuantity, inventory.note
+                                                        , warehouse.warehouseID, yearCookie.yearCookieID FROM inventory 
+                                                        INNER JOIN warehouse ON inventory.warehouseID = warehouse.warehouseID
+                                                        INNER JOIN yearCookie ON inventory.yearCookieID = yearCookie.yearCookieID
+                                                        INNER JOIN cookie ON yearCookie.cookieID = cookie.cookieID", conn.getConnection())
         inventoryAdapter.Fill(inventoryTable)
         inventoryDGV.DataSource = inventoryTable
 

@@ -44,6 +44,7 @@ Partial Class mainMenu
         Me.load6 = New System.Windows.Forms.Button()
         Me.paymentForm = New System.Windows.Forms.Button()
         Me.TabPage5 = New System.Windows.Forms.TabPage()
+        Me.inventoryFilter = New System.Windows.Forms.Button()
         Me.inventoryDGV = New System.Windows.Forms.DataGridView()
         Me.inventoryForm = New System.Windows.Forms.Button()
         Me.load7 = New System.Windows.Forms.Button()
@@ -66,7 +67,6 @@ Partial Class mainMenu
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.inventoryFilter = New System.Windows.Forms.Button()
         Me.TabPage7.SuspendLayout()
         CType(Me.salesTypeDGV, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.cookieYearPicker, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -101,7 +101,7 @@ Partial Class mainMenu
         Me.TabPage7.Controls.Add(Me.load3)
         Me.TabPage7.Location = New System.Drawing.Point(4, 33)
         Me.TabPage7.Name = "TabPage7"
-        Me.TabPage7.Padding = New System.Windows.Forms.Padding(3, 3, 3, 3)
+        Me.TabPage7.Padding = New System.Windows.Forms.Padding(3)
         Me.TabPage7.Size = New System.Drawing.Size(1319, 716)
         Me.TabPage7.TabIndex = 6
         Me.TabPage7.Text = "Settings"
@@ -219,7 +219,7 @@ Partial Class mainMenu
         Me.TabPage6.Controls.Add(Me.paymentForm)
         Me.TabPage6.Location = New System.Drawing.Point(4, 33)
         Me.TabPage6.Name = "TabPage6"
-        Me.TabPage6.Padding = New System.Windows.Forms.Padding(3, 3, 3, 3)
+        Me.TabPage6.Padding = New System.Windows.Forms.Padding(3)
         Me.TabPage6.Size = New System.Drawing.Size(1319, 716)
         Me.TabPage6.TabIndex = 5
         Me.TabPage6.Text = "Transactions"
@@ -291,24 +291,34 @@ Partial Class mainMenu
         Me.TabPage5.Controls.Add(Me.warehouseForm)
         Me.TabPage5.Location = New System.Drawing.Point(4, 33)
         Me.TabPage5.Name = "TabPage5"
-        Me.TabPage5.Padding = New System.Windows.Forms.Padding(3, 3, 3, 3)
+        Me.TabPage5.Padding = New System.Windows.Forms.Padding(3)
         Me.TabPage5.Size = New System.Drawing.Size(1319, 716)
         Me.TabPage5.TabIndex = 4
         Me.TabPage5.Text = "Inventory"
         Me.TabPage5.UseVisualStyleBackColor = True
         '
+        'inventoryFilter
+        '
+        Me.inventoryFilter.Location = New System.Drawing.Point(304, 5)
+        Me.inventoryFilter.Name = "inventoryFilter"
+        Me.inventoryFilter.Size = New System.Drawing.Size(92, 31)
+        Me.inventoryFilter.TabIndex = 10
+        Me.inventoryFilter.Text = "filter"
+        Me.inventoryFilter.UseVisualStyleBackColor = True
+        '
         'inventoryDGV
         '
+        Me.inventoryDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells
         Me.inventoryDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.inventoryDGV.Location = New System.Drawing.Point(487, 59)
+        Me.inventoryDGV.Location = New System.Drawing.Point(626, 40)
         Me.inventoryDGV.Name = "inventoryDGV"
         Me.inventoryDGV.RowHeadersWidth = 51
-        Me.inventoryDGV.Size = New System.Drawing.Size(422, 407)
+        Me.inventoryDGV.Size = New System.Drawing.Size(685, 416)
         Me.inventoryDGV.TabIndex = 9
         '
         'inventoryForm
         '
-        Me.inventoryForm.Location = New System.Drawing.Point(571, 6)
+        Me.inventoryForm.Location = New System.Drawing.Point(730, 5)
         Me.inventoryForm.Name = "inventoryForm"
         Me.inventoryForm.Size = New System.Drawing.Size(211, 28)
         Me.inventoryForm.TabIndex = 8
@@ -317,7 +327,7 @@ Partial Class mainMenu
         '
         'load7
         '
-        Me.load7.Location = New System.Drawing.Point(487, 6)
+        Me.load7.Location = New System.Drawing.Point(626, 5)
         Me.load7.Name = "load7"
         Me.load7.Size = New System.Drawing.Size(78, 28)
         Me.load7.TabIndex = 7
@@ -330,7 +340,7 @@ Partial Class mainMenu
         Me.warehouseDGV.Location = New System.Drawing.Point(8, 40)
         Me.warehouseDGV.Name = "warehouseDGV"
         Me.warehouseDGV.RowHeadersWidth = 51
-        Me.warehouseDGV.Size = New System.Drawing.Size(422, 407)
+        Me.warehouseDGV.Size = New System.Drawing.Size(586, 416)
         Me.warehouseDGV.TabIndex = 6
         '
         'load5
@@ -358,7 +368,7 @@ Partial Class mainMenu
         Me.TabPage3.Controls.Add(Me.orderDGV)
         Me.TabPage3.Location = New System.Drawing.Point(4, 33)
         Me.TabPage3.Name = "TabPage3"
-        Me.TabPage3.Padding = New System.Windows.Forms.Padding(3, 3, 3, 3)
+        Me.TabPage3.Padding = New System.Windows.Forms.Padding(3)
         Me.TabPage3.Size = New System.Drawing.Size(1319, 716)
         Me.TabPage3.TabIndex = 2
         Me.TabPage3.Text = "Cookie Orders"
@@ -403,7 +413,7 @@ Partial Class mainMenu
         Me.TabPage2.Controls.Add(Me.userDGV)
         Me.TabPage2.Location = New System.Drawing.Point(4, 33)
         Me.TabPage2.Name = "TabPage2"
-        Me.TabPage2.Padding = New System.Windows.Forms.Padding(3, 3, 3, 3)
+        Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
         Me.TabPage2.Size = New System.Drawing.Size(1319, 716)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Girls"
@@ -502,7 +512,7 @@ Partial Class mainMenu
         Me.TabPage1.Controls.Add(Me.Label1)
         Me.TabPage1.Location = New System.Drawing.Point(4, 33)
         Me.TabPage1.Name = "TabPage1"
-        Me.TabPage1.Padding = New System.Windows.Forms.Padding(3, 3, 3, 3)
+        Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
         Me.TabPage1.Size = New System.Drawing.Size(1319, 716)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Home"
@@ -516,15 +526,6 @@ Partial Class mainMenu
         Me.Label1.Size = New System.Drawing.Size(79, 21)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Welcome"
-        '
-        'inventoryFilter
-        '
-        Me.inventoryFilter.Location = New System.Drawing.Point(304, 5)
-        Me.inventoryFilter.Name = "inventoryFilter"
-        Me.inventoryFilter.Size = New System.Drawing.Size(92, 31)
-        Me.inventoryFilter.TabIndex = 10
-        Me.inventoryFilter.Text = "filter"
-        Me.inventoryFilter.UseVisualStyleBackColor = True
         '
         'mainMenu
         '
