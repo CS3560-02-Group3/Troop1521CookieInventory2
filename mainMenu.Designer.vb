@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class mainMenu
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class mainMenu
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.BackgroundWorker1 = New System.ComponentModel.BackgroundWorker()
         Me.BackgroundWorker2 = New System.ComponentModel.BackgroundWorker()
@@ -67,6 +67,8 @@ Partial Class mainMenu
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.totalUserCookie = New System.Windows.Forms.Label()
         Me.TabPage7.SuspendLayout()
         CType(Me.salesTypeDGV, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.cookieYearPicker, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -363,6 +365,7 @@ Partial Class mainMenu
         '
         'TabPage3
         '
+        Me.TabPage3.Controls.Add(Me.Label5)
         Me.TabPage3.Controls.Add(Me.load2)
         Me.TabPage3.Controls.Add(Me.cookieOrderForm)
         Me.TabPage3.Controls.Add(Me.orderDGV)
@@ -403,6 +406,7 @@ Partial Class mainMenu
         '
         'TabPage2
         '
+        Me.TabPage2.Controls.Add(Me.totalUserCookie)
         Me.TabPage2.Controls.Add(Me.userFilterTB)
         Me.TabPage2.Controls.Add(Me.filter)
         Me.TabPage2.Controls.Add(Me.userFilterCB)
@@ -527,6 +531,24 @@ Partial Class mainMenu
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Welcome"
         '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(28, 578)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(158, 21)
+        Me.Label5.TabIndex = 5
+        Me.Label5.Text = "Total Cookie Orders:"
+        '
+        'totalUserCookie
+        '
+        Me.totalUserCookie.AutoSize = True
+        Me.totalUserCookie.Location = New System.Drawing.Point(123, 620)
+        Me.totalUserCookie.Name = "totalUserCookie"
+        Me.totalUserCookie.Size = New System.Drawing.Size(16, 21)
+        Me.totalUserCookie.TabIndex = 10
+        Me.totalUserCookie.Text = "-"
+        '
         'mainMenu
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -549,6 +571,7 @@ Partial Class mainMenu
         CType(Me.inventoryDGV, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.warehouseDGV, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabPage3.ResumeLayout(False)
+        Me.TabPage3.PerformLayout()
         CType(Me.orderDGV, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabPage2.ResumeLayout(False)
         Me.TabPage2.PerformLayout()
@@ -604,4 +627,6 @@ Partial Class mainMenu
     Friend WithEvents salesTypeDGV As DataGridView
     Friend WithEvents transactionFullFieldsDGV As DataGridView
     Friend WithEvents inventoryFilter As Button
+    Friend WithEvents Label5 As Label
+    Friend WithEvents totalUserCookie As Label
 End Class

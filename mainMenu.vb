@@ -21,6 +21,7 @@ Public Class mainMenu
         Dim UCadapter As New MySqlDataAdapter("SELECT * FROM userCookie", conn.getConnection())
         UCadapter.Fill(UCtable)
         orderDGV.DataSource = UCtable
+        totalUserCookie.Text = orderDGV.Rows.Count - 1
 
         Dim Ctable As New DataTable()
         Dim Cadapter As New MySqlDataAdapter("SELECT * FROM cookie", conn.getConnection())
