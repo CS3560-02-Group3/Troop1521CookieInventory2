@@ -75,6 +75,21 @@ Public Class mainMenu
         Dim SalesTypeAdapter As New MySqlDataAdapter("SELECT * FROM salesType", conn.getConnection())
         SalesTypeAdapter.Fill(SalesTypeTable)
         salesTypeDGV.DataSource = SalesTypeTable
+
+        Dim inventoryTable As New DataTable()
+        Dim inventoryAdapter As New MySqlDataAdapter("SELECT inventoryID, warehouse.name AS Warehouse, cookie.name AS Cookie, inventory.date, inventory.inQuantity, inventory.note
+                                                        , warehouse.warehouseID, yearCookie.yearCookieID FROM inventory 
+                                                        INNER JOIN warehouse ON inventory.warehouseID = warehouse.warehouseID
+                                                        INNER JOIN yearCookie ON inventory.yearCookieID = yearCookie.yearCookieID
+                                                        INNER JOIN cookie ON yearCookie.cookieID = cookie.cookieID", conn.getConnection())
+        inventoryAdapter.Fill(inventoryTable)
+        inventoryDGV.DataSource = inventoryTable
+
+
+        Dim warehouseTable As New DataTable()
+        Dim warehouseAdapter As New MySqlDataAdapter("SELECT * FROM warehouse", conn.getConnection())
+        warehouseAdapter.Fill(warehouseTable)
+        warehouseDGV.DataSource = warehouseTable
     End Sub
     Private Sub userDGV_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles userDGV.CellContentClick
         If e.RowIndex = -1 Then
@@ -269,28 +284,43 @@ Public Class mainMenu
     Private Sub TabPage1_Click(sender As Object, e As EventArgs) Handles TabPage1.Click
 
     End Sub
+    Private Sub inventoryFilter_Click(sender As Object, e As EventArgs) Handles inventoryFilter.Click
+        If inventoryFilterCB.Text = "" Then
+            mainMenu_Load(e, e)
+        Else
+            Dim conn As New myConnection()
+            Dim table As New DataTable()
+            Dim column = warehouseFilterCB.SelectedValue
 
-    'Private Sub inventoryFilter_Click(sender As Object, e As EventArgs) Handles inventoryFilter.Click
-    '    If inventoryFilterCB.Text = "" Then
-    '        mainMenu_Load(e, e)
-    '    Else
-    '        Dim conn As New myConnection()
-    '        Dim table As New DataTable()
-    '        Dim column = warehouseFilterCB.SelectedValue
+            Dim input = ""
+            If warehouseCB.Text = "warehouseID" Then
+                input = warehouseCB.Text
+            Else
+                input = "%" & warehouseCB.Text & "%"
+            End If
 
-    '        Dim input = ""
-    '        If warehouseCB.Text = "warehouseID" Then
-    '            input = warehouseCB.Text
-    '        Else
-    '            input = "%" & warehouseCB.Text & "%"
-    '        End If
+            Dim command As New MySqlCommand("SELECT * FROM `warehouse` WHERE " & column & " LIKE @input", conn.getConnection())
+            command.Parameters.Add("@input", MySqlDbType.VarChar).Value = input
+            Dim adapter As New MySqlDataAdapter(command)
+            adapter.Fill(table)
+            inventoryDGV.DataSource = table
+            totalCookiesLB.Text = inventoryDGV.Rows.Count - 1
+        End If
+    End Sub
 
-    '        Dim command As New MySqlCommand("SELECT * FROM `warehouse` WHERE " & column & " LIKE @input", conn.getConnection())
-    '        command.Parameters.Add("@input", MySqlDbType.VarChar).Value = input
-    '        Dim adapter As New MySqlDataAdapter(command)
-    '        adapter.Fill(table)
-    '        inventoryDGV.DataSource = table
-    '        totalCookiesLB.Text = inventoryDGV.Rows.Count - 1
-    '    End If
-    'End Sub
+    Dim input = ""
+    If warehouseCB.Text = "warehouseID" Then
+                input = warehouseCB.Text
+            Else
+                input = "%" & warehouseCB.Text & "%"
+            End If
+
+    Dim command As New MySqlCommand("SELECT * FROM `warehouse` WHERE " & column & " LIKE @input", conn.getConnection())
+            command.Parameters.Add("@input", MySqlDbType.VarChar).Value = input
+            Dim adapter As New MySqlDataAdapter(command)
+            adapter.Fill(table)
+            inventoryDGV.DataSource = table
+            totalCookiesLB.Text = inventoryDGV.Rows.Count - 1
+        End If
+    End Sub
 End Class
