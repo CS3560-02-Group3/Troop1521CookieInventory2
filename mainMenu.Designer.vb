@@ -52,10 +52,12 @@ Partial Class mainMenu
         Me.load5 = New System.Windows.Forms.Button()
         Me.warehouseForm = New System.Windows.Forms.Button()
         Me.TabPage3 = New System.Windows.Forms.TabPage()
+        Me.Label5 = New System.Windows.Forms.Label()
         Me.load2 = New System.Windows.Forms.Button()
         Me.cookieOrderForm = New System.Windows.Forms.Button()
         Me.orderDGV = New System.Windows.Forms.DataGridView()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
+        Me.totalUserCookie = New System.Windows.Forms.Label()
         Me.userFilterTB = New System.Windows.Forms.TextBox()
         Me.filter = New System.Windows.Forms.Button()
         Me.userFilterCB = New System.Windows.Forms.ComboBox()
@@ -66,9 +68,8 @@ Partial Class mainMenu
         Me.userDGV = New System.Windows.Forms.DataGridView()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.Label5 = New System.Windows.Forms.Label()
-        Me.totalUserCookie = New System.Windows.Forms.Label()
+        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.TabPage7.SuspendLayout()
         CType(Me.salesTypeDGV, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.cookieYearPicker, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -86,6 +87,8 @@ Partial Class mainMenu
         CType(Me.userDGV, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'TabPage7
@@ -377,6 +380,15 @@ Partial Class mainMenu
         Me.TabPage3.Text = "Cookie Orders"
         Me.TabPage3.UseVisualStyleBackColor = True
         '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(28, 578)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(158, 21)
+        Me.Label5.TabIndex = 5
+        Me.Label5.Text = "Total Cookie Orders:"
+        '
         'load2
         '
         Me.load2.Location = New System.Drawing.Point(8, 21)
@@ -422,6 +434,15 @@ Partial Class mainMenu
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Girls"
         Me.TabPage2.UseVisualStyleBackColor = True
+        '
+        'totalUserCookie
+        '
+        Me.totalUserCookie.AutoSize = True
+        Me.totalUserCookie.Location = New System.Drawing.Point(123, 620)
+        Me.totalUserCookie.Name = "totalUserCookie"
+        Me.totalUserCookie.Size = New System.Drawing.Size(16, 21)
+        Me.totalUserCookie.TabIndex = 10
+        Me.totalUserCookie.Text = "-"
         '
         'userFilterTB
         '
@@ -513,7 +534,8 @@ Partial Class mainMenu
         '
         'TabPage1
         '
-        Me.TabPage1.Controls.Add(Me.Label1)
+        Me.TabPage1.Controls.Add(Me.PictureBox2)
+        Me.TabPage1.Controls.Add(Me.PictureBox1)
         Me.TabPage1.Location = New System.Drawing.Point(4, 33)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
@@ -522,32 +544,21 @@ Partial Class mainMenu
         Me.TabPage1.Text = "Home"
         Me.TabPage1.UseVisualStyleBackColor = True
         '
-        'Label1
+        'PictureBox2
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(359, 162)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(79, 21)
-        Me.Label1.TabIndex = 0
-        Me.Label1.Text = "Welcome"
+        Me.PictureBox2.Location = New System.Drawing.Point(0, 483)
+        Me.PictureBox2.Name = "PictureBox2"
+        Me.PictureBox2.Size = New System.Drawing.Size(1319, 233)
+        Me.PictureBox2.TabIndex = 1
+        Me.PictureBox2.TabStop = False
         '
-        'Label5
+        'PictureBox1
         '
-        Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(28, 578)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(158, 21)
-        Me.Label5.TabIndex = 5
-        Me.Label5.Text = "Total Cookie Orders:"
-        '
-        'totalUserCookie
-        '
-        Me.totalUserCookie.AutoSize = True
-        Me.totalUserCookie.Location = New System.Drawing.Point(123, 620)
-        Me.totalUserCookie.Name = "totalUserCookie"
-        Me.totalUserCookie.Size = New System.Drawing.Size(16, 21)
-        Me.totalUserCookie.TabIndex = 10
-        Me.totalUserCookie.Text = "-"
+        Me.PictureBox1.Location = New System.Drawing.Point(0, 0)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(1319, 241)
+        Me.PictureBox1.TabIndex = 0
+        Me.PictureBox1.TabStop = False
         '
         'mainMenu
         '
@@ -578,7 +589,8 @@ Partial Class mainMenu
         CType(Me.userDGV, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabControl1.ResumeLayout(False)
         Me.TabPage1.ResumeLayout(False)
-        Me.TabPage1.PerformLayout()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -618,7 +630,6 @@ Partial Class mainMenu
     Friend WithEvents userDGV As DataGridView
     Friend WithEvents TabControl1 As TabControl
     Friend WithEvents TabPage1 As TabPage
-    Friend WithEvents Label1 As Label
     Friend WithEvents inventoryForm As Button
     Friend WithEvents load7 As Button
     Friend WithEvents inventoryDGV As DataGridView
@@ -629,4 +640,6 @@ Partial Class mainMenu
     Friend WithEvents inventoryFilter As Button
     Friend WithEvents Label5 As Label
     Friend WithEvents totalUserCookie As Label
+    Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents PictureBox2 As PictureBox
 End Class
