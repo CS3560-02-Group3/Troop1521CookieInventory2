@@ -44,6 +44,7 @@ Partial Class mainMenu
         Me.load6 = New System.Windows.Forms.Button()
         Me.paymentForm = New System.Windows.Forms.Button()
         Me.TabPage5 = New System.Windows.Forms.TabPage()
+        Me.inventoryFilter = New System.Windows.Forms.Button()
         Me.inventoryDGV = New System.Windows.Forms.DataGridView()
         Me.inventoryForm = New System.Windows.Forms.Button()
         Me.load7 = New System.Windows.Forms.Button()
@@ -66,7 +67,8 @@ Partial Class mainMenu
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.inventoryFilter = New System.Windows.Forms.Button()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.totalUserCookie = New System.Windows.Forms.Label()
         Me.TabPage7.SuspendLayout()
         CType(Me.salesTypeDGV, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.cookieYearPicker, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -101,7 +103,7 @@ Partial Class mainMenu
         Me.TabPage7.Controls.Add(Me.load3)
         Me.TabPage7.Location = New System.Drawing.Point(4, 33)
         Me.TabPage7.Name = "TabPage7"
-        Me.TabPage7.Padding = New System.Windows.Forms.Padding(3, 3, 3, 3)
+        Me.TabPage7.Padding = New System.Windows.Forms.Padding(3)
         Me.TabPage7.Size = New System.Drawing.Size(1319, 716)
         Me.TabPage7.TabIndex = 6
         Me.TabPage7.Text = "Settings"
@@ -219,7 +221,7 @@ Partial Class mainMenu
         Me.TabPage6.Controls.Add(Me.paymentForm)
         Me.TabPage6.Location = New System.Drawing.Point(4, 33)
         Me.TabPage6.Name = "TabPage6"
-        Me.TabPage6.Padding = New System.Windows.Forms.Padding(3, 3, 3, 3)
+        Me.TabPage6.Padding = New System.Windows.Forms.Padding(3)
         Me.TabPage6.Size = New System.Drawing.Size(1319, 716)
         Me.TabPage6.TabIndex = 5
         Me.TabPage6.Text = "Transactions"
@@ -291,11 +293,20 @@ Partial Class mainMenu
         Me.TabPage5.Controls.Add(Me.warehouseForm)
         Me.TabPage5.Location = New System.Drawing.Point(4, 33)
         Me.TabPage5.Name = "TabPage5"
-        Me.TabPage5.Padding = New System.Windows.Forms.Padding(3, 3, 3, 3)
+        Me.TabPage5.Padding = New System.Windows.Forms.Padding(3)
         Me.TabPage5.Size = New System.Drawing.Size(1319, 716)
         Me.TabPage5.TabIndex = 4
         Me.TabPage5.Text = "Inventory"
         Me.TabPage5.UseVisualStyleBackColor = True
+        '
+        'inventoryFilter
+        '
+        Me.inventoryFilter.Location = New System.Drawing.Point(304, 5)
+        Me.inventoryFilter.Name = "inventoryFilter"
+        Me.inventoryFilter.Size = New System.Drawing.Size(92, 31)
+        Me.inventoryFilter.TabIndex = 10
+        Me.inventoryFilter.Text = "filter"
+        Me.inventoryFilter.UseVisualStyleBackColor = True
         '
         'inventoryDGV
         '
@@ -353,12 +364,13 @@ Partial Class mainMenu
         '
         'TabPage3
         '
+        Me.TabPage3.Controls.Add(Me.Label5)
         Me.TabPage3.Controls.Add(Me.load2)
         Me.TabPage3.Controls.Add(Me.cookieOrderForm)
         Me.TabPage3.Controls.Add(Me.orderDGV)
         Me.TabPage3.Location = New System.Drawing.Point(4, 33)
         Me.TabPage3.Name = "TabPage3"
-        Me.TabPage3.Padding = New System.Windows.Forms.Padding(3, 3, 3, 3)
+        Me.TabPage3.Padding = New System.Windows.Forms.Padding(3)
         Me.TabPage3.Size = New System.Drawing.Size(1319, 716)
         Me.TabPage3.TabIndex = 2
         Me.TabPage3.Text = "Cookie Orders"
@@ -393,6 +405,7 @@ Partial Class mainMenu
         '
         'TabPage2
         '
+        Me.TabPage2.Controls.Add(Me.totalUserCookie)
         Me.TabPage2.Controls.Add(Me.userFilterTB)
         Me.TabPage2.Controls.Add(Me.filter)
         Me.TabPage2.Controls.Add(Me.userFilterCB)
@@ -403,7 +416,7 @@ Partial Class mainMenu
         Me.TabPage2.Controls.Add(Me.userDGV)
         Me.TabPage2.Location = New System.Drawing.Point(4, 33)
         Me.TabPage2.Name = "TabPage2"
-        Me.TabPage2.Padding = New System.Windows.Forms.Padding(3, 3, 3, 3)
+        Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
         Me.TabPage2.Size = New System.Drawing.Size(1319, 716)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Girls"
@@ -502,7 +515,7 @@ Partial Class mainMenu
         Me.TabPage1.Controls.Add(Me.Label1)
         Me.TabPage1.Location = New System.Drawing.Point(4, 33)
         Me.TabPage1.Name = "TabPage1"
-        Me.TabPage1.Padding = New System.Windows.Forms.Padding(3, 3, 3, 3)
+        Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
         Me.TabPage1.Size = New System.Drawing.Size(1319, 716)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Home"
@@ -517,14 +530,23 @@ Partial Class mainMenu
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Welcome"
         '
-        'inventoryFilter
+        'Label5
         '
-        Me.inventoryFilter.Location = New System.Drawing.Point(304, 5)
-        Me.inventoryFilter.Name = "inventoryFilter"
-        Me.inventoryFilter.Size = New System.Drawing.Size(92, 31)
-        Me.inventoryFilter.TabIndex = 10
-        Me.inventoryFilter.Text = "filter"
-        Me.inventoryFilter.UseVisualStyleBackColor = True
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(28, 578)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(158, 21)
+        Me.Label5.TabIndex = 5
+        Me.Label5.Text = "Total Cookie Orders:"
+        '
+        'totalUserCookie
+        '
+        Me.totalUserCookie.AutoSize = True
+        Me.totalUserCookie.Location = New System.Drawing.Point(123, 620)
+        Me.totalUserCookie.Name = "totalUserCookie"
+        Me.totalUserCookie.Size = New System.Drawing.Size(16, 21)
+        Me.totalUserCookie.TabIndex = 10
+        Me.totalUserCookie.Text = "-"
         '
         'mainMenu
         '
@@ -548,6 +570,7 @@ Partial Class mainMenu
         CType(Me.inventoryDGV, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.warehouseDGV, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabPage3.ResumeLayout(False)
+        Me.TabPage3.PerformLayout()
         CType(Me.orderDGV, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabPage2.ResumeLayout(False)
         Me.TabPage2.PerformLayout()
@@ -603,4 +626,6 @@ Partial Class mainMenu
     Friend WithEvents salesTypeDGV As DataGridView
     Friend WithEvents transactionFullFieldsDGV As DataGridView
     Friend WithEvents inventoryFilter As Button
+    Friend WithEvents Label5 As Label
+    Friend WithEvents totalUserCookie As Label
 End Class
