@@ -65,7 +65,7 @@ Partial Class mainMenu
         Me.userDGV = New System.Windows.Forms.DataGridView()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
-        Me.Label1 = New System.Windows.Forms.Label()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.TabPage7.SuspendLayout()
         CType(Me.salesTypeDGV, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.cookieYearPicker, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -83,6 +83,7 @@ Partial Class mainMenu
         CType(Me.userDGV, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'TabPage7
@@ -488,7 +489,7 @@ Partial Class mainMenu
         '
         'TabPage1
         '
-        Me.TabPage1.Controls.Add(Me.Label1)
+        Me.TabPage1.Controls.Add(Me.PictureBox1)
         Me.TabPage1.Location = New System.Drawing.Point(4, 33)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
@@ -497,14 +498,13 @@ Partial Class mainMenu
         Me.TabPage1.Text = "Home"
         Me.TabPage1.UseVisualStyleBackColor = True
         '
-        'Label1
+        'PictureBox1
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(359, 162)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(79, 21)
-        Me.Label1.TabIndex = 0
-        Me.Label1.Text = "Welcome"
+        Me.PictureBox1.Location = New System.Drawing.Point(212, 124)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(350, 271)
+        Me.PictureBox1.TabIndex = 0
+        Me.PictureBox1.TabStop = False
         '
         'mainMenu
         '
@@ -534,7 +534,7 @@ Partial Class mainMenu
         CType(Me.userDGV, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabControl1.ResumeLayout(False)
         Me.TabPage1.ResumeLayout(False)
-        Me.TabPage1.PerformLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -574,7 +574,6 @@ Partial Class mainMenu
     Friend WithEvents userDGV As DataGridView
     Friend WithEvents TabControl1 As TabControl
     Friend WithEvents TabPage1 As TabPage
-    Friend WithEvents Label1 As Label
     Friend WithEvents inventoryForm As Button
     Friend WithEvents load7 As Button
     Friend WithEvents inventoryDGV As DataGridView
@@ -582,4 +581,5 @@ Partial Class mainMenu
     Friend WithEvents load8 As Button
     Friend WithEvents salesTypeDGV As DataGridView
     Friend WithEvents transactionFullFieldsDGV As DataGridView
+    Friend WithEvents PictureBox1 As PictureBox
 End Class
