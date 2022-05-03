@@ -121,10 +121,4 @@
   <data name="4b1c1369-57cc-4fc1-8b6b-8ea8d7b1a7b1_750x422" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\4b1c1369-57cc-4fc1-8b6b-8ea8d7b1a7b1_750x422.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="troop1521" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\troop1521.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Story  It's Cookie Time" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Story  It's Cookie Time.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
 </root>
