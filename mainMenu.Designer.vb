@@ -22,6 +22,7 @@ Partial Class mainMenu
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(mainMenu))
         Me.BackgroundWorker1 = New System.ComponentModel.BackgroundWorker()
         Me.BackgroundWorker2 = New System.ComponentModel.BackgroundWorker()
         Me.TabPage7 = New System.Windows.Forms.TabPage()
@@ -57,7 +58,6 @@ Partial Class mainMenu
         Me.cookieOrderForm = New System.Windows.Forms.Button()
         Me.orderDGV = New System.Windows.Forms.DataGridView()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
-        Me.totalUserCookie = New System.Windows.Forms.Label()
         Me.userFilterTB = New System.Windows.Forms.TextBox()
         Me.filter = New System.Windows.Forms.Button()
         Me.userFilterCB = New System.Windows.Forms.ComboBox()
@@ -68,8 +68,11 @@ Partial Class mainMenu
         Me.userDGV = New System.Windows.Forms.DataGridView()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.PictureBox3 = New System.Windows.Forms.PictureBox()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.totalUserCookie = New System.Windows.Forms.Label()
         Me.TabPage7.SuspendLayout()
         CType(Me.salesTypeDGV, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.cookieYearPicker, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -87,6 +90,7 @@ Partial Class mainMenu
         CType(Me.userDGV, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
+        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -234,7 +238,7 @@ Partial Class mainMenu
         '
         Me.transactionFullFieldsDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells
         Me.transactionFullFieldsDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.transactionFullFieldsDGV.Location = New System.Drawing.Point(12, 487)
+        Me.transactionFullFieldsDGV.Location = New System.Drawing.Point(11, 453)
         Me.transactionFullFieldsDGV.Name = "transactionFullFieldsDGV"
         Me.transactionFullFieldsDGV.RowHeadersWidth = 51
         Me.transactionFullFieldsDGV.Size = New System.Drawing.Size(1284, 221)
@@ -243,7 +247,7 @@ Partial Class mainMenu
         'userTCB
         '
         Me.userTCB.FormattingEnabled = True
-        Me.userTCB.Location = New System.Drawing.Point(49, 49)
+        Me.userTCB.Location = New System.Drawing.Point(298, 7)
         Me.userTCB.Name = "userTCB"
         Me.userTCB.Size = New System.Drawing.Size(121, 29)
         Me.userTCB.TabIndex = 9
@@ -251,7 +255,7 @@ Partial Class mainMenu
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(8, 52)
+        Me.Label4.Location = New System.Drawing.Point(257, 10)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(35, 21)
         Me.Label4.TabIndex = 8
@@ -261,10 +265,10 @@ Partial Class mainMenu
         '
         Me.transactionDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells
         Me.transactionDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.transactionDGV.Location = New System.Drawing.Point(12, 96)
+        Me.transactionDGV.Location = New System.Drawing.Point(11, 42)
         Me.transactionDGV.Name = "transactionDGV"
         Me.transactionDGV.RowHeadersWidth = 51
-        Me.transactionDGV.Size = New System.Drawing.Size(1284, 372)
+        Me.transactionDGV.Size = New System.Drawing.Size(1284, 337)
         Me.transactionDGV.TabIndex = 7
         '
         'load6
@@ -304,7 +308,7 @@ Partial Class mainMenu
         '
         'inventoryFilter
         '
-        Me.inventoryFilter.Location = New System.Drawing.Point(304, 5)
+        Me.inventoryFilter.Location = New System.Drawing.Point(292, 436)
         Me.inventoryFilter.Name = "inventoryFilter"
         Me.inventoryFilter.Size = New System.Drawing.Size(92, 31)
         Me.inventoryFilter.TabIndex = 10
@@ -315,15 +319,15 @@ Partial Class mainMenu
         '
         Me.inventoryDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells
         Me.inventoryDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.inventoryDGV.Location = New System.Drawing.Point(626, 40)
+        Me.inventoryDGV.Location = New System.Drawing.Point(0, 39)
         Me.inventoryDGV.Name = "inventoryDGV"
         Me.inventoryDGV.RowHeadersWidth = 51
-        Me.inventoryDGV.Size = New System.Drawing.Size(685, 416)
+        Me.inventoryDGV.Size = New System.Drawing.Size(1319, 354)
         Me.inventoryDGV.TabIndex = 9
         '
         'inventoryForm
         '
-        Me.inventoryForm.Location = New System.Drawing.Point(730, 5)
+        Me.inventoryForm.Location = New System.Drawing.Point(90, 6)
         Me.inventoryForm.Name = "inventoryForm"
         Me.inventoryForm.Size = New System.Drawing.Size(211, 28)
         Me.inventoryForm.TabIndex = 8
@@ -332,7 +336,7 @@ Partial Class mainMenu
         '
         'load7
         '
-        Me.load7.Location = New System.Drawing.Point(626, 5)
+        Me.load7.Location = New System.Drawing.Point(6, 6)
         Me.load7.Name = "load7"
         Me.load7.Size = New System.Drawing.Size(78, 28)
         Me.load7.TabIndex = 7
@@ -341,16 +345,17 @@ Partial Class mainMenu
         '
         'warehouseDGV
         '
+        Me.warehouseDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells
         Me.warehouseDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.warehouseDGV.Location = New System.Drawing.Point(8, 40)
+        Me.warehouseDGV.Location = New System.Drawing.Point(3, 470)
         Me.warehouseDGV.Name = "warehouseDGV"
         Me.warehouseDGV.RowHeadersWidth = 51
-        Me.warehouseDGV.Size = New System.Drawing.Size(586, 416)
+        Me.warehouseDGV.Size = New System.Drawing.Size(1319, 206)
         Me.warehouseDGV.TabIndex = 6
         '
         'load5
         '
-        Me.load5.Location = New System.Drawing.Point(8, 6)
+        Me.load5.Location = New System.Drawing.Point(8, 436)
         Me.load5.Name = "load5"
         Me.load5.Size = New System.Drawing.Size(78, 28)
         Me.load5.TabIndex = 5
@@ -359,7 +364,7 @@ Partial Class mainMenu
         '
         'warehouseForm
         '
-        Me.warehouseForm.Location = New System.Drawing.Point(92, 6)
+        Me.warehouseForm.Location = New System.Drawing.Point(92, 436)
         Me.warehouseForm.Name = "warehouseForm"
         Me.warehouseForm.Size = New System.Drawing.Size(194, 28)
         Me.warehouseForm.TabIndex = 0
@@ -368,6 +373,7 @@ Partial Class mainMenu
         '
         'TabPage3
         '
+        Me.TabPage3.Controls.Add(Me.totalUserCookie)
         Me.TabPage3.Controls.Add(Me.Label5)
         Me.TabPage3.Controls.Add(Me.load2)
         Me.TabPage3.Controls.Add(Me.cookieOrderForm)
@@ -383,7 +389,7 @@ Partial Class mainMenu
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(28, 578)
+        Me.Label5.Location = New System.Drawing.Point(20, 680)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(158, 21)
         Me.Label5.TabIndex = 5
@@ -391,7 +397,7 @@ Partial Class mainMenu
         '
         'load2
         '
-        Me.load2.Location = New System.Drawing.Point(8, 21)
+        Me.load2.Location = New System.Drawing.Point(8, 6)
         Me.load2.Name = "load2"
         Me.load2.Size = New System.Drawing.Size(78, 28)
         Me.load2.TabIndex = 4
@@ -400,7 +406,7 @@ Partial Class mainMenu
         '
         'cookieOrderForm
         '
-        Me.cookieOrderForm.Location = New System.Drawing.Point(92, 21)
+        Me.cookieOrderForm.Location = New System.Drawing.Point(92, 6)
         Me.cookieOrderForm.Name = "cookieOrderForm"
         Me.cookieOrderForm.Size = New System.Drawing.Size(194, 28)
         Me.cookieOrderForm.TabIndex = 1
@@ -409,16 +415,16 @@ Partial Class mainMenu
         '
         'orderDGV
         '
+        Me.orderDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells
         Me.orderDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.orderDGV.Location = New System.Drawing.Point(3, 55)
+        Me.orderDGV.Location = New System.Drawing.Point(8, 40)
         Me.orderDGV.Name = "orderDGV"
         Me.orderDGV.RowHeadersWidth = 51
-        Me.orderDGV.Size = New System.Drawing.Size(1308, 500)
+        Me.orderDGV.Size = New System.Drawing.Size(1303, 626)
         Me.orderDGV.TabIndex = 0
         '
         'TabPage2
         '
-        Me.TabPage2.Controls.Add(Me.totalUserCookie)
         Me.TabPage2.Controls.Add(Me.userFilterTB)
         Me.TabPage2.Controls.Add(Me.filter)
         Me.TabPage2.Controls.Add(Me.userFilterCB)
@@ -434,15 +440,6 @@ Partial Class mainMenu
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Girls"
         Me.TabPage2.UseVisualStyleBackColor = True
-        '
-        'totalUserCookie
-        '
-        Me.totalUserCookie.AutoSize = True
-        Me.totalUserCookie.Location = New System.Drawing.Point(123, 620)
-        Me.totalUserCookie.Name = "totalUserCookie"
-        Me.totalUserCookie.Size = New System.Drawing.Size(16, 21)
-        Me.totalUserCookie.TabIndex = 10
-        Me.totalUserCookie.Text = "-"
         '
         'userFilterTB
         '
@@ -471,7 +468,7 @@ Partial Class mainMenu
         'totalGirlsLB
         '
         Me.totalGirlsLB.AutoSize = True
-        Me.totalGirlsLB.Location = New System.Drawing.Point(99, 620)
+        Me.totalGirlsLB.Location = New System.Drawing.Point(109, 678)
         Me.totalGirlsLB.Name = "totalGirlsLB"
         Me.totalGirlsLB.Size = New System.Drawing.Size(0, 21)
         Me.totalGirlsLB.TabIndex = 6
@@ -479,7 +476,7 @@ Partial Class mainMenu
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(8, 620)
+        Me.Label3.Location = New System.Drawing.Point(18, 678)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(85, 21)
         Me.Label3.TabIndex = 5
@@ -510,7 +507,7 @@ Partial Class mainMenu
         Me.userDGV.Location = New System.Drawing.Point(8, 52)
         Me.userDGV.Name = "userDGV"
         Me.userDGV.RowHeadersWidth = 51
-        Me.userDGV.Size = New System.Drawing.Size(1305, 556)
+        Me.userDGV.Size = New System.Drawing.Size(1305, 611)
         Me.userDGV.TabIndex = 2
         '
         'TabControl1
@@ -534,6 +531,8 @@ Partial Class mainMenu
         '
         'TabPage1
         '
+        Me.TabPage1.Controls.Add(Me.Label1)
+        Me.TabPage1.Controls.Add(Me.PictureBox3)
         Me.TabPage1.Controls.Add(Me.PictureBox2)
         Me.TabPage1.Controls.Add(Me.PictureBox1)
         Me.TabPage1.Location = New System.Drawing.Point(4, 33)
@@ -544,21 +543,52 @@ Partial Class mainMenu
         Me.TabPage1.Text = "Home"
         Me.TabPage1.UseVisualStyleBackColor = True
         '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Segoe UI", 36.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(91, 332)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(1143, 65)
+        Me.Label1.TabIndex = 3
+        Me.Label1.Text = "Welcome to Troop 1521 Cookie Inventory System"
+        '
+        'PictureBox3
+        '
+        Me.PictureBox3.Image = CType(resources.GetObject("PictureBox3.Image"), System.Drawing.Image)
+        Me.PictureBox3.Location = New System.Drawing.Point(1059, 3)
+        Me.PictureBox3.Name = "PictureBox3"
+        Me.PictureBox3.Size = New System.Drawing.Size(257, 241)
+        Me.PictureBox3.TabIndex = 2
+        Me.PictureBox3.TabStop = False
+        '
         'PictureBox2
         '
-        Me.PictureBox2.Location = New System.Drawing.Point(0, 483)
+        Me.PictureBox2.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.PictureBox2.Image = Global.Troop1521CookieInventory2.My.Resources.Resources.cookiesBottom
+        Me.PictureBox2.Location = New System.Drawing.Point(3, 480)
         Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(1319, 233)
+        Me.PictureBox2.Size = New System.Drawing.Size(1313, 233)
         Me.PictureBox2.TabIndex = 1
         Me.PictureBox2.TabStop = False
         '
         'PictureBox1
         '
-        Me.PictureBox1.Location = New System.Drawing.Point(0, 0)
+        Me.PictureBox1.Dock = System.Windows.Forms.DockStyle.Top
+        Me.PictureBox1.Image = Global.Troop1521CookieInventory2.My.Resources.Resources.cookiesTop
+        Me.PictureBox1.Location = New System.Drawing.Point(3, 3)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(1319, 241)
+        Me.PictureBox1.Size = New System.Drawing.Size(1313, 241)
         Me.PictureBox1.TabIndex = 0
         Me.PictureBox1.TabStop = False
+        '
+        'totalUserCookie
+        '
+        Me.totalUserCookie.AutoSize = True
+        Me.totalUserCookie.Location = New System.Drawing.Point(184, 680)
+        Me.totalUserCookie.Name = "totalUserCookie"
+        Me.totalUserCookie.Size = New System.Drawing.Size(0, 21)
+        Me.totalUserCookie.TabIndex = 11
         '
         'mainMenu
         '
@@ -589,6 +619,8 @@ Partial Class mainMenu
         CType(Me.userDGV, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabControl1.ResumeLayout(False)
         Me.TabPage1.ResumeLayout(False)
+        Me.TabPage1.PerformLayout()
+        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
@@ -639,7 +671,9 @@ Partial Class mainMenu
     Friend WithEvents transactionFullFieldsDGV As DataGridView
     Friend WithEvents inventoryFilter As Button
     Friend WithEvents Label5 As Label
-    Friend WithEvents totalUserCookie As Label
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents PictureBox2 As PictureBox
+    Friend WithEvents PictureBox3 As PictureBox
+    Friend WithEvents Label1 As Label
+    Friend WithEvents totalUserCookie As Label
 End Class
