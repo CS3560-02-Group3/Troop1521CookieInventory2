@@ -174,11 +174,14 @@ Public Class mainMenu
         salesTypeDGV.DataSource = SalesTypeTable
 
         Dim inventoryTable As New DataTable()
-        Dim inventoryAdapter As New MySqlDataAdapter("SELECT inventoryID, warehouse.name AS Warehouse, cookie.name AS Cookie, inventory.date, inventory.inQuantity, inventory.note
+        Dim inventoryCommand As New MySqlCommand("SELECT inventoryID, warehouse.name AS Warehouse, cookie.name AS Cookie, inventory.date, inventory.inQuantity, inventory.note
                                                         , warehouse.warehouseID, yearCookie.yearCookieID FROM inventory 
                                                         INNER JOIN warehouse ON inventory.warehouseID = warehouse.warehouseID
                                                         INNER JOIN yearCookie ON inventory.yearCookieID = yearCookie.yearCookieID
-                                                        INNER JOIN cookie ON yearCookie.cookieID = cookie.cookieID", conn.getConnection())
+                                                        INNER JOIN cookie ON yearCookie.cookieID = cookie.cookieID
+                                                        WHERE year = @year", conn.getConnection())
+        inventoryCommand.Parameters.Add("@year", MySqlDbType.Int16).Value = year
+        Dim inventoryAdapter As New MySqlDataAdapter(inventoryCommand)
         inventoryAdapter.Fill(inventoryTable)
         inventoryDGV.DataSource = inventoryTable
         inventoryDGV.Columns(6).Visible = False
@@ -599,7 +602,7 @@ Public Class mainMenu
                                                         , warehouse.warehouseID, yearCookie.yearCookieID FROM inventory 
                                                         INNER JOIN warehouse ON inventory.warehouseID = warehouse.warehouseID
                                                         INNER JOIN yearCookie ON inventory.yearCookieID = yearCookie.yearCookieID
-                                                        INNER JOIN cookie ON yearCookie.cookieID = cookie.cookieID WHERE " & column & " LIKE @input", conn.getConnection())
+                                                        INNER JOIN cookie ON yearCookie.cookieID = cookie.cookieID WHERE year = @year AND " & column & " LIKE @input", conn.getConnection())
         command.Parameters.Add("@input", MySqlDbType.VarChar).Value = input
         command.Parameters.Add("@year", MySqlDbType.Int16).Value = year
         Dim adapter As New MySqlDataAdapter(command)

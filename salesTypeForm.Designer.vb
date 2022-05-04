@@ -55,7 +55,7 @@ Partial Class salesTypeForm
         'insert
         '
         Me.insert.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.insert.Location = New System.Drawing.Point(89, 228)
+        Me.insert.Location = New System.Drawing.Point(247, 228)
         Me.insert.Name = "insert"
         Me.insert.Size = New System.Drawing.Size(96, 33)
         Me.insert.TabIndex = 16
