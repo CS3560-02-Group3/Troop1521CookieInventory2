@@ -121,6 +121,10 @@ Public Class mainMenu
                                                         INNER JOIN cookie ON yearCookie.cookieID = cookie.cookieID", conn.getConnection())
         inventoryAdapter.Fill(inventoryTable)
         inventoryDGV.DataSource = inventoryTable
+        inventoryDGV.Columns(6).Visible = False
+        inventoryDGV.Columns(7).Visible = False
+
+
 
 
         Dim warehouseTable As New DataTable()
@@ -249,11 +253,13 @@ Public Class mainMenu
         selectedRow = inventoryDGV.Rows(e.RowIndex)
         Dim myForm As New inventoryForm
         myForm.yearLB.Text = cookieYearPicker.Text
-        myForm.warehouseCB.Text = selectedRow.Cells(0).Value
-        myForm.yearCookieCB.Text = selectedRow.Cells(1).Value
-        myForm.inQuantityTB.Text = selectedRow.Cells(2).Value
+        myForm.inventoryIDLB.Text = selectedRow.Cells(0).Value
+        myForm.warehouseCB.SelectedValue = selectedRow.Cells(6).Value
+        myForm.yearCookieCB.SelectedValue = selectedRow.Cells(7).Value
+        myForm.inQuantityTB.Text = selectedRow.Cells(4).Value
         myForm.DateTimePicker1.Text = selectedRow.Cells(3).Value
-        myForm.noteTE.Text = selectedRow.Cells(4).Value
+        myForm.noteTE.Text = selectedRow.Cells(5).Value
+        myForm.insert.Visible = False
         myForm.Show()
         mainMenu_Load(e, e)
     End Sub
