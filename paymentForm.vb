@@ -28,6 +28,8 @@ Public Class paymentForm
             MsgBox("Cannot submit without valid Sales Type ID")
         ElseIf receiveAmountTB.Text = "" Then
             MsgBox("Please enter a value for the Receive Amount")
+        ElseIf receiveAmountTB.Text < 0 Then
+            MsgBox("Please enter a value greater than 0 for the Receive Amount")
         Else
             ' Show this message below in a message box with the yes and no options 
             Dim confirmMsg = MessageBox.Show("Are you sure you want to Submit?", "Submit", MessageBoxButtons.YesNo)
@@ -96,6 +98,8 @@ Public Class paymentForm
             MsgBox("Cannot update without valid Sales Type ID")
         ElseIf receiveAmountTB.Text = "" Then
             MsgBox("Please enter a value for the Receive Amount")
+        ElseIf receiveAmountTB.Text < 0 Then
+            MsgBox("Please enter a value greater than 0 for the Receive Amount")
         Else
             Dim confirmMsg = MessageBox.Show("Are you sure you want to update?", "Update", MessageBoxButtons.YesNo)
             If confirmMsg = DialogResult.Yes Then
