@@ -38,10 +38,7 @@ Partial Class mainMenu
         Me.cookieForm = New System.Windows.Forms.Button()
         Me.load3 = New System.Windows.Forms.Button()
         Me.TabPage6 = New System.Windows.Forms.TabPage()
-        Me.sumOfTotalPayments = New System.Windows.Forms.Label()
-        Me.Label6 = New System.Windows.Forms.Label()
-        Me.sumTotalPaymentLB = New System.Windows.Forms.Label()
-        Me.transactionFilter = New System.Windows.Forms.Button()
+
         Me.transactionFullFieldsDGV = New System.Windows.Forms.DataGridView()
         Me.userTCB = New System.Windows.Forms.ComboBox()
         Me.Label4 = New System.Windows.Forms.Label()
@@ -227,13 +224,7 @@ Partial Class mainMenu
         '
         'TabPage6
         '
-        Me.TabPage6.Controls.Add(Me.sumOfRemainingBalance)
-        Me.TabPage6.Controls.Add(Me.Label7)
-        Me.TabPage6.Controls.Add(Me.sumOfReceivedPayments)
-        Me.TabPage6.Controls.Add(Me.sumOfTotalPayments)
-        Me.TabPage6.Controls.Add(Me.Label6)
-        Me.TabPage6.Controls.Add(Me.sumTotalPaymentLB)
-        Me.TabPage6.Controls.Add(Me.transactionFilter)
+
         Me.TabPage6.Controls.Add(Me.transactionFullFieldsDGV)
         Me.TabPage6.Controls.Add(Me.userTCB)
         Me.TabPage6.Controls.Add(Me.Label4)
@@ -247,43 +238,7 @@ Partial Class mainMenu
         Me.TabPage6.TabIndex = 5
         Me.TabPage6.Text = "Transactions"
         Me.TabPage6.UseVisualStyleBackColor = True
-        '
-        'sumOfTotalPayments
-        '
-        Me.sumOfTotalPayments.AutoSize = True
-        Me.sumOfTotalPayments.Location = New System.Drawing.Point(296, 403)
-        Me.sumOfTotalPayments.Name = "sumOfTotalPayments"
-        Me.sumOfTotalPayments.Size = New System.Drawing.Size(76, 21)
-        Me.sumOfTotalPayments.TabIndex = 15
-        Me.sumOfTotalPayments.Text = "text here"
-        '
-        'Label6
-        '
-        Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(385, 403)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(215, 21)
-        Me.Label6.TabIndex = 14
-        Me.Label6.Text = "Sum of Received Payments: "
-        '
-        'sumTotalPaymentLB
-        '
-        Me.sumTotalPaymentLB.AutoSize = True
-        Me.sumTotalPaymentLB.Location = New System.Drawing.Point(122, 403)
-        Me.sumTotalPaymentLB.Name = "sumTotalPaymentLB"
-        Me.sumTotalPaymentLB.Size = New System.Drawing.Size(183, 21)
-        Me.sumTotalPaymentLB.TabIndex = 12
-        Me.sumTotalPaymentLB.Text = "Sum of Total Payments: "
-        '
-        'transactionFilter
-        '
-        Me.transactionFilter.Location = New System.Drawing.Point(496, 4)
-        Me.transactionFilter.Name = "transactionFilter"
-        Me.transactionFilter.Size = New System.Drawing.Size(88, 35)
-        Me.transactionFilter.TabIndex = 11
-        Me.transactionFilter.Text = "Filter"
-        Me.transactionFilter.UseVisualStyleBackColor = True
-        '
+
         'transactionFullFieldsDGV
         '
         Me.transactionFullFieldsDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells
