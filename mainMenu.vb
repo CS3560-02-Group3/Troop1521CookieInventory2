@@ -164,7 +164,14 @@ Public Class mainMenu
         inventoryDGV.Columns(6).Visible = False
         inventoryDGV.Columns(7).Visible = False
 
-
+        inventoryFilterCB.DisplayMember = "Text"
+        inventoryFilterCB.ValueMember = "Value"
+        Dim tb2 As New DataTable
+        tb2.Columns.Add("Text", GetType(String))
+        tb2.Columns.Add("Value", GetType(String))
+        tb2.Rows.Add("cookie", "cookie.name")
+        tb2.Rows.Add("date", "inventory.date")
+        inventoryFilterCB.DataSource = tb2
 
 
         Dim warehouseTable As New DataTable()
@@ -529,5 +536,28 @@ Public Class mainMenu
         Dim adapter As New MySqlDataAdapter(command)
         adapter.Fill(table)
         orderDGV.DataSource = table
+    End Sub
+
+    Private Sub inventoryFilter_Click(sender As Object, e As EventArgs) Handles inventoryFilter.Click
+        Dim conn As New myConnection()
+        Dim table As New DataTable()
+        Dim column = inventoryFilterCB.SelectedValue
+        Dim input = ""
+        If inventoryFilterTB.Text = "orderID" Then
+            input = inventoryFilterTB.Text
+        Else
+            input = "%" & inventoryFilterTB.Text & "%"
+        End If
+        Dim year = cookieYearPicker.Text
+        Dim command As New MySqlCommand("SELECT inventoryID, warehouse.name AS Warehouse, cookie.name AS Cookie, inventory.date, inventory.inQuantity, inventory.note
+                                                        , warehouse.warehouseID, yearCookie.yearCookieID FROM inventory 
+                                                        INNER JOIN warehouse ON inventory.warehouseID = warehouse.warehouseID
+                                                        INNER JOIN yearCookie ON inventory.yearCookieID = yearCookie.yearCookieID
+                                                        INNER JOIN cookie ON yearCookie.cookieID = cookie.cookieID WHERE " & column & " LIKE @input", conn.getConnection())
+        command.Parameters.Add("@input", MySqlDbType.VarChar).Value = input
+        command.Parameters.Add("@year", MySqlDbType.Int16).Value = year
+        Dim adapter As New MySqlDataAdapter(command)
+        adapter.Fill(table)
+        inventoryDGV.DataSource = table
     End Sub
 End Class

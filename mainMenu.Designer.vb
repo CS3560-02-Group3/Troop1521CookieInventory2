@@ -82,6 +82,9 @@ Partial Class mainMenu
         Me.PictureBox3 = New System.Windows.Forms.PictureBox()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.inventoryFilterCB = New System.Windows.Forms.ComboBox()
+        Me.inventoryFilterTB = New System.Windows.Forms.TextBox()
+        Me.inventoryFilter = New System.Windows.Forms.Button()
         Me.TabPage7.SuspendLayout()
         CType(Me.salesTypeDGV, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.cookieYearPicker, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -375,6 +378,9 @@ Partial Class mainMenu
         '
         'TabPage5
         '
+        Me.TabPage5.Controls.Add(Me.inventoryFilter)
+        Me.TabPage5.Controls.Add(Me.inventoryFilterTB)
+        Me.TabPage5.Controls.Add(Me.inventoryFilterCB)
         Me.TabPage5.Controls.Add(Me.inventoryDGV)
         Me.TabPage5.Controls.Add(Me.inventoryForm)
         Me.TabPage5.Controls.Add(Me.load7)
@@ -466,9 +472,9 @@ Partial Class mainMenu
         '
         'orderFilter
         '
-        Me.orderFilter.Location = New System.Drawing.Point(558, 3)
+        Me.orderFilter.Location = New System.Drawing.Point(558, 6)
         Me.orderFilter.Name = "orderFilter"
-        Me.orderFilter.Size = New System.Drawing.Size(78, 39)
+        Me.orderFilter.Size = New System.Drawing.Size(78, 29)
         Me.orderFilter.TabIndex = 14
         Me.orderFilter.Text = "Filter"
         Me.orderFilter.UseVisualStyleBackColor = True
@@ -561,9 +567,9 @@ Partial Class mainMenu
         '
         'filter
         '
-        Me.filter.Location = New System.Drawing.Point(493, 7)
+        Me.filter.Location = New System.Drawing.Point(493, 13)
         Me.filter.Name = "filter"
-        Me.filter.Size = New System.Drawing.Size(78, 39)
+        Me.filter.Size = New System.Drawing.Size(78, 29)
         Me.filter.TabIndex = 8
         Me.filter.Text = "Filter"
         Me.filter.UseVisualStyleBackColor = True
@@ -694,6 +700,30 @@ Partial Class mainMenu
         Me.PictureBox1.TabIndex = 0
         Me.PictureBox1.TabStop = False
         '
+        'inventoryFilterCB
+        '
+        Me.inventoryFilterCB.FormattingEnabled = True
+        Me.inventoryFilterCB.Location = New System.Drawing.Point(307, 6)
+        Me.inventoryFilterCB.Name = "inventoryFilterCB"
+        Me.inventoryFilterCB.Size = New System.Drawing.Size(121, 29)
+        Me.inventoryFilterCB.TabIndex = 13
+        '
+        'inventoryFilterTB
+        '
+        Me.inventoryFilterTB.Location = New System.Drawing.Point(434, 6)
+        Me.inventoryFilterTB.Name = "inventoryFilterTB"
+        Me.inventoryFilterTB.Size = New System.Drawing.Size(133, 29)
+        Me.inventoryFilterTB.TabIndex = 14
+        '
+        'inventoryFilter
+        '
+        Me.inventoryFilter.Location = New System.Drawing.Point(573, 6)
+        Me.inventoryFilter.Name = "inventoryFilter"
+        Me.inventoryFilter.Size = New System.Drawing.Size(78, 29)
+        Me.inventoryFilter.TabIndex = 15
+        Me.inventoryFilter.Text = "Filter"
+        Me.inventoryFilter.UseVisualStyleBackColor = True
+        '
         'mainMenu
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -713,6 +743,7 @@ Partial Class mainMenu
         CType(Me.transactionFullFieldsDGV, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.transactionDGV, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabPage5.ResumeLayout(False)
+        Me.TabPage5.PerformLayout()
         CType(Me.inventoryDGV, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.warehouseDGV, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabPage3.ResumeLayout(False)
@@ -789,4 +820,7 @@ Partial Class mainMenu
     Friend WithEvents orderFilter As Button
     Friend WithEvents orderFilterTB As TextBox
     Friend WithEvents orderFilterCB As ComboBox
+    Friend WithEvents inventoryFilter As Button
+    Friend WithEvents inventoryFilterTB As TextBox
+    Friend WithEvents inventoryFilterCB As ComboBox
 End Class
