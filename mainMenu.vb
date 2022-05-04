@@ -43,6 +43,12 @@ Public Class mainMenu
         orderDGV.Columns(11).Visible = False
         totalUserCookie.Text = orderDGV.Rows.Count - 1
 
+        Dim totalO As Double
+        For index As Integer = 0 To (orderDGV.RowCount - 1)
+            totalO += Convert.ToDouble(orderDGV.Rows(index).Cells(4).Value)
+        Next
+        sumOfTotalOQ.Text = totalO
+
         orderFilterCB.DisplayMember = "Text"
         orderFilterCB.ValueMember = "Value"
         Dim tb As New DataTable

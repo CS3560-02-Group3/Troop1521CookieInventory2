@@ -84,6 +84,8 @@ Partial Class mainMenu
         Me.PictureBox3 = New System.Windows.Forms.PictureBox()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.sumOfTotalOQ = New System.Windows.Forms.Label()
         Me.TabPage7.SuspendLayout()
         CType(Me.salesTypeDGV, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.cookieYearPicker, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -468,6 +470,8 @@ Partial Class mainMenu
         '
         'TabPage3
         '
+        Me.TabPage3.Controls.Add(Me.sumOfTotalOQ)
+        Me.TabPage3.Controls.Add(Me.Label4)
         Me.TabPage3.Controls.Add(Me.orderFilter)
         Me.TabPage3.Controls.Add(Me.orderFilterTB)
         Me.TabPage3.Controls.Add(Me.orderFilterCB)
@@ -713,6 +717,24 @@ Partial Class mainMenu
         Me.PictureBox1.TabIndex = 0
         Me.PictureBox1.TabStop = False
         '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(415, 680)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(162, 21)
+        Me.Label4.TabIndex = 15
+        Me.Label4.Text = "Total Order Quantity:"
+        '
+        'sumOfTotalOQ
+        '
+        Me.sumOfTotalOQ.AutoSize = True
+        Me.sumOfTotalOQ.Location = New System.Drawing.Point(608, 680)
+        Me.sumOfTotalOQ.Name = "sumOfTotalOQ"
+        Me.sumOfTotalOQ.Size = New System.Drawing.Size(17, 21)
+        Me.sumOfTotalOQ.TabIndex = 16
+        Me.sumOfTotalOQ.Text = "_"
+        '
         'mainMenu
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -811,4 +833,6 @@ Partial Class mainMenu
     Friend WithEvents inventoryFilter As Button
     Friend WithEvents inventoryFilterTB As TextBox
     Friend WithEvents inventoryFilterCB As ComboBox
+    Friend WithEvents Label4 As Label
+    Friend WithEvents sumOfTotalOQ As Label
 End Class
