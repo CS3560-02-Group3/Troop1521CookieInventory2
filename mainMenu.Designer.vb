@@ -53,6 +53,7 @@ Partial Class mainMenu
         Me.load5 = New System.Windows.Forms.Button()
         Me.warehouseForm = New System.Windows.Forms.Button()
         Me.TabPage3 = New System.Windows.Forms.TabPage()
+        Me.totalUserCookie = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.load2 = New System.Windows.Forms.Button()
         Me.cookieOrderForm = New System.Windows.Forms.Button()
@@ -72,7 +73,6 @@ Partial Class mainMenu
         Me.PictureBox3 = New System.Windows.Forms.PictureBox()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.totalUserCookie = New System.Windows.Forms.Label()
         Me.TabPage7.SuspendLayout()
         CType(Me.salesTypeDGV, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.cookieYearPicker, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -108,10 +108,10 @@ Partial Class mainMenu
         Me.TabPage7.Controls.Add(Me.cookieDGV)
         Me.TabPage7.Controls.Add(Me.cookieForm)
         Me.TabPage7.Controls.Add(Me.load3)
-        Me.TabPage7.Location = New System.Drawing.Point(4, 33)
+        Me.TabPage7.Location = New System.Drawing.Point(4, 44)
         Me.TabPage7.Name = "TabPage7"
         Me.TabPage7.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage7.Size = New System.Drawing.Size(1319, 716)
+        Me.TabPage7.Size = New System.Drawing.Size(1319, 705)
         Me.TabPage7.TabIndex = 6
         Me.TabPage7.Text = "Settings"
         Me.TabPage7.UseVisualStyleBackColor = True
@@ -149,7 +149,7 @@ Partial Class mainMenu
         Me.cookieYearPicker.Location = New System.Drawing.Point(1240, 15)
         Me.cookieYearPicker.Maximum = New Decimal(New Integer() {9999, 0, 0, 0})
         Me.cookieYearPicker.Name = "cookieYearPicker"
-        Me.cookieYearPicker.Size = New System.Drawing.Size(68, 29)
+        Me.cookieYearPicker.Size = New System.Drawing.Size(68, 39)
         Me.cookieYearPicker.TabIndex = 16
         Me.cookieYearPicker.Value = New Decimal(New Integer() {2022, 0, 0, 0})
         '
@@ -158,7 +158,7 @@ Partial Class mainMenu
         Me.Label2.AutoSize = True
         Me.Label2.Location = New System.Drawing.Point(1138, 17)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(96, 21)
+        Me.Label2.Size = New System.Drawing.Size(144, 32)
         Me.Label2.TabIndex = 15
         Me.Label2.Text = "Cookie Year"
         '
@@ -226,10 +226,10 @@ Partial Class mainMenu
         Me.TabPage6.Controls.Add(Me.transactionDGV)
         Me.TabPage6.Controls.Add(Me.load6)
         Me.TabPage6.Controls.Add(Me.paymentForm)
-        Me.TabPage6.Location = New System.Drawing.Point(4, 33)
+        Me.TabPage6.Location = New System.Drawing.Point(4, 44)
         Me.TabPage6.Name = "TabPage6"
         Me.TabPage6.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage6.Size = New System.Drawing.Size(1319, 716)
+        Me.TabPage6.Size = New System.Drawing.Size(1319, 705)
         Me.TabPage6.TabIndex = 5
         Me.TabPage6.Text = "Transactions"
         Me.TabPage6.UseVisualStyleBackColor = True
@@ -249,7 +249,7 @@ Partial Class mainMenu
         Me.userTCB.FormattingEnabled = True
         Me.userTCB.Location = New System.Drawing.Point(298, 7)
         Me.userTCB.Name = "userTCB"
-        Me.userTCB.Size = New System.Drawing.Size(121, 29)
+        Me.userTCB.Size = New System.Drawing.Size(121, 40)
         Me.userTCB.TabIndex = 9
         '
         'Label4
@@ -257,7 +257,7 @@ Partial Class mainMenu
         Me.Label4.AutoSize = True
         Me.Label4.Location = New System.Drawing.Point(257, 10)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(35, 21)
+        Me.Label4.Size = New System.Drawing.Size(53, 32)
         Me.Label4.TabIndex = 8
         Me.Label4.Text = "Girl"
         '
@@ -298,10 +298,10 @@ Partial Class mainMenu
         Me.TabPage5.Controls.Add(Me.warehouseDGV)
         Me.TabPage5.Controls.Add(Me.load5)
         Me.TabPage5.Controls.Add(Me.warehouseForm)
-        Me.TabPage5.Location = New System.Drawing.Point(4, 33)
+        Me.TabPage5.Location = New System.Drawing.Point(4, 44)
         Me.TabPage5.Name = "TabPage5"
         Me.TabPage5.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage5.Size = New System.Drawing.Size(1319, 716)
+        Me.TabPage5.Size = New System.Drawing.Size(1319, 705)
         Me.TabPage5.TabIndex = 4
         Me.TabPage5.Text = "Inventory"
         Me.TabPage5.UseVisualStyleBackColor = True
@@ -319,7 +319,7 @@ Partial Class mainMenu
         '
         Me.inventoryDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells
         Me.inventoryDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.inventoryDGV.Location = New System.Drawing.Point(0, 39)
+        Me.inventoryDGV.Location = New System.Drawing.Point(3, 40)
         Me.inventoryDGV.Name = "inventoryDGV"
         Me.inventoryDGV.RowHeadersWidth = 51
         Me.inventoryDGV.Size = New System.Drawing.Size(1319, 354)
@@ -378,20 +378,28 @@ Partial Class mainMenu
         Me.TabPage3.Controls.Add(Me.load2)
         Me.TabPage3.Controls.Add(Me.cookieOrderForm)
         Me.TabPage3.Controls.Add(Me.orderDGV)
-        Me.TabPage3.Location = New System.Drawing.Point(4, 33)
+        Me.TabPage3.Location = New System.Drawing.Point(4, 44)
         Me.TabPage3.Name = "TabPage3"
         Me.TabPage3.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage3.Size = New System.Drawing.Size(1319, 716)
+        Me.TabPage3.Size = New System.Drawing.Size(1319, 705)
         Me.TabPage3.TabIndex = 2
         Me.TabPage3.Text = "Cookie Orders"
         Me.TabPage3.UseVisualStyleBackColor = True
+        '
+        'totalUserCookie
+        '
+        Me.totalUserCookie.AutoSize = True
+        Me.totalUserCookie.Location = New System.Drawing.Point(184, 680)
+        Me.totalUserCookie.Name = "totalUserCookie"
+        Me.totalUserCookie.Size = New System.Drawing.Size(0, 32)
+        Me.totalUserCookie.TabIndex = 11
         '
         'Label5
         '
         Me.Label5.AutoSize = True
         Me.Label5.Location = New System.Drawing.Point(20, 680)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(158, 21)
+        Me.Label5.Size = New System.Drawing.Size(236, 32)
         Me.Label5.TabIndex = 5
         Me.Label5.Text = "Total Cookie Orders:"
         '
@@ -433,10 +441,10 @@ Partial Class mainMenu
         Me.TabPage2.Controls.Add(Me.userForm)
         Me.TabPage2.Controls.Add(Me.load)
         Me.TabPage2.Controls.Add(Me.userDGV)
-        Me.TabPage2.Location = New System.Drawing.Point(4, 33)
+        Me.TabPage2.Location = New System.Drawing.Point(4, 44)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(1319, 716)
+        Me.TabPage2.Size = New System.Drawing.Size(1319, 705)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Girls"
         Me.TabPage2.UseVisualStyleBackColor = True
@@ -445,7 +453,7 @@ Partial Class mainMenu
         '
         Me.userFilterTB.Location = New System.Drawing.Point(354, 13)
         Me.userFilterTB.Name = "userFilterTB"
-        Me.userFilterTB.Size = New System.Drawing.Size(133, 29)
+        Me.userFilterTB.Size = New System.Drawing.Size(133, 39)
         Me.userFilterTB.TabIndex = 9
         '
         'filter
@@ -462,7 +470,7 @@ Partial Class mainMenu
         Me.userFilterCB.FormattingEnabled = True
         Me.userFilterCB.Location = New System.Drawing.Point(227, 13)
         Me.userFilterCB.Name = "userFilterCB"
-        Me.userFilterCB.Size = New System.Drawing.Size(121, 29)
+        Me.userFilterCB.Size = New System.Drawing.Size(121, 40)
         Me.userFilterCB.TabIndex = 7
         '
         'totalGirlsLB
@@ -470,7 +478,7 @@ Partial Class mainMenu
         Me.totalGirlsLB.AutoSize = True
         Me.totalGirlsLB.Location = New System.Drawing.Point(109, 678)
         Me.totalGirlsLB.Name = "totalGirlsLB"
-        Me.totalGirlsLB.Size = New System.Drawing.Size(0, 21)
+        Me.totalGirlsLB.Size = New System.Drawing.Size(0, 32)
         Me.totalGirlsLB.TabIndex = 6
         '
         'Label3
@@ -478,7 +486,7 @@ Partial Class mainMenu
         Me.Label3.AutoSize = True
         Me.Label3.Location = New System.Drawing.Point(18, 678)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(85, 21)
+        Me.Label3.Size = New System.Drawing.Size(129, 32)
         Me.Label3.TabIndex = 5
         Me.Label3.Text = "Total Girls:"
         '
@@ -535,10 +543,10 @@ Partial Class mainMenu
         Me.TabPage1.Controls.Add(Me.PictureBox3)
         Me.TabPage1.Controls.Add(Me.PictureBox2)
         Me.TabPage1.Controls.Add(Me.PictureBox1)
-        Me.TabPage1.Location = New System.Drawing.Point(4, 33)
+        Me.TabPage1.Location = New System.Drawing.Point(4, 44)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(1319, 716)
+        Me.TabPage1.Size = New System.Drawing.Size(1319, 705)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Home"
         Me.TabPage1.UseVisualStyleBackColor = True
@@ -549,7 +557,7 @@ Partial Class mainMenu
         Me.Label1.Font = New System.Drawing.Font("Segoe UI", 36.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.Location = New System.Drawing.Point(91, 332)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(1143, 65)
+        Me.Label1.Size = New System.Drawing.Size(1713, 96)
         Me.Label1.TabIndex = 3
         Me.Label1.Text = "Welcome to Troop 1521 Cookie Inventory System"
         '
@@ -566,7 +574,7 @@ Partial Class mainMenu
         '
         Me.PictureBox2.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.PictureBox2.Image = Global.Troop1521CookieInventory2.My.Resources.Resources.cookiesBottom
-        Me.PictureBox2.Location = New System.Drawing.Point(3, 480)
+        Me.PictureBox2.Location = New System.Drawing.Point(3, 469)
         Me.PictureBox2.Name = "PictureBox2"
         Me.PictureBox2.Size = New System.Drawing.Size(1313, 233)
         Me.PictureBox2.TabIndex = 1
@@ -581,14 +589,6 @@ Partial Class mainMenu
         Me.PictureBox1.Size = New System.Drawing.Size(1313, 241)
         Me.PictureBox1.TabIndex = 0
         Me.PictureBox1.TabStop = False
-        '
-        'totalUserCookie
-        '
-        Me.totalUserCookie.AutoSize = True
-        Me.totalUserCookie.Location = New System.Drawing.Point(184, 680)
-        Me.totalUserCookie.Name = "totalUserCookie"
-        Me.totalUserCookie.Size = New System.Drawing.Size(0, 21)
-        Me.totalUserCookie.TabIndex = 11
         '
         'mainMenu
         '

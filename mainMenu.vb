@@ -238,6 +238,20 @@ Public Class mainMenu
         myForm.Show()
         mainMenu_Load(e, e)
     End Sub
+
+    Private Sub inventoryDGV_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles inventoryDGV.CellContentClick
+        If e.RowIndex = -1 Then
+            Return
+        End If
+        Dim selectedRow As DataGridViewRow
+        selectedRow = inventoryDGV.Rows(e.RowIndex)
+        Dim myForm As New inventoryForm
+        myForm.warehouseCB.Text = selectedRow.Cells(0).Value
+        myForm.yearCookieCB.Text = selectedRow.Cells(1).Value
+        myForm.inQuantityTB.Text = selectedRow.Cells(2).Value
+        myForm.DateTimePicker1.Text = selectedRow.Cells(3).Value
+        myForm.noteTE.Text = selectedRow.Cells(4).Value
+    End Sub
     Private Sub userForm_Click(sender As Object, e As EventArgs) Handles userForm.Click
         Dim myForm As New userForm
         myForm.update.Visible = False
@@ -340,6 +354,9 @@ Public Class mainMenu
             totalGirlsLB.Text = userDGV.Rows.Count - 1
         End If
     End Sub
+
+
+
     'Private Sub inventoryFilter_Click(sender As Object, e As EventArgs) Handles inventoryFilter.Click
     '    If inventoryFilterCB.Text = "" Then
     '        mainMenu_Load(e, e)
