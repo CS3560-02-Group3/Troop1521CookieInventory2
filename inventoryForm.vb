@@ -23,14 +23,14 @@ Public Class inventoryForm
         Dim confirmMsg = MessageBox.Show("Are you sure you want to submit?", "Submit", MessageBoxButtons.YesNo)
         If confirmMsg = DialogResult.Yes Then
 
-            Dim dateID As Integer = DateTimePicker1.Text
+            Dim dateID As String = DateTimePicker1.Text
             Dim inQuantity As Integer = inQuantityTB.Text
             Dim note As String = noteTE.Text
 
             Dim conn As New myConnection()
             Dim command As New MySqlCommand("INSERT INTO `inventory`(`dateID`, `inQuantity`, `note`) VALUES (@dateID, @inQuantity, @note)", conn.getConnection())
 
-            command.Parameters.Add("@dateID", MySqlDbType.VarChar).Value = dateID
+            command.Parameters.Add("@dateID", MySqlDbType.Date).Value = Date.Parse(dateID).ToString("yyyy-MM-dd")
             command.Parameters.Add("@inQuantity", MySqlDbType.Int16).Value = inQuantity
             command.Parameters.Add("@note", MySqlDbType.VarChar).Value = note
 
@@ -82,7 +82,7 @@ Public Class inventoryForm
             Dim confirmMsg = MessageBox.Show("Are you sure you want to update?", "Update", MessageBoxButtons.YesNo)
             If confirmMsg = DialogResult.Yes Then
 
-                Dim dateID As Integer = DateTimePicker1.Text
+                Dim dateID As String = DateTimePicker1.Text
                 Dim inQuantity As Integer = inQuantityTB.Text
                 Dim note As String = noteTE.Text
 
@@ -90,7 +90,7 @@ Public Class inventoryForm
 
                 Dim command As New MySqlCommand("UPDATE `inventory` SET dateID = @dateID, inQuantity = @inQuantity, note = @note WHERE inventoryID = @inventoryID", conn.getConnection())
 
-                command.Parameters.Add("@dateID", MySqlDbType.VarChar).Value = dateID
+                command.Parameters.Add("@dateID", MySqlDbType.Date).Value = Date.Parse(dateID).ToString("yyyy-MM-dd")
                 command.Parameters.Add("@inQuantity", MySqlDbType.Int16).Value = inQuantity
                 command.Parameters.Add("@note", MySqlDbType.VarChar).Value = note
 
