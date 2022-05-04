@@ -43,15 +43,15 @@ Public Class mainMenu
         orderDGV.Columns(11).Visible = False
         totalUserCookie.Text = orderDGV.Rows.Count - 1
 
-        'orderFilterCB.DisplayMember = "Text"
-        'orderFilterCB.ValueMember = "Value"
-        'Dim tb As New DataTable
-        'tb.Columns.Add("Text", GetType(String))
-        'tb.Columns.Add("Value", GetType(String))
-        'tb.Rows.Add("firstName", "firstName")
-        'tb.Rows.Add("lastName", "lastName")
-        'tb.Rows.Add("date", "userCookie.date")
-        'orderFilterCB.DataSource = tb
+        orderFilterCB.DisplayMember = "Text"
+        orderFilterCB.ValueMember = "Value"
+        Dim tb As New DataTable
+        tb.Columns.Add("Text", GetType(String))
+        tb.Columns.Add("Value", GetType(String))
+        tb.Rows.Add("firstName", "firstName")
+        tb.Rows.Add("lastName", "lastName")
+        tb.Rows.Add("date", "userCookie.date")
+        orderFilterCB.DataSource = tb
 
         Dim Ctable As New DataTable()
         Dim Cadapter As New MySqlDataAdapter("SELECT * FROM cookie", conn.getConnection())
@@ -500,63 +500,34 @@ Public Class mainMenu
         End If
 
     End Sub
-
-    'Private Sub inventoryFilter_Click(sender As Object, e As EventArgs) Handles inventoryFilter.Click
-    '    If inventoryFilterCB.Text = "" Then
-    '        mainMenu_Load(e, e)
-    '    Else
-    '        Dim conn As New myConnection()
-    '        Dim table As New DataTable()
-    '        Dim column = warehouseFilterCB.SelectedValue
-
-    '        Dim input = ""
-    '        If warehouseCB.Text = "warehouseID" Then
-    '            input = warehouseCB.Text
-    '        Else
-    '            input = "%" & warehouseCB.Text & "%"
-    '        End If
-
-    '        Dim command As New MySqlCommand("SELECT * FROM `warehouse` WHERE " & column & " LIKE @input", conn.getConnection())
-    '        command.Parameters.Add("@input", MySqlDbType.VarChar).Value = input
-    '        Dim adapter As New MySqlDataAdapter(command)
-    '        adapter.Fill(table)
-    '        inventoryDGV.DataSource = table
-    '        totalCookiesLB.Text = inventoryDGV.Rows.Count - 1
-    '    End If
-    'End Sub
-
-    'Dim input = ""
-    'If warehouseCB.Text = "warehouseID" Then
-    '            input = warehouseCB.Text
-    '        Else
-    '            input = "%" & warehouseCB.Text & "%"
-    '        End If
-
-    'Dim input = ""
-    'If orderFilterTB.Text = "orderID" Then
-    '            input = orderFilterTB.Text
-    '        Else
-    '            input = "%" & orderFilterTB.Text & "%"
-    '        End If
-    'Dim year = cookieYearPicker.Text
-    'Dim command As New MySqlCommand("SELECT userCookieID AS OrderID, CONCAT(user.firstName, ' ', user.lastName) AS Name, cookie.name AS Cookie, userCookie.date AS Date,
-    '                                       orderQuantity AS Order_Quantity, pickupQuantity AS Pickup_Quantity, returnQuantity AS Return_Quantity, userCookie.note AS Note, 
-    '                                       userCookie.userID, userCookie.inventoryID, warehouse.name,
-    '                                       CASE
-    '                                           WHEN ISNULL((SELECT sum(orderQuantity - returnQuantity) FROM userCookie WHERE userCookie.inventoryID = inventory.inventoryID)) = 1 THEN inventory.inQuantity
-    '                                           ELSE inventory.inQuantity - (SELECT sum(orderQuantity - returnQuantity) FROM userCookie WHERE userCookie.inventoryID = inventory.inventoryID)
-    '                                       END AS Remaining_Quantity
-    '                                       FROM userCookie INNER JOIN inventory ON inventory.inventoryID = userCookie.inventoryID
-    '                                       INNER JOIN warehouse ON warehouse.warehouseID = inventory.warehouseID
-    '                                       INNER JOIN user ON user.userID = userCookie.userID
-    '                                       INNER JOIN yearCookie ON yearCookie.yearCookieID = inventory.yearCookieID
-    '                                       INNER JOIN cookie ON cookie.cookieID = yearCookie.cookieID
-    '                                       WHERE yearCookie.year = @year AND " & column & " LIKE @input", conn.getConnection())
-    '        command.Parameters.Add("@input", MySqlDbType.VarChar).Value = input
-    '        command.Parameters.Add("@year", MySqlDbType.Int16).Value = year
-    '        Dim adapter As New MySqlDataAdapter(command)
-    '        adapter.Fill(table)
-    '        orderDGV.DataSource = table
-    '    End If
-    'End Sub
+    Private Sub orderFilter_Click(sender As Object, e As EventArgs) Handles orderFilter.Click
+        Dim conn As New myConnection()
+        Dim table As New DataTable()
+        Dim column = orderFilterCB.SelectedValue
+        Dim input = ""
+        If orderFilterTB.Text = "orderID" Then
+            input = orderFilterTB.Text
+        Else
+            input = "%" & orderFilterTB.Text & "%"
+        End If
+        Dim year = cookieYearPicker.Text
+        Dim command As New MySqlCommand("SELECT userCookieID AS OrderID, CONCAT(user.firstName, ' ', user.lastName) AS Name, cookie.name AS Cookie, userCookie.date AS Date,
+                                           orderQuantity AS Order_Quantity, pickupQuantity AS Pickup_Quantity, returnQuantity AS Return_Quantity, userCookie.note AS Note, 
+                                           userCookie.userID, userCookie.inventoryID, warehouse.name,
+                                           CASE
+                                               WHEN ISNULL((SELECT sum(orderQuantity - returnQuantity) FROM userCookie WHERE userCookie.inventoryID = inventory.inventoryID)) = 1 THEN inventory.inQuantity
+                                               ELSE inventory.inQuantity - (SELECT sum(orderQuantity - returnQuantity) FROM userCookie WHERE userCookie.inventoryID = inventory.inventoryID)
+                                           END AS Remaining_Quantity
+                                           FROM userCookie INNER JOIN inventory ON inventory.inventoryID = userCookie.inventoryID
+                                           INNER JOIN warehouse ON warehouse.warehouseID = inventory.warehouseID
+                                           INNER JOIN user ON user.userID = userCookie.userID
+                                           INNER JOIN yearCookie ON yearCookie.yearCookieID = inventory.yearCookieID
+                                           INNER JOIN cookie ON cookie.cookieID = yearCookie.cookieID
+                                           WHERE yearCookie.year = @year AND " & column & " LIKE @input", conn.getConnection())
+        command.Parameters.Add("@input", MySqlDbType.VarChar).Value = input
+        command.Parameters.Add("@year", MySqlDbType.Int16).Value = year
+        Dim adapter As New MySqlDataAdapter(command)
+        adapter.Fill(table)
+        orderDGV.DataSource = table
+    End Sub
 End Class

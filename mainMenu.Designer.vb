@@ -59,6 +59,9 @@ Partial Class mainMenu
         Me.load5 = New System.Windows.Forms.Button()
         Me.warehouseForm = New System.Windows.Forms.Button()
         Me.TabPage3 = New System.Windows.Forms.TabPage()
+        Me.orderFilter = New System.Windows.Forms.Button()
+        Me.orderFilterTB = New System.Windows.Forms.TextBox()
+        Me.orderFilterCB = New System.Windows.Forms.ComboBox()
         Me.totalUserCookie = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.load2 = New System.Windows.Forms.Button()
@@ -446,6 +449,9 @@ Partial Class mainMenu
         '
         'TabPage3
         '
+        Me.TabPage3.Controls.Add(Me.orderFilter)
+        Me.TabPage3.Controls.Add(Me.orderFilterTB)
+        Me.TabPage3.Controls.Add(Me.orderFilterCB)
         Me.TabPage3.Controls.Add(Me.totalUserCookie)
         Me.TabPage3.Controls.Add(Me.Label5)
         Me.TabPage3.Controls.Add(Me.load2)
@@ -457,6 +463,30 @@ Partial Class mainMenu
         Me.TabPage3.Size = New System.Drawing.Size(1319, 716)
         Me.TabPage3.TabIndex = 2
         Me.TabPage3.Text = "Cookie Orders"
+        '
+        'orderFilter
+        '
+        Me.orderFilter.Location = New System.Drawing.Point(558, 3)
+        Me.orderFilter.Name = "orderFilter"
+        Me.orderFilter.Size = New System.Drawing.Size(78, 39)
+        Me.orderFilter.TabIndex = 14
+        Me.orderFilter.Text = "Filter"
+        Me.orderFilter.UseVisualStyleBackColor = True
+        '
+        'orderFilterTB
+        '
+        Me.orderFilterTB.Location = New System.Drawing.Point(419, 6)
+        Me.orderFilterTB.Name = "orderFilterTB"
+        Me.orderFilterTB.Size = New System.Drawing.Size(133, 29)
+        Me.orderFilterTB.TabIndex = 13
+        '
+        'orderFilterCB
+        '
+        Me.orderFilterCB.FormattingEnabled = True
+        Me.orderFilterCB.Location = New System.Drawing.Point(292, 7)
+        Me.orderFilterCB.Name = "orderFilterCB"
+        Me.orderFilterCB.Size = New System.Drawing.Size(121, 29)
+        Me.orderFilterCB.TabIndex = 12
         '
         'totalUserCookie
         '
@@ -756,4 +786,7 @@ Partial Class mainMenu
     Friend WithEvents transactionFilter As Button
     Friend WithEvents Label8 As Label
     Friend WithEvents Label7 As Label
+    Friend WithEvents orderFilter As Button
+    Friend WithEvents orderFilterTB As TextBox
+    Friend WithEvents orderFilterCB As ComboBox
 End Class
