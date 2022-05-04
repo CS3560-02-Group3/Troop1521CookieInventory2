@@ -1,7 +1,24 @@
 ﻿Imports MySql.Data.MySqlClient
-
-
 Public Class inventoryForm
+    Private Sub inventoryForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Dim conn As New myConnection()
+        Dim year As Integer = yearLB.Text
+        Dim table As New DataTable()
+        Dim adapter As New MySqlDataAdapter("SELECT warehouseID, name FROM warehouse", conn.getConnection())
+        adapter.Fill(table)
+        warehouseCB.DataSource = table
+        warehouseCB.DisplayMember = "name"
+        warehouseCB.ValueMember = "warehouseID"
+
+        Dim table2 As New DataTable()
+        Dim command2 As New MySqlCommand("SELECT yearCookieID, cookie.name FROM yearCookie INNER JOIN cookie ON yearCookie.cookieID = cookie.cookieID WHERE year = @year", conn.getConnection())
+        command2.Parameters.Add("@year", MySqlDbType.Int16).Value = year
+        Dim adapter2 As New MySqlDataAdapter(command2)
+        adapter2.Fill(table2)
+        yearCookieCB.DataSource = table2
+        yearCookieCB.DisplayMember = "name"
+        yearCookieCB.ValueMember = "yearCookieID"
+    End Sub
     Private Sub insert_Click(sender As Object, e As EventArgs) Handles insert.Click
         Dim confirmMsg = MessageBox.Show("Are you sure you want to submit?", "Submit", MessageBoxButtons.YesNo)
         If confirmMsg = DialogResult.Yes Then
@@ -89,37 +106,5 @@ Public Class inventoryForm
                 End If
             End If
         End If
-    End Sub
-
-    Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
-
-        If e.RowIndex = -1 Then
-            Return
-        End If
-        Dim selectedRow As DataGridViewRow
-        selectedRow = DataGridView1.Rows(e.RowIndex)
-        warehouseCB.Text = selectedRow.Cells(0).Value
-        yearCookieCB.Text = selectedRow.Cells(1).Value
-        inQuantityTB.Text = selectedRow.Cells(2).Value
-        DateTimePicker1.Text = selectedRow.Cells(3).Value
-        noteTE.Text = selectedRow.Cells(4).Value
-
-    End Sub
-
-    Private Sub inventoryForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Dim conn As New myConnection()
-        Dim table As New DataTable()
-        Dim adapter As New MySqlDataAdapter("SELECT inventoryID, warehouse.name AS Warehouse, cookie.name AS Cookie, inventory.date, inventory.inQuantity, inventory.note
-                                                        , warehouse.warehouseID, yearCookie.yearCookieID FROM inventory 
-                                                        INNER JOIN warehouse ON inventory.warehouseID = warehouse.warehouseID
-                                                        INNER JOIN yearCookie ON inventory.yearCookieID = yearCookie.yearCookieID
-                                                        INNER JOIN cookie ON yearCookie.cookieID = cookie.cookieID", conn.getConnection())
-        adapter.Fill(table)
-        warehouseCB.DataSource = table
-        warehouseCB.DisplayMember = "name"
-        warehouseCB.ValueMember = "warehouseID"
-        yearCookieCB.DataSource = table
-        yearCookieCB.DisplayMember = "name"
-        yearCookieCB.ValueMember = "yearCookieID"
     End Sub
 End Class

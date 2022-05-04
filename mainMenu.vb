@@ -248,6 +248,7 @@ Public Class mainMenu
         Dim selectedRow As DataGridViewRow
         selectedRow = inventoryDGV.Rows(e.RowIndex)
         Dim myForm As New inventoryForm
+        myForm.yearLB.Text = cookieYearPicker.Text
         myForm.warehouseCB.Text = selectedRow.Cells(0).Value
         myForm.yearCookieCB.Text = selectedRow.Cells(1).Value
         myForm.inQuantityTB.Text = selectedRow.Cells(2).Value
@@ -308,6 +309,7 @@ Public Class mainMenu
     End Sub
     Private Sub inventoryForm_Click(sender As Object, e As EventArgs) Handles inventoryForm.Click
         Dim myForm As New inventoryForm
+        myForm.yearLB.Text = cookieYearPicker.Text
         myForm.update.Visible = False
         myForm.delete.Visible = False
         myForm.Show()
