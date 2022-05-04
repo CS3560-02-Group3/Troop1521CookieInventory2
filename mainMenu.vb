@@ -193,6 +193,11 @@ Public Class mainMenu
         tb2.Rows.Add("date", "inventory.date")
         inventoryFilterCB.DataSource = tb2
 
+        Dim inventoryTotal As Double
+        For index As Integer = 0 To (inventoryDGV.RowCount - 1)
+            inventoryTotal += Convert.ToDouble(inventoryDGV.Rows(index).Cells(4).Value)
+        Next
+        sumOfIQ.Text = inventoryTotal
 
         Dim warehouseTable As New DataTable()
         Dim warehouseAdapter As New MySqlDataAdapter("SELECT * FROM warehouse", conn.getConnection())
@@ -600,5 +605,11 @@ Public Class mainMenu
         Dim adapter As New MySqlDataAdapter(command)
         adapter.Fill(table)
         inventoryDGV.DataSource = table
+
+        Dim inventoryTotal As Double
+        For index As Integer = 0 To (inventoryDGV.RowCount - 1)
+            inventoryTotal += Convert.ToDouble(inventoryDGV.Rows(index).Cells(4).Value)
+        Next
+        sumOfIQ.Text = inventoryTotal
     End Sub
 End Class

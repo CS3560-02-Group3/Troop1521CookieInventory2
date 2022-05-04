@@ -90,6 +90,8 @@ Partial Class mainMenu
         Me.PictureBox3 = New System.Windows.Forms.PictureBox()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.sumOfIQ = New System.Windows.Forms.Label()
+        Me.Label11 = New System.Windows.Forms.Label()
         Me.TabPage7.SuspendLayout()
         CType(Me.salesTypeDGV, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.cookieYearPicker, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -373,6 +375,8 @@ Partial Class mainMenu
         '
         'TabPage5
         '
+        Me.TabPage5.Controls.Add(Me.sumOfIQ)
+        Me.TabPage5.Controls.Add(Me.Label11)
         Me.TabPage5.Controls.Add(Me.inventoryFilter)
         Me.TabPage5.Controls.Add(Me.inventoryFilterTB)
         Me.TabPage5.Controls.Add(Me.inventoryFilterCB)
@@ -779,6 +783,24 @@ Partial Class mainMenu
         Me.PictureBox1.TabIndex = 0
         Me.PictureBox1.TabStop = False
         '
+        'sumOfIQ
+        '
+        Me.sumOfIQ.AutoSize = True
+        Me.sumOfIQ.Location = New System.Drawing.Point(569, 415)
+        Me.sumOfIQ.Name = "sumOfIQ"
+        Me.sumOfIQ.Size = New System.Drawing.Size(17, 21)
+        Me.sumOfIQ.TabIndex = 22
+        Me.sumOfIQ.Text = "_"
+        '
+        'Label11
+        '
+        Me.Label11.AutoSize = True
+        Me.Label11.Location = New System.Drawing.Point(439, 415)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(128, 21)
+        Me.Label11.TabIndex = 21
+        Me.Label11.Text = "Total inQuantity:"
+        '
         'mainMenu
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -883,4 +905,6 @@ Partial Class mainMenu
     Friend WithEvents Label12 As Label
     Friend WithEvents sumOfTotalPQ As Label
     Friend WithEvents Label10 As Label
+    Friend WithEvents sumOfIQ As Label
+    Friend WithEvents Label11 As Label
 End Class
