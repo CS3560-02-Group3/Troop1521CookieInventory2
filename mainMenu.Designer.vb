@@ -73,6 +73,8 @@ Partial Class mainMenu
         Me.PictureBox3 = New System.Windows.Forms.PictureBox()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.inventoryCB = New System.Windows.Forms.ComboBox()
+        Me.inventoryTB = New System.Windows.Forms.TextBox()
         Me.TabPage7.SuspendLayout()
         CType(Me.salesTypeDGV, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.cookieYearPicker, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -291,6 +293,8 @@ Partial Class mainMenu
         '
         'TabPage5
         '
+        Me.TabPage5.Controls.Add(Me.inventoryTB)
+        Me.TabPage5.Controls.Add(Me.inventoryCB)
         Me.TabPage5.Controls.Add(Me.inventoryFilter)
         Me.TabPage5.Controls.Add(Me.inventoryDGV)
         Me.TabPage5.Controls.Add(Me.inventoryForm)
@@ -310,7 +314,7 @@ Partial Class mainMenu
         '
         Me.inventoryFilter.Location = New System.Drawing.Point(292, 436)
         Me.inventoryFilter.Name = "inventoryFilter"
-        Me.inventoryFilter.Size = New System.Drawing.Size(92, 31)
+        Me.inventoryFilter.Size = New System.Drawing.Size(97, 49)
         Me.inventoryFilter.TabIndex = 10
         Me.inventoryFilter.Text = "filter"
         Me.inventoryFilter.UseVisualStyleBackColor = True
@@ -347,7 +351,7 @@ Partial Class mainMenu
         '
         Me.warehouseDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells
         Me.warehouseDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.warehouseDGV.Location = New System.Drawing.Point(3, 470)
+        Me.warehouseDGV.Location = New System.Drawing.Point(4, 491)
         Me.warehouseDGV.Name = "warehouseDGV"
         Me.warehouseDGV.RowHeadersWidth = 51
         Me.warehouseDGV.Size = New System.Drawing.Size(1319, 206)
@@ -357,7 +361,7 @@ Partial Class mainMenu
         '
         Me.load5.Location = New System.Drawing.Point(8, 436)
         Me.load5.Name = "load5"
-        Me.load5.Size = New System.Drawing.Size(78, 28)
+        Me.load5.Size = New System.Drawing.Size(87, 49)
         Me.load5.TabIndex = 5
         Me.load5.Text = "Load"
         Me.load5.UseVisualStyleBackColor = True
@@ -366,7 +370,7 @@ Partial Class mainMenu
         '
         Me.warehouseForm.Location = New System.Drawing.Point(92, 436)
         Me.warehouseForm.Name = "warehouseForm"
-        Me.warehouseForm.Size = New System.Drawing.Size(194, 28)
+        Me.warehouseForm.Size = New System.Drawing.Size(194, 49)
         Me.warehouseForm.TabIndex = 0
         Me.warehouseForm.Text = "Add Troop Warehouse"
         Me.warehouseForm.UseVisualStyleBackColor = True
@@ -590,6 +594,21 @@ Partial Class mainMenu
         Me.PictureBox1.TabIndex = 0
         Me.PictureBox1.TabStop = False
         '
+        'inventoryCB
+        '
+        Me.inventoryCB.FormattingEnabled = True
+        Me.inventoryCB.Location = New System.Drawing.Point(404, 441)
+        Me.inventoryCB.Name = "inventoryCB"
+        Me.inventoryCB.Size = New System.Drawing.Size(121, 40)
+        Me.inventoryCB.TabIndex = 11
+        '
+        'inventoryTB
+        '
+        Me.inventoryTB.Location = New System.Drawing.Point(550, 442)
+        Me.inventoryTB.Name = "inventoryTB"
+        Me.inventoryTB.Size = New System.Drawing.Size(169, 39)
+        Me.inventoryTB.TabIndex = 12
+        '
         'mainMenu
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -609,6 +628,7 @@ Partial Class mainMenu
         CType(Me.transactionFullFieldsDGV, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.transactionDGV, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabPage5.ResumeLayout(False)
+        Me.TabPage5.PerformLayout()
         CType(Me.inventoryDGV, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.warehouseDGV, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabPage3.ResumeLayout(False)
@@ -676,4 +696,6 @@ Partial Class mainMenu
     Friend WithEvents PictureBox3 As PictureBox
     Friend WithEvents Label1 As Label
     Friend WithEvents totalUserCookie As Label
+    Friend WithEvents inventoryTB As TextBox
+    Friend WithEvents inventoryCB As ComboBox
 End Class

@@ -357,6 +357,29 @@ Public Class mainMenu
         End If
     End Sub
 
+    Private Sub inventoryFilter_Click(sender As Object, e As EventArgs) Handles inventoryFilter.Click
+        If inventoryTB.Text = "" Then
+            mainMenu_Load(e, e)
+        Else
+            Dim conn As New myConnection()
+            Dim table As New DataTable()
+            Dim column = inventoryCB.SelectedValue
+
+            Dim input = ""
+            If inventoryTB.Text = "iventoryID" Then
+                input = inventoryTB.Text
+            Else
+                input = "%" & inventoryTB.Text & "%"
+            End If
+
+            Dim command As New MySqlCommand("SELECT * FROM `inventory` WHERE " & column & " LIKE @input", conn.getConnection())
+            command.Parameters.Add("@input", MySqlDbType.VarChar).Value = input
+            Dim adapter As New MySqlDataAdapter(command)
+            adapter.Fill(table)
+            inventoryDGV.DataSource = table
+        End If
+    End Sub
+
 
 
     'Private Sub inventoryFilter_Click(sender As Object, e As EventArgs) Handles inventoryFilter.Click
