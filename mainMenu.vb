@@ -41,13 +41,27 @@ Public Class mainMenu
         orderDGV.Columns(9).Visible = False
         orderDGV.Columns(10).Visible = False
         orderDGV.Columns(11).Visible = False
+
         totalUserCookie.Text = orderDGV.Rows.Count - 1
 
-        Dim totalO As Double
+        Dim orderTotal As Double
         For index As Integer = 0 To (orderDGV.RowCount - 1)
-            totalO += Convert.ToDouble(orderDGV.Rows(index).Cells(4).Value)
+            orderTotal += Convert.ToDouble(orderDGV.Rows(index).Cells(4).Value)
         Next
-        sumOfTotalOQ.Text = totalO
+        sumOfTotalOQ.Text = orderTotal
+
+        Dim pickupTotal As Double
+        For index As Integer = 0 To (orderDGV.RowCount - 1)
+            pickupTotal += Convert.ToDouble(orderDGV.Rows(index).Cells(5).Value)
+        Next
+        sumOfTotalPQ.Text = pickupTotal
+
+        Dim returnTotal As Double
+        For index As Integer = 0 To (orderDGV.RowCount - 1)
+            returnTotal += Convert.ToDouble(orderDGV.Rows(index).Cells(6).Value)
+        Next
+        sumOfTotalRQ.Text = returnTotal
+
 
         orderFilterCB.DisplayMember = "Text"
         orderFilterCB.ValueMember = "Value"
@@ -545,11 +559,24 @@ Public Class mainMenu
         orderDGV.DataSource = table
 
         totalUserCookie.Text = orderDGV.Rows.Count - 1
-        Dim totalO As Double
+
+        Dim orderTotal As Double
         For index As Integer = 0 To (orderDGV.RowCount - 1)
-            totalO += Convert.ToDouble(orderDGV.Rows(index).Cells(4).Value)
+            orderTotal += Convert.ToDouble(orderDGV.Rows(index).Cells(4).Value)
         Next
-        sumOfTotalOQ.Text = totalO
+        sumOfTotalOQ.Text = orderTotal
+
+        Dim pickupTotal As Double
+        For index As Integer = 0 To (orderDGV.RowCount - 1)
+            pickupTotal += Convert.ToDouble(orderDGV.Rows(index).Cells(5).Value)
+        Next
+        sumOfTotalPQ.Text = pickupTotal
+
+        Dim returnTotal As Double
+        For index As Integer = 0 To (orderDGV.RowCount - 1)
+            returnTotal += Convert.ToDouble(orderDGV.Rows(index).Cells(6).Value)
+        Next
+        sumOfTotalRQ.Text = returnTotal
     End Sub
 
     Private Sub inventoryFilter_Click(sender As Object, e As EventArgs) Handles inventoryFilter.Click

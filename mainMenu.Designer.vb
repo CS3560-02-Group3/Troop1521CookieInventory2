@@ -61,6 +61,12 @@ Partial Class mainMenu
         Me.load5 = New System.Windows.Forms.Button()
         Me.warehouseForm = New System.Windows.Forms.Button()
         Me.TabPage3 = New System.Windows.Forms.TabPage()
+        Me.sumOfTotalRQ = New System.Windows.Forms.Label()
+        Me.Label12 = New System.Windows.Forms.Label()
+        Me.sumOfTotalPQ = New System.Windows.Forms.Label()
+        Me.Label10 = New System.Windows.Forms.Label()
+        Me.sumOfTotalOQ = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
         Me.orderFilter = New System.Windows.Forms.Button()
         Me.orderFilterTB = New System.Windows.Forms.TextBox()
         Me.orderFilterCB = New System.Windows.Forms.ComboBox()
@@ -84,8 +90,6 @@ Partial Class mainMenu
         Me.PictureBox3 = New System.Windows.Forms.PictureBox()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.sumOfTotalOQ = New System.Windows.Forms.Label()
         Me.TabPage7.SuspendLayout()
         CType(Me.salesTypeDGV, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.cookieYearPicker, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -470,6 +474,10 @@ Partial Class mainMenu
         '
         'TabPage3
         '
+        Me.TabPage3.Controls.Add(Me.sumOfTotalRQ)
+        Me.TabPage3.Controls.Add(Me.Label12)
+        Me.TabPage3.Controls.Add(Me.sumOfTotalPQ)
+        Me.TabPage3.Controls.Add(Me.Label10)
         Me.TabPage3.Controls.Add(Me.sumOfTotalOQ)
         Me.TabPage3.Controls.Add(Me.Label4)
         Me.TabPage3.Controls.Add(Me.orderFilter)
@@ -486,6 +494,60 @@ Partial Class mainMenu
         Me.TabPage3.Size = New System.Drawing.Size(1319, 716)
         Me.TabPage3.TabIndex = 2
         Me.TabPage3.Text = "Cookie Orders"
+        '
+        'sumOfTotalRQ
+        '
+        Me.sumOfTotalRQ.AutoSize = True
+        Me.sumOfTotalRQ.Location = New System.Drawing.Point(1015, 680)
+        Me.sumOfTotalRQ.Name = "sumOfTotalRQ"
+        Me.sumOfTotalRQ.Size = New System.Drawing.Size(17, 21)
+        Me.sumOfTotalRQ.TabIndex = 20
+        Me.sumOfTotalRQ.Text = "_"
+        '
+        'Label12
+        '
+        Me.Label12.AutoSize = True
+        Me.Label12.Location = New System.Drawing.Point(847, 680)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(168, 21)
+        Me.Label12.TabIndex = 19
+        Me.Label12.Text = "Total Return Quantity:"
+        '
+        'sumOfTotalPQ
+        '
+        Me.sumOfTotalPQ.AutoSize = True
+        Me.sumOfTotalPQ.Location = New System.Drawing.Point(800, 680)
+        Me.sumOfTotalPQ.Name = "sumOfTotalPQ"
+        Me.sumOfTotalPQ.Size = New System.Drawing.Size(17, 21)
+        Me.sumOfTotalPQ.TabIndex = 18
+        Me.sumOfTotalPQ.Text = "_"
+        '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.Location = New System.Drawing.Point(631, 680)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(167, 21)
+        Me.Label10.TabIndex = 17
+        Me.Label10.Text = "Total Pickup Quantity:"
+        '
+        'sumOfTotalOQ
+        '
+        Me.sumOfTotalOQ.AutoSize = True
+        Me.sumOfTotalOQ.Location = New System.Drawing.Point(580, 680)
+        Me.sumOfTotalOQ.Name = "sumOfTotalOQ"
+        Me.sumOfTotalOQ.Size = New System.Drawing.Size(17, 21)
+        Me.sumOfTotalOQ.TabIndex = 16
+        Me.sumOfTotalOQ.Text = "_"
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(415, 680)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(162, 21)
+        Me.Label4.TabIndex = 15
+        Me.Label4.Text = "Total Order Quantity:"
         '
         'orderFilter
         '
@@ -717,24 +779,6 @@ Partial Class mainMenu
         Me.PictureBox1.TabIndex = 0
         Me.PictureBox1.TabStop = False
         '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(415, 680)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(162, 21)
-        Me.Label4.TabIndex = 15
-        Me.Label4.Text = "Total Order Quantity:"
-        '
-        'sumOfTotalOQ
-        '
-        Me.sumOfTotalOQ.AutoSize = True
-        Me.sumOfTotalOQ.Location = New System.Drawing.Point(608, 680)
-        Me.sumOfTotalOQ.Name = "sumOfTotalOQ"
-        Me.sumOfTotalOQ.Size = New System.Drawing.Size(17, 21)
-        Me.sumOfTotalOQ.TabIndex = 16
-        Me.sumOfTotalOQ.Text = "_"
-        '
         'mainMenu
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -835,4 +879,8 @@ Partial Class mainMenu
     Friend WithEvents inventoryFilterCB As ComboBox
     Friend WithEvents Label4 As Label
     Friend WithEvents sumOfTotalOQ As Label
+    Friend WithEvents sumOfTotalRQ As Label
+    Friend WithEvents Label12 As Label
+    Friend WithEvents sumOfTotalPQ As Label
+    Friend WithEvents Label10 As Label
 End Class
