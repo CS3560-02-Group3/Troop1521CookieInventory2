@@ -44,10 +44,11 @@ Public Class cookieOrderForm
         Dim confirmMsg = MessageBox.Show("Are you sure you want to insert?", "Insert", MessageBoxButtons.YesNo)
         If confirmMsg = DialogResult.Yes Then
             Dim userID As Integer = userCB.SelectedValue
-            Dim inventoryID As Integer = inventoryLB.Text
-            If inventoryID = "" Then
+            If warehouseLB.Text = "" Then
                 MsgBox("Cannot insert without selecting inventory")
+                Exit Sub
             End If
+            Dim inventoryID As Integer = inventoryLB.Text
             Dim orderDate As String = DateTimePicker1.Text
             If orderTB.Text = "" Then
                 orderTB.Text = "0"
@@ -106,10 +107,11 @@ Public Class cookieOrderForm
 
                 Dim userCookieID As Integer = cookieOrderLB.Text
                 Dim userID As Integer = userCB.SelectedValue
-                Dim inventoryID As Integer = inventoryLB.Text
-                If inventoryID = "" Then
+                If warehouseLB.Text = "" Then
                     MsgBox("Cannot update without selecting inventory")
+                    Exit Sub
                 End If
+                Dim inventoryID As Integer = inventoryLB.Text
                 Dim orderDate As String = DateTimePicker1.Text
 
                 If orderTB.Text = "" Then

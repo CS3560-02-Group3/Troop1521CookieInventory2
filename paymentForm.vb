@@ -210,7 +210,8 @@ Public Class paymentForm
         remainingBalanceCommand.Parameters.Add("@year", MySqlDbType.Int16).Value = year
         Dim remainingBalanceAdapter As New MySqlDataAdapter(remainingBalanceCommand)
         remainingBalanceAdapter.Fill(remainingBalanceTable)
-        remainingBalanceLB.Text = remainingBalanceTable.Rows(0).Item(0)
-
+        If remainingBalanceTable.Rows.Count > 0 Then
+            remainingBalanceLB.Text = remainingBalanceTable.Rows(0).Item(0)
+        End If
     End Sub
 End Class
