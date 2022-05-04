@@ -38,7 +38,13 @@ Partial Class mainMenu
         Me.cookieForm = New System.Windows.Forms.Button()
         Me.load3 = New System.Windows.Forms.Button()
         Me.TabPage6 = New System.Windows.Forms.TabPage()
-
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.transactionFilter = New System.Windows.Forms.Button()
+        Me.sumOfReceivedPayments = New System.Windows.Forms.Label()
+        Me.sumOfRemainingBalance = New System.Windows.Forms.Label()
+        Me.sumOfTotalPayments = New System.Windows.Forms.Label()
+        Me.Label6 = New System.Windows.Forms.Label()
         Me.transactionFullFieldsDGV = New System.Windows.Forms.DataGridView()
         Me.userTCB = New System.Windows.Forms.ComboBox()
         Me.Label4 = New System.Windows.Forms.Label()
@@ -73,7 +79,6 @@ Partial Class mainMenu
         Me.PictureBox3 = New System.Windows.Forms.PictureBox()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.totalUserCookie = New System.Windows.Forms.Label()
         Me.TabPage7.SuspendLayout()
         CType(Me.salesTypeDGV, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.cookieYearPicker, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -224,7 +229,13 @@ Partial Class mainMenu
         '
         'TabPage6
         '
-
+        Me.TabPage6.Controls.Add(Me.Label8)
+        Me.TabPage6.Controls.Add(Me.Label7)
+        Me.TabPage6.Controls.Add(Me.transactionFilter)
+        Me.TabPage6.Controls.Add(Me.sumOfReceivedPayments)
+        Me.TabPage6.Controls.Add(Me.sumOfRemainingBalance)
+        Me.TabPage6.Controls.Add(Me.sumOfTotalPayments)
+        Me.TabPage6.Controls.Add(Me.Label6)
         Me.TabPage6.Controls.Add(Me.transactionFullFieldsDGV)
         Me.TabPage6.Controls.Add(Me.userTCB)
         Me.TabPage6.Controls.Add(Me.Label4)
@@ -238,7 +249,70 @@ Partial Class mainMenu
         Me.TabPage6.TabIndex = 5
         Me.TabPage6.Text = "Transactions"
         Me.TabPage6.UseVisualStyleBackColor = True
-
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Location = New System.Drawing.Point(627, 408)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(209, 21)
+        Me.Label8.TabIndex = 17
+        Me.Label8.Text = "Sum Of Remaining Balance:"
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Location = New System.Drawing.Point(326, 408)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(213, 21)
+        Me.Label7.TabIndex = 16
+        Me.Label7.Text = "Sum Of Received Payments:"
+        '
+        'transactionFilter
+        '
+        Me.transactionFilter.Location = New System.Drawing.Point(531, 7)
+        Me.transactionFilter.Name = "transactionFilter"
+        Me.transactionFilter.Size = New System.Drawing.Size(75, 29)
+        Me.transactionFilter.TabIndex = 15
+        Me.transactionFilter.Text = "Filter"
+        Me.transactionFilter.UseVisualStyleBackColor = True
+        '
+        'sumOfReceivedPayments
+        '
+        Me.sumOfReceivedPayments.AutoSize = True
+        Me.sumOfReceivedPayments.Location = New System.Drawing.Point(545, 408)
+        Me.sumOfReceivedPayments.Name = "sumOfReceivedPayments"
+        Me.sumOfReceivedPayments.Size = New System.Drawing.Size(76, 21)
+        Me.sumOfReceivedPayments.TabIndex = 14
+        Me.sumOfReceivedPayments.Text = "text here"
+        '
+        'sumOfRemainingBalance
+        '
+        Me.sumOfRemainingBalance.AutoSize = True
+        Me.sumOfRemainingBalance.Location = New System.Drawing.Point(842, 408)
+        Me.sumOfRemainingBalance.Name = "sumOfRemainingBalance"
+        Me.sumOfRemainingBalance.Size = New System.Drawing.Size(76, 21)
+        Me.sumOfRemainingBalance.TabIndex = 13
+        Me.sumOfRemainingBalance.Text = "text here"
+        '
+        'sumOfTotalPayments
+        '
+        Me.sumOfTotalPayments.AutoSize = True
+        Me.sumOfTotalPayments.Location = New System.Drawing.Point(244, 408)
+        Me.sumOfTotalPayments.Name = "sumOfTotalPayments"
+        Me.sumOfTotalPayments.Size = New System.Drawing.Size(76, 21)
+        Me.sumOfTotalPayments.TabIndex = 12
+        Me.sumOfTotalPayments.Text = "text here"
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Location = New System.Drawing.Point(57, 408)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(181, 21)
+        Me.Label6.TabIndex = 11
+        Me.Label6.Text = "Sum Of Total Payments:"
+        '
         'transactionFullFieldsDGV
         '
         Me.transactionFullFieldsDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells
@@ -255,7 +329,7 @@ Partial Class mainMenu
         Me.userTCB.FormattingEnabled = True
         Me.userTCB.Location = New System.Drawing.Point(298, 7)
         Me.userTCB.Name = "userTCB"
-        Me.userTCB.Size = New System.Drawing.Size(175, 29)
+        Me.userTCB.Size = New System.Drawing.Size(216, 29)
         Me.userTCB.TabIndex = 9
         '
         'Label4
@@ -383,14 +457,6 @@ Partial Class mainMenu
         Me.TabPage3.Size = New System.Drawing.Size(1319, 716)
         Me.TabPage3.TabIndex = 2
         Me.TabPage3.Text = "Cookie Orders"
-        '
-        'totalUserCookie
-        '
-        Me.totalUserCookie.AutoSize = True
-        Me.totalUserCookie.Location = New System.Drawing.Point(184, 680)
-        Me.totalUserCookie.Name = "totalUserCookie"
-        Me.totalUserCookie.Size = New System.Drawing.Size(0, 21)
-        Me.totalUserCookie.TabIndex = 11
         '
         'totalUserCookie
         '
@@ -598,14 +664,6 @@ Partial Class mainMenu
         Me.PictureBox1.TabIndex = 0
         Me.PictureBox1.TabStop = False
         '
-        'totalUserCookie
-        '
-        Me.totalUserCookie.AutoSize = True
-        Me.totalUserCookie.Location = New System.Drawing.Point(184, 680)
-        Me.totalUserCookie.Name = "totalUserCookie"
-        Me.totalUserCookie.Size = New System.Drawing.Size(0, 21)
-        Me.totalUserCookie.TabIndex = 11
-        '
         'mainMenu
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -691,4 +749,11 @@ Partial Class mainMenu
     Friend WithEvents PictureBox3 As PictureBox
     Friend WithEvents Label1 As Label
     Friend WithEvents totalUserCookie As Label
+    Friend WithEvents sumOfTotalPayments As Label
+    Friend WithEvents Label6 As Label
+    Friend WithEvents sumOfReceivedPayments As Label
+    Friend WithEvents sumOfRemainingBalance As Label
+    Friend WithEvents transactionFilter As Button
+    Friend WithEvents Label8 As Label
+    Friend WithEvents Label7 As Label
 End Class
