@@ -212,6 +212,8 @@ Public Class paymentForm
         remainingBalanceAdapter.Fill(remainingBalanceTable)
         If remainingBalanceTable.Rows.Count > 0 Then
             remainingBalanceLB.Text = remainingBalanceTable.Rows(0).Item(0)
+        Else
+            remainingBalanceLB.Text = 0
         End If
     End Sub
 End Class
