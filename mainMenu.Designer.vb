@@ -45,9 +45,6 @@ Partial Class mainMenu
         Me.load6 = New System.Windows.Forms.Button()
         Me.paymentForm = New System.Windows.Forms.Button()
         Me.TabPage5 = New System.Windows.Forms.TabPage()
-        Me.inventoryTB = New System.Windows.Forms.TextBox()
-        Me.inventoryCB = New System.Windows.Forms.ComboBox()
-        Me.inventoryFilter = New System.Windows.Forms.Button()
         Me.inventoryDGV = New System.Windows.Forms.DataGridView()
         Me.inventoryForm = New System.Windows.Forms.Button()
         Me.load7 = New System.Windows.Forms.Button()
@@ -75,6 +72,9 @@ Partial Class mainMenu
         Me.PictureBox3 = New System.Windows.Forms.PictureBox()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.orderFilterCB = New System.Windows.Forms.ComboBox()
+        Me.orderFilterTB = New System.Windows.Forms.TextBox()
+        Me.orderFilter = New System.Windows.Forms.Button()
         Me.TabPage7.SuspendLayout()
         CType(Me.salesTypeDGV, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.cookieYearPicker, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -293,9 +293,6 @@ Partial Class mainMenu
         '
         'TabPage5
         '
-        Me.TabPage5.Controls.Add(Me.inventoryTB)
-        Me.TabPage5.Controls.Add(Me.inventoryCB)
-        Me.TabPage5.Controls.Add(Me.inventoryFilter)
         Me.TabPage5.Controls.Add(Me.inventoryDGV)
         Me.TabPage5.Controls.Add(Me.inventoryForm)
         Me.TabPage5.Controls.Add(Me.load7)
@@ -309,30 +306,6 @@ Partial Class mainMenu
         Me.TabPage5.TabIndex = 4
         Me.TabPage5.Text = "Inventory"
         Me.TabPage5.UseVisualStyleBackColor = True
-        '
-        'inventoryTB
-        '
-        Me.inventoryTB.Location = New System.Drawing.Point(576, 441)
-        Me.inventoryTB.Name = "inventoryTB"
-        Me.inventoryTB.Size = New System.Drawing.Size(169, 29)
-        Me.inventoryTB.TabIndex = 12
-        '
-        'inventoryCB
-        '
-        Me.inventoryCB.FormattingEnabled = True
-        Me.inventoryCB.Location = New System.Drawing.Point(434, 441)
-        Me.inventoryCB.Name = "inventoryCB"
-        Me.inventoryCB.Size = New System.Drawing.Size(121, 29)
-        Me.inventoryCB.TabIndex = 11
-        '
-        'inventoryFilter
-        '
-        Me.inventoryFilter.Location = New System.Drawing.Point(318, 430)
-        Me.inventoryFilter.Name = "inventoryFilter"
-        Me.inventoryFilter.Size = New System.Drawing.Size(97, 49)
-        Me.inventoryFilter.TabIndex = 10
-        Me.inventoryFilter.Text = "filter"
-        Me.inventoryFilter.UseVisualStyleBackColor = True
         '
         'inventoryDGV
         '
@@ -392,6 +365,9 @@ Partial Class mainMenu
         '
         'TabPage3
         '
+        Me.TabPage3.Controls.Add(Me.orderFilter)
+        Me.TabPage3.Controls.Add(Me.orderFilterTB)
+        Me.TabPage3.Controls.Add(Me.orderFilterCB)
         Me.TabPage3.Controls.Add(Me.totalUserCookie)
         Me.TabPage3.Controls.Add(Me.Label5)
         Me.TabPage3.Controls.Add(Me.load2)
@@ -609,6 +585,30 @@ Partial Class mainMenu
         Me.PictureBox1.TabIndex = 0
         Me.PictureBox1.TabStop = False
         '
+        'orderFilterCB
+        '
+        Me.orderFilterCB.FormattingEnabled = True
+        Me.orderFilterCB.Location = New System.Drawing.Point(292, 7)
+        Me.orderFilterCB.Name = "orderFilterCB"
+        Me.orderFilterCB.Size = New System.Drawing.Size(121, 29)
+        Me.orderFilterCB.TabIndex = 12
+        '
+        'orderFilterTB
+        '
+        Me.orderFilterTB.Location = New System.Drawing.Point(419, 7)
+        Me.orderFilterTB.Name = "orderFilterTB"
+        Me.orderFilterTB.Size = New System.Drawing.Size(133, 29)
+        Me.orderFilterTB.TabIndex = 13
+        '
+        'orderFilter
+        '
+        Me.orderFilter.Location = New System.Drawing.Point(558, 0)
+        Me.orderFilter.Name = "orderFilter"
+        Me.orderFilter.Size = New System.Drawing.Size(78, 39)
+        Me.orderFilter.TabIndex = 14
+        Me.orderFilter.Text = "Filter"
+        Me.orderFilter.UseVisualStyleBackColor = True
+        '
         'mainMenu
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -628,7 +628,6 @@ Partial Class mainMenu
         CType(Me.transactionFullFieldsDGV, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.transactionDGV, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabPage5.ResumeLayout(False)
-        Me.TabPage5.PerformLayout()
         CType(Me.inventoryDGV, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.warehouseDGV, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabPage3.ResumeLayout(False)
@@ -689,13 +688,13 @@ Partial Class mainMenu
     Friend WithEvents load8 As Button
     Friend WithEvents salesTypeDGV As DataGridView
     Friend WithEvents transactionFullFieldsDGV As DataGridView
-    Friend WithEvents inventoryFilter As Button
     Friend WithEvents Label5 As Label
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents PictureBox2 As PictureBox
     Friend WithEvents PictureBox3 As PictureBox
     Friend WithEvents Label1 As Label
     Friend WithEvents totalUserCookie As Label
-    Friend WithEvents inventoryTB As TextBox
-    Friend WithEvents inventoryCB As ComboBox
+    Friend WithEvents orderFilterTB As TextBox
+    Friend WithEvents orderFilterCB As ComboBox
+    Friend WithEvents orderFilter As Button
 End Class
