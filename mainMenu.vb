@@ -79,6 +79,24 @@ Public Class mainMenu
         TransactionViewAdapter.Fill(TransactionViewTable)
         transactionDGV.DataSource = TransactionViewTable
 
+        Dim total As Double
+        For index As Integer = 0 To (transactionDGV.RowCount - 1)
+            total += Convert.ToDouble(transactionDGV.Rows(index).Cells(2).Value)
+        Next
+        sumOfTotalPayments.Text = total
+
+        Dim total2 As Double
+        For index As Integer = 0 To (transactionDGV.RowCount - 1)
+            total2 += Convert.ToDouble(transactionDGV.Rows(index).Cells(3).Value)
+        Next
+        sumOfReceivedPayments.Text = total2
+
+        Dim total3 As Double
+        For index As Integer = 0 To (transactionDGV.RowCount - 1)
+            total3 += Convert.ToDouble(transactionDGV.Rows(index).Cells(4).Value)
+        Next
+        sumOfRemainingBalance.Text = total3
+
         Dim TransactionFullFieldsTable As New DataTable()
         Dim TransactionFullFieldsCommand As New MySqlCommand("SELECT userBalanceID, full_name, salesType, year, receiveDate, receiveAmount, note, main.userID, salesTypeID,
                                                 CASE
@@ -107,6 +125,18 @@ Public Class mainMenu
         transactionFullFieldsDGV.Columns(7).Visible = False
         transactionFullFieldsDGV.Columns(8).Visible = False
         transactionFullFieldsDGV.Columns(9).Visible = False
+
+        Dim TransactionFilterTable As New DataTable()
+        Dim transactionFilterAdapter As New MySqlDataAdapter("SELECT userID, firstName, lastName FROM user ORDER BY firstName ASC", conn.getConnection())
+        transactionFilterAdapter.Fill(TransactionFilterTable)
+        Dim row As DataRow = TransactionFilterTable.NewRow()
+        row(0) = 0
+        row(1) = ""
+        TransactionFilterTable.Rows.InsertAt(row, 0)
+        userTCB.DataSource = TransactionFilterTable
+        TransactionFilterTable.Columns.Add("full_name", Type.GetType("System.String"), "firstName + ' ' + lastName")
+        userTCB.DisplayMember = "full_name"
+        userTCB.ValueMember = "userID"
 
         Dim SalesTypeTable As New DataTable()
         Dim SalesTypeAdapter As New MySqlDataAdapter("SELECT * FROM salesType", conn.getConnection())
@@ -342,6 +372,84 @@ Public Class mainMenu
             totalGirlsLB.Text = userDGV.Rows.Count - 1
         End If
     End Sub
+
+    Private Sub transactionFilter_Click(sender As Object, e As EventArgs) Handles transactionFilter.Click
+        Dim year = cookieYearPicker.Text
+        Dim conn As New myConnection()
+        Dim table As New DataTable()
+        Dim table2 As New DataTable()
+        Dim input As Integer = userTCB.SelectedValue
+        If input = 0 Then
+            mainMenu_Load(e, e)
+        Else
+            Dim command As New MySqlCommand("SELECT userBalanceID, full_name, salesType, year, receiveDate, receiveAmount, note, main.userID, salesTypeID,
+                                                CASE
+                                                        WHEN ISNULL(Received_Payment) = 1 THEN Total_Payment
+                                                        ELSE Total_Payment - Received_Payment
+                                                END AS Remaining_Balance
+                                                FROM (SELECT userBalanceID, CONCAT(user.firstName, ' ', user.lastName) AS full_name, salesType.name AS salesType, 
+                                                        year, receiveDate, receiveAmount, userBalance.note, user.userID, salesType.salesTypeID
+                                                        FROM userBalance
+                                                        INNER JOIN salesType ON salesType.salesTypeID = userBalance.salesTypeID
+                                                        INNER JOIN user ON user.userID = userBalance.userID
+                                                        WHERE year = @year AND userBalance.userID = @input) as main inner join
+                                               (SELECT sum(orderQuantity * price) AS Total_Payment,
+                                               (SELECT sum(receiveAmount) FROM userBalance WHERE salesTypeID <> 3 AND userBalance.year = @year 
+                                                        AND userBalance.userID = user.userID) AS Received_Payment, user.userID
+                                                        FROM userCookie INNER JOIN user ON user.userID = userCookie.userID
+                                                        INNER JOIN inventory ON inventory.inventoryID = userCookie.inventoryID
+                                                        INNER JOIN yearCookie ON inventory.yearCookieID = yearCookie.yearCookieID
+                                                        WHERE year = @year 
+                                               GROUP BY user.userID) as main2 on main.userID = main2.userID", conn.getConnection())
+            command.Parameters.Add("@year", MySqlDbType.Int16).Value = year
+            command.Parameters.Add("@input", MySqlDbType.Int16).Value = input
+            Dim adapter As New MySqlDataAdapter(command)
+            adapter.Fill(table)
+            transactionFullFieldsDGV.DataSource = table
+
+            Dim command2 As New MySqlCommand("SELECT year, CONCAT(firstName, ' ', lastName) AS full_name, Total_Payment,
+                                          CASE
+                                                WHEN ISNULL(Received_Payment) = 1 THEN 0
+                                                ELSE Received_Payment
+                                          END AS Received_Payment,
+                                          CASE
+                                                WHEN ISNULL(Received_Payment) = 1 THEN Total_Payment
+                                                ELSE Total_Payment - Received_Payment
+                                          END AS Remaining_Balance
+                                          FROM (SELECT year, firstName, lastName, sum(orderQuantity * price) AS Total_Payment,
+                                          (SELECT sum(receiveAmount) FROM userBalance WHERE salesTypeID <> 3 AND userBalance.year = @year AND userBalance.userID = user.userID) AS Received_Payment
+                                          FROM userCookie INNER JOIN user ON user.userID = userCookie.userID
+                                          INNER JOIN inventory ON inventory.inventoryID = userCookie.inventoryID
+                                          INNER JOIN yearCookie ON inventory.yearCookieID = yearCookie.yearCookieID
+                                          WHERE year = @year AND user.userID = @input
+                                          GROUP BY user.userID) as main", conn.getConnection())
+            command2.Parameters.Add("@year", MySqlDbType.Int16).Value = year
+            command2.Parameters.Add("@input", MySqlDbType.Int16).Value = input
+            Dim adapter2 As New MySqlDataAdapter(command2)
+            adapter2.Fill(table2)
+            transactionDGV.DataSource = table2
+
+            Dim total As Double
+            For index As Integer = 0 To (transactionDGV.RowCount - 1)
+                total += Convert.ToDouble(transactionDGV.Rows(index).Cells(2).Value)
+            Next
+            sumOfTotalPayments.Text = total
+
+            Dim total2 As Double
+            For index As Integer = 0 To (transactionDGV.RowCount - 1)
+                total2 += Convert.ToDouble(transactionDGV.Rows(index).Cells(3).Value)
+            Next
+            sumOfReceivedPayments.Text = total2
+
+            Dim total3 As Double
+            For index As Integer = 0 To (transactionDGV.RowCount - 1)
+                total3 += Convert.ToDouble(transactionDGV.Rows(index).Cells(4).Value)
+            Next
+            sumOfRemainingBalance.Text = total3
+        End If
+
+    End Sub
+
     'Private Sub inventoryFilter_Click(sender As Object, e As EventArgs) Handles inventoryFilter.Click
     '    If inventoryFilterCB.Text = "" Then
     '        mainMenu_Load(e, e)

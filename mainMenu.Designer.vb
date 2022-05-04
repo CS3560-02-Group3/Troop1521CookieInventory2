@@ -38,6 +38,10 @@ Partial Class mainMenu
         Me.cookieForm = New System.Windows.Forms.Button()
         Me.load3 = New System.Windows.Forms.Button()
         Me.TabPage6 = New System.Windows.Forms.TabPage()
+        Me.sumOfTotalPayments = New System.Windows.Forms.Label()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.sumTotalPaymentLB = New System.Windows.Forms.Label()
+        Me.transactionFilter = New System.Windows.Forms.Button()
         Me.transactionFullFieldsDGV = New System.Windows.Forms.DataGridView()
         Me.userTCB = New System.Windows.Forms.ComboBox()
         Me.Label4 = New System.Windows.Forms.Label()
@@ -53,6 +57,7 @@ Partial Class mainMenu
         Me.load5 = New System.Windows.Forms.Button()
         Me.warehouseForm = New System.Windows.Forms.Button()
         Me.TabPage3 = New System.Windows.Forms.TabPage()
+        Me.totalUserCookie = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.load2 = New System.Windows.Forms.Button()
         Me.cookieOrderForm = New System.Windows.Forms.Button()
@@ -72,7 +77,9 @@ Partial Class mainMenu
         Me.PictureBox3 = New System.Windows.Forms.PictureBox()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.totalUserCookie = New System.Windows.Forms.Label()
+        Me.sumOfReceivedPayments = New System.Windows.Forms.Label()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.sumOfRemainingBalance = New System.Windows.Forms.Label()
         Me.TabPage7.SuspendLayout()
         CType(Me.salesTypeDGV, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.cookieYearPicker, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -137,6 +144,7 @@ Partial Class mainMenu
         'salesTypeDGV
         '
         Me.salesTypeDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells
+        Me.salesTypeDGV.BackgroundColor = System.Drawing.Color.PaleGoldenrod
         Me.salesTypeDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.salesTypeDGV.Location = New System.Drawing.Point(825, 44)
         Me.salesTypeDGV.Name = "salesTypeDGV"
@@ -165,6 +173,7 @@ Partial Class mainMenu
         'yearCookieDGV
         '
         Me.yearCookieDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells
+        Me.yearCookieDGV.BackgroundColor = System.Drawing.Color.PaleGoldenrod
         Me.yearCookieDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.yearCookieDGV.Location = New System.Drawing.Point(307, 44)
         Me.yearCookieDGV.Name = "yearCookieDGV"
@@ -193,6 +202,7 @@ Partial Class mainMenu
         'cookieDGV
         '
         Me.cookieDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells
+        Me.cookieDGV.BackgroundColor = System.Drawing.Color.PaleGoldenrod
         Me.cookieDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.cookieDGV.Location = New System.Drawing.Point(8, 44)
         Me.cookieDGV.Name = "cookieDGV"
@@ -220,6 +230,13 @@ Partial Class mainMenu
         '
         'TabPage6
         '
+        Me.TabPage6.Controls.Add(Me.sumOfRemainingBalance)
+        Me.TabPage6.Controls.Add(Me.Label7)
+        Me.TabPage6.Controls.Add(Me.sumOfReceivedPayments)
+        Me.TabPage6.Controls.Add(Me.sumOfTotalPayments)
+        Me.TabPage6.Controls.Add(Me.Label6)
+        Me.TabPage6.Controls.Add(Me.sumTotalPaymentLB)
+        Me.TabPage6.Controls.Add(Me.transactionFilter)
         Me.TabPage6.Controls.Add(Me.transactionFullFieldsDGV)
         Me.TabPage6.Controls.Add(Me.userTCB)
         Me.TabPage6.Controls.Add(Me.Label4)
@@ -234,9 +251,46 @@ Partial Class mainMenu
         Me.TabPage6.Text = "Transactions"
         Me.TabPage6.UseVisualStyleBackColor = True
         '
+        'sumOfTotalPayments
+        '
+        Me.sumOfTotalPayments.AutoSize = True
+        Me.sumOfTotalPayments.Location = New System.Drawing.Point(296, 403)
+        Me.sumOfTotalPayments.Name = "sumOfTotalPayments"
+        Me.sumOfTotalPayments.Size = New System.Drawing.Size(76, 21)
+        Me.sumOfTotalPayments.TabIndex = 15
+        Me.sumOfTotalPayments.Text = "text here"
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Location = New System.Drawing.Point(385, 403)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(215, 21)
+        Me.Label6.TabIndex = 14
+        Me.Label6.Text = "Sum of Received Payments: "
+        '
+        'sumTotalPaymentLB
+        '
+        Me.sumTotalPaymentLB.AutoSize = True
+        Me.sumTotalPaymentLB.Location = New System.Drawing.Point(122, 403)
+        Me.sumTotalPaymentLB.Name = "sumTotalPaymentLB"
+        Me.sumTotalPaymentLB.Size = New System.Drawing.Size(183, 21)
+        Me.sumTotalPaymentLB.TabIndex = 12
+        Me.sumTotalPaymentLB.Text = "Sum of Total Payments: "
+        '
+        'transactionFilter
+        '
+        Me.transactionFilter.Location = New System.Drawing.Point(496, 4)
+        Me.transactionFilter.Name = "transactionFilter"
+        Me.transactionFilter.Size = New System.Drawing.Size(88, 35)
+        Me.transactionFilter.TabIndex = 11
+        Me.transactionFilter.Text = "Filter"
+        Me.transactionFilter.UseVisualStyleBackColor = True
+        '
         'transactionFullFieldsDGV
         '
         Me.transactionFullFieldsDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells
+        Me.transactionFullFieldsDGV.BackgroundColor = System.Drawing.Color.PaleGoldenrod
         Me.transactionFullFieldsDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.transactionFullFieldsDGV.Location = New System.Drawing.Point(11, 453)
         Me.transactionFullFieldsDGV.Name = "transactionFullFieldsDGV"
@@ -249,7 +303,7 @@ Partial Class mainMenu
         Me.userTCB.FormattingEnabled = True
         Me.userTCB.Location = New System.Drawing.Point(298, 7)
         Me.userTCB.Name = "userTCB"
-        Me.userTCB.Size = New System.Drawing.Size(121, 29)
+        Me.userTCB.Size = New System.Drawing.Size(175, 29)
         Me.userTCB.TabIndex = 9
         '
         'Label4
@@ -264,6 +318,7 @@ Partial Class mainMenu
         'transactionDGV
         '
         Me.transactionDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells
+        Me.transactionDGV.BackgroundColor = System.Drawing.Color.PaleGoldenrod
         Me.transactionDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.transactionDGV.Location = New System.Drawing.Point(11, 42)
         Me.transactionDGV.Name = "transactionDGV"
@@ -318,6 +373,7 @@ Partial Class mainMenu
         'inventoryDGV
         '
         Me.inventoryDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells
+        Me.inventoryDGV.BackgroundColor = System.Drawing.Color.PaleGoldenrod
         Me.inventoryDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.inventoryDGV.Location = New System.Drawing.Point(0, 39)
         Me.inventoryDGV.Name = "inventoryDGV"
@@ -346,6 +402,7 @@ Partial Class mainMenu
         'warehouseDGV
         '
         Me.warehouseDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells
+        Me.warehouseDGV.BackgroundColor = System.Drawing.Color.PaleGoldenrod
         Me.warehouseDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.warehouseDGV.Location = New System.Drawing.Point(3, 470)
         Me.warehouseDGV.Name = "warehouseDGV"
@@ -373,6 +430,7 @@ Partial Class mainMenu
         '
         'TabPage3
         '
+        Me.TabPage3.BackColor = System.Drawing.SystemColors.Control
         Me.TabPage3.Controls.Add(Me.totalUserCookie)
         Me.TabPage3.Controls.Add(Me.Label5)
         Me.TabPage3.Controls.Add(Me.load2)
@@ -384,7 +442,14 @@ Partial Class mainMenu
         Me.TabPage3.Size = New System.Drawing.Size(1319, 716)
         Me.TabPage3.TabIndex = 2
         Me.TabPage3.Text = "Cookie Orders"
-        Me.TabPage3.UseVisualStyleBackColor = True
+        '
+        'totalUserCookie
+        '
+        Me.totalUserCookie.AutoSize = True
+        Me.totalUserCookie.Location = New System.Drawing.Point(184, 680)
+        Me.totalUserCookie.Name = "totalUserCookie"
+        Me.totalUserCookie.Size = New System.Drawing.Size(0, 21)
+        Me.totalUserCookie.TabIndex = 11
         '
         'Label5
         '
@@ -416,6 +481,7 @@ Partial Class mainMenu
         'orderDGV
         '
         Me.orderDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells
+        Me.orderDGV.BackgroundColor = System.Drawing.Color.PaleGoldenrod
         Me.orderDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.orderDGV.Location = New System.Drawing.Point(8, 40)
         Me.orderDGV.Name = "orderDGV"
@@ -425,6 +491,7 @@ Partial Class mainMenu
         '
         'TabPage2
         '
+        Me.TabPage2.BackColor = System.Drawing.SystemColors.Control
         Me.TabPage2.Controls.Add(Me.userFilterTB)
         Me.TabPage2.Controls.Add(Me.filter)
         Me.TabPage2.Controls.Add(Me.userFilterCB)
@@ -439,7 +506,6 @@ Partial Class mainMenu
         Me.TabPage2.Size = New System.Drawing.Size(1319, 716)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Girls"
-        Me.TabPage2.UseVisualStyleBackColor = True
         '
         'userFilterTB
         '
@@ -503,6 +569,7 @@ Partial Class mainMenu
         'userDGV
         '
         Me.userDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells
+        Me.userDGV.BackgroundColor = System.Drawing.Color.PaleGoldenrod
         Me.userDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.userDGV.Location = New System.Drawing.Point(8, 52)
         Me.userDGV.Name = "userDGV"
@@ -531,6 +598,7 @@ Partial Class mainMenu
         '
         'TabPage1
         '
+        Me.TabPage1.BackColor = System.Drawing.Color.PaleGoldenrod
         Me.TabPage1.Controls.Add(Me.Label1)
         Me.TabPage1.Controls.Add(Me.PictureBox3)
         Me.TabPage1.Controls.Add(Me.PictureBox2)
@@ -541,7 +609,6 @@ Partial Class mainMenu
         Me.TabPage1.Size = New System.Drawing.Size(1319, 716)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Home"
-        Me.TabPage1.UseVisualStyleBackColor = True
         '
         'Label1
         '
@@ -582,13 +649,32 @@ Partial Class mainMenu
         Me.PictureBox1.TabIndex = 0
         Me.PictureBox1.TabStop = False
         '
-        'totalUserCookie
+        'sumOfReceivedPayments
         '
-        Me.totalUserCookie.AutoSize = True
-        Me.totalUserCookie.Location = New System.Drawing.Point(184, 680)
-        Me.totalUserCookie.Name = "totalUserCookie"
-        Me.totalUserCookie.Size = New System.Drawing.Size(0, 21)
-        Me.totalUserCookie.TabIndex = 11
+        Me.sumOfReceivedPayments.AutoSize = True
+        Me.sumOfReceivedPayments.Location = New System.Drawing.Point(595, 403)
+        Me.sumOfReceivedPayments.Name = "sumOfReceivedPayments"
+        Me.sumOfReceivedPayments.Size = New System.Drawing.Size(76, 21)
+        Me.sumOfReceivedPayments.TabIndex = 16
+        Me.sumOfReceivedPayments.Text = "text here"
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Location = New System.Drawing.Point(677, 403)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(211, 21)
+        Me.Label7.TabIndex = 17
+        Me.Label7.Text = "Sum of Remaining Balance: "
+        '
+        'sumOfRemainingBalance
+        '
+        Me.sumOfRemainingBalance.AutoSize = True
+        Me.sumOfRemainingBalance.Location = New System.Drawing.Point(881, 403)
+        Me.sumOfRemainingBalance.Name = "sumOfRemainingBalance"
+        Me.sumOfRemainingBalance.Size = New System.Drawing.Size(76, 21)
+        Me.sumOfRemainingBalance.TabIndex = 18
+        Me.sumOfRemainingBalance.Text = "text here"
         '
         'mainMenu
         '
@@ -676,4 +762,11 @@ Partial Class mainMenu
     Friend WithEvents PictureBox3 As PictureBox
     Friend WithEvents Label1 As Label
     Friend WithEvents totalUserCookie As Label
+    Friend WithEvents transactionFilter As Button
+    Friend WithEvents sumTotalPaymentLB As Label
+    Friend WithEvents sumOfTotalPayments As Label
+    Friend WithEvents Label6 As Label
+    Friend WithEvents sumOfReceivedPayments As Label
+    Friend WithEvents sumOfRemainingBalance As Label
+    Friend WithEvents Label7 As Label
 End Class

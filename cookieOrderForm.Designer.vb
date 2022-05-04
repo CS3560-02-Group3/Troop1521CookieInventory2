@@ -198,6 +198,7 @@ Partial Class cookieOrderForm
         'DataGridView1
         '
         Me.DataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells
+        Me.DataGridView1.BackgroundColor = System.Drawing.Color.PaleGoldenrod
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView1.Location = New System.Drawing.Point(38, 161)
         Me.DataGridView1.Name = "DataGridView1"
