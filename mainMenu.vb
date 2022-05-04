@@ -253,7 +253,26 @@ Public Class mainMenu
         myForm.inQuantityTB.Text = selectedRow.Cells(2).Value
         myForm.DateTimePicker1.Text = selectedRow.Cells(3).Value
         myForm.noteTE.Text = selectedRow.Cells(4).Value
+        myForm.Show()
+        mainMenu_Load(e, e)
     End Sub
+
+    Private Sub warehouseDGV_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles warehouseDGV.CellContentClick
+        If e.RowIndex = -1 Then
+            Return
+        End If
+        Dim selectedRow As DataGridViewRow
+        selectedRow = warehouseDGV.Rows(e.RowIndex)
+        Dim myForm As New warehouseform
+        myForm.warehouseLB.Text = selectedRow.Cells(0).Value
+        myForm.nameTB.Text = selectedRow.Cells(1).Value
+        myForm.AddressTB.Text = selectedRow.Cells(2).Value
+        myForm.PhoneTB.Text = selectedRow.Cells(3).Value
+        myForm.noteTE.Text = selectedRow.Cells(4).Value
+        myForm.Show()
+        mainMenu_Load(e, e)
+    End Sub
+
     Private Sub userForm_Click(sender As Object, e As EventArgs) Handles userForm.Click
         Dim myForm As New userForm
         myForm.update.Visible = False
@@ -289,8 +308,8 @@ Public Class mainMenu
     End Sub
     Private Sub inventoryForm_Click(sender As Object, e As EventArgs) Handles inventoryForm.Click
         Dim myForm As New inventoryForm
-        'myForm.Update.Visible = False
-        'myForm.Delete.Visible = False
+        myForm.update.Visible = False
+        myForm.delete.Visible = False
         myForm.Show()
     End Sub
     Private Sub salesTypeForm_Click(sender As Object, e As EventArgs) Handles salesTypeForm.Click
@@ -380,45 +399,10 @@ Public Class mainMenu
         End If
     End Sub
 
+    Private Sub TabPage1_Click(sender As Object, e As EventArgs) Handles TabPage1.Click
+
+    End Sub
 
 
-    'Private Sub inventoryFilter_Click(sender As Object, e As EventArgs) Handles inventoryFilter.Click
-    '    If inventoryFilterCB.Text = "" Then
-    '        mainMenu_Load(e, e)
-    '    Else
-    '        Dim conn As New myConnection()
-    '        Dim table As New DataTable()
-    '        Dim column = warehouseFilterCB.SelectedValue
 
-    '        Dim input = ""
-    '        If warehouseCB.Text = "warehouseID" Then
-    '            input = warehouseCB.Text
-    '        Else
-    '            input = "%" & warehouseCB.Text & "%"
-    '        End If
-
-    '        Dim command As New MySqlCommand("SELECT * FROM `warehouse` WHERE " & column & " LIKE @input", conn.getConnection())
-    '        command.Parameters.Add("@input", MySqlDbType.VarChar).Value = input
-    '        Dim adapter As New MySqlDataAdapter(command)
-    '        adapter.Fill(table)
-    '        inventoryDGV.DataSource = table
-    '        totalCookiesLB.Text = inventoryDGV.Rows.Count - 1
-    '    End If
-    'End Sub
-
-    'Dim input = ""
-    'If warehouseCB.Text = "warehouseID" Then
-    '            input = warehouseCB.Text
-    '        Else
-    '            input = "%" & warehouseCB.Text & "%"
-    '        End If
-
-    'Dim command As New MySqlCommand("SELECT * FROM `warehouse` WHERE " & column & " LIKE @input", conn.getConnection())
-    '        command.Parameters.Add("@input", MySqlDbType.VarChar).Value = input
-    '        Dim adapter As New MySqlDataAdapter(command)
-    '        adapter.Fill(table)
-    '        inventoryDGV.DataSource = table
-    '        totalCookiesLB.Text = inventoryDGV.Rows.Count - 1
-    '    End If
-    'End Sub
 End Class
