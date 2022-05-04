@@ -43,6 +43,16 @@ Public Class mainMenu
         orderDGV.Columns(11).Visible = False
         totalUserCookie.Text = orderDGV.Rows.Count - 1
 
+        orderFilterCB.DisplayMember = "Text"
+        orderFilterCB.ValueMember = "Value"
+        Dim tb As New DataTable
+        tb.Columns.Add("Text", GetType(String))
+        tb.Columns.Add("Value", GetType(String))
+        tb.Rows.Add("firstName", "firstName")
+        tb.Rows.Add("lastName", "lastName")
+        tb.Rows.Add("date", "userCookie.date")
+        orderFilterCB.DataSource = tb
+
         Dim Ctable As New DataTable()
         Dim Cadapter As New MySqlDataAdapter("SELECT * FROM cookie", conn.getConnection())
         Cadapter.Fill(Ctable)
@@ -151,6 +161,10 @@ Public Class mainMenu
                                                         INNER JOIN cookie ON yearCookie.cookieID = cookie.cookieID", conn.getConnection())
         inventoryAdapter.Fill(inventoryTable)
         inventoryDGV.DataSource = inventoryTable
+        inventoryDGV.Columns(6).Visible = False
+        inventoryDGV.Columns(7).Visible = False
+
+
 
 
         Dim warehouseTable As New DataTable()
@@ -270,6 +284,42 @@ Public Class mainMenu
         myForm.Show()
         mainMenu_Load(e, e)
     End Sub
+
+    Private Sub inventoryDGV_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles inventoryDGV.CellContentClick
+        If e.RowIndex = -1 Then
+            Return
+        End If
+        Dim selectedRow As DataGridViewRow
+        selectedRow = inventoryDGV.Rows(e.RowIndex)
+        Dim myForm As New inventoryForm
+        myForm.yearLB.Text = cookieYearPicker.Text
+        myForm.inventoryIDLB.Text = selectedRow.Cells(0).Value
+        myForm.warehouseCB.SelectedValue = selectedRow.Cells(6).Value
+        myForm.yearCookieCB.SelectedValue = selectedRow.Cells(7).Value
+        myForm.inQuantityTB.Text = selectedRow.Cells(4).Value
+        myForm.DateTimePicker1.Text = selectedRow.Cells(3).Value
+        myForm.noteTE.Text = selectedRow.Cells(5).Value
+        myForm.insert.Visible = False
+        myForm.Show()
+        mainMenu_Load(e, e)
+    End Sub
+
+    Private Sub warehouseDGV_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles warehouseDGV.CellContentClick
+        If e.RowIndex = -1 Then
+            Return
+        End If
+        Dim selectedRow As DataGridViewRow
+        selectedRow = warehouseDGV.Rows(e.RowIndex)
+        Dim myForm As New warehouseform
+        myForm.warehouseLB.Text = selectedRow.Cells(0).Value
+        myForm.nameTB.Text = selectedRow.Cells(1).Value
+        myForm.AddressTB.Text = selectedRow.Cells(2).Value
+        myForm.PhoneTB.Text = selectedRow.Cells(3).Value
+        myForm.noteTE.Text = selectedRow.Cells(4).Value
+        myForm.Show()
+        mainMenu_Load(e, e)
+    End Sub
+
     Private Sub userForm_Click(sender As Object, e As EventArgs) Handles userForm.Click
         Dim myForm As New userForm
         myForm.update.Visible = False
@@ -305,8 +355,9 @@ Public Class mainMenu
     End Sub
     Private Sub inventoryForm_Click(sender As Object, e As EventArgs) Handles inventoryForm.Click
         Dim myForm As New inventoryForm
-        'myForm.Update.Visible = False
-        'myForm.Delete.Visible = False
+        myForm.yearLB.Text = cookieYearPicker.Text
+        myForm.update.Visible = False
+        myForm.delete.Visible = False
         myForm.Show()
     End Sub
     Private Sub salesTypeForm_Click(sender As Object, e As EventArgs) Handles salesTypeForm.Click
@@ -449,7 +500,6 @@ Public Class mainMenu
         End If
 
     End Sub
-
     'Private Sub inventoryFilter_Click(sender As Object, e As EventArgs) Handles inventoryFilter.Click
     '    If inventoryFilterCB.Text = "" Then
     '        mainMenu_Load(e, e)
@@ -481,12 +531,31 @@ Public Class mainMenu
     '            input = "%" & warehouseCB.Text & "%"
     '        End If
 
-    'Dim command As New MySqlCommand("SELECT * FROM `warehouse` WHERE " & column & " LIKE @input", conn.getConnection())
-    '        command.Parameters.Add("@input", MySqlDbType.VarChar).Value = input
-    '        Dim adapter As New MySqlDataAdapter(command)
-    '        adapter.Fill(table)
-    '        inventoryDGV.DataSource = table
-    '        totalCookiesLB.Text = inventoryDGV.Rows.Count - 1
-    '    End If
-    'End Sub
+            Dim input = ""
+            If orderFilterTB.Text = "orderID" Then
+                input = orderFilterTB.Text
+            Else
+                input = "%" & orderFilterTB.Text & "%"
+            End If
+            Dim year = cookieYearPicker.Text
+            Dim command As New MySqlCommand("SELECT userCookieID AS OrderID, CONCAT(user.firstName, ' ', user.lastName) AS Name, cookie.name AS Cookie, userCookie.date AS Date,
+                                           orderQuantity AS Order_Quantity, pickupQuantity AS Pickup_Quantity, returnQuantity AS Return_Quantity, userCookie.note AS Note, 
+                                           userCookie.userID, userCookie.inventoryID, warehouse.name,
+                                           CASE
+                                               WHEN ISNULL((SELECT sum(orderQuantity - returnQuantity) FROM userCookie WHERE userCookie.inventoryID = inventory.inventoryID)) = 1 THEN inventory.inQuantity
+                                               ELSE inventory.inQuantity - (SELECT sum(orderQuantity - returnQuantity) FROM userCookie WHERE userCookie.inventoryID = inventory.inventoryID)
+                                           END AS Remaining_Quantity
+                                           FROM userCookie INNER JOIN inventory ON inventory.inventoryID = userCookie.inventoryID
+                                           INNER JOIN warehouse ON warehouse.warehouseID = inventory.warehouseID
+                                           INNER JOIN user ON user.userID = userCookie.userID
+                                           INNER JOIN yearCookie ON yearCookie.yearCookieID = inventory.yearCookieID
+                                           INNER JOIN cookie ON cookie.cookieID = yearCookie.cookieID
+                                           WHERE yearCookie.year = @year AND " & column & " LIKE @input", conn.getConnection())
+            command.Parameters.Add("@input", MySqlDbType.VarChar).Value = input
+            command.Parameters.Add("@year", MySqlDbType.Int16).Value = year
+            Dim adapter As New MySqlDataAdapter(command)
+            adapter.Fill(table)
+            orderDGV.DataSource = table
+        End If
+    End Sub
 End Class

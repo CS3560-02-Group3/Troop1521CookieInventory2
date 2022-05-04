@@ -49,7 +49,6 @@ Partial Class mainMenu
         Me.load6 = New System.Windows.Forms.Button()
         Me.paymentForm = New System.Windows.Forms.Button()
         Me.TabPage5 = New System.Windows.Forms.TabPage()
-        Me.inventoryFilter = New System.Windows.Forms.Button()
         Me.inventoryDGV = New System.Windows.Forms.DataGridView()
         Me.inventoryForm = New System.Windows.Forms.Button()
         Me.load7 = New System.Windows.Forms.Button()
@@ -77,9 +76,7 @@ Partial Class mainMenu
         Me.PictureBox3 = New System.Windows.Forms.PictureBox()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.sumOfReceivedPayments = New System.Windows.Forms.Label()
-        Me.Label7 = New System.Windows.Forms.Label()
-        Me.sumOfRemainingBalance = New System.Windows.Forms.Label()
+        Me.totalUserCookie = New System.Windows.Forms.Label()
         Me.TabPage7.SuspendLayout()
         CType(Me.salesTypeDGV, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.cookieYearPicker, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -346,7 +343,6 @@ Partial Class mainMenu
         '
         'TabPage5
         '
-        Me.TabPage5.Controls.Add(Me.inventoryFilter)
         Me.TabPage5.Controls.Add(Me.inventoryDGV)
         Me.TabPage5.Controls.Add(Me.inventoryForm)
         Me.TabPage5.Controls.Add(Me.load7)
@@ -361,21 +357,12 @@ Partial Class mainMenu
         Me.TabPage5.Text = "Inventory"
         Me.TabPage5.UseVisualStyleBackColor = True
         '
-        'inventoryFilter
-        '
-        Me.inventoryFilter.Location = New System.Drawing.Point(292, 436)
-        Me.inventoryFilter.Name = "inventoryFilter"
-        Me.inventoryFilter.Size = New System.Drawing.Size(92, 31)
-        Me.inventoryFilter.TabIndex = 10
-        Me.inventoryFilter.Text = "filter"
-        Me.inventoryFilter.UseVisualStyleBackColor = True
-        '
         'inventoryDGV
         '
         Me.inventoryDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells
         Me.inventoryDGV.BackgroundColor = System.Drawing.Color.PaleGoldenrod
         Me.inventoryDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.inventoryDGV.Location = New System.Drawing.Point(0, 39)
+        Me.inventoryDGV.Location = New System.Drawing.Point(3, 40)
         Me.inventoryDGV.Name = "inventoryDGV"
         Me.inventoryDGV.RowHeadersWidth = 51
         Me.inventoryDGV.Size = New System.Drawing.Size(1319, 354)
@@ -404,7 +391,7 @@ Partial Class mainMenu
         Me.warehouseDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells
         Me.warehouseDGV.BackgroundColor = System.Drawing.Color.PaleGoldenrod
         Me.warehouseDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.warehouseDGV.Location = New System.Drawing.Point(3, 470)
+        Me.warehouseDGV.Location = New System.Drawing.Point(4, 491)
         Me.warehouseDGV.Name = "warehouseDGV"
         Me.warehouseDGV.RowHeadersWidth = 51
         Me.warehouseDGV.Size = New System.Drawing.Size(1319, 206)
@@ -412,25 +399,24 @@ Partial Class mainMenu
         '
         'load5
         '
-        Me.load5.Location = New System.Drawing.Point(8, 436)
+        Me.load5.Location = New System.Drawing.Point(8, 430)
         Me.load5.Name = "load5"
-        Me.load5.Size = New System.Drawing.Size(78, 28)
+        Me.load5.Size = New System.Drawing.Size(87, 49)
         Me.load5.TabIndex = 5
         Me.load5.Text = "Load"
         Me.load5.UseVisualStyleBackColor = True
         '
         'warehouseForm
         '
-        Me.warehouseForm.Location = New System.Drawing.Point(92, 436)
+        Me.warehouseForm.Location = New System.Drawing.Point(118, 430)
         Me.warehouseForm.Name = "warehouseForm"
-        Me.warehouseForm.Size = New System.Drawing.Size(194, 28)
+        Me.warehouseForm.Size = New System.Drawing.Size(194, 49)
         Me.warehouseForm.TabIndex = 0
         Me.warehouseForm.Text = "Add Troop Warehouse"
         Me.warehouseForm.UseVisualStyleBackColor = True
         '
         'TabPage3
         '
-        Me.TabPage3.BackColor = System.Drawing.SystemColors.Control
         Me.TabPage3.Controls.Add(Me.totalUserCookie)
         Me.TabPage3.Controls.Add(Me.Label5)
         Me.TabPage3.Controls.Add(Me.load2)
@@ -442,6 +428,14 @@ Partial Class mainMenu
         Me.TabPage3.Size = New System.Drawing.Size(1319, 716)
         Me.TabPage3.TabIndex = 2
         Me.TabPage3.Text = "Cookie Orders"
+        '
+        'totalUserCookie
+        '
+        Me.totalUserCookie.AutoSize = True
+        Me.totalUserCookie.Location = New System.Drawing.Point(184, 680)
+        Me.totalUserCookie.Name = "totalUserCookie"
+        Me.totalUserCookie.Size = New System.Drawing.Size(0, 21)
+        Me.totalUserCookie.TabIndex = 11
         '
         'totalUserCookie
         '
@@ -649,32 +643,13 @@ Partial Class mainMenu
         Me.PictureBox1.TabIndex = 0
         Me.PictureBox1.TabStop = False
         '
-        'sumOfReceivedPayments
+        'totalUserCookie
         '
-        Me.sumOfReceivedPayments.AutoSize = True
-        Me.sumOfReceivedPayments.Location = New System.Drawing.Point(595, 403)
-        Me.sumOfReceivedPayments.Name = "sumOfReceivedPayments"
-        Me.sumOfReceivedPayments.Size = New System.Drawing.Size(76, 21)
-        Me.sumOfReceivedPayments.TabIndex = 16
-        Me.sumOfReceivedPayments.Text = "text here"
-        '
-        'Label7
-        '
-        Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(677, 403)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(211, 21)
-        Me.Label7.TabIndex = 17
-        Me.Label7.Text = "Sum of Remaining Balance: "
-        '
-        'sumOfRemainingBalance
-        '
-        Me.sumOfRemainingBalance.AutoSize = True
-        Me.sumOfRemainingBalance.Location = New System.Drawing.Point(881, 403)
-        Me.sumOfRemainingBalance.Name = "sumOfRemainingBalance"
-        Me.sumOfRemainingBalance.Size = New System.Drawing.Size(76, 21)
-        Me.sumOfRemainingBalance.TabIndex = 18
-        Me.sumOfRemainingBalance.Text = "text here"
+        Me.totalUserCookie.AutoSize = True
+        Me.totalUserCookie.Location = New System.Drawing.Point(184, 680)
+        Me.totalUserCookie.Name = "totalUserCookie"
+        Me.totalUserCookie.Size = New System.Drawing.Size(0, 21)
+        Me.totalUserCookie.TabIndex = 11
         '
         'mainMenu
         '
@@ -755,18 +730,10 @@ Partial Class mainMenu
     Friend WithEvents load8 As Button
     Friend WithEvents salesTypeDGV As DataGridView
     Friend WithEvents transactionFullFieldsDGV As DataGridView
-    Friend WithEvents inventoryFilter As Button
     Friend WithEvents Label5 As Label
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents PictureBox2 As PictureBox
     Friend WithEvents PictureBox3 As PictureBox
     Friend WithEvents Label1 As Label
     Friend WithEvents totalUserCookie As Label
-    Friend WithEvents transactionFilter As Button
-    Friend WithEvents sumTotalPaymentLB As Label
-    Friend WithEvents sumOfTotalPayments As Label
-    Friend WithEvents Label6 As Label
-    Friend WithEvents sumOfReceivedPayments As Label
-    Friend WithEvents sumOfRemainingBalance As Label
-    Friend WithEvents Label7 As Label
 End Class

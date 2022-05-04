@@ -38,14 +38,14 @@ Public Class warehouseform
     End Sub
 
     Private Sub Update_Click(sender As Object, e As EventArgs) Handles Update.Click
-        If warehouseID.Text = "" Then
+        If warehouseLB.Text = "" Then
             MsgBox("Cannot update without valid ID")
 
         Else
             Dim confirmMsg = MessageBox.Show("Are you sure you want to update?", "Update", MessageBoxButtons.YesNo)
             If confirmMsg = DialogResult.Yes Then
 
-                Dim warehouseID As Integer = warehouseID
+                Dim warehouseID As Integer = warehouseLB.Text
                 Dim Name As String = nameTB.Text
                 Dim address As String = AddressTB.Text
                 Dim phone As Integer = PhoneTB.Text
@@ -55,7 +55,7 @@ Public Class warehouseform
                 ' fix SQL query below
                 Dim command As New MySqlCommand("UPDATE `warehouse` SET Name = @Name, address = @address, phone = @phone,  note = @note WHERE warehouseID = @warehouseID", conn.getConnection())
 
-                command.Parameters.Add("@userID", MySqlDbType.Int16).Value = warehouseID
+                command.Parameters.Add("@warehouseID", MySqlDbType.Int16).Value = warehouseID
                 command.Parameters.Add("@Name", MySqlDbType.VarChar).Value = Name
                 command.Parameters.Add("@address", MySqlDbType.VarChar).Value = address
                 command.Parameters.Add("@phone", MySqlDbType.Int16).Value = phone
@@ -76,20 +76,20 @@ Public Class warehouseform
     End Sub
     Private Sub Delete_Click(sender As Object, e As EventArgs) Handles Delete.Click
         ' error handling when the query WHERE is not given a userID
-        If warehouseID.Text = "" Then
+        If warehouseLB.Text = "" Then
             MsgBox("Cannot delete without valid ID")
 
         Else
             Dim confirmMsg = MessageBox.Show("Are you sure you want to delete?", "Delete", MessageBoxButtons.YesNo)
             If confirmMsg = DialogResult.Yes Then
 
-                Dim userID As Integer = warehouseID.Text
+                Dim warehouseID As Integer = warehouseLB.Text
 
                 Dim conn As New myConnection()
                 ' Command a query DELETE a row FROM the user table WHERE the userID is.
-                Dim command As New MySqlCommand("DELETE FROM `warehouse` WHERE warehouseID = @userID", conn.getConnection())
+                Dim command As New MySqlCommand("DELETE FROM `warehouse` WHERE warehouseID = @warehouseID", conn.getConnection())
 
-                command.Parameters.Add("@warehouseID", MySqlDbType.Int16).Value = userID
+                command.Parameters.Add("@warehouseID", MySqlDbType.Int16).Value = warehouseID
 
                 conn.openConnection()
 
@@ -104,9 +104,4 @@ Public Class warehouseform
             End If
         End If
     End Sub
-    Private Sub warehouseform_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
-    End Sub
-
-
 End Class

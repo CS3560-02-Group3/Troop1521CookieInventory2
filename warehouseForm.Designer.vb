@@ -27,7 +27,7 @@ Partial Class warehouseform
         Me.Delete = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.noteTE = New System.Windows.Forms.RichTextBox()
-        Me.warehouseID = New System.Windows.Forms.Label()
+        Me.label10 = New System.Windows.Forms.Label()
         Me.NameLB = New System.Windows.Forms.Label()
         Me.PhoneLB = New System.Windows.Forms.Label()
         Me.AddressLB = New System.Windows.Forms.Label()
@@ -35,11 +35,12 @@ Partial Class warehouseform
         Me.AddressTB = New System.Windows.Forms.TextBox()
         Me.PhoneTB = New System.Windows.Forms.TextBox()
         Me.NoteLB = New System.Windows.Forms.Label()
+        Me.warehouseLB = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'Insert
         '
-        Me.Insert.Location = New System.Drawing.Point(345, 365)
+        Me.Insert.Location = New System.Drawing.Point(353, 365)
         Me.Insert.Name = "Insert"
         Me.Insert.Size = New System.Drawing.Size(105, 41)
         Me.Insert.TabIndex = 0
@@ -48,7 +49,7 @@ Partial Class warehouseform
         '
         'Update
         '
-        Me.Update.Location = New System.Drawing.Point(345, 365)
+        Me.Update.Location = New System.Drawing.Point(353, 365)
         Me.Update.Name = "Update"
         Me.Update.Size = New System.Drawing.Size(105, 41)
         Me.Update.TabIndex = 1
@@ -83,15 +84,15 @@ Partial Class warehouseform
         Me.noteTE.TabIndex = 15
         Me.noteTE.Text = ""
         '
-        'warehouseID
+        'label10
         '
-        Me.warehouseID.AutoSize = True
-        Me.warehouseID.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.warehouseID.Location = New System.Drawing.Point(53, 53)
-        Me.warehouseID.Name = "warehouseID"
-        Me.warehouseID.Size = New System.Drawing.Size(25, 21)
-        Me.warehouseID.TabIndex = 19
-        Me.warehouseID.Text = "ID"
+        Me.label10.AutoSize = True
+        Me.label10.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.label10.Location = New System.Drawing.Point(53, 53)
+        Me.label10.Name = "label10"
+        Me.label10.Size = New System.Drawing.Size(25, 21)
+        Me.label10.TabIndex = 19
+        Me.label10.Text = "ID"
         '
         'NameLB
         '
@@ -157,11 +158,20 @@ Partial Class warehouseform
         Me.NoteLB.TabIndex = 26
         Me.NoteLB.Text = "Note"
         '
+        'warehouseLB
+        '
+        Me.warehouseLB.AutoSize = True
+        Me.warehouseLB.Location = New System.Drawing.Point(244, 61)
+        Me.warehouseLB.Name = "warehouseLB"
+        Me.warehouseLB.Size = New System.Drawing.Size(0, 13)
+        Me.warehouseLB.TabIndex = 27
+        '
         'warehouseform
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.warehouseLB)
         Me.Controls.Add(Me.NoteLB)
         Me.Controls.Add(Me.PhoneTB)
         Me.Controls.Add(Me.AddressTB)
@@ -169,7 +179,7 @@ Partial Class warehouseform
         Me.Controls.Add(Me.AddressLB)
         Me.Controls.Add(Me.PhoneLB)
         Me.Controls.Add(Me.NameLB)
-        Me.Controls.Add(Me.warehouseID)
+        Me.Controls.Add(Me.label10)
         Me.Controls.Add(Me.noteTE)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Delete)
@@ -187,7 +197,7 @@ Partial Class warehouseform
     Friend WithEvents Delete As Button
     Friend WithEvents Label1 As Label
     Friend WithEvents noteTE As RichTextBox
-    Friend WithEvents warehouseID As Label
+    Friend WithEvents label10 As Label
     Friend WithEvents NameLB As Label
     Friend WithEvents PhoneLB As Label
     Friend WithEvents AddressLB As Label
@@ -195,4 +205,5 @@ Partial Class warehouseform
     Friend WithEvents AddressTB As TextBox
     Friend WithEvents PhoneTB As TextBox
     Friend WithEvents NoteLB As Label
+    Friend WithEvents warehouseLB As Label
 End Class
