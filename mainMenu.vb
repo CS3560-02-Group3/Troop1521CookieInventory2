@@ -85,13 +85,15 @@ Public Class mainMenu
                                                         WHEN ISNULL(Received_Payment) = 1 THEN Total_Payment
                                                         ELSE Total_Payment - Received_Payment
                                                 END AS Remaining_Balance
-                                                FROM (SELECT userBalanceID, CONCAT(user.firstName, ' ', user.lastName) AS full_name, salesType.name AS salesType, year, receiveDate, receiveAmount, userBalance.note, user.userID, salesType.salesTypeID
+                                                FROM (SELECT userBalanceID, CONCAT(user.firstName, ' ', user.lastName) AS full_name, salesType.name AS salesType, 
+                                                        year, receiveDate, receiveAmount, userBalance.note, user.userID, salesType.salesTypeID
                                                         FROM userBalance
                                                         INNER JOIN salesType ON salesType.salesTypeID = userBalance.salesTypeID
                                                         INNER JOIN user ON user.userID = userBalance.userID
                                                         WHERE year = @year) as main inner join
                                                (SELECT sum(orderQuantity * price) AS Total_Payment,
-                                               (SELECT sum(receiveAmount) FROM userBalance WHERE salesTypeID <> 3 AND userBalance.year = @year AND userBalance.userID = user.userID) AS Received_Payment, user.userID
+                                               (SELECT sum(receiveAmount) FROM userBalance WHERE salesTypeID <> 3 AND userBalance.year = @year 
+                                                        AND userBalance.userID = user.userID) AS Received_Payment, user.userID
                                                         FROM userCookie INNER JOIN user ON user.userID = userCookie.userID
                                                         INNER JOIN inventory ON inventory.inventoryID = userCookie.inventoryID
                                                         INNER JOIN yearCookie ON inventory.yearCookieID = yearCookie.yearCookieID

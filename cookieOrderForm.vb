@@ -4,15 +4,18 @@ Public Class cookieOrderForm
         Dim conn As New myConnection()
         Dim year As Integer = yearLB.Text
         Dim table As New DataTable()
-        Dim command As New MySqlCommand("SELECT inventory.inventoryID AS InventoryID, warehouse.name AS Warehouse, cookie.name AS Cookie,
-                                            CASE
-                                                WHEN ISNULL((SELECT sum(orderQuantity - returnQuantity) FROM userCookie WHERE userCookie.inventoryID = inventory.inventoryID)) = 1 THEN inventory.inQuantity
-                                                ELSE inventory.inQuantity - (SELECT sum(orderQuantity - returnQuantity) FROM userCookie WHERE userCookie.inventoryID = inventory.inventoryID)
-                                            END AS Remaining_Quantity
-                                            FROM inventory INNER JOIN warehouse ON inventory.warehouseID = warehouse.warehouseID
-                                            INNER JOIN yearCookie ON inventory.yearCookieID = yearCookie.yearCookieID
-                                            INNER JOIN cookie ON cookie.cookieID = yearCookie.cookieID
-                                            WHERE yearCookie.year = @year", conn.getConnection())
+        Dim command As New MySqlCommand(
+            "SELECT inventory.inventoryID AS InventoryID, warehouse.name AS Warehouse, cookie.name AS Cookie,
+             CASE
+                    WHEN ISNULL((SELECT sum(orderQuantity - returnQuantity) 
+                        FROM userCookie WHERE userCookie.inventoryID = inventory.inventoryID)) = 1 THEN inventory.inQuantity
+                    ELSE inventory.inQuantity - (SELECT sum(orderQuantity - returnQuantity) 
+                        FROM userCookie WHERE userCookie.inventoryID = inventory.inventoryID)
+             END AS Remaining_Quantity
+             FROM inventory INNER JOIN warehouse ON inventory.warehouseID = warehouse.warehouseID
+             INNER JOIN yearCookie ON inventory.yearCookieID = yearCookie.yearCookieID
+             INNER JOIN cookie ON cookie.cookieID = yearCookie.cookieID
+             WHERE yearCookie.year = @year", conn.getConnection())
         command.Parameters.Add("@year", MySqlDbType.Int16).Value = year
         Dim adapter As New MySqlDataAdapter(command)
         adapter.Fill(table)
