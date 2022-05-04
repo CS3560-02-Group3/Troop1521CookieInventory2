@@ -45,7 +45,7 @@ Public Class warehouseform
             Dim confirmMsg = MessageBox.Show("Are you sure you want to update?", "Update", MessageBoxButtons.YesNo)
             If confirmMsg = DialogResult.Yes Then
 
-                Dim warehouseID As Integer = warehouseID
+                Dim warehouseID As Integer = warehouseLB.Text
                 Dim Name As String = nameTB.Text
                 Dim address As String = AddressTB.Text
                 Dim phone As Integer = PhoneTB.Text
@@ -104,9 +104,4 @@ Public Class warehouseform
             End If
         End If
     End Sub
-    Private Sub warehouseform_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
-    End Sub
-
-
 End Class
