@@ -7,7 +7,7 @@ Public Class warehouseform
 
             Dim name As String = nameTB.Text
             Dim address As String = AddressTB.Text
-            Dim phone As Integer = PhoneTB.Text
+            Dim phone As String = PhoneTB.Text
             Dim note As String = noteTE.Text
 
             Dim conn As New myConnection()
@@ -17,7 +17,7 @@ Public Class warehouseform
 
             command.Parameters.Add("@name", MySqlDbType.VarChar).Value = name
             command.Parameters.Add("@address", MySqlDbType.VarChar).Value = address
-            command.Parameters.Add("@phone", MySqlDbType.Int16).Value = phone
+            command.Parameters.Add("@phone", MySqlDbType.VarChar).Value = phone
             command.Parameters.Add("@note", MySqlDbType.VarChar).Value = note
 
             conn.openConnection()
