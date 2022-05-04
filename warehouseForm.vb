@@ -55,7 +55,7 @@ Public Class warehouseform
                 ' fix SQL query below
                 Dim command As New MySqlCommand("UPDATE `warehouse` SET Name = @Name, address = @address, phone = @phone,  note = @note WHERE warehouseID = @warehouseID", conn.getConnection())
 
-                command.Parameters.Add("@userID", MySqlDbType.Int16).Value = warehouseID
+                command.Parameters.Add("@warehouseID", MySqlDbType.Int16).Value = warehouseID
                 command.Parameters.Add("@Name", MySqlDbType.VarChar).Value = Name
                 command.Parameters.Add("@address", MySqlDbType.VarChar).Value = address
                 command.Parameters.Add("@phone", MySqlDbType.Int16).Value = phone
