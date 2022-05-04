@@ -432,9 +432,10 @@ Public Class mainMenu
     End Sub
 
     Private Sub transactionFilter_Click(sender As Object, e As EventArgs) Handles transactionFilter.Click
-        Dim year = cookieYearPicker.Text
         Dim conn As New myConnection()
         Dim table As New DataTable()
+        Dim column = inventoryFilterCB.SelectedValue
+        Dim year = cookieYearPicker.Text
         Dim table2 As New DataTable()
         Dim input As Integer = userTCB.SelectedValue
         If input = 0 Then
@@ -543,7 +544,7 @@ Public Class mainMenu
         Dim table As New DataTable()
         Dim column = inventoryFilterCB.SelectedValue
         Dim input = ""
-        If inventoryFilterTB.Text = "orderID" Then
+        If inventoryFilterTB.Text = "inventoryID" Then
             input = inventoryFilterTB.Text
         Else
             input = "%" & inventoryFilterTB.Text & "%"
