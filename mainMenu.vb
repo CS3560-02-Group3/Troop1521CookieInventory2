@@ -543,6 +543,13 @@ Public Class mainMenu
         Dim adapter As New MySqlDataAdapter(command)
         adapter.Fill(table)
         orderDGV.DataSource = table
+
+        totalUserCookie.Text = orderDGV.Rows.Count - 1
+        Dim totalO As Double
+        For index As Integer = 0 To (orderDGV.RowCount - 1)
+            totalO += Convert.ToDouble(orderDGV.Rows(index).Cells(4).Value)
+        Next
+        sumOfTotalOQ.Text = totalO
     End Sub
 
     Private Sub inventoryFilter_Click(sender As Object, e As EventArgs) Handles inventoryFilter.Click
