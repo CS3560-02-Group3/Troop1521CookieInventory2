@@ -20,7 +20,9 @@ Public Class cookieOrderForm
         Dim adapter As New MySqlDataAdapter(command)
         adapter.Fill(table)
         DataGridView1.DataSource = table
-
+    End Sub
+    Public Sub userCB_Load()
+        Dim conn As New myConnection()
         Dim table2 As New DataTable()
         Dim adapter2 As New MySqlDataAdapter("SELECT * FROM `user` ORDER BY firstName ASC", conn.getConnection())
         adapter2.Fill(table2)

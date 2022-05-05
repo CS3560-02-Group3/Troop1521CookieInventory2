@@ -37,7 +37,7 @@ Public Class mainMenu
 
         UCadapter.Fill(UCtable)
         orderDGV.DataSource = UCtable
-        orderDGV.Columns(8).Visible = False
+        'orderDGV.Columns(8).Visible = False
         orderDGV.Columns(9).Visible = False
         orderDGV.Columns(10).Visible = False
         orderDGV.Columns(11).Visible = False
@@ -234,6 +234,7 @@ Public Class mainMenu
         selectedRow = orderDGV.Rows(e.RowIndex)
         Dim year = cookieYearPicker.Text
         Dim myForm As New cookieOrderForm
+        myForm.userCB_Load()
         myForm.cookieOrderLB.Text = selectedRow.Cells(0).Value
         myForm.yearLB.Text = year
         myForm.userCB.SelectedValue = selectedRow.Cells(8).Value
@@ -380,6 +381,7 @@ Public Class mainMenu
         myForm.yearLB.Text = cookieYearPicker.Text
         myForm.update.Visible = False
         myForm.delete.Visible = False
+        myForm.userCB_Load()
         myForm.Show()
     End Sub
     Private Sub warehouseForm_Click(sender As Object, e As EventArgs) Handles warehouseForm.Click
