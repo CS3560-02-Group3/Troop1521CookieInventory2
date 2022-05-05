@@ -37,7 +37,7 @@ Public Class mainMenu
 
         UCadapter.Fill(UCtable)
         orderDGV.DataSource = UCtable
-        'orderDGV.Columns(8).Visible = False
+        orderDGV.Columns(8).Visible = False
         orderDGV.Columns(9).Visible = False
         orderDGV.Columns(10).Visible = False
         orderDGV.Columns(11).Visible = False
